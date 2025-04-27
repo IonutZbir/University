@@ -1,87 +1,27 @@
 "use strict";
 
-let products = [
-	{
-		id: 1,
-		name: "Laptop",
-		price: 1200,
-		category: "Electronics",
-		quantity: 5,
-		image: "/images/laptop.jpg",
-	},
-	{
-		id: 2,
-		name: "Smartphone",
-		price: 800,
-		category: "Electronics",
-		quantity: 6,
-		image: "/images/smartphone.jpg",
-	},
-	{
-		id: 3,
-		name: "Tablet",
-		price: 600,
-		category: "Electronics",
-		quantity: 4,
-		image: "/images/tablet.jpg",
-	},
-	{
-		id: 4,
-		name: "Headphones",
-		price: 200,
-		category: "Accessories",
-		quantity: 2,
-		image: "/images/headphone.jpg",
-	},
-	{
-		id: 5,
-		name: "Smartwatch",
-		price: 300,
-		category: "Accessories",
-		quantity: 2,
-		image: "/images/smartwatch.jpg",
-	},
-	{
-		id: 6,
-		name: "Camera",
-		price: 1500,
-		category: "Electronics",
-		quantity: 3,
-		image: "/images/camera.jpg",
-	},
-	{
-		id: 7,
-		name: "Gaming Console",
-		price: 500,
-		category: "Electronics",
-		quantity: 7,
-		image: "/images/console.jpg",
-	},
-	{
-		id: 8,
-		name: "Keyboard",
-		price: 100,
-		category: "Accessories",
-		quantity: 10,
-		image: "/images/keyboard.jpg",
-	},
-	{
-		id: 9,
-		name: "Mouse",
-		price: 50,
-		category: "Accessories",
-		quantity: 15,
-		image: "/images/mouse.jpg",
-	},
-	{
-		id: 10,
-		name: "Monitor",
-		price: 300,
-		category: "Electronics",
-		quantity: 8,
-		image: "/images/monitor.jpg",
-	},
-];
+let products = [];
+
+const server_url = "http://127.0.0.1:8000/products";
+const request = new XMLHttpRequest();
+request.open("GET", server_url, true);
+
+request.onload = function() {
+    if (request.status === 200) {
+        products = JSON.parse(request.responseText);
+        console.log(products);
+		viewProductList();
+    } else {
+        console.error("Error fetching products: " + request.statusText);
+    }
+};
+
+request.onerror = function() {
+    console.error("Network error.");
+};
+
+request.send(null);
+
 
 let euro = "\u20AC";
 
@@ -265,7 +205,7 @@ let cart = {
 };
 
 function main() {
-	viewProductList();
+	
 
 	document.addEventListener("click", (event) => {
 		if (event.target && event.target.classList.contains("btn-add")) {

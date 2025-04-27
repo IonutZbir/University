@@ -1,0 +1,92 @@
+[
+	{
+		"id": 1,
+		"name": "Laptop",
+		"price": 1200,
+		"category": "Electronics",
+		"stock": 5,
+		"cartQuantity": 0,
+		"image": "/images/laptop.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Smartphone",
+		"price": 800,
+		"category": "Electronics",
+		"stock": 6,
+		"cartQuantity": 0,
+		"image": "/images/smartphone.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Tablet",
+		"price": 600,
+		"category": "Electronics",
+		"stock": 4,
+		"cartQuantity": 0,
+		"image": "/images/tablet.jpg"
+	},
+	{
+		"id": 4,
+		"name": "Headphones",
+		"price": 200,
+		"category": "Accessories",
+		"stock": 2,
+		"cartQuantity": 0,
+		"image": "/images/headphone.jpg"
+	},
+	{
+		"id": 5,
+		"name": "Smartwatch",
+		"price": 300,
+		"category": "Accessories",
+		"stock": 2,
+		"cartQuantity": 0,
+		"image": "/images/smartwatch.jpg"
+	},
+	{
+		"id": 6,
+		"name": "Camera",
+		"price": 1500,
+		"category": "Electronics",
+		"stock": 3,
+		"cartQuantity": 0,
+		"image": "/images/camera.jpg"
+	},
+	{
+		"id": 7,
+		"name": "Gaming Console",
+		"price": 500,
+		"category": "Electronics",
+		"stock": 7,
+		"cartQuantity": 0,
+		"image": "/images/console.jpg"
+	},
+	{
+		"id": 8,
+		"name": "Keyboard",
+		"price": 100,
+		"category": "Accessories",
+		"stock": 10,
+		"cartQuantity": 0,
+		"image": "/images/keyboard.jpg"
+	},
+	{
+		"id": 9,
+		"name": "Mouse",
+		"price": 50,
+		"category": "Accessories",
+		"stock": 15,
+		"cartQuantity": 0,
+		"image": "/images/mouse.jpg"
+	},
+	{
+		"id": 10,
+		"name": "Monitor",
+		"price": 300,
+		"category": "Electronics",
+		"stock": 8,
+		"cartQuantity": 0,
+		"image": "/images/monitor.jpg"
+	}
+]
