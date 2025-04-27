@@ -1,0 +1,181 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f0f0f0;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+section {
+	margin-bottom: 5%;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 1%;
+}
+
+.total {
+	width: 100%;
+	margin: 2% auto;
+}
+
+.total p {
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.product {
+	width: 300px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	min-height: 350px;
+}
+
+.product img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.product-content {
+	padding: 16px;
+}
+.product-name {
+	font-weight: bold;
+}
+
+.card-price,
+.product-category {
+	color: #555;
+	font-size: 14px;
+}
+
+.btn-add {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 10px;
+	transition: background-color 0.3s ease;
+	margin: 5px;
+}
+
+.btn-add:hover {
+	background-color: #0056b3;
+}
+
+.btn-rem {
+	background-color: #ec3737;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 10px;
+	transition: background-color 0.3s ease;
+	margin: 5px;
+}
+
+.btn-rem:hover {
+	background-color: #b22424;
+}
+
+.disabled {
+	background-color: #ccc;
+	color: #666;
+	cursor: not-allowed;
+}
+
+.disabled:hover {
+	background-color: #ccc;
+}
+
+.error-quantity-product {
+	color: red;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+.navbar {
+	position: relative;
+	background-color: lightblue;
+	height: 50px;
+	margin-bottom: 5%;
+}
+
+.navbar ul {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	height: 100%;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.nav-item {
+	margin-right: 20px;
+}
+
+.nav-item a {
+	text-decoration: none;
+	color: black;
+}
+
+.nav-item a:hover {
+	color: blue;
+	font-weight: bold;
+}
+
+.center-title {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	font-weight: bold;
+}
+
+@media (min-width: 768px) {
+	/* CSS rules for screens bigger than 768px */
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		flex-direction: row;
+	}
+}
+
+@media (max-width: 768px) {
+	main {
+		flex-direction: column;
+		align-items: center;
+	}
+}
