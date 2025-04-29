@@ -22,6 +22,7 @@ function addProductToCart(product){
         productExists.stock -= 1;
         productExists.cartQuantity += 1;
     }else{
+        throw Error(`Product ${id} does not exist`)
     }
 
     data.push(product);
