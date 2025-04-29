@@ -48,7 +48,7 @@ function createProductCard(product) {
 
 	let quantity = document.createElement("p");
 	quantity.className = "product-quantity";
-	quantity.textContent = "Disponibili: " + product.quantity;
+	quantity.textContent = "Disponibili: " + product.stock;
 
 	let cat = document.createElement("p");
 	cat.className = "product-category";
@@ -59,7 +59,7 @@ function createProductCard(product) {
 	btn.id = "btn-add-" + product.id;
 	btn.textContent = "Add to Cart";
 
-	if (product.quantity <= 0) {
+	if (product.stock <= 0) {
 		quantity.className = "error-quantity-product";
 		quantity.textContent = "Stock Esaurito";
 		btn.disabled = true;
@@ -95,11 +95,11 @@ function createProductCart(product) {
 
 	let p = document.createElement("p");
 	p.className = "product-price";
-	p.textContent = product.price * product.quantity + euro;
+	p.textContent = product.price * product.cartQuantity + euro;
 
 	let quantity = document.createElement("p");
 	quantity.className = "product-quantity";
-	quantity.textContent = product.quantity;
+	quantity.textContent = product.cartQuantity;
 
 	let cat = document.createElement("p");
 	cat.className = "product-category";
@@ -140,7 +140,7 @@ function updateCartCounter() {
     let counter = document.getElementById("total-products");
 	if (!counter) return; // Se non esiste l'elemento non fa nulla
 
-	let total = cart.products.reduce((sum, product) => sum + product.quantity, 0);
+	let total = cart.products.reduce((sum, product) => sum + product.cartQuantity, 0);
 	counter.textContent = total;
 }
 
@@ -148,7 +148,7 @@ function updateCartPrice() {
     let amount = document.getElementById("total-amount");
 	if (!amount) return; // Se non esiste l'elemento non fa nulla
 
-	let total = cart.products.reduce((sum, product) => sum + product.price * product.quantity, 0);
+	let total = cart.products.reduce((sum, product) => sum + product.price * product.cartQuantity, 0);
 	amount.textContent = total + euro;
 }
 
@@ -170,20 +170,20 @@ let cart = {
 	products: [],
 	addProduct(product) {
 		// avendo usato una arrow function, esse non hanno la proprietà "this", quindi uso una dichiarazione normale
+		if (product.stock > 0) {
 
-		if (product.quantity > 0) {
 			let existingProduct = this.products.find(
 				(p) => p.id === product.id
 			);
 			if (existingProduct) {
-				existingProduct.quantity += 1;
+				existingProduct.cartQuantity += 1;
 			} else {
-				this.products.push({ ...product, quantity: 1 });
+				this.products.push({ ...product, cartQuantity: 1 });
 			}
-			product.quantity -= 1;
+			product.stock -= 1;
+			console.log("Add Product:" + this.products);
 		}
 
-		console.log(this.products);
 	},
 
 	removeProduct(product) {
@@ -191,15 +191,15 @@ let cart = {
 
 		if (!cartProduct) return;
 
-		cartProduct.quantity -= 1;
+		cartProduct.cartQuantity -= 1;
 
-		if (cartProduct.quantity === 0) {
+		if (cartProduct.cartQuantity === 0) {
 			this.products = this.products.filter((p) => p.id !== product.id);
 		}
 
 		let originalProduct = products.find((p) => p.id === product.id);
 		if (originalProduct) {
-			originalProduct.quantity += 1;
+			originalProduct.stock += 1;
 		}
 	},
 };
@@ -215,6 +215,7 @@ function main() {
 			if (product) {
 				cart.addProduct(product);
 			}
+			console.log(product)
 			updateCartView();
 			updateProductsView();
 		}

@@ -7,15 +7,15 @@ const port = 8000;
 const server = http.createServer((req, res) =>{
     const reqUrl = new URL(req.url, `http://${req.headers.host}`)
     const pathName = reqUrl.pathname;
-    
+    const id = reqUrl.searchParams.get("id");
     if (pathName === "/products") {
         const products = getAllProducts();
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.end(products);
-    }else if (pathName === "/addToCart") {
-
+    }else if (pathName === "/addToCart" && id) {
+        console.log("Prodotto da aggiunggere" + id);
     } else {
         res.statusCode = 404;
         console.error("ERROR: Page not found");
