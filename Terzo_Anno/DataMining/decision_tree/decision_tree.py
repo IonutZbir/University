@@ -19,7 +19,8 @@ class DecisionTree(object):
         # indici delle features usate, in caso = None, tutte le features
         self._feature_indxs = None
         
-        self.importance = {}
+        # mappa per ogni nodo (feature) l'importanza, ovvero la somma della info_gain
+        self._importance = {}
         
 
     def fit(self, X, y):
@@ -148,6 +149,11 @@ class DecisionTree(object):
         else:
             node["right"] = self._get_best_split(right)
             self._split(node["right"], depth + 1)
+        
+        indx = int(node["index"])
+        val = float(node["value"])
+        
+        self._importance[indx] = self._importance.get(indx, 0) + val
 
     def _build_tree(self, dataset, depth):
         """Costruisce l'albero a partire dai dati"""
@@ -214,3 +220,6 @@ class DecisionTree(object):
 
     def show_tree(self):
         return self.the_tree
+    
+    def get_importance(self):
+        return self._importance

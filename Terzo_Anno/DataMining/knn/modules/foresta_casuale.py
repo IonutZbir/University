@@ -20,7 +20,6 @@ class DecisionTree(object):
         self._feature_indxs = None
         
         self.importance = {}
-        self.debug = 0;
         
 
     def fit(self, X, y):

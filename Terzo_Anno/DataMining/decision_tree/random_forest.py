@@ -39,6 +39,10 @@ class RandomForest(object):
 
         self.trees = []
         self._used_rows = None  # struttura usata per valutazione oob
+        
+        # mappa per ogni nodo (feature) di ciascun albero, l'importanza della feature
+        
+        self._importance = {}
 
     def fit(self, X, y):
         # Numero di caratteristiche calcolate come funzione del numero di colonne di X
@@ -69,7 +73,15 @@ class RandomForest(object):
 
             tree.fit(Xf, yf)
             self.trees.append(tree)
-            print(f"Importance albero {i}: {tree.importance}")
+            
+            for key in tree.importance:            
+                self._importance[key] = self._importance.get(key, 0) + tree.importance[key]
+        
+        s = sum(self._importance.values())
+        if s == 0:
+            raise ValueError("Cannot normalize when the sum of values is zero.")
+        for key in self._importance:
+            self._importance[key] /= s
 
         self._oob_valutation(X, y)
 
@@ -109,3 +121,6 @@ class RandomForest(object):
 
     def get_accuracy(self):
         return self._oob_accuracy
+
+    def get_importance(self):
+        return self._importance
