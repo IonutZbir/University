@@ -18,6 +18,9 @@ class DecisionTree(object):
 
         # indici delle features usate, in caso = None, tutte le features
         self._feature_indxs = None
+        
+        self.importance = {}
+        
 
     def fit(self, X, y):
         """Costruisce l'albero di decisione"""
@@ -149,6 +152,10 @@ class DecisionTree(object):
     def _build_tree(self, dataset, depth):
         """Costruisce l'albero a partire dai dati"""
         root = self._get_best_split(dataset)
+        
+        temp = self.importance.get(root["index"], 0)
+        self.importance[root["index"]] = temp + root["value"]
+        
         self._split(root, depth)
         return root
 

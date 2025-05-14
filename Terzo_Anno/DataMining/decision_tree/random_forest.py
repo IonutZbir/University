@@ -69,6 +69,7 @@ class RandomForest(object):
 
             tree.fit(Xf, yf)
             self.trees.append(tree)
+            print(f"Importance albero {i}: {tree.importance}")
 
         self._oob_valutation(X, y)
 
