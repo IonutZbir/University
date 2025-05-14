@@ -1,5 +1,0 @@
-21/06/2023,pasta,fagioli,spinaci
-22/06/2023,riso,bistecca,pera
-23/06/2023,pasta,fagioli,insalata
-24/06/2023,farro,fagioli,insalata
-25/06/2023,riso,lenticchie,insalata

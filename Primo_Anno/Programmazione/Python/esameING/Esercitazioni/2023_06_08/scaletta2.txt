@@ -1,3 +1,0 @@
-celio,chitarra,tastiera
-esquilino,tastiera,armonica a bocca,fisarmonica,batteria
-aventino,chitarra,tastiera,fisarmonica,mandolino

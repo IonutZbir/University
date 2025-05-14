@@ -1,3 +1,0 @@
-21/06/2023,pasta,uova,mela
-22/06/2023,riso,bistecca,pera
-23/06/2023,pasta,fagioli,insalata

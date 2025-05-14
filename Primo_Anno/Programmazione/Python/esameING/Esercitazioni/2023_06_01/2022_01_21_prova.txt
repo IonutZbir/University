@@ -1,4 +1,0 @@
-mele 9 10
-pere 9 8
-arance 10 1
-albicocche 8 10
