@@ -112,7 +112,7 @@ class DecisionTree(object):
                     )
 
         # ritorna un nodo
-        return {"index": best_index, "value": best_value, "groups": best_groups}
+        return {"index": best_index, "value": best_value, "groups": best_groups, "score": best_score}
 
     def _create_leaf(self, group):
         """Crea un nodo foglia con la classe più comune"""
@@ -151,7 +151,7 @@ class DecisionTree(object):
             self._split(node["right"], depth + 1)
         
         indx = int(node["index"])
-        val = float(node["value"])
+        val = float(node["score"])
         
         self._importance[indx] = self._importance.get(indx, 0) + val
 
@@ -160,7 +160,7 @@ class DecisionTree(object):
         root = self._get_best_split(dataset)
         
         temp = self.importance.get(root["index"], 0)
-        self.importance[root["index"]] = temp + root["value"]
+        self.importance[root["index"]] = temp + root["score"]
         
         self._split(root, depth)
         return root
