@@ -1,0 +1,99 @@
+html, body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+header{
+    padding: 5px;
+}
+
+footer {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header, footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	height: 100%;
+	margin: 0;
+	padding: 0;    
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.btns {
+    width: 200px;
+    max-width: 500px;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.btns .row {
+    display: flex;
+}
+
+.btns .row:first-child button {
+    flex: 1;
+}
+
+.btns .row:last-child button {
+    flex: 1;
+}
+
+button{
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.colors {
+    flex: 1 1 100%
+}
+
+.counter p{
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+}
