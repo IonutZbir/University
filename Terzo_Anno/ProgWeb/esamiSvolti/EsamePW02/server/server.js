@@ -29,24 +29,23 @@ let colors = { background: "#882200", text: "#44DDAA" };
 console.log(counter, colors);
 
 app.get("/counter", (req, res) => {
-  res.status(200).json(counter)
+	res.status(200).json(counter);
 });
 
 app.get("/colors", (req, res) => {
-  res.status(200).json(colors)
+	res.status(200).json(colors);
 });
 
 app.post("/increase", (req, res) => {
 	counter.counter++;
 	console.log(counter);
-  res.status(200).json({message: "increased successfully"})
-  
+	res.status(200).json({ message: "increased successfully" });
 });
 
 app.post("/decrease", (req, res) => {
 	counter.counter--;
 	console.log(counter);
-  res.status(200).json({message: "decreased successfully"})
+	res.status(200).json({ message: "decreased successfully" });
 });
 
 app.listen(3000, () => {

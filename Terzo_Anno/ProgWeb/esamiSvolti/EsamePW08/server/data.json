@@ -1,0 +1,8 @@
+[
+	{ "prodotto": "magliette", "numero": "6", "colore": "red" },
+	{ "prodotto": "magliette", "numero": "4", "colore": "green" },
+	{ "prodotto": "pantaloni", "numero": "3", "colore": "green" },
+	{ "prodotto": "calzini", "numero": "10", "colore": "green" },
+	{ "prodotto": "felpe", "numero": "8", "colore": "blue" },
+	{ "prodotto": "pantaloncini", "numero": "21", "colore": "red" }
+]

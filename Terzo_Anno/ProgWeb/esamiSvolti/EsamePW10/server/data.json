@@ -1,0 +1,8 @@
+[
+	{ "id": 1, "text": "Comprare il latte", "completed": false },
+	{ "id": 2, "text": "Fare la spesa", "completed": true },
+	{ "id": 3, "text": "Pulire la casa", "completed": false },
+	{ "id": 4, "text": "Scrivere una relazione", "completed": false },
+	{ "id": 5, "text": "Andare in palestra", "completed": false },
+	{ "id": 6, "text": "Chiamare il dottore", "completed": true }
+]

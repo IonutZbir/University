@@ -1,0 +1,7 @@
+[
+	{ "colore": "#FF0080", "pos_orizz": 10, "pos_vert": 30 },
+	{ "colore": "#800080", "pos_orizz": 30, "pos_vert": 40 },
+	{ "colore": "#808000", "pos_orizz": 50, "pos_vert": 50 },
+	{ "colore": "#408080", "pos_orizz": 60, "pos_vert": 60 },
+	{ "colore": "#C0C0C0", "pos_orizz": 30, "pos_vert": 50 }
+]

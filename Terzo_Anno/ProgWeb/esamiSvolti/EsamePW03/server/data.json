@@ -1,0 +1,6 @@
+[
+	{ "prodotto": "pane", "desc": "500gr" },
+	{ "prodotto": "latte", "desc": "1 litro" },
+	{ "prodotto": "vino", "desc": "1 bottiglia" },
+	{ "prodotto": "biscotti", "desc": "2 pacchi" }
+]

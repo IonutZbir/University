@@ -8,10 +8,15 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<header>
+		<header id="header">
 			<h1>Contatore - Esame</h1>
 			<nav>
-				<ul>
+				<div class="hamburger" id="menuToggle">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<ul class="navbar" id="navbar">
 					<li><a href="">Home</a></li>
 					<li><a href="">About</a></li>
 					<li><a href="">Contact</a></li>
@@ -24,16 +29,16 @@
 				<p id="counter"></p>
 			</section>
 			<section class="btns">
-				<div class="row">
-					<button type="button" class="minus" id="dec">-Diminuisci</button>
-					<button type="button" class="add" id="add">+Aggiungi</button>
-				</div>
-				<div class="row">
-					<button type="button" class="colors" id="col">Cambia Colori</button>
-				</div>
+				<button type="button" class="minus" id="dec">
+					-Diminuisci
+				</button>
+				<button type="button" class="add" id="add">+Aggiungi</button>
+				<button type="button" class="colors" id="col">
+					Cambia Colori
+				</button>
 			</section>
 		</main>
-		<footer>
+		<footer id="footer">
 			<p>&copy; 2025 Contatore Esame</p>
 		</footer>
 	</body>

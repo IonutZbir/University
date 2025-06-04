@@ -35,23 +35,31 @@ async function updateCounter(type) {
 			method: "POST",
 		});
 
-		await showCounter(); 
-
+		await showCounter();
 	} catch (error) {
 		console.log("Connection error", error);
 	}
 }
 
 async function changeColors() {
-    const colors = await fetchColors()
-    const background = colors.background
-    const text = colors.background
+	const colors = await fetchColors();
+	const background = colors.background;
+	const text = colors.text;
 
-    const header = document.getElementsByTagName("header")
-    const footer = document.getElementsByTagName("footer")
+	const header = document.getElementById("header");
+	const footer = document.getElementById("footer");
+	const menuLinks = document.querySelectorAll("#header nav ul li a");
 
-    
+	menuLinks.forEach(item => {
+		item.style.color = text
+	})
 
+	header.style.backgroundColor = background
+	footer.style.backgroundColor = background
+
+	header.style.color = text
+	footer.style.color = text
+	
 }
 
 async function showCounter() {
@@ -60,15 +68,21 @@ async function showCounter() {
 	p.innerHTML = counter.counter;
 }
 
+function menuToggle() {
+	document.getElementById("navbar").classList.toggle("active");
+}
+
 async function main() {
 	await showCounter();
 	const add = document.getElementById("add");
 	const dec = document.getElementById("dec");
-    
-    add.addEventListener("click", () => updateCounter("add"))
-    dec.addEventListener("click", () => updateCounter("dec"))
-    col.addEventListener("click", () => changeColors())
+	const toggle = document.getElementById("menuToggle");
+	const col = document.getElementById("col");
+
+	add.addEventListener("click", () => updateCounter("add"));
+	dec.addEventListener("click", () => updateCounter("dec"));
+	col.addEventListener("click", () => changeColors());
+	toggle.addEventListener("click", () => menuToggle());
 
 }
-
 main();

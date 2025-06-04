@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"titolo": "Introduzione a JavaScript",
+		"autore": "Mario Rossi",
+		"contenuto": "JavaScript è un linguaggio di programmazione..."
+	},
+	{
+		"id": 2,
+		"titolo": "CSS per principianti",
+		"autore": "Luigi Verdi",
+		"contenuto": "CSS è un linguaggio di stile..."
+	},
+	{
+		"id": 3,
+		"titolo": "HTML5: le novità",
+		"autore": "Elena Bianchi",
+		"contenuto": "HTML5 introduce molte nuove funzionalità..."
+	}
+]
