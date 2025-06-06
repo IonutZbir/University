@@ -1,0 +1,615 @@
+<!DOCTYPE html><html><head>
+      <title>teoria</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/gigi/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="teoria">Teoria </h1>
+<h2 id="design-patterns">Design Patterns </h2>
+<p>I design pattern sono soluzioni generiche, riutilizzabili e collaudate a problemi comuni che si incontrano nello sviluppo del software orientato agli oggetti. Non sono blocchi di codice pronti da incollare, ma piuttosto schemi concettuali, strutture astratte che aiutano a organizzare il codice in modo chiaro, flessibile e manutenibile.</p>
+<p>I design pattern sono importanti perchè risolvono problemi che si incontrano spesso nello sviluppo di software. I design pattern offrono standard per risolvere tutte queste problematiche.</p>
+<p>Si classificano secondo due criteri, uno riguardo lo scopo (purpose) mentre l'altro riguardo il raggio di azione (scope).</p>
+<ul>
+<li>
+<p><strong>Purpose</strong></p>
+<ol>
+<li><strong>Creazionali</strong>: gestiscono l'istanziazione degli oggetti. Offrono meccanismi per creare oggetti in modo flessibile e indipendente dal contesto concreto.</li>
+<li><strong>Strutturali</strong>: si concentrano sul modo in cui le classi e gli oggetti si compongono.</li>
+<li><strong>Comportamentali</strong>: descrivono come gli oggetti interagiscono e comunicano tra loro, mettendo l'accento sul flusso di controllo e la responsabilità.</li>
+</ol>
+</li>
+<li>
+<p><strong>Scope</strong></p>
+<ol>
+<li><strong>Classi</strong>: Definiscono le relazioni fra classi e sottoclassi. Le relazioni sono basate sul concetto di ereditarietà e sono quindi statiche (compile time).</li>
+<li><strong>Oggetti</strong>: Definiscono relazioni tra oggetti, che possono cambiare durante l'esecuzione e sono quindi dinamiche.</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-abstract-factory">1. Abstract Factory </h3>
+<p>Fa parte della classe di DP <code>creazionali</code> ed ha lo scopo di fornire un'interfaccia per creare famiglie di oggetti correlati o dipendenti senza specificare le loro classi concrete. Si definisce un'interfaccia comune che permette di creare oggetti appartenenti alla stessa famiglia, poi si implementano diverse <code>fabbriche concrete</code> per ogni variante.</p>
+<pre data-role="codeBlock" data-info="Java" class="language-java Java"><code><span class="token keyword keyword-interface">interface</span> <span class="token class-name">Button</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">WindowsButton</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">Button</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Rendering a Windows button"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MacButton</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">Button</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Rendering a Mac button"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">GUIFactory</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Button</span> <span class="token function">createButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Checkbox</span> <span class="token function">createCheckbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">WindowsFactory</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">GUIFactory</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">Button</span> <span class="token function">createButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">WindowsButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MacFactory</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">GUIFactory</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">Button</span> <span class="token function">createButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">MacButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">Button</span> button<span class="token punctuation">;</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">Checkbox</span> checkbox<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">Application</span><span class="token punctuation">(</span><span class="token class-name">GUIFactory</span> factory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        button <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">createButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        checkbox <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">createCheckbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        button<span class="token punctuation">.</span><span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        checkbox<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>In questo modo, il client può creare una GUI per Windows o Mac semplicemente cambiando l’istanza della factory passata al costruttore, senza toccare il resto del codice.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicabilità</strong></td>
+<td>- Quando il sistema deve essere <strong>indipendente</strong> dalla modalità di creazione degli oggetti<br>- Quando si devono gestire <strong>famiglie di oggetti correlati</strong> (es. GUI per Windows/Mac)<br>- Quando il <strong>client non deve essere legato</strong> a una classe concreta o famiglia specifica</td>
+</tr>
+<tr>
+<td><strong>Partecipanti</strong></td>
+<td>- <code>AbstractFactory</code>: interfaccia per creare prodotti astratti<br>- <code>ConcreteFactory</code>: implementazioni che creano prodotti concreti<br>- <code>AbstractProduct</code>: interfaccia dei prodotti da creare<br>- <code>ConcreteProduct</code>: implementazioni specifiche dei prodotti<br>- <code>Client</code>: utilizza la factory e lavora solo con le interfacce</td>
+</tr>
+<tr>
+<td><strong>Conseguenze</strong></td>
+<td>- Le <strong>classi concrete sono isolate</strong> e facilmente gestibili<br>- Cambiare famiglia di prodotti è facile: basta sostituire la factory<br>- Aggiungere una nuova <strong>famiglia</strong> richiede nuove classi e <strong>ricompilazione</strong><br>- Il codice è <strong>più modulare</strong> e flessibile, ma può diventare più complesso se usato in contesti semplici</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-factory-method">2. Factory Method </h3>
+<p>L’idea di fondo è che la creazione di un oggetto non avviene direttamente nel codice, ma viene delegata a un metodo specializzato, chiamato appunto <code>factory method</code>. Questo metodo può essere ridefinito dalle sottoclassi per istanziare oggetti specifici. Nel codice orientato agli oggetti, spesso si vuole evitare di usare direttamente <code>new</code> per creare un’istanza di una classe concreta, perché così si rende il codice rigido e poco estensibile. Il Factory Method serve proprio a risolvere questo problema: consente alle sottoclassi di decidere quale classe concreta instanziare, mantenendo il codice cliente indipendente.</p>
+<p>Il Factory Method è utile quando un codice deve lavorare con un’interfaccia o una superclasse, ma non deve sapere quale sottoclasse concreta utilizzare. La responsabilità della creazione viene così demandata a chi conosce i dettagli.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Vantaggi</strong></th>
+<th><strong>Svantaggi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Il codice è <strong>indipendente dalle classi concrete</strong> dei prodotti da creare</td>
+<td>Aggiunge <strong>complessità strutturale</strong> (serve creare nuove sottoclassi per ogni tipo di prodotto)</td>
+</tr>
+<tr>
+<td>Favorisce il <strong>polimorfismo</strong> e l’estensibilità del codice</td>
+<td>Può generare una <strong>gerarchia di classi più ampia</strong> e difficile da gestire</td>
+</tr>
+<tr>
+<td>È <strong>facile aggiungere nuovi tipi di prodotto</strong>: basta una nuova sottoclasse con override</td>
+<td>Ogni modifica alla logica di creazione richiede la modifica o l’estensione delle classi</td>
+</tr>
+<tr>
+<td>Incapsula la logica di istanziazione e semplifica i test</td>
+<td>Può risultare <strong>ridondante</strong> in casi semplici dove basta una <code>new</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Il Factory Method crea un solo oggetto per volta e si basa sul override del metodo da parte delle sottoclassi.</li>
+<li>L’Abstract Factory fornisce un’intera famiglia di oggetti e lavora con più prodotti tra loro correlati.</li>
+</ul>
+<h3 id="3-adapter">3. Adapter </h3>
+<p>Fa parte dei design pattern strutturali, serve a far collaborare classi con interfacce incompatibili tra loro. È come un "traduttore" che si mette in mezzo tra due componenti per farle comunicare, anche se originariamente non erano pensate per lavorare insieme. È strutturato mediante 3 componenti principali:</p>
+<ul>
+<li><strong>Target</strong> è l'interfaccia che il codice client si aspetta.</li>
+<li><strong>Adaptee</strong> è la classe esistente che ha l'interfaccia incompatibile.</li>
+<li><strong>Adapter</strong> è la classe che implementa l'interfaccia <code>Target</code>, ma al suo interno usa un oggetto <code>Adaptee</code>, adattando i metodi.</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token comment">// Interfaccia attesa dal client</span>
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">MediaPlayer</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Classe esistente incompatibile</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">AdvancedPlayer</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">playFile</span><span class="token punctuation">(</span><span class="token class-name">String</span> filePath<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Riproduzione: "</span> <span class="token operator">+</span> filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Adapter</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MediaAdapter</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">MediaPlayer</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">AdvancedPlayer</span> advancedPlayer<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">MediaAdapter</span><span class="token punctuation">(</span><span class="token class-name">AdvancedPlayer</span> player<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>advancedPlayer <span class="token operator">=</span> player<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">play</span><span class="token punctuation">(</span><span class="token class-name">String</span> filename<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// adatta il metodo play al metodo playFile</span>
+        advancedPlayer<span class="token punctuation">.</span><span class="token function">playFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando hai classi esistenti (o librerie esterne) con <strong>interfacce incompatibili</strong> rispetto a quelle del tuo sistema<br>- Quando vuoi <strong>riutilizzare codice legacy</strong> senza modificarlo<br>- Quando il tuo sistema ha un'interfaccia standard e devi <strong>integrare componenti esterni</strong></td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- <strong>Riutilizzo del codice esistente</strong> senza modificarlo<br>- Permette l’integrazione con librerie o sistemi legacy<br>- Favorisce la <strong>separazione delle responsabilità</strong>: il codice client rimane pulito<br>- Può essere usato per adattare classi con interfacce complesse o sbilanciate</td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- Aggiunge un <strong>livello di astrazione</strong> in più<br>- Può portare a <strong>una proliferazione di classi adapter</strong>, se ne servono molti<br>- Rischio di <strong>mascherare incompatibilità semantiche</strong> (metodi che sembrano simili ma fanno cose diverse)<br>- Può diventare un punto fragile se il codice da adattare cambia spesso</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-composite">4. Composite </h3>
+<p>Il Composite è un design pattern strutturale molto elegante, che permette di rappresentare strutture ad albero, in cui oggetti singoli e gruppi di oggetti possono essere trattati in modo uniforme. È particolarmente utile quando si vuole costruire una gerarchia dove ogni nodo può essere una “foglia” (cioè un oggetto semplice) oppure un “composito” (cioè un contenitore di altri oggetti).</p>
+<p>Prendiamo per esempio un file system: ci sono file (elementi semplici) e cartelle (che possono contenere altri file o cartelle). Vogliamo poter dire a un file "dammi la dimensione" e ottenere, per esempio, 100KB. Ma vogliamo poter dire la stessa cosa a una cartella, e ricevere la somma delle dimensioni di tutto ciò che contiene, in maniera trasparente.<br>
+Ecco dove entra in gioco il Composite: unifica il trattamento di oggetti singoli e composti.</p>
+<p>È strutturato mediante 3 principali componenti:</p>
+<ol>
+<li><strong>Component</strong>: Un'interfaccia o classe astratta che definisce le operazioni comuni.</li>
+<li><strong>Leaf</strong>: Una classe concreta che rappresenta un oggetto "atomico" e implementa direttamente le operazioni.</li>
+<li><strong>Composite</strong>: Una classe che rappresenta un contenitore, che contiene una lista di altri <code>Component</code> (fligli o composite). Implementa le operazioni in modo ricorsivo.</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token keyword keyword-interface">interface</span> <span class="token class-name">Graphic</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Foglia</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Circle</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">Graphic</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Disegno un cerchio"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Composito</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">CompositeGraphic</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">Graphic</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Graphic</span><span class="token punctuation">&gt;</span></span> children <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Graphic</span> g<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        children<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token class-name">Graphic</span> g <span class="token operator">:</span> children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            g<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// chiamata ricorsiva</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando vuoi rappresentare <strong>strutture gerarchiche ad albero</strong> (es. file system, menu, componenti grafici)<br>- Quando hai bisogno di <strong>trattare allo stesso modo oggetti singoli e contenitori</strong><br>- Quando le operazioni devono essere <strong>applicate ricorsivamente</strong> a una struttura composta</td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- Permette un <strong>trattamento uniforme</strong> di oggetti e composizioni<br>- Facilita l’uso della <strong>ricorsione</strong> su strutture complesse<br>- Il codice client è <strong>semplificato</strong>: lavora sempre con l’interfaccia <code>Component</code><br>- Migliora la <strong>flessibilità</strong> e la <strong>componibilità</strong> degli oggetti</td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- Può essere difficile <strong>limitare le operazioni solo a certi tipi</strong> (es. operazioni che hanno senso solo per i Leaf)<br>- Rischio di <strong>compromettere la trasparenza</strong>: il client potrebbe dover distinguere fra Leaf e Composite<br>- Aggiunge <strong>complessità inutile</strong> se usato in strutture semplici<br>- La <strong>gestione dei figli</strong> (aggiunta, rimozione) può creare ambiguità se lasciata libera</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-decorator">5. Decorator </h3>
+<p>È uno dei più raffinati tra i design pattern strutturali. Il suo scopo è aggiungere dinamicamente nuovi comportamenti a un oggetto, senza dover modificare il codice della classe originale, e senza creare sottoclassi multiple per ogni possibile combinazione di funzionalità.</p>
+<p>Supponiamo di avere un oggetto di tipo <code>TextView</code> che mostra del testo. A volte vuoi che il testo abbia il bordo, altre volte scrollabile, altre ancora colorato. Si potrebbe pensare di creare tante sottoclassi (es. BordedTextView, ScrollTextView, ScrollAndBordedTextView...) ma diventa presto ingestibile.</p>
+<p>Con il Decorator, invece, possiamo comporre dinamicamente questi comportamenti, creando oggetti che avvolgono altri oggetti, aggiungendo logica prima o dopo la chiamata originale.</p>
+<p>Il decorator si struttura con 4 componenti:</p>
+<ol>
+<li><strong>Component</strong>: Un interfaccia comune che definisce l'operazione base.</li>
+<li><strong>ConcreteComponent</strong>: La classe reale che implementa <code>Component</code>, quella da decorare.</li>
+<li><strong>Decorator</strong>: Una classe astratta che implementa <code>Component</code> e contiene un riferimento a un altro component (quello da decorare).</li>
+<li><strong>ConcreteDecorator</strong>: Estende <code>Decorator</code>, aggiungendo comportamenti prima o dopo aver delegato la chiamata all'oggetto decorato.</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token keyword keyword-interface">interface</span> <span class="token class-name">VisualComponent</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Componente base</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">TextView</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">VisualComponent</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Disegno del testo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Decorator astratto</span>
+<span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">ComponentDecorator</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">VisualComponent</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-protected">protected</span> <span class="token class-name">VisualComponent</span> component<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">ComponentDecorator</span><span class="token punctuation">(</span><span class="token class-name">VisualComponent</span> component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>component <span class="token operator">=</span> component<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        component<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// delega al componente decorato</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Concrete Decorator</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">BorderDecorator</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">ComponentDecorator</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">BorderDecorator</span><span class="token punctuation">(</span><span class="token class-name">VisualComponent</span> component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"...e disegno un bordo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ScrollDecorator</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">ComponentDecorator</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">ScrollDecorator</span><span class="token punctuation">(</span><span class="token class-name">VisualComponent</span> component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"...e aggiungo lo scrolling"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">VisualComponent</span> text <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">TextView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">VisualComponent</span> decorated <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">BorderDecorator</span><span class="token punctuation">(</span><span class="token keyword keyword-new">new</span> <span class="token class-name">ScrollDecorator</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+decorated<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando vuoi <strong>aggiungere funzionalità a oggetti esistenti</strong> senza modificare il loro codice<br>- Quando non vuoi o non puoi usare l’<strong>ereditarietà</strong> per estendere il comportamento<br>- Quando hai bisogno di <strong>combinare dinamicamente</strong> diversi comportamenti opzionali<br>- Quando il sistema deve essere <strong>estendibile e configurabile a runtime</strong></td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- Permette l’<strong>aggiunta flessibile e modulare</strong> di responsabilità<br>- <strong>Evita la proliferazione di sottoclassi</strong> per ogni combinazione possibile<br>- Favorisce la <strong>composizione</strong> invece dell’ereditarietà<br>- Funziona anche con <strong>classi già esistenti o chiuse alla modifica</strong></td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- L’<strong>annidamento di più decoratori</strong> può rendere il codice difficile da seguire<br>- La <strong>complessità aumenta</strong> con troppi livelli di decorazione<br>- È importante <strong>gestire con attenzione l’ordine</strong> con cui i decoratori vengono applicati<br>- Difficile da debuggare: ogni comportamento può essere "nascosto" in un decoratore diverso</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-observer">6. Observer </h3>
+<p>L’Observer serve per creare una relazione uno-a-molti tra oggetti: quando un oggetto cambia stato, tutti gli oggetti che lo osservano vengono automaticamente notificati e aggiornati.</p>
+<p>È strutturato mediante 4 principali componenti:</p>
+<ol>
+<li><strong>Subject (Observable)</strong>: Espone metodi per aggiungere/rimuovere osservatori e per notificare gli aggiornamenti.</li>
+<li><strong>ConcreteSubject</strong>: Implementa il <code>Subject</code> e contiene lo stato da osservare. Quando cambia, notific tutti gli observer.</li>
+<li><strong>Observer</strong>:  Interfaccia che dichiara il metodo <code>update()</code>.</li>
+<li><strong>ConcreteObserver</strong>: Implementa <code>Observer</code> e reagisce agli aggiornamenti del soggetto.</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token comment">// Observer</span>
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">String</span> news<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Subject</span>
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">NewsAgency</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">registerObserver</span><span class="token punctuation">(</span><span class="token class-name">Observer</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">removeObserver</span><span class="token punctuation">(</span><span class="token class-name">Observer</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token class-name">String</span> news<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ConcreteSubject</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RealNewsAgency</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">NewsAgency</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Observer</span><span class="token punctuation">&gt;</span></span> observers <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">registerObserver</span><span class="token punctuation">(</span><span class="token class-name">Observer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observers<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">removeObserver</span><span class="token punctuation">(</span><span class="token class-name">Observer</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observers<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token class-name">String</span> news<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token class-name">Observer</span> o <span class="token operator">:</span> observers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            o<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>news<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ConcreteObserver</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">EmailSubscriber</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token class-name">String</span> news<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Email ricevuta: "</span> <span class="token operator">+</span> news<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">RealNewsAgency</span> agency <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">RealNewsAgency</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Observer</span> user1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">EmailSubscriber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+agency<span class="token punctuation">.</span><span class="token function">registerObserver</span><span class="token punctuation">(</span>user1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+agency<span class="token punctuation">.</span><span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token string">"È uscito un nuovo articolo!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando un cambiamento in un oggetto richiede <strong>l’aggiornamento automatico di altri oggetti</strong><br>- Quando vuoi mantenere una <strong>dipendenza loosely coupled</strong> tra soggetto e osservatori<br>- Quando vuoi implementare <strong>sistemi di notifica, eventi, broadcast</strong></td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- Favorisce il <strong>disaccoppiamento</strong> tra soggetto e osservatori<br>- Gli oggetti possono <strong>reagire ai cambiamenti senza conoscere in dettaglio la logica del soggetto</strong><br>- Estendibile: puoi aggiungere o rimuovere osservatori <strong>dinamicamente</strong><br>- È alla base dei sistemi <strong>event-driven</strong></td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- In sistemi grandi, può diventare difficile <strong>tracciare l’ordine e le conseguenze delle notifiche</strong><br>- Se non gestito bene, può portare a <strong>problemi di performance</strong> (troppe notifiche)<br>- Rischio di <strong>dipendenze nascoste</strong> e comportamenti imprevisti<br>- Il soggetto notifica tutti gli osservatori <strong>senza sapere se sono ancora interessati o validi</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-template-method">7. Template Method </h3>
+<p>È un pattern comportamentale che si basa su un’idea molto semplice ma estremamente potente: definire lo scheletro di un algoritmo in una classe astratta, lasciando alcuni passi da implementare alle sottoclassi.</p>
+<p>La struttura del pattern consiste di:</p>
+<ol>
+<li><strong>AbstractClass</strong>: Contiene il template method che definisce i passi dell'algoritmo. Implementa alcuni passi, lasciando altri come metodi astratti o "hook" da sovrascrivre.</li>
+<li><strong>ConcreteClass</strong>: Implementa i metodi astratti, completando così il comportamento.</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token comment">// Classe astratta</span>
+<span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">DataProcessor</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Template method</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-final">final</span> <span class="token keyword keyword-void">void</span> <span class="token function">process</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">readData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">processData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-protected">protected</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-void">void</span> <span class="token function">readData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-protected">protected</span> <span class="token keyword keyword-abstract">abstract</span> <span class="token keyword keyword-void">void</span> <span class="token function">processData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Metodo "hook": opzionale da sovrascrivere</span>
+    <span class="token keyword keyword-protected">protected</span> <span class="token keyword keyword-void">void</span> <span class="token function">saveData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Salvataggio su file di default"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Classe concreta</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">CSVDataProcessor</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">DataProcessor</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-protected">protected</span> <span class="token keyword keyword-void">void</span> <span class="token function">readData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Lettura dati da CSV"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-protected">protected</span> <span class="token keyword keyword-void">void</span> <span class="token function">processData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Elaborazione dati CSV"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">DataProcessor</span> processor <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">CSVDataProcessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+processor<span class="token punctuation">.</span><span class="token function">process</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Esegue lo schema definito dalla superclasse</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando hai un algoritmo con una <strong>struttura fissa ma passi variabili</strong><br>- Quando vuoi <strong>centralizzare il controllo del flusso</strong> lasciando personalizzazione ai figli<br>- Quando vuoi <strong>evitare la duplicazione del codice comune</strong> in più sottoclassi</td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- Favorisce il <strong>riuso del codice</strong>: la logica comune è definita una sola volta<br>- Permette di <strong>variare solo ciò che serve</strong>, lasciando intatta la struttura<br>- Riduce l’<strong>effetto domino</strong> delle modifiche (le regole base restano concentrate nella superclasse)<br>- Promuove il principio <strong>“Hollywood”</strong>: “Don’t call us, we’ll call you”</td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- Introduce una <strong>forte dipendenza tra superclasse e sottoclassi</strong><br>- Più difficile da <strong>comprendere e mantenere</strong> se la gerarchia diventa complessa<br>- L’eccessivo uso di metodi astratti può <strong>forzare le sottoclassi</strong> a scrivere codice non sempre necessario<br>- Poco flessibile in confronto alla <strong>composizione</strong> (che può essere preferibile in certi contesti)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-strategy">8. Strategy </h3>
+<p>Permette di definire una famiglia di algoritmi (o comportamenti), incapsularli ciascuno in una classe diversa, e renderli intercambiabili. In questo modo, l’oggetto che li usa non ha bisogno di sapere quale strategia specifica sta usando: sa solo che tutte seguono un’interfaccia comune.<br>
+È un’alternativa alla programmazione ad <code>if</code> annidati o alla logica dispersa: ogni comportamento è separato e testabile da solo.</p>
+<p>È strutturato nel seguente modo:</p>
+<ol>
+<li><strong>Strategy</strong>: Definisce il metodo comune che tutte le strategie devono implementare.</li>
+<li><strong>ConcreteStrategy</strong>: Una o più classi che implementano <code>Strategy</code> e forniscono versioni diverse dell'algoritmo.</li>
+<li><strong>Context</strong>: Contiene un riferimento a una <code>Strategy</code> e la usa per eseguire l'operazione desiderata.</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token comment">// Strategy</span>
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">PaymentStrategy</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-void">void</span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Concrete Strategies</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">CreditCardPayment</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">PaymentStrategy</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pagato "</span> <span class="token operator">+</span> amount <span class="token operator">+</span> <span class="token string">" con carta di credito"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">PayPalPayment</span> <span class="token keyword keyword-implements">implements</span> <span class="token class-name">PaymentStrategy</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">pay</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Pagato "</span> <span class="token operator">+</span> amount <span class="token operator">+</span> <span class="token string">" con PayPal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Context</span>
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ShoppingCart</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">PaymentStrategy</span> strategy<span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token class-name">ShoppingCart</span><span class="token punctuation">(</span><span class="token class-name">PaymentStrategy</span> strategy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> strategy<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">checkout</span><span class="token punctuation">(</span><span class="token keyword keyword-double">double</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        strategy<span class="token punctuation">.</span><span class="token function">pay</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">ShoppingCart</span> cart <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ShoppingCart</span><span class="token punctuation">(</span><span class="token keyword keyword-new">new</span> <span class="token class-name">PayPalPayment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cart<span class="token punctuation">.</span><span class="token function">checkout</span><span class="token punctuation">(</span><span class="token number">50.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+cart <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">ShoppingCart</span><span class="token punctuation">(</span><span class="token keyword keyword-new">new</span> <span class="token class-name">CreditCardPayment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cart<span class="token punctuation">.</span><span class="token function">checkout</span><span class="token punctuation">(</span><span class="token number">120.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando hai <strong>comportamenti diversi</strong> che possono essere <strong>separati e riutilizzati</strong><br>- Quando vuoi <strong>evitare logiche condizionali complesse</strong><br>- Quando hai bisogno di <strong>cambiare algoritmo o logica a runtime</strong><br>- Quando vuoi <strong>testare o estendere comportamenti</strong> in modo modulare</td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- <strong>Aggiunta o modifica facile</strong> delle strategie senza toccare il codice del contesto<br>- Favorisce la <strong>composizione</strong> rispetto all’ereditarietà<br>- Ogni strategia è <strong>incapsulata</strong>, testabile e riutilizzabile<br>- Promuove il <strong>principio aperto/chiuso</strong>: puoi aggiungere nuove strategie senza modificare quelle esistenti</td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- Può introdurre <strong>troppe classi</strong> se le strategie sono molte<br>- Il contesto deve <strong>conoscere la strategia esternamente</strong>, o delegare la scelta<br>- Se le strategie condividono troppo codice, può esserci <strong>duplicazione o necessità di un’astrazione intermedia</strong><br>- Meno intuitivo da usare se i comportamenti sono semplici e statici</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-singleton">9. Singleton </h3>
+<p>Il Singleton è un pattern che garantisce che una classe abbia una sola istanza e fornisce un punto di accesso globale a quella istanza.</p>
+<p>È utile quando è necessario un solo oggetto condiviso da tutto il sistema, ad esempio per:</p>
+<ul>
+<li>la configurazione di un'applicazione</li>
+<li>un logger</li>
+<li>una connessione a un database</li>
+<li>un gestore di risorse</li>
+</ul>
+<p>L’idea è semplice:</p>
+<ol>
+<li>Rendere il costruttore privato, così nessuno può creare istanze dall’esterno.</li>
+<li>Fornire un metodo statico che restituisce l’unica istanza (creata alla prima chiamata).</li>
+</ol>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code><span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Logger</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-private">private</span> <span class="token keyword keyword-static">static</span> <span class="token class-name">Logger</span> instance<span class="token punctuation">;</span>
+
+    <span class="token comment">// Costruttore privato</span>
+    <span class="token keyword keyword-private">private</span> <span class="token class-name">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// inizializzazione</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token class-name">Logger</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// lazy initialization</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-return">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-void">void</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"LOG: "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><table>
+<thead>
+<tr>
+<th><strong>Categoria</strong></th>
+<th><strong>Contenuto</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quando usarlo</strong></td>
+<td>- Quando serve <strong>una sola istanza condivisa</strong> nel sistema (es. logger, configurazione)<br>- Quando serve <strong>controllare l'accesso globale</strong> a una risorsa o a un componente centrale<br>- Quando vuoi <strong>centralizzare lo stato o il coordinamento</strong> di un sistema</td>
+</tr>
+<tr>
+<td><strong>Vantaggi</strong></td>
+<td>- Garantisce <strong>una sola istanza</strong> (controllo centralizzato)<br>- È facile da implementare e usare<br>- Fornisce un <strong>accesso globale e coerente</strong> a risorse comuni<br>- Può essere migliorato per essere <strong>lazy o thread-safe</strong></td>
+</tr>
+<tr>
+<td><strong>Svantaggi</strong></td>
+<td>- Può violare il <strong>principio di singola responsabilità</strong>: gestisce anche il proprio ciclo di vita<br>- Rende difficile <strong>testare o sostituire</strong> l’oggetto in test unitari<br>- È spesso considerato una forma <strong>"controllata" di global state</strong><br>- In ambienti multi-thread, può causare <strong>problemi di concorrenza</strong> se non gestito correttamente</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
