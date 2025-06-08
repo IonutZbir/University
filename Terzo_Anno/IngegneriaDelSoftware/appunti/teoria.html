@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/gigi/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/ionut/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -25,6 +25,606 @@
       <div class="crossnote markdown-preview  ">
       
 <h1 id="teoria">Teoria </h1>
+<ul>
+<li><a href="#teoria">Teoria</a>
+<ul>
+<li><a href="#introduzione">Introduzione</a></li>
+<li><a href="#processo-software">Processo Software</a></li>
+<li><a href="#modelli">Modelli</a>
+<ul>
+<li><a href="#modello-build--fix">Modello Build &amp; Fix</a></li>
+<li><a href="#modello-a-cascata-waterfall">Modello a cascata (Waterfall)</a></li>
+<li><a href="#modello-a-prototipi">Modello a prototipi</a></li>
+<li><a href="#modello-iterativo-o-incrementale">Modello iterativo o incrementale</a></li>
+<li><a href="#modello-a-spirale">Modello a spirale</a>
+<ul>
+<li><a href="#risk-analysis">Risk Analysis</a></li>
+</ul>
+</li>
+<li><a href="#modello-microsoft">Modello Microsoft</a></li>
+<li><a href="#modello-agile">Modello Agile</a>
+<ul>
+<li><a href="#scrum">Scrum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#software-requiments-funzionali-non-funzionali-e-di-dominio">Software Requiments: funzionali, non funzionali e di dominio</a>
+<ul>
+<li><a href="#requisiti-funzionali">Requisiti Funzionali</a></li>
+<li><a href="#requisiti-non-funzionali">Requisiti non Funzionali</a></li>
+<li><a href="#requisiti-di-dominio">Requisiti di Dominio</a></li>
+</ul>
+</li>
+<li><a href="#ooa-object-oriented-analysis-e-ood-object-oriented-analisys">OOA (Object Oriented Analysis) e OOD (Object Oriented Analisys)</a>
+<ul>
+<li><a href="#notazione-uml">Notazione UML</a></li>
+<li><a href="#ooa---modello-dei-dati">OOA - Modello dei dati</a></li>
+<li><a href="#ooa---modello-comportamentale">OOA - Modello Comportamentale</a>
+<ul>
+<li><a href="#use-case">Use case</a></li>
+<li><a href="#activity-diagram">Activity Diagram</a></li>
+<li><a href="#sequence-e-collaboration-diagram">Sequence e Collaboration Diagram</a></li>
+</ul>
+</li>
+<li><a href="#ooa---modello-dinamico">OOA - Modello Dinamico</a></li>
+<li><a href="#ood-software-architectures">OOD Software Architectures</a></li>
+<li><a href="#ood-architetture-distribuite-distributed-software-systems">OOD Architetture distribuite (Distributed Software Systems)</a>
+<ul>
+<li><a href="#1-clientserver-architectures">1. Client/Server Architectures</a></li>
+<li><a href="#2-distributed-objects-architectures">2. Distributed Objects Architectures</a></li>
+<li><a href="#3-component-based-architectures">3. Component-Based Architectures</a></li>
+<li><a href="#4-service-oriented-architecture-soa">4. Service Oriented Architecture (SOA)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#design-patterns">Design Patterns</a>
+<ul>
+<li><a href="#1-abstract-factory">1. Abstract Factory</a></li>
+<li><a href="#2-factory-method">2. Factory Method</a></li>
+<li><a href="#3-adapter">3. Adapter</a></li>
+<li><a href="#4-composite">4. Composite</a></li>
+<li><a href="#5-decorator">5. Decorator</a></li>
+<li><a href="#6-observer">6. Observer</a></li>
+<li><a href="#7-template-method">7. Template Method</a></li>
+<li><a href="#8-strategy">8. Strategy</a></li>
+<li><a href="#9-singleton">9. Singleton</a></li>
+</ul>
+</li>
+<li><a href="#stime-nei-progetti-software">Stime nei progetti software</a>
+<ul>
+<li><a href="#tecniche-di-scomposizione">Tecniche di scomposizione</a></li>
+<li><a href="#modelli-algoritmici-empirici">Modelli algoritmici empirici</a></li>
+</ul>
+</li>
+<li><a href="#metriche-di-struttura">Metriche di struttura</a>
+<ul>
+<li><a href="#tree-impurity">Tree Impurity</a></li>
+<li><a href="#riuso-interno">Riuso Interno</a></li>
+<li><a href="#information-flow">Information Flow</a></li>
+<li><a href="#misure-strutturali">Misure Strutturali</a>
+<ul>
+<li><a href="#flowgraph">Flowgraph</a></li>
+</ul>
+</li>
+<li><a href="#misure-gerarchiche">Misure Gerarchiche</a>
+<ul>
+<li><a href="#depth-of-nesting">Depth of Nesting</a></li>
+<li><a href="#d-structuredness">D-Structuredness</a></li>
+</ul>
+</li>
+<li><a href="#complessit%C3%A0-ciclomatica">Complessità Ciclomatica</a></li>
+<li><a href="#complesit%C3%A0-essenziale-di-mccabe">Complesità essenziale di McCabe</a></li>
+</ul>
+</li>
+<li><a href="#software-quality">Software Quality</a>
+<ul>
+<li><a href="#sqa-software-quality-assurance">SQA (Software Quality Assurance)</a></li>
+</ul>
+</li>
+<li><a href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="introduzione">Introduzione </h2>
+<p>Un prodotto software è costituito da codice e documentazione, che includono anche artefatti intermedi come i documenti di requisiti, specifica e progetto. Il codice rappresenta il prodotto finale, e l’insieme organizzato di questi elementi costituisce il sistema software. Nel ciclo di sviluppo, il cliente ordina il prodotto, lo sviluppatore lo realizza, e l’utente lo utilizza; se cliente e sviluppatore coincidono, si parla di software interno, altrimenti di software a contratto.</p>
+<p>L’affidabilità del software è un concetto complesso e dipende dall’utente e dal modo in cui utilizza il software: difetti che si manifestano per un utente possono non emergere per un altro, a causa di diversi profili operativi.</p>
+<p>Un principio importante in questo ambito è la regola 10-90, che deriva da esperimenti su programmi di grandi dimensioni: il 90% del tempo di esecuzione del programma viene speso eseguendo solo il 10% delle istruzioni totali, che costituiscono il cosiddetto core (nucleo) del programma. Questo significa che gran parte dell’attenzione per ottimizzazione e affidabilità va concentrata proprio su questa parte centrale, che è quella maggiormente utilizzata e critica.</p>
+<p>A differenza dell’hardware, i guasti software non sono causati da usura o deterioramento fisico, ma da difetti latenti nel codice che emergono solo in determinate condizioni. L’hardware si ripara sostituendo componenti danneggiati, mentre il software necessita di interventi di manutenzione per correggere errori, che possono influire sull’affidabilità in modo non sempre prevedibile.</p>
+<p>Di conseguenza, le metriche di affidabilità hardware non si adattano direttamente al software. Mentre l’obiettivo hardware è mantenere stabile la frequenza di guasto, nel software si mira a far diminuire questa frequenza nel tempo attraverso miglioramenti continui.</p>
+<p>Infine, la disponibilità del software rappresenta la percentuale di tempo in cui il software è utilizzabile, influenzata dalla frequenza dei guasti e dal tempo di riparazione. Queste metriche sono particolarmente critiche in sistemi dove l’interruzione può causare gravi perdite, come nei trasporti, nel controllo del traffico aereo, nella gestione del volo, nella distribuzione di energia e nelle comunicazioni.</p>
+<h2 id="processo-software">Processo Software </h2>
+<p>Una serie di attività necessarie alla realizzazione del prodotto software nei tempi, con i costi e con le desiderate caratteristiche di qualità. Il processo software segue un ciclo di vita che si articola in 3 stadi (sviluppo, manutenzione, dismissione). Nel primo stadio si possono riconoscere due tipi di fasi:</p>
+<ul>
+<li>fase di <strong>definizione</strong> (OOA)</li>
+<li>fase di <strong>produzione</strong> (OOD)</li>
+</ul>
+<p>Lo stadio di manutenzione è a supporto del software realizzato e prevede fasi di definizione e/o produzione al suo interno.<br>
+Durante ogni fase si procede ad efettuare il <code>testing</code> di quanto prodotto, mediante opportune techine di verifica e validazione. Ci sono vari tipo di manutenzione:</p>
+<ul>
+<li><strong>Manutenzione correttiva</strong>, che ha lo scopo di eliminare i difetti che producono guasti del software.</li>
+<li><strong>Manutenzione adattiva</strong>, che ha lo scopo di adattare il software ad eventuali cambiamenti a cui è sottoposto l'ambiente operativo per cui è stato sviluppato.</li>
+<li><strong>Manutenzione perfettiva</strong>, ha lo spoco di estendere il software per accomodare nuove funzionalità.</li>
+<li><strong>Manutenzione preventiva</strong>, consiste nell'eeffetuare modifiche che rendano più semplici le correzioni, gli adattamenti e le migliorie.</li>
+</ul>
+<p>Dunque, per ciclo di vita del software indendiamo l'intervallo di tempo che intercorre tra l'istante in cui nasce l'esigenza di costruire un prodotto software e l'istante in cui il prodotto viene dismesso. Include le fasi di defizione dei requisiti, specifica, pianificazione, progetto preliminare, progetto dettagliato, codifica, integrazione, testing, uso, matunenzione e dimissione.</p>
+<h2 id="modelli">Modelli </h2>
+<p>Il modello del ciclo di vita del software specifica la serie di fasi attraverso cui il prodotto software progredisce e l'ordine con cui vanno eseguite, dalla definizione dei requisiti alla dismissione.</p>
+<h3 id="modello-build--fix">Modello Build &amp; Fix </h3>
+<p>Il modello Build &amp; Fix è uno dei modelli di sviluppo software più semplici e primitivi, spesso adottato in contesti non professionali o da sviluppatori alle prime armi. In questo approccio, il software viene costruito senza una vera analisi dei requisiti nè una progettazione preliminare, e viene continuamente corretto e modificato man mano che emergono problemi e richieste.</p>
+<p>Consiste in un semplice ciclo:</p>
+<ol>
+<li>Build: Si scrive il codice in base a una vaga idea di cosa debba fare il programma.</li>
+<li>Fix: Quando emergono problemi o richieste, si corregge modificando direttamente il codice.</li>
+<li>Si ripete il ciclo finché il cliente non si dichiara soddisfatto.</li>
+</ol>
+<h3 id="modello-a-cascata-waterfall">Modello a cascata (Waterfall) </h3>
+<p>Il modello a cascata è uno dei più classici e storici modelli di sviluppo del software. È stato uno dei primi ad essere formalizzato e si basa su un approccio sequenzale e lineare: ogni fase del progetto deve essere completata prima di passare alla successiva. Dopo ogni fase c'è la verifica, si tratta di controllare che il processo di sviluppo sia stato eseguito correttamente e che gli artefatti prodotti siano conformi alle specifiche. Oltre alla fase di verification c'è la fase di validation nella quale si verifica che il prodotto soddisfi effettivamente i bisogni dell'utente finale.</p>
+<h3 id="modello-a-prototipi">Modello a prototipi </h3>
+<p>IL modello di Rapid Prototyping è un approccio allo sviluppo del software che mette al centro la costruzione veloce di prototipi di sistema, con lo scopo di comprendere meglio i requisiti, validare le funzionalità con l'utente e ridurre il rischio di incomprensioni.</p>
+<p>Un prototipo è una versione semplificata e spesso incompleta del sistema finale. Può essere:</p>
+<ul>
+<li>Interattivo ma non funzionante (solo interfaccia grafica)</li>
+<li>Funzionante in parte (solo alcune funzionalità)</li>
+<li>Creato con tecnologie diverse da quelle definitive.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Vantaggi</strong></th>
+<th><strong>Svantaggi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aiuta a chiarire meglio i requisiti, soprattutto quando inizialmente sono vaghi o incompleti.</td>
+<td>Rischio di confondere il prototipo con il prodotto</td>
+</tr>
+<tr>
+<td>Favorisce feedback e correzioni rapide, infatti il cliente può provare il prototipo e dare indicazioni prima dello sviluppo finale</td>
+<td>Costi e tempi possono aumentare se gestito male</td>
+</tr>
+<tr>
+<td>Coinvolge attivamente il cliente</td>
+<td>Codice del prototipo spesso poco riutilizzabile</td>
+</tr>
+<tr>
+<td>Migliora usabilità e soddisfazione finale</td>
+<td>Non adatto a progetti critici o altamente regolati</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modello-iterativo-o-incrementale">Modello iterativo o incrementale </h3>
+<p>Il modello incrementale è un approccio allo sviluppo del software che prevede la realizzazione del sistema per gradi, cioè per incrementi (build) successivi. Ogni incremento aggiunge nuove funzionalità al sistema, partendo da una base semplice che cresce man man fino a diventare il prodotto completo.</p>
+<p>A differenza del modello a cascata, dove si sviluppa tutto in un'unica volta, il modello incrementale prevede un ciclo ripetuto di:</p>
+<ol>
+<li>Analisi dei requisiti (parziali)</li>
+<li>Progettazione</li>
+<li>Implementazione</li>
+<li>Test</li>
+<li>Consegna di un incremento (build) funzionante</li>
+</ol>
+<p>Dopo il rilascio di una build, si raccolgono feedback e si passa allo sviluppo del successivo. È versatile, adattabile e orientato al feedback (simile a rapid prototyping).</p>
+<h3 id="modello-a-spirale">Modello a spirale </h3>
+<p>Il modello a spirale è un modello pensato per integrare i punti di forza del modello a cascata e dello sviluppo iterativo, mettendo però al centro un elemento spesso trascurato: la gestione del rischio.</p>
+<p>Ogni ciclo della spirale è composto da 4 fasi fondamentali:</p>
+<ol>
+<li><strong>Pianificazione</strong>: si definiscono obiettivi, funzionalità da sviluppare, risorse necessarie.</li>
+<li><strong>Analisi dei rischi</strong>: si individuano i rischi tecnici o gestionali, si valutano alternative e si pianificano soluzioni.</li>
+<li><strong>Sviluppo e verifica</strong>: si implementa e si testa un prototipo o una parte del sistema.</li>
+<li><strong>Revisione e feedback</strong>: si valuta quanto prodotto, si ottiene feedback dal cliente e si decide se proseguire con un nuovo giro.</li>
+</ol>
+<p>Ogni ciclo porta a una versione più raffinata de software, fino a giungere alla versione finale.</p>
+<h4 id="risk-analysis">Risk Analysis </h4>
+<p>L'analisi dei rischi è un processo fondamentale per identificare, valutare e gestire i possibili problemi o incertezze che potrebbero influenzare negativamente il successo di un progetto. In questo contesto, l'analisi dei rischi aiuta prevenire problemi futuri, ottimizzare i costi e garantire che il progetto rimanga nei limiti previsti di tempo e qualità.</p>
+<p>I passaggi fondamentli sono:</p>
+<ol>
+<li><strong>Identificazione dei rischi</strong>: Si riflette su tutte le possibili fonti di rischio: errori tecnici, mancanza di competenze, costi imprevisti, scandenze troppo strette, strumenti inadeguati, problemi organizzativi o esterni.</li>
+<li><strong>Valutazione</strong>: Per ciascun rischio si analizzano la probabilità che si verifichi (alta, media, bassa) e l'impatto che avrebbe sul progetto (grave, moderato, trascurabile).</li>
+<li><strong>Pianificazione</strong>: Si stabiliscono azioni e contromisure per gestire i rischi più rilevanti.</li>
+<li><strong>Monitoraggio</strong>: Durante il progetto, i rischi vengono tenuti sotto controllo e aggiornati: alcuni possono scomparire, altri nuovo possono emergere.</li>
+</ol>
+<p>Senza un’analisi del rischio, un progetto può fallire improvvisamente a causa di problemi prevedibili. Con una buona risk analysis, invece, il team è preparato: anche se il rischio si manifesta, sa cosa fare e come reagire, riducendo danni, costi e ritardi.</p>
+<h3 id="modello-microsoft">Modello Microsoft </h3>
+<p>La Microsoft ha dovuto affrontare problemi di:</p>
+<ul>
+<li><strong>Incremento della qualità</strong> dei prodotti software;</li>
+<li><strong>Riduzione di tempi e costi</strong> di sviluppo.</li>
+</ul>
+<p>Per risolvere questi problemi si è adottato un processo che allo stesso tempo è <strong>iterativo</strong>, <strong>incrementale</strong>, <strong>concorrente</strong>, e che permette di esaltare la creatività delle persone coinvolte nello sviluppo software. L'approccio usato attualmente dalla Microsoft è noto come <strong>syncronize-and-stabilize</strong>. Con questo modello otteniamo un ciclo di sviluppo a 3 fasi:</p>
+<ol>
+<li><strong>Planning</strong>: definisce la visione del prodotto, le specifiche e la pianificazione.</li>
+<li><strong>Development</strong>: sviluppo di funzionalità in 3-4 sottoprogetti sequenziali, ognuno dei quali si traduce in un rilascio "milestone".</li>
+<li><strong>Stabilizzazione</strong>: test interni ed estero completi, prodotto finale e spedizione.</li>
+</ol>
+<p>Le <strong>caratteristiche principali</strong> sono:</p>
+<ul>
+<li>Sviluppo software e testing eseguiti in parallelo.</li>
+<li>Features prioritizzate e integrate in 3-4 sottoprogetti cardine.</li>
+<li>Continuo feedback dei customer durante il processo di sviluppo.</li>
+</ul>
+<h3 id="modello-agile">Modello Agile </h3>
+<p>Il modello Agile non è un singolo modello di sviluppo, ma un insieme di principi e valori che guidano un modo di lavorare flessibile, collaborativo e iterativo. È nato come risposta ai limiti dei modelli tradizionali, che spesso si rivelano troppo rigidi in contesti dove le esigenze cambiano rapidamente o i requisiti non sono completamente chiari fin dall'inizio.</p>
+<p>Alla base del modello Agile c'è il manifesto Agile che valorizza:</p>
+<ul>
+<li>Le persone e le interazioni più dei processi e degli strumenti.</li>
+<li>Il software funzionante più della documentazione esaustiva.</li>
+<li>La collaborazione col cliente più della negoziazione del contratto.</li>
+<li>La risposta al cambiamento più della pianificazione rigida.</li>
+</ul>
+<h4 id="scrum">Scrum </h4>
+<p>Scrum è uno dei framework più popolari all'intenro dell'approccio Agile. È una struttura organizzativa leggera e iterativa, pensata per gestire progetti complessi in modo flessibile, trasparente e collaborativo. Si basa sull'idea di sviluppare software a piccoli passi (<code>sprint</code>) e di apprendere costantemente da ciò che si è fatto per migliorare nel tempo.</p>
+<p>Un progetto Scrum è suddiviso in <strong>Sprint</strong>, ovvero cicli di sviluppo a durata fissa (1-4 settimane), alla fine dei quali si rilascia un prodotto funzionante e potenzialmente consegnabile. Durante ogni Sprint, si eseguono le seguenti attività:</p>
+<ol>
+<li><strong>Sprint Planning</strong>: si pianifica il lavoro da svolgere nello sprint.</li>
+<li><strong>Daily Scrum</strong>: breve riunione giornaliera per allineare i team.</li>
+<li><strong>Sprint Review</strong>: si mostra il lavoro svolto al cliente.</li>
+<li><strong>Sprint Retroprospective</strong>: il team riflette su come migliorare il proprio processo.</li>
+</ol>
+<p>Scrum definisce 3 ruoli principali, ognuno con responsabilità precise:</p>
+<ul>
+<li><strong>Product Owner</strong>: definisce le priorità e mantiene aggiornato l'elenco ordinato delle funzionalità da implementare.</li>
+<li><strong>Scrum Master</strong>: protegge il team da interferenze, rimuove ostacoli e fa rispettare le regole Scrum.</li>
+<li><strong>Dev Team</strong>: gruppo di sviluppatori che lavora agli incrementi.</li>
+</ul>
+<p>I principali artifatti Scrum sono:</p>
+<ul>
+<li><strong>Product Backlog</strong>: lista prioritaria delle funzionalità richieste.</li>
+<li><strong>Sprint Backlog</strong>: lista delle attività selezionate per lo sprint corrente.</li>
+<li><strong>Incremento</strong>: il prodotto parzialmente completo e funzionante al termine dello sprint.</li>
+</ul>
+<h2 id="software-requiments-funzionali-non-funzionali-e-di-dominio">Software Requiments: funzionali, non funzionali e di dominio </h2>
+<p>I requisiti software sono la descrizione dei servizi che un sistema software deve fornire, insieme ai vincoli da rispettare sia in fase di sviluppo che durante la fase di opertività del software. Esistono due categorie di requisiti SW:</p>
+<ul>
+<li><strong>Requisiti utente</strong>: Descrizione in liguaggio naturale dei servizi che il sistema deve fornire e dei vincoli operativi.</li>
+<li><strong>Requisiti di sistema</strong>: Specificati mediante la stesura di un documento strutturato che descrive in modo dettagliato i servizi chhe il sistema SW deve fornire. Ci sono 3 categorie:</li>
+</ul>
+<h3 id="requisiti-funzionali">Requisiti Funzionali </h3>
+<p>I requisiti funzionali descrivono le funzionalità specifiche che il sistema deve offrire. Essi definiscono le azioni che il sistema deve compiere in risposta a determinati input o situazioni.</p>
+<h3 id="requisiti-non-funzionali">Requisiti non Funzionali </h3>
+<p>I requisiti non funzionali specificano le qualità e le caratteristiche che il sistema deve possedere, senza riferirsi a funzionalità specifiche. Essi influenzano l'esperienza dell'utente e le prestazioni del sistema. Per esempio:</p>
+<ul>
+<li><strong>Prestazioni</strong>: Tempo di risposta, throuthput, utilizzo delle risorse.</li>
+<li><strong>Sicurezza</strong>: Protezione dei dati, autenticazione, autorizzazione.</li>
+<li><strong>Usabilità</strong>: Facilità d'uso, accessibilità, design dell'interfaccia cliente.</li>
+</ul>
+<h3 id="requisiti-di-dominio">Requisiti di Dominio </h3>
+<p>Un requisito di dominio descrive un comportamento, un vincolo o una regola che non è universale per tutti i software, ma che vale solo in un certo contesto di applicazione (dominio). Spesso questi requisiti non sono espressi direttamente dall'utente, perché sono dati per scontati da chi opera nel settore, ma sono comunque essenziali affinché il sistema sia accettabile, corretto e conforme alle aspettative.</p>
+<p>Ignorare un requisito di dominio può rendere un sistema non conforme alla legge, inutilizzabile, o scartato dagli utenti esperti del settore. Per questo, durante l'analisi dei requisiti, è fondamentale conivolgere esperti del dominio, come avvocati, medici, funzionari pubblici etc... .</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tipo di requisito</strong></th>
+<th><strong>Focus</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Funzionali</strong></td>
+<td>Cosa il sistema fa (comportamento)</td>
+</tr>
+<tr>
+<td><strong>Non funzionali</strong></td>
+<td>Come il sistema si comporta (prestazioni, sicurezza...)</td>
+</tr>
+<tr>
+<td><strong>Di dominio</strong></td>
+<td><strong>Requisiti specifici del settore</strong>, spesso imposti da regole esterne</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ooa-object-oriented-analysis-e-ood-object-oriented-analisys">OOA (Object Oriented Analysis) e OOD (Object Oriented Analisys) </h2>
+<ul>
+<li>La fase di OOA definisce, secondo un approccio ad oggetti, <strong>COSA</strong> un prodotto software deve fare.</li>
+<li>La fase di OOD definisce, secondo un approccio ad oggetti, <strong>COME</strong> un prodotto software deve fare quanto specificato in fase di OOA.</li>
+</ul>
+<p>Devono fornire, ciacuno dal proprio punto di vista, una rappresentazione corretta, completa e consistente:</p>
+<ul>
+<li>Struttura dei dati -  <strong>modello di dati</strong></li>
+<li>Aspetti funzionali del sistema - <strong>modello comportamentale</strong></li>
+<li>Come le funzioni modificano i dati - <strong>modello dinamico</strong></li>
+</ul>
+<h3 id="notazione-uml">Notazione UML </h3>
+<p>Ciascun metodo di OOA (OOD) fa uso di una propria notazione per la rappresentazione de modelli di sistema. La notazione scelta è il linguaggio UML (Unified Modeling Language), è uno stardard per la descrizione di sistemi software. Si compone di 9 formalismi di base e di un insieme di estensioni. UML è un linguaggio di descrzione, non è un metodo nè definisce un processo.</p>
+<ol>
+<li><strong>Use Case Diagram</strong>: Evidenziano la modalità con cui gli utenti utilizzano il sistema. Possono essere usati come supporto per la definizione dei requisiti utente.</li>
+<li><strong>Class Diagram</strong>: Consentono di rappresentare le classi con le relative proprità e le associazioni che le legano.</li>
+<li><strong>State Diagram</strong>: Rappresentano il comportamento dinamico dei singoli oggetti di una classe in termini di stati possibili e transizioni di stato per effetto di eventi.</li>
+<li><strong>Activity Diagram</strong>: Sono particolari state diagram, in cui gli stati rappresentati sono azioni in corso di esecuzione.</li>
+<li><strong>Sequence Diagram</strong>: Evidenziano le interazioni che oggetti di classi diverse si scambiano nell'ambito di un determinato caso d'uso, ordinate in sequenza temporale.</li>
+<li><strong>Collaboration Digram</strong>: Descrive le interazioni tra oggetti diversi, evidenziando le relazioni esistenti tra le singole istanze.</li>
+<li><strong>Object Diagram</strong>: Permettono di rappresentare gli oggetti e le relazioni tra essi nell'ambito di un determinato caso d'uso.</li>
+<li><strong>Component Diagram</strong>: Evidenziano la strutturazione e le dipendenze esisitenti tra componenti software.</li>
+<li><strong>Deployment Diagram</strong>: Evidenziano le configurazioni dei nodi elaborativi di un sistema real-time e i componeti, processi ed oggetti assegnati a tali nodi.</li>
+</ol>
+<h3 id="ooa---modello-dei-dati">OOA - Modello dei dati </h3>
+<p>Rappresenta da un punto di vista statico e strutturale l'organizzazione logica dei dati da elaborare. Il modello dei dati viene specificato mediante il formalismo dei <code>class diagram</code> permettendo di definire classi, attributi, operazioni e associzioni tra classi. In questa fase si concentra sulla definizione delle cosidette <code>entity classes</code> ovvero quelle classi che definiscono il dominio applicativo e che sono rilevanti per il sistema. In seguito vengono introdotte le <code>control classes</code> che gestiscono la logica del sistema e le <code>boundary classes</code> che rappresentano l'interfaccia utente.</p>
+<ul>
+<li>
+<p><strong>Alcune regole</strong>:</p>
+</li>
+<li>
+<p>Ciascuna classe deve prevedere un insieme di istanze (oggetti), le cosidette singleton classes (classi per le quali si ha un' unica istanza) non sono di norma classificabili come entity classes.</p>
+</li>
+<li>
+<p>Ciascuna classe deve avere un nome significativo specifino del dominio applicativo. Adottare una convenzione standard (Pascal Case, Snake Case, Cammel Case).</p>
+</li>
+<li>
+<p><strong>Associazioni</strong>:</p>
+</li>
+<li>
+<p>Gli attributi che non sono primitivi, quindi che si riferiscono ad un altra classe devono essere un associazione.</p>
+</li>
+<li>
+<p>Ogni associazione ternaria dovrebbe essere rimpiazzata con un ciclo di associazioni binarie.</p>
+</li>
+<li>
+<p>Assegnare nomi alle associazioni usando la stessa convenzione per gli attributi.</p>
+</li>
+<li>
+<p>Assegnare nomi di ruole alle estemità.</p>
+</li>
+<li>
+<p>Determinare la molteplicità delle associazioni.</p>
+</li>
+<li>
+<p><strong>Aggregazione</strong>:</p>
+</li>
+</ul>
+<p>Rappresenta una relazione di tipo "whole-part" (contenimento) tra una classe composta e l'insieme di una o più classi componenti, senza possederlo completamente. La "parte" può esistere indipendentemente dal "tutto".</p>
+<ul>
+<li>L'ogetto contenuto è solo referenziato, non controllato o creato dal contenitore.</li>
+<li>Diamante vuoto in UML.</li>
+<li>Corrisponde a "has" e "member".</li>
+</ul>
+<p>Una classe "Università" può avere più "Studenti". Gli studenti non appartengono esclusivamente a quell’università nel contesto del modello (potrebbero cambiare università o esistere indipendentemente da essa).</p>
+<ul>
+<li><strong>Composizione</strong>:</li>
+</ul>
+<p>È una relazione forte di "whole-part", in cui l' oggetto contenitore possiede completamente l'oggetto contenuto. La "parte" non può esistere senza il "tutto".</p>
+<ul>
+<li>L'ogetto contenuto è creato, gestito e distrutto assieme al contenitore.</li>
+<li>Diamante pieno in UML.</li>
+<li>Corrisponde a "owns" e "exclusive-owns".</li>
+</ul>
+<p>Una classe "Casa" può avere oggetti "Stanza". Le stanze non hanno senso di esistere al di fuori della casa. Se la casa viene distrutta, anche le stanze spariscono.</p>
+<ul>
+<li><strong>Ereditarietà</strong></li>
+</ul>
+<p>Usata per rappresentare la condivisione di attributi ed operazioni tra classi. Le caratteristiche comuni sono modellate in una<br>
+classe più generica (<code>superclasse</code>), che viene specializzata nell’insieme di <code>sottoclassi</code>. Una sottoclasse eredita attributi ed operazioni della superclasse. Viene rappresentata in UML con una linea, che collega la sottoclasse con la superclasse, avente una freccia diretta verso la superclasse.</p>
+<h3 id="ooa---modello-comportamentale">OOA - Modello Comportamentale </h3>
+<p>Rappresenta gli aspetti funzionali del sistema da un punto di vista operativo, evidenziando come gli oggetti collaborano ed interagiscono tra di loro. Fa uso di vari formalismi (<code>use case digram, activity diagram, sequence diagram, collaboration diagram</code>).</p>
+<h4 id="use-case">Use case </h4>
+<p>Un Use Case rappresenta un’interazione tra un attore (utente o sistema esterno) e il sistema, relativa a una funzionalità specifica. Durante la fase di OOA si concentra su COSA il sistema deve fare (vari scenari di funzionamento). Ci sono 4 tipi di relazioni:</p>
+<ul>
+<li><strong>Associazione</strong>: tra attoree caso d'uso</li>
+<li><strong>Include</strong>: rappresenta una relazione obbligatoria tra due use case: uno include sempre l'altro durante la sua esecuzione. Si usa quando un comportamento è comune a più use case. Quando si vuole evitare duplicazioni. Quando si vuole modularizzare un comportamento ripetuto.<br>
+Per esempio gli use case "Registra Utente" e "Recupera Password", entrambi includono "Inviare Email".<br>
+Graficamente si rappresenta mediante una linea trateggiata con freccia vero il caso d'uso incluso.</li>
+<li><strong>Exclude</strong>: rappresenta una relazione opzionale, cioè un caso d'uso può estendere un altro caso solo se una certa condizione è soddisfatta. Si usa quando un comportamento è facoltativo. Quando si vuole aggiungere funzionalità opzionali senza complicare il caso d'uso principale.<br>
+Per esempio il caso d'uso generale "Inserire Risultato" -&gt; <code>extend</code> "Segnalare Irregolarità", ovvero in alcuni casi particolari, durante l'inserimento del risultato, l'arbitro può decidere di segnalare un'irregolarità.<br>
+Graficamente si rappresenta mediante una linea trateggiata con freccia verso il caso d'uso principale.</li>
+<li><strong>Generalizzazione</strong></li>
+</ul>
+<h4 id="activity-diagram">Activity Diagram </h4>
+<p>Rappresenta a vari livelli di astrazione il flusso di esecuzione, sia sequenziale che concorrente, in una applicazione object-oriented. In fase di OOA, viene usato per rappresentare il flusso delle attività nella esecuzione di un caso d’uso.</p>
+<p>Si parte da un nodo iniziale (cerchio nero pieno) che identifica la partenza del flusso. Ogni attività è una fase del processo e viene rappresentata da un rettangolo. Le frecce che collegano le attività rappresentano l'ordine con cui avvengono. I nodi decisionali (rombi) permetteon di dirigere il flusso in base a condizioni. Infine, per idenficare la fine del flusso abbiamo un nodo finale (cercgio con un cerchio nero dentro).</p>
+<h4 id="sequence-e-collaboration-diagram">Sequence e Collaboration Diagram </h4>
+<ul>
+<li>I sequence descrivono lo scambio di messaggi tra oggeti in ordine temporale, è usato principalmente in fase di OOA</li>
+<li>I collaboration descrivono lo scambio di messaggi tra oggetti mediante relazioni tra gli oggetti stessi, è usato in fase di OOD.</li>
+</ul>
+<p>Le attività dell'activity diagram vengono mappate come messaggi in un sequence diagram. Un messaggio può rappresentare:</p>
+<ul>
+<li><strong>Signal</strong>: denota una chiamata di tipo asincrono, l'oggetto mittente continua l'esecuzione dopo aver inviato il messaggio asincrono.</li>
+<li><strong>Call</strong>: Denota una chiamata ti tipo sincrono, l'oggetto mittente blocca la sua esecuzione in attesa di una risposta.</li>
+</ul>
+<p>Durante questa fase, si definiscono l'insieme di operazioni che la classe mette a disposizione, definendo l'interfaccia pubblica di classe, determinando per ogni operazione la sua <code>signature</code>, ovvero il nome, la lista degli argomenti formali e il tipo di ritorno. Durante la fase di OOD si definisce l' algoritmo.</p>
+<p>Ogni messaggio inviato ad un oggetto identifica un metodo della classe a cui appartiene tale oggetto. Si possono usare criteri aggiuntivi, per esempio <code>CRUD</code>.</p>
+<h3 id="ooa---modello-dinamico">OOA - Modello Dinamico </h3>
+<p>Rappresenta il comportamento dinamico degli oggetti di una singola classe, in termini di stati possibili ed eventi e condizioni che originano transizioni di stato. Fa uso del formalismo <code>state diagram</code>. Viene costruito per ogni classe di controllo ed è usato principalmente per le applicazioni scientifiche real-time.</p>
+<p>L'approccio <strong>BCE (Boundary - Cotrol - Entity)</strong> è una tecnica molto usata nell'analisi orientata agli oggetti, in particolare nella fase di OOA per organizzare logicamente le classi e le responsabilità in un sistema.</p>
+<ul>
+<li><strong>Entità</strong>: Sono le classi che rappresentano i dati e il comportamento persistente. Corrispondono agli elementi del dominioop applicativo come <code>Utente</code>, <code>Ordine</code>, <code>Prodotto</code>.</li>
+<li><strong>Boundary</strong>: Sono le classi che gestiscono l'interazione tra il sistema e gli attori esterni, come utenti o sistemi terzi. Si occupano dell'input e dell'output (UI, API etc...).</li>
+<li><strong>Control</strong>: Sono le classi che coordinano il comportamento del sistema, gestendo il flusso di eventi fra boundary e entity. Contengono la logica applicativa o di business.</li>
+</ul>
+<p>L’approccio BCE ti guida nel progettare un sistema che sia pulito, modulare e comprensibile, distinguendo chiaramente tra chi fornisce i dati (boundary), chi li elabora (control) e chi li rappresenta in modo stabile (entity).</p>
+<h3 id="ood-software-architectures">OOD Software Architectures </h3>
+<p><strong>OOD (Object-Oriented Design)</strong> è una fase nello sviluppo del software che si concentra su come realizzare il software, trasformando i concetti analizzati in un'architettura software concreta.</p>
+<p>Un architettura software è un insieme di decisione strutturali e di linee guida che definiscono la forma generale di un sistema software: come è suddiviso, come comunicano le sue parti, e quali responsabilità ha ciascuna componente.</p>
+<h3 id="ood-architetture-distribuite-distributed-software-systems">OOD Architetture distribuite (Distributed Software Systems) </h3>
+<p>Un sistema software distribuito è un sistema in cui componenti software localizzati su computer diversi comunicano e cooperano tra loro attraverso una rete per raggiungere un obiettivo comune.</p>
+<p>Nei sistemi distribuiti, l'integrazione tra componenti eterogenei è complessa, infatti in mezzo troviamo un software chiamata <code>middleware</code>. È uno strato intermedio tra il sistema operativo e le applicazioni software e serve a facilitare la comunicazione, la gestione dei dati, la sicureza tra componenti software diversi, spesso distribuiti su più macchine o piattaforme.</p>
+<table>
+<thead>
+<tr>
+<th>Vantaggi</th>
+<th>Svantaggi / Sfide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scalabilità molto elevata</td>
+<td>Complessità nella progettazione</td>
+</tr>
+<tr>
+<td>Resilienza: tolleranza ai guasti</td>
+<td>Problemi di sincronizzazione e coerenza</td>
+</tr>
+<tr>
+<td>Prestazioni ottimizzabili su larga scala</td>
+<td>Debugging più difficile</td>
+</tr>
+<tr>
+<td>Flessibilità e modularità</td>
+<td>Sicurezza più difficile da gestire</td>
+</tr>
+<tr>
+<td>Adatto al cloud e ai servizi moderni</td>
+<td>Latency e problemi di rete da considerare</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-clientserver-architectures">1. Client/Server Architectures </h4>
+<p>È un modello in cui due entità principali – <code>client</code> e <code>server</code> – si dividono i compiti in modo cooperativo ma asimmetrico.<br>
+In questo modello:</p>
+<ul>
+<li>Il client è l’entità che richiede un servizio. Prevede un interfaccia utente per prelevare le richieste e le invia al server mediante software middleware. Infine visualizza le risposte del server mediante l'interfaccia utente.</li>
+<li>Il server è l’entità che offre il servizio richiesto. Risponde alle richieste del client e nasconde tutta l'architettura C/S che c'è dietro.</li>
+</ul>
+<p>L'architettura Two-Tier C/S è suddivisa in due livelli principali:</p>
+<ul>
+<li><strong>Client</strong>: l'interfaccia utente, che gestisce la logica di presentazione e talvolta parte della logica applicativa.</li>
+<li><strong>Server</strong>: il gestore dei dati, solitamente un DBMS, che conserva e restituisce le informazioni.</li>
+</ul>
+<p>In questo tipo di architettura abbiamo due tipologie di client:</p>
+<ol>
+<li><strong>Thin-Client</strong>: Tutto il processo applicativo e la gestione dei dati avviene nel server. Il client si occupa solo della presentazione.</li>
+<li><strong>Fat-Client</strong>: Il client è responsabile della logica applicativa e della presentazione. Il server si occupa solo della gestione dei dati (database).</li>
+</ol>
+<p>L'architettura a Three-Tier C/S migliora la scalabilità, la manutenibilità e la riusabilità del sistema rispetto ai modelli a due livelli. È Strutturato su 3 livelli:</p>
+<ul>
+<li>Presentation Tier, ovvero il client</li>
+<li>Application Tier, contiene la logica di business (server)</li>
+<li>Data Tier, contiene i database e i sistemi di persistenze (server)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Livello</th>
+<th>Funzione principale</th>
+<th>Esempi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Presentazione</strong></td>
+<td>Interfaccia utente</td>
+<td>Browser web, app mobile</td>
+</tr>
+<tr>
+<td><strong>Logica</strong></td>
+<td>Esecuzione della logica di business</td>
+<td>Server Java, .NET, Node.js</td>
+</tr>
+<tr>
+<td><strong>Dati</strong></td>
+<td>Gestione della persistenza e delle query</td>
+<td>MySQL, PostgreSQL, MongoDB</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-distributed-objects-architectures">2. Distributed Objects Architectures </h4>
+<p>L'architettura ad oggetti distribuiti è un'architettura di sistema che non fa distinzioni tra client/server, infatti ogni oggetto distribuito può fungere sia da client che da server. La comunicazione remota fra gli oggetti è resa trasparente usando middlewar basati sul concetto di software bus. Le applicazioni basate sul questa architettura consistono in un insieme di oggetti che sono eseguiti su piattaforme distribuite ed eterogenee, e comunicano tramite invocazioni remote<br>
+dei metodi.</p>
+<h4 id="3-component-based-architectures">3. Component-Based Architectures </h4>
+<p>È un approccio in cui l'intero sistema viene costruito assemblando componenti riutilizzabili, ciascuno dei quali incapsula una parte ben definita della funzionalità. Un componente software è un entità software che incapsula struttura e comportamento, ha interfacce ben definite e può essere configurata e riutilizzata in diversi contesti applicativi.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Oggetti</strong></th>
+<th><strong>Componenti</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sono <strong>entità a run-time</strong>, con identità, stato e comportamento.</td>
+<td>Sono <strong>astrazioni statiche</strong> usate nella fase di costruzione del sistema.</td>
+</tr>
+<tr>
+<td>Incapsulano <strong>servizi</strong>.</td>
+<td>Incapsulano <strong>soluzioni strutturali e comportamentali</strong> riutilizzabili.</td>
+</tr>
+<tr>
+<td>Granularità più fine (classe, oggetto)</td>
+<td>Possono avere granularità più fine o più grossa (moduli, mixin, template).</td>
+</tr>
+</tbody>
+</table>
+<p>In breve: gli oggetti vivono quando il programma è in esecuzione, mentre le componenti sono usate durante la costruzione del programma.</p>
+<p>L’approccio component-based permette di costruire sistemi complessi in modo efficiente, affidandosi a componenti predefinite, modulari e configurabili. La chiave è pensare in termini di assemblaggio, più che di scrittura da zero.</p>
+<h4 id="4-service-oriented-architecture-soa">4. Service Oriented Architecture (SOA) </h4>
+<p>La SOA è un'architettura software distribuita che consiste in molteplici servizi. I servizi sono distribuiti in modo tale da poter essere eseguiti su nodi differenti con differenti service provider. L'obiettivo di SOA è quello di sviluppare applicazioni SW che sono composte da servizi distribuiti, in modo tale che i singoli servizi possano essere eseguiti su più piattaforme differenti e implementati con differenti linguaggi di programmazione.</p>
+<p>Un servizio SOA è una funzionalità software autonoma, ben definita, accessibile via rete che:</p>
+<ul>
+<li>puo essere invocata da altri componenti,</li>
+<li>ha un'interfaccia pubblica,</li>
+<li>nasconde i dettagli interni di implementazione,</li>
+<li>è riutilizzabile in vari contesti applicativi.</li>
+</ul>
+<p>Ci sono diversi pattern architetturali tra cui:</p>
+<ol>
+<li>
+<p>Broker Patterns</p>
+<p>In un ambiente SOA, i servizi possono essere registrati e scoperti dinamicamente. Il pattern Service Broker si occupa di gestire la comunicazione tra client e servizi in modo disaccopiato e flessibile. In pratica fa da intermediario, smistando richieste e risposte senza che il client debba conoscere i dettagli di dove e come il servizio è effettivamente eseguito.</p>
+<p>Ogni servizio, prima di diventare utilizzabile, si registra presso il broker. Quando un client ha bisogno di un servizio, invece di cercalo in modo diretto, si rivolge al broker, che gli fornisce i dettagli necessari per stabilire la connessione.</p>
+<p>Un punto cruciale è la trasparenza che il broker garantisce, cioè il client non deve sapere dove il servizio è fisicamente localizzato (location transparency) né su quale piattaforma tecnologica gira (platform transparency).</p>
+<p>La comunicazione mediata dal broker (brokered communication) permette di ridurre la complessità e aumentare la flessibilità. Un requisito fondamentale è che ogni servizio si registri presso il broker (come previsto dal pattern Service Registration). Solo così il broker può fare da "centralino" per la scoperta e la gestione dei servizi.</p>
+<p>Uno dei più usati broker è <code>CORBA</code>.</p>
+<p>Anche se le SOA sono concettualmente platform-indipendent, attualmente vengono fornite con grande successo su piattaforme tecnologiche di <strong>Web Services</strong>. Da un punto di vista di SW, i Web Services sono le API che forniscono i metodi standard di comunicazione. Da un punto di vista business, i Web Services sono funzionalità di business fornite da una compagnia nella forma di servizio esplicito di Internet.</p>
+<p>I Web Services sono quindi il fulcro dell'implmentazione SOA, e sfruttano vari protocolli per far comunicare i servizi fra di loro. Tra questi troviamo:</p>
+<ul>
+<li><strong>SOAP (Simple Object Access Protocol)</strong>: protocollo basato su linguaggio XML che permette lo scambio di informazioni in un sistema distribuito. Utilizza protocolli di trasporto come HTTP, SMTP e altri.</li>
+<li><strong>REST  (Representational State Transfer)</strong>: architettura che utilizza i metodi HTTP per performare operazioni CRUD.</li>
+</ul>
+<p>Oltre ai Web Services, le architetture SOA utilizzano altre tecnologie, tra cui:</p>
+<ul>
+<li><strong>UDDI (Universal Description Discovery and Integration)</strong>: registro per pubblicare e trovare servizi web all'interno di un architettura SOA. Aiuta a localizzare e identificare i servizi disponibili su una rete.</li>
+<li><strong>WSDL (Web Services Description Language)</strong>: Linguaggio basato su XML per descrivere le interfacce dei servizi in un architettura SOA. Specifica cosa fa il servizio, come può essere invocato e dove si trova.</li>
+</ul>
+</li>
+<li>
+<p>Trascaction Patterns</p>
+<p>Una transazione è una richiesta composta da due o più operazioni che insieme realizzano una singola funzione logica, stiamo parlando di un’unità di lavoro che deve essere trattata come indivisibile: o viene completata tutta, oppure non viene completata affatto. Questo principio è fondamentale per garantire la coerenza e l’affidabilità del sistema.<br>
+Le transazioni devono rispettare le proprietà ACID:</p>
+<table>
+<thead>
+<tr>
+<th>Proprietà</th>
+<th>Descrizione</th>
+<th>Perché è importante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atomicità</strong></td>
+<td>La transazione è un’unità indivisibile: o si completa tutta o non si esegue nulla.</td>
+<td>Evita stati parziali e incoerenti</td>
+</tr>
+<tr>
+<td><strong>Coerenza</strong></td>
+<td>La transazione mantiene le regole di integrità e porta il sistema da uno stato valido a un altro valido.</td>
+<td>Garantisce dati affidabili e corretti</td>
+</tr>
+<tr>
+<td><strong>Isolamento</strong></td>
+<td>Le transazioni concorrenti non si interferiscono tra loro, come se fossero eseguite in sequenza.</td>
+<td>Previene effetti collaterali dovuti a esecuzioni parallele</td>
+</tr>
+<tr>
+<td><strong>Durabilità</strong></td>
+<td>Gli effetti di una transazione completata sono permanenti, anche in caso di crash o guasti.</td>
+<td>Assicura che i dati non vadano persi</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Il <strong>Two-Phase Commit Protocol</strong> è un meccanismo che serve a garantire l’atomicità delle transazioni distribuite, cioè a sincronizzare correttamente le modifiche su nodi diversi.</li>
+<li>Il <strong>Compound Transaction</strong> pattern entra in gioco quando una richiesta complessa da parte del client può essere suddivisa in più transazioni atomiche più semplici, ciascuna indipendente e gestibile singolarmente.</li>
+<li>Il <strong>Long-Living Transaction</strong> pattern è pensato per gestire transazioni che durano molto a lungo, spesso perché richiedono interventi o decisioni umane tra le varie fasi.</li>
+</ul>
+</li>
+<li>
+<p>Negotiation Patters</p>
+<p>In questo pattern, un client agent agisce per conto dell’utente e fa una proposta a un service agent, che rappresenta il servizio. Il service agent valuta la proposta, eventualmente interagendo con altri servizi, e risponde con una o più opzioni che si avvicinano alla richiesta iniziale.</p>
+<p>Il client agent può accettare una delle opzioni, proporre modifiche o rifiutare l’offerta. Se il service agent può soddisfare la richiesta finale, l’accetta; altrimenti, la rifiuta.</p>
+<p>In pratica, il pattern consente uno scambio dinamico e flessibile di proposte e controproposte tra client e servizio, permettendo negoziazioni sia per servizi negoziabili (con possibilità di controfferte) sia non negoziabili (richieste ferme).</p>
+<p>Questo approccio è utile quando i requisiti del client non sono rigidi e serve un processo interattivo per trovare un accordo soddisfacente.</p>
+</li>
+</ol>
 <h2 id="design-patterns">Design Patterns </h2>
 <p>I design pattern sono soluzioni generiche, riutilizzabili e collaudate a problemi comuni che si incontrano nello sviluppo del software orientato agli oggetti. Non sono blocchi di codice pronti da incollare, ma piuttosto schemi concettuali, strutture astratte che aiutano a organizzare il codice in modo chiaro, flessibile e manutenibile.</p>
 <p>I design pattern sono importanti perchè risolvono problemi che si incontrano spesso nello sviluppo di software. I design pattern offrono standard per risolvere tutte queste problematiche.</p>
@@ -601,6 +1201,366 @@ cart<span class="token punctuation">.</span><span class="token function">checkou
 </tr>
 </tbody>
 </table>
+<h2 id="stime-nei-progetti-software">Stime nei progetti software </h2>
+<p>Le attività di stima di <code>tempi</code>, <code>costi</code> ed <code>effort</code> nei progetti software sono effettuate con gli obiettivi di:</p>
+<ul>
+<li>ridurre al minimo il grado di incertezza</li>
+<li>limitare i rischi comportati da una stima</li>
+</ul>
+<p>Risulta quindi necessario usare tecniche per incrementare l'affidabilità e l'accuratezza di una stima. Le tecniche di stima possono basarsi su:</p>
+<ul>
+<li>Stime su progetti simili già completati.</li>
+<li>Tecniche di scomposizione</li>
+<li>Modelli algoritmici empirici</li>
+</ul>
+<h3 id="tecniche-di-scomposizione">Tecniche di scomposizione </h3>
+<p>Queste tecniche si rifanno alla logica del <code>divide et impera</code>. L'idea è quella di tentare di stimare un intero progetto scomponendolo in parti più piccole, più comprensibili e più facilmente valutabili. Parliamo dunque di <strong>stime dimensionali</strong>, che fanno riferimento a misure quantitative della dimensione del software, come:</p>
+<ul>
+<li>
+<p><strong>LOC (Line of Code)</strong>: Si cerca di stimare quante righe di codice saranno necessarie per sviluppare ogni componente. Sulla base della produttività media si ricava lo sforzo.</p>
+</li>
+<li>
+<p><strong>Function Point (FP)</strong>: I function points misurano la quantità di funzionalità offerte dal software all'utente finale, secondo criteri come: input, output, query etc... . Ogni elemento viene pesato in base alla sua complessità. Permettono di stimare l'effort in modo più stabile e sono utili nei contesti in cui si vuole fare una valutazione anticipata del progetto. La formula per calcolare <strong>FP</strong> è: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>P</mi><mo>=</mo><mi>U</mi><mi>F</mi><mi>C</mi><mo>⋅</mo><mi>T</mi><mi>F</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">FP = UFC \cdot TFC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.07153em;">FC</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">TFC</span></span></span></span> dove:</p>
+<ul>
+<li><strong>L'UFC (Unadjusted Function Count)</strong> si ottiene conteggiando e pesando cinque tipi di componenti funzionali che l’utente percepisce nel sistema: External Inputs, External Outputs, External Inquiries, Internal Logical Files (strutture dati del sistema), External Interface Files (strutture dati non mantenute dal sistema). <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mi>F</mi><mi>C</mi><mo>=</mo><mi mathvariant="normal">Σ</mi><mrow><mo fence="true">(</mo><msub><mi>N</mi><mrow><mi>c</mi><mi>o</mi><mi>m</mi><mi>p</mi></mrow></msub><mo>⋅</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">UFC = \Sigma \left( N_{comp} \cdot weight \right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.07153em;">FC</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord">Σ</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">p</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></li>
+<li><strong>TFC (Technical Complexity Factor)</strong> è un fattore di aggiustamento è si calcola partendo da 14 fattori di complessità tecnica. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>F</mi><mi>C</mi><mo>=</mo><mn>0.65</mn><mo>+</mo><mn>0.01</mn><mo>⋅</mo><mi mathvariant="normal">Σ</mi><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">TFC = 0.65 + 0.01 \cdot \Sigma F_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">TFC</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.65</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">Σ</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, dove <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">F_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> è il punteggio di ciascun dei 14 fattori</li>
+</ul>
+</li>
+</ul>
+<h3 id="modelli-algoritmici-empirici">Modelli algoritmici empirici </h3>
+<p>Il termine <strong>empirico</strong> indica che le relazioni matematiche non sono derivate da principi teorici assoluti, ma sono basate sull'osservazione e sull'analisi statistica di progetti passati.</p>
+<p>Si tratta di un approccio strutturato, che cerca di stimare variabili come l’effort, il costo o la durata del progetto applicando delle formule matematiche, costruite a partire da dati storici reali raccolti su progetti precedenti.</p>
+<p>Un esempio di modello è <strong>COCOMO</strong>, sviluppato da Boehm per determinare il valore dell'effort, che viene poi utilizzato per determinare durata e costi di sviluppo. Il modello esprime l'effort in <code>persone-mese</code></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><msub><mi>t</mi><mi>N</mi></msub><mo>=</mo><mi>a</mi><mo>⋅</mo><msup><mrow><mo fence="true">(</mo><mi>K</mi><mi>L</mi><mi>O</mi><mi>C</mi><mo fence="true">)</mo></mrow><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">Effort_N = a \cdot \left(KLOC\right)^b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.239em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.07153em;">OC</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.989em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li><strong>KLOC</strong> è il numero di migliaia di linee di codice previste,</li>
+<li><strong>a e b</strong> sono coefficienti empirici, determinati analizzando molto progetti reali.</li>
+</ul>
+<p>Calcolato l'effort nominale, ovvero una stima preliminare, possiamo calcolare la quantità di effort come:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi><mo>=</mo><mi>C</mi><mo>⋅</mo><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><msub><mi>t</mi><mi>N</mi></msub></mrow><annotation encoding="application/x-tex">Effort = C \cdot Effort_N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Dove <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> è un fattore moltiplicativo, chiamato cost driver multiplier, ed è basato su 15 cost drivers.</p>
+<p>Il tempo di consegna si deriva poi dalla formula: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>a</mi><mo>⋅</mo><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><msup><mi>t</mi><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">T = a \cdot Effort^b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0435em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.10764em;">ff</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span></span></span></span></span></span></span>, dove <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> e <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> sono due costanti.</p>
+<h2 id="metriche-di-struttura">Metriche di struttura </h2>
+<p>Un modulo è una sequenza contigua di statements del programma. Le metriche di struttura sono per determinare quanto un software sia "buono", ovvero misurano la qualità stessa del software.</p>
+<p>Ci troviamo nella situazione in cui il software viene diviso in moduli, di conseguenza abbiamo la cosi detta <strong>architettura a moduli</strong>. Si rappresenta l'architettura a moduli cone un albero diretto <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mrow><mi>N</mi><mo separator="true">,</mo><mi>R</mi></mrow></mrow><annotation encoding="application/x-tex">S = {N, R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></span> dove:</p>
+<ul>
+<li>ogni nodo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">n \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> corrisponde a un modulo.</li>
+<li>ogni arco <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>∈</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">r \in R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> indica le relazioni tra moduli.</li>
+</ul>
+<p>Partendo da questa rappresentazione, vediamo alcune metrice di struttura atte a determinare la qualità del software.</p>
+<h3 id="tree-impurity">Tree Impurity </h3>
+<p>La Tree Impurity <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">m(G)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">m</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span></span></span></span> misura quanto il grafo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> è differente da essere un albero. <strong>Più piccolo è questo valore, migliore è il design</strong>. È definita nel seguente modo:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>m</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mo stretchy="false">(</mo><mi>e</mi><mo>−</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">m(G) = \frac{2(e - n + 1)}{(n - 1)(n - 2)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">m</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 id="riuso-interno">Riuso Interno </h3>
+<p>È una misura che indica il grado di riutilizzo dei moduli all'interno dello stesso prodotto. <strong>Più piccolo è il valore, meno è il riutilizzo</strong>. Si calcola nel seguente modo: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo>=</mo><mi>e</mi><mo>−</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r(G) = e - n + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+<h3 id="information-flow">Information Flow </h3>
+<p>Le misure di Information Flow assumono che la complessità di un modulo dipende da 2 fattori:</p>
+<ul>
+<li>La complessità del codice del modulo</li>
+<li>La complessità delle interfacce del modulo</li>
+</ul>
+<p>Il livello totale di Information Flow attraverso un sistema è un'<strong>attributo inter-modulare</strong>, mentre se considerato il livello di Information Flow attraverso un singolo modulo è un'<strong>attributo intra-modulare</strong>. Le misure di Information Flow si basano su:</p>
+<ul>
+<li>Flusso <strong>locale</strong>, che può essere diretto (un modulo chiama un altro modulo) o indiretto (flusso derivante dai valori di ritorno).</li>
+<li>Flusso <strong>globale</strong>, informazioni che vengono passate tra i moduli secondo una struttura dati globale.</li>
+</ul>
+<p>Queste misure dipendono dal livello di interconnessione tra i moduli, si definiscono:</p>
+<ul>
+<li><strong>Fan-In</strong>: di un modulo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> è il numero di flussi locali (diretti + indiretti) che terminano su <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> più il numero di flussi globali le cui informazioni sono prelevate da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. Un valore basso indica che lui è <strong>influenzato/controllato</strong> da molti altri moduli.</li>
+<li><strong>Fan-Out</strong>: di un modulo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> è il numero di flussi locali (diretti + indiretti) che iniziano da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> più il numero di flussi globali aggiornati da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. Un valore alto indica che lui <strong>influenza/controlla</strong> molti altri moduli.</li>
+</ul>
+<p>L'Information Flow (IF) di un modulo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> è dunque definito come segue (Henry &amp; Kafura):<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>I</mi><mi>F</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mrow><mo fence="true">[</mo><mi>f</mi><mi>a</mi><mi>n</mi><mo>−</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>f</mi><mi>a</mi><mi>n</mi><mo>−</mo><mi>o</mi><mi>u</mi><mi>t</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo fence="true">]</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">IF(M) = \left[ fan-in(M) \cdot fan-out(M) \right]^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">[</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">an</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">an</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><br>
+Mentre L'IF di tutto il sistema con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> moduli:<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>I</mi><mi>F</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>I</mi><mi>F</mi><mo stretchy="false">(</mo><msub><mi>M</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">IF = \sum_{i = 1}^n IF(M_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<h3 id="misure-strutturali">Misure Strutturali </h3>
+<p>Le strutture hanno 3 componenti: Strutture Control-Flow (sequenza di esecuzioni di istruzioni), Data Flow (tenere traccia dei dati creati o gestiti dal programma), Strutture Dati (organizzazione dei dati).</p>
+<h4 id="flowgraph">Flowgraph </h4>
+<p>Le strutture Control-Flow sono modellate come un flowgraph, ovvero un grafo diretto <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>G</mi><mo>=</mo><mo stretchy="false">{</mo><mi>N</mi><mo separator="true">,</mo><mi>E</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">FG = \{N, E\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">FG</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">}</span></span></span></span>.</p>
+<ul>
+<li>Ogni nodo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">n \in N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> rappresenta uno statement del programma. Abbiamo diverse tipologie di nodi:
+<ul>
+<li><strong>nodi procedurali</strong>: nodi con grado di uscita 1,</li>
+<li><strong>nodi predicati</strong>: nodi con grado di uscita &gt; 1,</li>
+<li><strong>nodo iniziale</strong>: nodi con grado di entrata 0,</li>
+<li><strong>nodo finale</strong>: nodi con grado di uscita 0.</li>
+</ul>
+</li>
+<li>Ogni arco diretto <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>∈</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">e \in E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> indica il flusso di controllo di uno statement ad un'altro statement.</li>
+</ul>
+<ol>
+<li><strong>Sequencing</strong>: Siano <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">F_1, F_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> due flowgraphs. Allora la sequenza di <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">;</mo><msub><mi>F</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F_1, F_2 (F_1;F_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> è un'altro flowgraph formato unendo il nodo terminale di <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">F_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> con il nodo iniziale di <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">F_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><strong>Nesting</strong>: Siano <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">F_1, F_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> due flowgraphs. Allora l'annidamento di <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">F_1, F_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> sul nodo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> descitto come <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">;</mo><msub><mi>F</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(F_1;F_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> è un'altro flowgraph formato partendo da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">F_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> sostituendo l'arco da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> con l'intero <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">F_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><strong>Flowgraph Primi</strong>: I flowgraph primi sono flowgraph che non possono essere decomposti in modo non banale tramite sequenze e nidificazioni. Ogni flowgraph ha una decomposizione <code>unica</code> in una gerarchia di primi, chiamata <strong>Albero di Decomposizione</strong>.</li>
+</ol>
+<p>Di seguito alcuni flowgraph primi comuni.</p>
+<p>Le D-structures rappresentano le strutture di controllo fondamentali promosse da Dijkstra:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: Sequenza lineare (es: istruzione 1 -&gt; istruzione 2 -&gt; istruzione 3)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">D_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: Selezione (es: if/else)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">D_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: Iterazione con controllo in testa (es: while)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">D_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: Iterazione con controllo in coda (es: do/while)</li>
+</ul>
+<h3 id="misure-gerarchiche">Misure Gerarchiche </h3>
+<p>È un modo di definire le misure dei flowgraph usando l'albero di decomposizione. È basato sull'idea che afferma che noi possiamo misurare un attributo del flowgraph nel seguente modo:</p>
+<ul>
+<li>definendo la misura per il flowgraph prime</li>
+<li>descrivendo come l'operazione di sequencing affetti l'attributo</li>
+<li>descrivendo come l'operazione di nesting affetti l'attributo</li>
+</ul>
+<h4 id="depth-of-nesting">Depth of Nesting </h4>
+<p>La depth di un flowgragh <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(F)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span> può essere misurata in termini di:</p>
+<ul>
+<li>
+<p><strong>Primes</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mn>3</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo>⋯</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n(P_1) = 0; n(P_2) = n(P_3) = \dots = n(P_k) = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>3</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n(D_0) = 0; n(D_1) = n(D_2) = n(D_3) = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+</li>
+<li>
+<p><strong>Sequencing</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">;</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">;</mo><mo>…</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>…</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">n(F_1;F_2; \dots F_k) = \max\{n(F_1) \dots n(F_k)\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">{</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span></span></span></span></p>
+</li>
+<li>
+<p><strong>Nesting</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>…</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">n(F(F_1, F_2,  \dots F_k)) = 1 + \max\{n(F_1) \dots n(F_k)\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">max</span><span class="mopen">{</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span></span></span></span></p>
+</li>
+</ul>
+<h4 id="d-structuredness">D-Structuredness </h4>
+<p>Molte definizioni popolari di programmazione strutturata asseriscono che il programma è strutturato se può essere composto usando solo un numero piccolo di costrutti ammissibili. La definizione informale di programmazione strutturale può essere espressa formalmente asserendo che un programma è strutturato <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇔</mo></mrow><annotation encoding="application/x-tex">\Leftrightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇔</span></span></span></span> è <strong>D-strutturato</strong>.</p>
+<ul>
+<li>
+<p><strong>Primes</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo separator="true">;</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>D</mi><mn>3</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n(P_1) = 0; n(D_0) = 0; n(D_1) = n(D_2) = n(D_3) = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span><br>
+0 altrimenti.</p>
+</li>
+<li>
+<p><strong>Sequencing</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">;</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">;</mo><mo>…</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>…</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">n(F_1;F_2; \dots F_k) = \min\{n(F_1) \dots n(F_k)\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">{</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span></span></span></span></p>
+</li>
+<li>
+<p><strong>Nesting</strong><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>…</mo><mi>n</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">n(F(F_1, F_2,  \dots F_k)) = \min\{n(F_1) \dots n(F_k)\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">{</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)}</span></span></span></span></p>
+</li>
+</ul>
+<p>Un programma (o meglio, il suo flowgraph, cioè il grafo che rappresenta il flusso del controllo) è considerato D-strutturato quando ha un valore di D-Structuredness basso, idealmente 0 o 1.</p>
+<h3 id="complessità-ciclomatica">Complessità Ciclomatica </h3>
+<p>La complessità di un programma può essere misurata dal numero <strong>ciclomatico</strong> del flowgraph del programma. Si può calcolare in due modi diversi:</p>
+<ol>
+<li><strong>Flowgraph Based</strong>: La complessità ciclomatica <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mi>e</mi><mo>−</mo><mi>n</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">v(F) = e - n + 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>, misura il numero di percorsi lineari indipendenti in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>.</li>
+<li><strong>Code Based</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">v(F) = 1 + d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span> dove <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span> è il numero di nodi predicato, ovvero il numero di nodi decisionali.</li>
+</ol>
+<ul>
+<li>Primes: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">v(F) = 1 + d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span></li>
+<li>Sequencing: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">;</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">;</mo><mo>…</mo><msub><mi>F</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>v</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>−</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">v(F_1;F_2; \dots F_n) = \sum_{i = 1}^n v(F_1) - n + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.104em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></li>
+<li>Nesting: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>F</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><msub><mi>F</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>+</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>v</mi><mo stretchy="false">(</mo><msub><mi>F</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>−</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">v(F(F_1, F_2,  \dots F_n)) = v(F) + \sum_{i = 1}^n v(F_1) - n + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.104em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8043em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></li>
+</ul>
+<h3 id="complesità-essenziale-di-mccabe">Complesità essenziale di McCabe </h3>
+<p>La complessità essenziale di un programma con flowgraph <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> è data da <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mi>v</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>−</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">ev(F ) = v(F ) − m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> il numero di sub-flowgraphs <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>D</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>D</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>D</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">D_0, D_1, D_2, D_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="software-quality">Software Quality </h2>
+<p>Il modello di qualità del software si basa principalmente sullo <strong>standarda IEEE 1061</strong>, che fornisce una guida strutturata per la definizione e valutazione della qualità del software attraverso l'identificazione e l'utilizzo di metriche specifiche.</p>
+<p>Si definisce <strong>qualità del software</strong> il livello con cui un software presenta una combinazione di attributi desiderati.</p>
+<ol>
+<li>
+<p><strong>Struttura</strong><br>
+Lo standard organizza la qualità del software seguendo i principi chiave che permettono di:</p>
+<ul>
+<li>Identificare gli <strong>obiettivi di qualità</strong> rilevanti per il progetto o sistema in questione</li>
+<li>Determinare gli <strong>attributi di qualità</strong> che rappresentano aspetti misurabili del software</li>
+<li>Sviluppare e applicare <strong>metriche</strong> che consentano di valutare tali attributi.</li>
+</ul>
+</li>
+<li>
+<p><strong>Indici di qualità</strong><br>
+Gli indici di qualità aggregano metriche per fornire un quadro d'insieme delle prestazioni del software rispetto a determinati obiettivi di qualità. Sono suddivisi in 3 gruppi principali, che rispettano le attività nel modello McCall, Il quality triangle. Sulle ascisse troviamo la percentuale di attività svolte dai vari attori sul prodotto mentre sulle ordinate il tempo, che parte dal momento di rilascio. Da questo periodo in poi il software è usato dagli utenti e nel mentre gli sviluppatori svolgono attività di monitoraggio e manutenzione. Quando gli utenti terminano di usare il software, esso passa nello stadio di dismissione, che sappiano non è istantaneo. Ciò che fa McCall è definire degli attributi per ciascuna attività di Revision, Transition o Operation, detti indici di qualità.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Categoria</th>
+<th>Caratteristica</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i1</td>
+<td>Operation</td>
+<td>Correttezza</td>
+<td>Indica quanto bene il software soddisfa le specifiche e le reali esigenze degli utenti.</td>
+</tr>
+<tr>
+<td>i2</td>
+<td>Operation</td>
+<td>Affidabilità</td>
+<td>Rappresenta la capacità del software di eseguire le sue funzioni con precisione e continuità.</td>
+</tr>
+<tr>
+<td>i3</td>
+<td>Operation</td>
+<td>Efficienza</td>
+<td>Misura il consumo di risorse computazionali, come CPU, memoria o tempo di esecuzione.</td>
+</tr>
+<tr>
+<td>i4</td>
+<td>Operation</td>
+<td>Integrità</td>
+<td>Valuta la sicurezza del sistema rispetto a accessi indesiderati o non autorizzati.</td>
+</tr>
+<tr>
+<td>i5</td>
+<td>Operation</td>
+<td>Usabilità</td>
+<td>Riguarda la facilità con cui l’utente può imparare e usare efficacemente il software.</td>
+</tr>
+<tr>
+<td>i6</td>
+<td>Revision</td>
+<td>Manutenibilità</td>
+<td>Misura la facilità con cui si possono rilevare e correggere errori nel software.</td>
+</tr>
+<tr>
+<td>i7</td>
+<td>Revision</td>
+<td>Testabilità</td>
+<td>Indica quanto sia semplice verificare che il software funzioni correttamente attraverso i test.</td>
+</tr>
+<tr>
+<td>i8</td>
+<td>Revision</td>
+<td>Flessibilità</td>
+<td>Descrive la facilità di modificare il software per adattarlo a nuovi requisiti.</td>
+</tr>
+<tr>
+<td>i9</td>
+<td>Transition</td>
+<td>Portabilità</td>
+<td>Esprime lo sforzo necessario per trasferire il software su ambienti diversi.</td>
+</tr>
+<tr>
+<td>i10</td>
+<td>Transition</td>
+<td>Riusabilità</td>
+<td>Indica il grado in cui parti del software possono essere riutilizzate in altri contesti.</td>
+</tr>
+<tr>
+<td>i11</td>
+<td>Transition</td>
+<td>Interoperabilità</td>
+<td>Valuta la capacità del software di interagire con altri sistemi o componenti.</td>
+</tr>
+<tr>
+<td>i12</td>
+<td>Transition</td>
+<td>Evolubilità</td>
+<td>Misura la facilità di aggiornare il software per rispondere a nuovi requisiti o cambiamenti.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Attributi di qualità</strong><br>
+Avendo definito gli indici di qualità, ora bisogna trovare un modo per misurarli, e per fare ciò si fa uso degli <strong>attributi di qualità</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Caratteristica</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complessità</strong></td>
+<td>Rappresenta quanto il software è comprensibile nel suo funzionamento, nelle strutture e nei flussi logici.</td>
+</tr>
+<tr>
+<td><strong>Accuratezza</strong></td>
+<td>Indica la precisione con cui il software esegue i calcoli o fornisce i risultati attesi.</td>
+</tr>
+<tr>
+<td><strong>Completezza</strong></td>
+<td>Misura quanto il software implementa completamente tutte le funzionalità richieste.</td>
+</tr>
+<tr>
+<td><strong>Consistenza</strong></td>
+<td>Si riferisce all’uso coerente di design, terminologia e convenzioni all’interno del sistema.</td>
+</tr>
+<tr>
+<td><strong>Error Tolerance</strong></td>
+<td>Valuta la capacità del software di gestire errori o anomalie senza interrompere il funzionamento.</td>
+</tr>
+<tr>
+<td><strong>Tracciabilità</strong></td>
+<td>Rappresenta il livello di connessione tra elementi del progetto (ad esempio tra codice e requisiti).</td>
+</tr>
+<tr>
+<td><strong>Espandibilità</strong></td>
+<td>Indica quanto facilmente il software può essere esteso, ad esempio in termini di nuove funzionalità o risorse.</td>
+</tr>
+<tr>
+<td><strong>Generalità</strong></td>
+<td>Misura la capacità del software di essere utilizzato in contesti diversi da quelli originari.</td>
+</tr>
+<tr>
+<td><strong>Modularità</strong></td>
+<td>Descrive il grado di indipendenza tra i vari componenti o moduli del sistema.</td>
+</tr>
+<tr>
+<td><strong>Auto-documentation</strong></td>
+<td>Riguarda la presenza di strumenti o funzionalità integrate (come help in linea) che assistono l’utente.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Processo di valutazione della qualità</strong><br>
+Lo standard IEEE 1061 descrive un processo chiaro e iterativo per valutare la qualità del software.</p>
+<ul>
+<li>Si definiscono gli obiettivi di qualità, che dipendono dal contesto applicativo del software.</li>
+<li>Si identificano gli attributi in base agli obiettivi di qualità.</li>
+<li>Si selezionano le metriche di rappresentazione per ogni attributo.</li>
+<li>Le metriche vengono poi calcolate e confrontate con valori attesi o accettabili.</li>
+<li>Infine, in base ai risultati si procede con il miglioramente continuo del software.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sqa-software-quality-assurance">SQA (Software Quality Assurance) </h3>
+<p>La garanzia della qualità del software (SQA) è un approccio pianificato e sistematico per garantire che sia il processo che il prodotto software siano conformi agli standard, processi e procedure stabiliti. L'obiettivo della SQA è quello di migliorare la qualità del software monitorarando sia il software che il processo di sviluppo per garantire la piena conformità con gli standard e le procedure stabiliti. Il ruolo della SQA è quello di fornire al management la garanzia che il processo ufficialmente stabilito sia effettivamente implementato.</p>
+<p>Gli standard in questo contesto rappresentano delle linee guida alle quali il progetto software dovrebbe esser comparato per assicurarsi di procedere bene (gli standard definiscono <strong>QUELLO</strong> che in generale dovrebbe essere fatto).<br>
+Il minimo standard indispendabile da seguire include:</p>
+<ul>
+<li><strong>Documentation Standard</strong> (es. che si utilizzi un template per il documento di specifica dei requisiti piuttosto che inventarsene la struttura di sana pianta)</li>
+<li><strong>Design Standard</strong> (standard di progettazione, si vuole cioè trasformare i requisiti software in progettazione software utilizzando un’adeguata documentazione progettuale come linguaggi di modellazione, specifiche di definizione degli algoritmi…)</li>
+<li><strong>Code Standard</strong> (standard di codifica per ottenere codice che sia quanto più possibile uniforme)</li>
+</ul>
+<p>Quando si utilizza il termine "Procedure" invece si fa riferimento alle linee guida che suggeriscono <strong>COME</strong> procedere effettivamente nello sviluppo (nella specifica, progettazione etc…) anche suggerendo chi deve farla, quando e cosa fare con i risultati.</p>
+<h2 id="testing">Testing </h2>
+<p>La fase di testing si assicura che un sistema software sia conforme alle sue specifiche e che soddisfi le esigenze dell'utente. In particolare andremo a parlare di <strong>Defect Testing</strong>.</p>
+<p>Il goal del <strong>Defect Testing</strong> è quello di scoprire <strong>difetti</strong> nei programmi, e va in contrasto con il validation testing, che richiede che il sistema funzioni corretamente e che abbia le funzionalità richieste dal cliente. Un defect test riuscito è un test che causa un comportamento anomalo all'interno del programma. Ci sono due fasi nel defect testing:</p>
+<ul>
+<li><strong>Component testing</strong>: Si testano le componenti individuali del programma.</li>
+<li><strong>Integration testing</strong>: Si testano gruppi di componenti integrati per creare un sistema o sottosistema.</li>
+<li><strong>User testing</strong>: Anche noto come validation testing o acceptance testing, in questa fase non si cercano difetti nel codice, ma si verifica se il software soddisfa i requisiti del cliente. In genere viene eseguito dall'utente finale o il cliente, infatti questa fase di testing viene fatta nei software a contratto, quando cliente e sviluppatore non coincidono.</li>
+</ul>
+<p>Per la fase di testing si seguono delle politiche, ovvero:</p>
+<ul>
+<li>Solo test esaustivi possono mostrare che il programma sia libero di difetti</li>
+<li>I test devono essere basati su un sottoinsieme di possibili test case, in accordo con le politche de devono essere visionate dal team di V&amp;V</li>
+<li>Testare situazioni tipiche è più importante che testare casi limite.</li>
+</ul>
+<p>Parliamo adesso dei due approcci che esistono nel testing software:</p>
+<ul>
+<li><strong>Black-box testing</strong>: si concentra sul comportamento esterno del software. Il tester non ha visibilità del codice sorgente: ossera input e output, cercando di capire se il software fa quello che deve fare, come da specifiche. Se l'output non è quello atteso allora il test defect ha avuto successo.</li>
+<li><strong>White-box testing</strong>: si concentra sull'interno del software. Il tester analizza il codice, la logica, i flussi interni, e crea test basati sulla struttura del programma. Si parla quindi di path testing, ovvero di creare test case per assicure che ciascun statement venga eseguito almeno una volta.</li>
+</ul>
+<p>In base a questa classificazione, abbiamo un insieme di approcci al testing:</p>
+<ul>
+<li><strong>Integration Testing</strong>: si testano gruppi di componenti integrati per formare un sistema o un sottosistema. L'obiettivo è verificare che le componenti collaborino corretamente. È un tipo di testing <code>black box</code>, perché si testa l'integrazione a livello funzionale, senza entrare nel dettaglio del codice.</li>
+<li><strong>Interface Testing</strong>: ha l'obiettivo di trovare difetti nelle interfacce dei componenti, come dati malformati, assunzioni errate su formati e protocolli. È anch'esso <code>black box</code> perché si osserca l'integrazione esterna tra moduli, non il loro funzionamento interno.</li>
+<li><strong>Stress Testing</strong>: si testa al massimo il comportamento del software in codizioni estreme, ad esempio con un carico superiore al massimo previsto. Serve a rivelare problemi di stabilità, gestione della memoria, prestazioni degradate. Fa parte della categoria <code>black box</code> perché interessa come il sistema si comporta globalmente sotto pressione.</li>
+<li><strong>Object-Oriented Testing</strong>: si testano le classi, si analizzano gli oggetti da queste classi in vari contesti. Fa parte della categoria <code>white box</code>, perché richiede di comprendere la struttura della classe.</li>
+<li><strong>Object Class Testing</strong>: è un sottoinsieme dell'object-oriented testing, si testa ogni operazione della classe in tutti i modi possibili, cercando di capire ogni combinazione significativa di stato/azione. È anch'esso ovviamente <code>white box</code>.</li>
+<li><strong>Scenario Based Testing</strong>: È un tipo di testing che deriva dai casi d'uso. Si identificano scenari realistici (l'utente esegue una ricerca, salva un file, etc...) e si osservano le interazioni tra oggetti. È anch'esso <code>white box</code>.</li>
+</ul>
 
       </div>
       
