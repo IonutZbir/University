@@ -603,3 +603,144 @@ persona1.saluta(); // Usa il metodo ereditato dal prototipo
 
 Il metodo `saluta` è ora condiviso tra tutte le istanze, perché viene ereditato dal prototipo. Questo è molto più efficiente in termini di memoria.
 Poiché non possiamo aggiungere direttamente proprietà o metodi ad un oggetto creato mediante costruttore, dobbiamo aggiungere la proprietà o il metodo nel costruttore stesso oppure mediante l'utilizzo della proprietà `prototype`. Così facendo tutte le istanze ereditarieranno la nuova proprietà dal prototipo.
+
+### Closure
+
+Iniziamo con `var` e `let`.
+
+- Lo scope di `var` è il functional block più vicino.
+- Lo scope di `let` è l'enclosing block più vicino.
+
+Possiamo definire funzioni dentro altre funzioni. La funzione "nested" può accedere allo scope della funzione che la include. L'inner function **può** accedere allo scope delle outer functions. L'outer function **non può** accedere allo scope delle inner functions.
+
+Una **closure** è una funzione che ha accesso alle variabili del suo scope esterno anche dopo che lo scopo esterno è terminato.
+
+```javascript
+function salutatore(name) {
+    let text = ’Ciao' + name; // Local variable
+    let diCiao = function() { alert(text); }
+    return diCiao;
+}
+let s = salutatore(’Lorenzo');
+s(); // alerts ”Ciao Lorenzo"
+```
+
+`s` non memorizza solo il return della funzione `salutatore`, ma anche le variabili appartenenti al suo scope.
+
+Uno dei principali utilizzi delle closure è quello di simulare la programmazione ad oggetti. Non avendo modificatori di accesso come `public` o `private`, possiamo incapsulare tutto all'interno di una closure.
+
+```javascript
+function creaConto() {
+    let saldo = 0;
+
+    return {
+        deposita: function (valore) {
+            saldo += valore;
+        },
+        mostraSaldo: function () {
+            return saldo;
+        }
+    };
+}
+
+const mioConto = creaConto();
+mioConto.deposita(100);
+console.log(mioConto.mostraSaldo()); // 100
+console.log(mioConto.saldo); // undefined
+```
+
+### Codice sincrono e asincrono
+
+- **Sincrono**: Viene eseguito riga per riga, nell'ordine in cui è scritto. Ogni istruzione blocca l'esecuzione del programma finché non è completata. Diventa un problema quando se un'operazione richiede tempo, tipo la lettura da un file.
+- **Asincrono**: Permette a certe operazioni di avviarsi e continuare in background, senza bloccare il resto del codice. È fondamentale per operazioni come: richieste HTTP, lettura/scrittura su file, timer.
+
+#### Event Loop
+
+L'event loop è un meccanismo che controlla l'ordine in cui il codice viene eseguito. Il suo compito è gestire l'esecuzione del codice, delle callback, delle promesse e di tutto ciò che è asincrono. Essendo single-threaded, eseguo solo una cosa alla volta, ed è qui che entra in gioco l'evento loop. Per parlare di evento loop dobbiamo prima parlare dei spazi di esecuzione:
+
+1. **Call Stack**: è dove il motore JS esegue il codice. Ogni funzione chiamata viene messa qui e poi tolta quando ha finito.
+2. **Web API/Node API**: sono funzioni fornite dall'ambiente e vengono delegate fuori dal thread principale.
+3. **Task Queue (Callback Queue)**: in questa coda vanno a finire le callback o le funzioni da eseguire dopo che le WEB APIs hanno finito.
+4. **Microtask Queue**: una coda speciale usata principalmente per le promesse. Le funzioni in questa coda hanno priorità più alta rispetto alla task queue.
+
+Dunque, l' evento loop funziona nel seguente modo:
+
+1. Prende il primo task dalla **call task** ed esegue.
+2. Se troa un'operazione asincrona, la passa alle WEB APIs.
+3. Quando l'operazione è completata (dopo il tempo indicato, o dopo una risposta), la relativa funzione viene messa nella task queue o nella microtask queue.
+4. L'event loop aspetta che il call stack sia vuoto. Appena è vuoto esegue tutti i microtask (es. `.then()`) e poi prende un task dalla task queue e lo esegue.
+
+#### Promises
+
+Una promise è un oggetto che rappresenta il risultato futuro (o il fallimento) di un'operazione asincrona. In pratica, promette che prima o poi verrà completata con un valore (se ha successo) o con un errore (se fallisce). Possiamo immaginarla come una scatola vuota che, nel tempo, verrà riempita con un risultato. Una Promise può trovarsi in 3 stati:
+
+- **Pending**: La promessa è stata creata ma l'operazione non è ancora completata.
+- **Fulfilled**: L'operazione è andata a buon fine e la promessa ha un valore.
+- **Rejected**: Qualcosa è andato storto e la promessa ha un errore.
+
+Si creano con il costrutture `promise = new Promise((resolve, reject) => {})`. Una volta creata, si pul agire sul risultato con: `.then()` se ha avuto successo, `.catch()` se ha fallito, `.finally()` per codice che dovrea essere eseguito in ogni caso.
+
+Poiché concatenando Promises, il codice diventa poco leggibile, sono state introdotto due keywork potenti: `await` e `async`.
+
+- `async` trasforma una funzione in una funzione asincrona che restituisce sempre una Promise.
+- `await` pausa l'esecuzione della funzione `async` finché la Promise non è completata. Si usa solo all'interno di funzioni `async`.
+
+Insieme permettono di scrivere codice asincrono come se fosse sincrono, miglirando chiarezza, leggibilità e manutenzione.
+
+```javascript
+function loginUtente(username) {
+    fetch(`/api/login?user=${username}`)
+        .then((risposta) => {
+            if (!risposta.ok) {
+                // Lancia manualmente un errore per entrare nel catch
+                throw new Error("Errore di rete");
+            }
+            return risposta.json();
+        })
+        .then((dati) => {
+            console.log('Benvenuto,', dati.nome);
+        })
+        .catch((errore) => {
+            console.error('Errore durante il login:', errore);
+        });
+}
+```
+
+```javascript
+async function loginUtente(username) {
+  try {
+        let risposta = await fetch(`/api/login?user=${username}`);
+
+        if (!risposta.ok) throw new Error("Errore di rete");
+
+        let dati = await risposta.json();
+
+        console.log('Benvenuto,', dati.nome);
+    } catch (errore) {
+        console.error('Errore durante il login:', errore);
+    }
+}
+```
+
+#### Fetch e Ajax
+
+Fetch e AJAX sono due modi per effettuare richieste HTTP da una pagina web verso un server. Sono usati per ottenere dati, inviarli, aggiornare contenuti senza ricaricare la pagina. In altre parole rende le applicazioni web dinamiche e interattive.
+
+- **AJAX**: sta per **Asynchronous JavaScrpit And XML**, è una tecnica che permette a una pagina web di comunicare con un server in modo asincrono, senza dover ricaricare la pgina intera. Si basa sull'oggetto `XMLHttpRequest` per la comunicazione.
+- **Fetch**: è un'API moderna introdotta nei browser per semplificare le chiamate HTTP. È basata sulle promesse, è piu leggibile e pulita.
+
+### NodeJS
+
+NodeJS è un runtime JS basato sul motore V8 di Chrome. Questo significa che prende il motore che interpreta JS e lo incapsula in un ambiente che permette a JS di interagire con il OS, accdendo al file system, gestire connessioni di rete, creare server.
+
+L'architettura di NodeJS è:
+
+- Single-threaded: usa un solo thread principale per eseguire codice JS.
+- Event-driven: basa l'esecuzione su un event loop, che gestisce eventi e callback.
+- È asincrono: molte operazioni, quali scrittura su file, query, richieste HTTP sono non bloccanti, quindi il server può gestire migliaia di connessioni contemporaneamente sneza attendere che una finisca per iniziarne un'altra.
+
+#### Express.js
+
+Express è un framework per NodeJSm progettato per la semplificare la creazione di server web e API. Permette di definire e gestire in modo facile e flessibile le route, aggiungere middlerware etc... .
+
+Il routing consiste nel definire per ogni endpoint una funzione che gestisce la richiesta a tale endpoint con metodi HTTP specifici. I parametri dinamici sono segmenti della URL che fungono da segnapost per valori variabili permettendo di definire endopoint dinamici.

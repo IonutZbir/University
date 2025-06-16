@@ -739,7 +739,578 @@ Non influenza la dimensione visiva interna, ma la distanza dell’elemento dagli
 <li><code>box-sizing: border-box;</code> - <code>width</code> e <code>height</code> includono <code>content + padding + border</code>. Molto più prevedibile per layout responsive.</li>
 </ol>
 <h3 id="position">Position </h3>
-<h2 id="teoria-js">Teoria JS </h2>
+<p>Di default, gli elementi HTML seguono il flusso normale del documento. I blocchi (come <code>div, p, h1, section</code>) si dispongono uno sotto l'altro, mentre gli inline (come <code>span, a, strong</code>) si affiancano orizzontalmente.</p>
+<p>Per modificare la posizione degli elementi HTML si utilizza la proprietà CSS <code>position</code>:</p>
+<ul>
+<li><code>static</code>: è il valore predefinito. L'elemento segue il flusso normale della pagina, senza alcun posizionamento speciale.</li>
+<li><code>relative</code>: permette di "muovere" un elemento rispetto alla sua posizione originale. L'elemento occupa ancora il suo spazio, ma si può spostare con <code>top, left, bottom, right</code>.</li>
+<li><code>absolute</code>: rimuove l'elemento dal flusso e lo posiziona rispetto al primo antenato con <code>position: relative</code> o simile. È utile per sovrapporre o ancorare elementi in posizione precise.</li>
+<li><code>fixed</code>: come <code>absolute</code>, ma posiziona l'elemento rispetto alla finestra del browser, quindi resta fisso anche quando si scrolla.</li>
+</ul>
+<p>Un altra proprietà usata per il posizionamento degli elementi è <code>float</code>. Permette di muovere un elemento tutto a destra o tutto a sinistra permettendo agli altri elementi di circondarlo. L'elemento a cui viene applicata la proprietà <code>float</code> esce dal flusso normale del documento, influenzado il contenuto dei blocchi attorno. In pasasto veniva usato per definire il layout della pagina ma adesso non è piu usato in quanto si usa <code>flex</code> e <code>grid</code>.</p>
+<h3 id="layout">Layout </h3>
+<h4 id="flex">Flex </h4>
+<p>Flexbox si basa su due livelli di elementi:</p>
+<ol>
+<li>Il contenitore flessibile, a cui si dà <code>display: flex</code></li>
+<li>I suoi figli diretti, che vengono automaticamente gestiti dal sistema Flexbox.</li>
+</ol>
+<ul>
+<li><strong>Proprietà del contenitore flex:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Proprietà</strong></th>
+<th><strong>Descrizione</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display</code></td>
+<td>Attiva il layout flex. Valori: <code>flex</code> (blocco) o <code>inline-flex</code> (inline).</td>
+</tr>
+<tr>
+<td><code>flex-direction</code></td>
+<td>Imposta la direzione degli elementi: <code>row</code>, <code>row-reverse</code>, <code>column</code>, <code>column-reverse</code>.</td>
+</tr>
+<tr>
+<td><code>flex-wrap</code></td>
+<td>Permette agli elementi di andare a capo se non c'è spazio: <code>nowrap</code> (default), <code>wrap</code>, <code>wrap-reverse</code>.</td>
+</tr>
+<tr>
+<td><code>flex-flow</code></td>
+<td>Shorthand per <code>flex-direction</code> e <code>flex-wrap</code>. Es: <code>flex-flow: row wrap;</code>.</td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>Allinea gli elementi lungo l'asse principale (es. orizzontale): <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>.</td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>Allinea gli elementi lungo l'asse secondario (es. verticale): <code>stretch</code> (default), <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>baseline</code>.</td>
+</tr>
+<tr>
+<td><code>align-content</code></td>
+<td>Allinea le righe multiple (quando c’è wrapping), lungo l’asse secondario. Funziona solo se ci sono <strong>più righe</strong>. Stessi valori di <code>justify-content</code>.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Proprietà dei figli</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Proprietà</strong></th>
+<th><strong>Descrizione</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex-grow</code></td>
+<td>Indica <strong>quanto</strong> un elemento può crescere per occupare lo spazio disponibile. Es: <code>flex-grow: 1</code> fa crescere in modo proporzionale.</td>
+</tr>
+<tr>
+<td><code>flex-shrink</code></td>
+<td>Indica <strong>quanto</strong> un elemento può restringersi se non c’è spazio. Es: <code>flex-shrink: 0</code> impedisce che si riduca.</td>
+</tr>
+<tr>
+<td><code>flex-basis</code></td>
+<td>Definisce la <strong>dimensione iniziale</strong> dell’elemento, prima che Flexbox ridistribuisca gli spazi. Può essere una misura (es. <code>200px</code>, <code>30%</code>).</td>
+</tr>
+<tr>
+<td><code>flex</code></td>
+<td>Shorthand per <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code>. Es: <code>flex: 1</code> è equivalente a <code>1 1 0</code>.</td>
+</tr>
+<tr>
+<td><code>align-self</code></td>
+<td>Permette a un singolo elemento di allinearsi diversamente dagli altri lungo l'asse secondario. Valori: <code>auto</code>, <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>baseline</code>, <code>stretch</code>.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>Cambia l’<strong>ordine visuale</strong> di un elemento rispetto agli altri (senza modificare l’HTML). Valore numerico: più piccolo viene prima. Default: <code>order: 0</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="grid">Grid </h4>
+<p>CSS Grid è un sistema di layout che consente di creare griglie complesse senza dover ricorrere a float, margin complicati o JavaScript. Ogni elemento può essere disposto in righe e colonne, decidendo:</p>
+<ul>
+<li>Quante colonne e righe ci sono</li>
+<li>Quanto spazio occupa ogni cella</li>
+<li>Dove va ogni elemento all’interno della griglia</li>
+</ul>
+<p>Si basa sempre su due livelli:</p>
+<ol>
+<li>Il contenitore: a cui si applica <code>display: grid</code> o <code>display: inline-grid</code>.</li>
+<li>Gli elementi figli, che si collocano in posizioni precise.</li>
+</ol>
+<ul>
+<li><strong>Proprietà del contenitore Grid</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Proprietà</strong></th>
+<th><strong>Descrizione</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display</code></td>
+<td>Attiva il layout Grid. Usa <code>grid</code> o <code>inline-grid</code>.</td>
+</tr>
+<tr>
+<td><code>grid-template-columns</code></td>
+<td>Definisce <strong>quante colonne</strong> ha la griglia e la <strong>larghezza di ciascuna</strong>. Es: <code>1fr 2fr 1fr</code>, <code>repeat(3, 1fr)</code>.</td>
+</tr>
+<tr>
+<td><code>grid-template-rows</code></td>
+<td>Come sopra, ma per le <strong>righe</strong>. Es: <code>100px auto 1fr</code>.</td>
+</tr>
+<tr>
+<td><code>grid-template-areas</code></td>
+<td>Assegna <strong>nomi visivi alle aree</strong> della griglia. Serve per layout leggibili e semantici.</td>
+</tr>
+<tr>
+<td><code>grid-template</code></td>
+<td>Shorthand per definire righe, colonne e aree in una sola proprietà.</td>
+</tr>
+<tr>
+<td><code>grid-auto-rows</code></td>
+<td>Definisce la <strong>dimensione automatica</strong> delle righe che non sono dichiarate.</td>
+</tr>
+<tr>
+<td><code>grid-auto-columns</code></td>
+<td>Come sopra, ma per colonne automatiche.</td>
+</tr>
+<tr>
+<td><code>grid-auto-flow</code></td>
+<td>Imposta il <strong>flusso automatico</strong> degli elementi: <code>row</code>, <code>column</code>, <code>row dense</code>, <code>column dense</code>.</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>Spazio tra righe e colonne. Valore singolo o doppio. Es: <code>gap: 10px 20px;</code>.</td>
+</tr>
+<tr>
+<td><code>row-gap</code>, <code>column-gap</code></td>
+<td>Permettono di specificare separatamente il gap verticale e orizzontale.</td>
+</tr>
+<tr>
+<td><code>justify-items</code></td>
+<td>Allinea gli <strong>elementi nelle celle</strong> lungo l’asse orizzontale. Es: <code>start</code>, <code>end</code>, <code>center</code>, <code>stretch</code>.</td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>Allinea gli <strong>elementi nelle celle</strong> verticalmente.</td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>Allinea <strong>l'intera griglia</strong> nel contenitore, orizzontalmente.</td>
+</tr>
+<tr>
+<td><code>align-content</code></td>
+<td>Allinea <strong>l'intera griglia</strong> nel contenitore, verticalmente.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Proprietà degli elementi figli</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Proprietà</strong></th>
+<th><strong>Descrizione</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grid-column-start</code></td>
+<td>Inizia alla <strong>colonna X</strong>. Es: <code>grid-column-start: 2</code>.</td>
+</tr>
+<tr>
+<td><code>grid-column-end</code></td>
+<td>Finisce alla <strong>colonna Y</strong>. Es: <code>grid-column-end: 4</code>.</td>
+</tr>
+<tr>
+<td><code>grid-row-start</code></td>
+<td>Inizia alla <strong>riga X</strong>.</td>
+</tr>
+<tr>
+<td><code>grid-row-end</code></td>
+<td>Finisce alla <strong>riga Y</strong>.</td>
+</tr>
+<tr>
+<td><code>grid-column</code></td>
+<td>Shorthand: <code>start / end</code>. Es: <code>grid-column: 2 / 4</code>.</td>
+</tr>
+<tr>
+<td><code>grid-row</code></td>
+<td>Come sopra, ma per le righe.</td>
+</tr>
+<tr>
+<td><code>grid-area</code></td>
+<td>Può essere il nome di un’area dichiarata in <code>grid-template-areas</code>, oppure 4 numeri: <code>row-start / col-start / row-end / col-end</code>.</td>
+</tr>
+<tr>
+<td><code>justify-self</code></td>
+<td>Allinea <strong>il singolo elemento</strong> orizzontalmente nella sua cella.</td>
+</tr>
+<tr>
+<td><code>align-self</code></td>
+<td>Allinea <strong>il singolo elemento</strong> verticalmente nella cella.</td>
+</tr>
+<tr>
+<td><code>place-self</code></td>
+<td>Shorthand di <code>align-self</code> e <code>justify-self</code>. Es: <code>place-self: center end</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="responsive">Responsive </h3>
+<p>Per pagine responsive si intende la creazione di layout che si adatta in automatico alla dimensione dello schermo. Ci sono varie tecniche per la creazione di layout responsive.</p>
+<h4 id="1-viewport-meta-tag">1. Viewport meta tag </h4>
+<p>Questo tag va sempre inserito nell'<code>head</code> di ogni documento HTML per dire al browser di adattarsi alla larghezza del dispositivo.<br>
+<code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></p>
+<h4 id="2-media-queries">2. Media Queries </h4>
+<p>Le media query sono delle regole CSS che vengono applicate solo quando certe condizioni sono vere, come ad esempio la larghezza dello schermo.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css css"><code><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">768</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token class">.contenitore</span></span> <span class="token punctuation">{</span>
+        <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Questa regola viene applicata solo se la larghezza dello schermo è 768px o meno.</p>
+<p>Il CSS responsive di può scrivere in due modi: Mobile First o Desktop First.</p>
+<ul>
+<li><strong>Mobile First</strong></li>
+</ul>
+<p>L'idea è quella di scrivere il CSS per gli schermi piccoli, poi espandere mediante media query con <code>min-width</code> per schermi più grandi.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css css"><code><span class="token comment">/* Base: mobile */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Tablet e oltre */</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">768</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Desktop largo */</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">1200</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">1200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><ul>
+<li><strong>Desktop First</strong></li>
+</ul>
+<p>L'idea invece è quella di scrivere il CSS per schermi grandi, poi addatarlo a schermi più piccoli con le media query con <code>max-width</code>.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css css"><code><span class="token comment">/* Base: desktop largo */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+    <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">1200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Tablet e più piccoli */</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">1199</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>   <span class="token comment">/* togliamo il limite massimo */</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>         <span class="token comment">/* eliminiamo i margini */</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Mobile */</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">767</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span> <span class="token comment">/* impila gli elementi in verticale */</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><h2 id="teoria-js">Teoria JS </h2>
+<p>Nel front-end, JavaScript serve per:</p>
+<ul>
+<li>Interagire con la pagina HTML (DOM)</li>
+<li>Gestire eventi (click, input, caricamento, ecc.)</li>
+<li>Manipolare stili, classi e contenuti dinamicamente</li>
+<li>Comunicare con server (es. via fetch)</li>
+<li>Controllare il flusso logico e rispondere alle azioni dell’utente</li>
+</ul>
+<h3 id="caratteristiche-di-js">Caratteristiche di JS </h3>
+<ol>
+<li>È un liguaggio interpretato dal browser in tempo reale.</li>
+<li>È orientato agli oggetti, ma non segue il classico paradigma "a classi" di JAVA o C++. Il meccanismo alla base è la programmazione basata su prototipi. Ogni oggetto può ereditare proprietà da un altro oggetto, chiamato prototipo. Gli oggetti in JS sono una lista di coppie <code>key-value</code> (JSON).</li>
+<li>Non è tipizzato</li>
+<li>Debolmente tipizzato (<code>5 == "5" // true</code>, si usa <code>===</code> per confrontare anche il tipo dei dati)</li>
+<li>JS è guidato dagli eventi, cioè reagisce a ciò che succede nella pagina e supporta la programmazione asincrona.</li>
+<li>JS esegue tutto su un solo thread, ma grazie all'event loop può gestire molte cose contemporaneamente.</li>
+<li>Dispone di una garbage collector, un algoritmo che capisce quali variabili e oggetti non sono piu utili e li rimuove dalla memoria.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Funzione / Metodo</th>
+<th>A cosa serve</th>
+<th>Esempio rapido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>document.querySelector()</code></td>
+<td>Seleziona il <strong>primo</strong> elemento con un selettore CSS</td>
+<td><code>document.querySelector(".btn")</code></td>
+</tr>
+<tr>
+<td><code>document.querySelectorAll()</code></td>
+<td>Seleziona <strong>tutti</strong> gli elementi che corrispondono al selettore</td>
+<td><code>document.querySelectorAll("div.card")</code></td>
+</tr>
+<tr>
+<td><code>document.getElementById()</code></td>
+<td>Seleziona un elemento per <code>id</code></td>
+<td><code>document.getElementById("header")</code></td>
+</tr>
+<tr>
+<td><code>element.addEventListener()</code></td>
+<td>Assegna un <strong>gestore di eventi</strong> a un elemento</td>
+<td><code>btn.addEventListener("click", funzione)</code></td>
+</tr>
+<tr>
+<td><code>element.classList.add()</code></td>
+<td>Aggiunge una o più classi CSS all’elemento</td>
+<td><code>box.classList.add("attivo")</code></td>
+</tr>
+<tr>
+<td><code>element.classList.remove()</code></td>
+<td>Rimuove una o più classi</td>
+<td><code>box.classList.remove("attivo")</code></td>
+</tr>
+<tr>
+<td><code>element.classList.toggle()</code></td>
+<td>Aggiunge o rimuove una classe <strong>in base allo stato attuale</strong></td>
+<td><code>btn.classList.toggle("on")</code></td>
+</tr>
+<tr>
+<td><code>element.innerText / innerHTML</code></td>
+<td>Legge o imposta il contenuto testuale o HTML</td>
+<td><code>div.innerText = "Ciao"</code></td>
+</tr>
+<tr>
+<td><code>element.style.property</code></td>
+<td>Modifica uno stile direttamente (inline)</td>
+<td><code>box.style.backgroundColor = "red"</code></td>
+</tr>
+<tr>
+<td><code>setTimeout()</code></td>
+<td>Esegue una funzione <strong>dopo un certo tempo</strong></td>
+<td><code>setTimeout(() =&gt; alert("Ciao"), 2000)</code></td>
+</tr>
+<tr>
+<td><code>setInterval()</code></td>
+<td>Esegue una funzione <strong>ripetutamente ogni intervallo</strong></td>
+<td><code>setInterval(() =&gt; console.log("tick"), 1000)</code></td>
+</tr>
+<tr>
+<td><code>clearTimeout()</code> / <code>clearInterval()</code></td>
+<td>Ferma un <code>setTimeout</code> o <code>setInterval</code></td>
+<td><code>clearInterval(id)</code></td>
+</tr>
+<tr>
+<td><code>event.preventDefault()</code></td>
+<td>Impedisce il comportamento predefinito (es. invio di un form)</td>
+<td><code>form.addEventListener("submit", e =&gt; e.preventDefault())</code></td>
+</tr>
+<tr>
+<td><code>window.addEventListener("load")</code></td>
+<td>Esegue qualcosa <strong>quando la pagina è completamente caricata</strong></td>
+<td><code>window.addEventListener("load", init)</code></td>
+</tr>
+<tr>
+<td><code>JSON.stringify()</code> / <code>JSON.parse()</code></td>
+<td>Converte oggetti in stringa JSON e viceversa</td>
+<td><code>localStorage.setItem("user", JSON.stringify(obj))</code></td>
+</tr>
+<tr>
+<td><code>localStorage.getItem()</code> / <code>setItem()</code></td>
+<td>Salva o recupera dati locali persistenti</td>
+<td><code>localStorage.getItem("nome")</code></td>
+</tr>
+<tr>
+<td><code>fetch()</code></td>
+<td>Fa una richiesta HTTP (es. API)</td>
+<td><code>fetch("/api").then(r =&gt; r.json())</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="prototipi-costruttori-ed-ereditarietà">Prototipi, costruttori ed ereditarietà </h3>
+<ul>
+<li>Un oggetto è una collezione di proprietà, dove ogni proprietà ha un nome (chiave) e un valore. Gli oggetti sono alla base di JavaScript, e tutto (inclusi array e funzioni) può essere considerato un oggetto o derivato da esso.</li>
+<li>Un costruttore è una funzione speciale che viene usata per creare più oggetti con la stessa "struttura". È un modo per "produrre oggetti" simili.</li>
+</ul>
+<pre data-role="codeBlock" data-info="Javascript" class="language-javascript Javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Persona</span></span><span class="token punctuation">(</span><span class="token parameter">nome<span class="token punctuation">,</span> età</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">nome</span> <span class="token operator">=</span> nome<span class="token punctuation">;</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">età</span> <span class="token operator">=</span> età<span class="token punctuation">;</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">saluta</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Ciao, sono </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">nome</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-const">const</span> persona1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Persona</span><span class="token punctuation">(</span><span class="token string">"Marco"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> persona2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Persona</span><span class="token punctuation">(</span><span class="token string">"Giulia"</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><ul>
+<li>Per evitare la duplicazione dei metodi, JavaScript utilizza i prototipi. Un prototipo è un oggetto dal quale altri oggetti possono ereditare proprietà e metodi. Ogni funzione costruttrice ha una proprietà prototype, e ogni oggetto creato con quella funzione eredita automaticamente da quel prototipo.</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">sayHi</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token string">'Hi, I am '</span> <span class="token operator">+</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">name</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>In questo caso ogni qualvolta che viene creato un oggetto di tipo <code>Person</code>, esso conterrà al suo interno il metodo <code>sayHi</code>.</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> name
+<span class="token punctuation">}</span>
+<span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">sayHi</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token string">'Hi, I am '</span> <span class="token operator">+</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">name</span>
+<span class="token punctuation">}</span>
+</code></pre><p>In questo caso invece, ciascun oggetto <code>Person</code> contiene al suo interno solo la proprietà <code>name</code> e il metodo <code>sayHi</code> viene ereditato dal suo prototipo, quindi in memoria c'è un'unica istanza di tale metodo, il che è molto piu efficiente da un punto di vista di gestione della memoria.</p>
+<ul>
+<li>Quando chiamiamo una proprietà di un oggetto, prima si cerca tra le proprietà dell’oggetto, poi tra le proprietà del prototipo e infine  tra le proprietà del prototipo del prototipo etc... <code>[Prototype chain]</code>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="Javascript" class="language-javascript Javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Persona</span></span><span class="token punctuation">(</span><span class="token parameter">nome<span class="token punctuation">,</span> età</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">nome</span> <span class="token operator">=</span> nome<span class="token punctuation">;</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">età</span> <span class="token operator">=</span> età<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Persona</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">saluta</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Ciao, sono </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">nome</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> persona1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Persona</span><span class="token punctuation">(</span><span class="token string">"Marco"</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+persona1<span class="token punctuation">.</span><span class="token method function property-access">saluta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Usa il metodo ereditato dal prototipo</span>
+</code></pre><p>Il metodo <code>saluta</code> è ora condiviso tra tutte le istanze, perché viene ereditato dal prototipo. Questo è molto più efficiente in termini di memoria.<br>
+Poiché non possiamo aggiungere direttamente proprietà o metodi ad un oggetto creato mediante costruttore, dobbiamo aggiungere la proprietà o il metodo nel costruttore stesso oppure mediante l'utilizzo della proprietà <code>prototype</code>. Così facendo tutte le istanze ereditarieranno la nuova proprietà dal prototipo.</p>
+<h3 id="closure">Closure </h3>
+<p>Iniziamo con <code>var</code> e <code>let</code>.</p>
+<ul>
+<li>Lo scope di <code>var</code> è il functional block più vicino.</li>
+<li>Lo scope di <code>let</code> è l'enclosing block più vicino.</li>
+</ul>
+<p>Possiamo definire funzioni dentro altre funzioni. La funzione "nested" può accedere allo scope della funzione che la include. L'inner function <strong>può</strong> accedere allo scope delle outer functions. L'outer function <strong>non può</strong> accedere allo scope delle inner functions.</p>
+<p>Una <strong>closure</strong> è una funzione che ha accesso alle variabili del suo scope esterno anche dopo che lo scopo esterno è terminato.</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function">salutatore</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-let">let</span> text <span class="token operator">=</span> ’Ciao' <span class="token operator">+</span> name<span class="token punctuation">;</span> <span class="token comment">// Local variable</span>
+    <span class="token keyword keyword-let">let</span> <span class="token function-variable function">diCiao</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">alert</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword control-flow keyword-return">return</span> diCiao<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword keyword-let">let</span> s <span class="token operator">=</span> <span class="token function">salutatore</span><span class="token punctuation">(</span>’Lorenzo'<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// alerts ”Ciao Lorenzo"</span>
+</code></pre><p><code>s</code> non memorizza solo il return della funzione <code>salutatore</code>, ma anche le variabili appartenenti al suo scope.</p>
+<p>Uno dei principali utilizzi delle closure è quello di simulare la programmazione ad oggetti. Non avendo modificatori di accesso come <code>public</code> o <code>private</code>, possiamo incapsulare tutto all'interno di una closure.</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function">creaConto</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-let">let</span> saldo <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">deposita</span><span class="token operator">:</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token parameter">valore</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            saldo <span class="token operator">+=</span> valore<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function-variable function">mostraSaldo</span><span class="token operator">:</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-return">return</span> saldo<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-const">const</span> mioConto <span class="token operator">=</span> <span class="token function">creaConto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mioConto<span class="token punctuation">.</span><span class="token method function property-access">deposita</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>mioConto<span class="token punctuation">.</span><span class="token method function property-access">mostraSaldo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 100</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>mioConto<span class="token punctuation">.</span><span class="token property-access">saldo</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+</code></pre><h3 id="codice-sincrono-e-asincrono">Codice sincrono e asincrono </h3>
+<ul>
+<li><strong>Sincrono</strong>: Viene eseguito riga per riga, nell'ordine in cui è scritto. Ogni istruzione blocca l'esecuzione del programma finché non è completata. Diventa un problema quando se un'operazione richiede tempo, tipo la lettura da un file.</li>
+<li><strong>Asincrono</strong>: Permette a certe operazioni di avviarsi e continuare in background, senza bloccare il resto del codice. È fondamentale per operazioni come: richieste HTTP, lettura/scrittura su file, timer.</li>
+</ul>
+<h4 id="event-loop">Event Loop </h4>
+<p>L'event loop è un meccanismo che controlla l'ordine in cui il codice viene eseguito. Il suo compito è gestire l'esecuzione del codice, delle callback, delle promesse e di tutto ciò che è asincrono. Essendo single-threaded, eseguo solo una cosa alla volta, ed è qui che entra in gioco l'evento loop. Per parlare di evento loop dobbiamo prima parlare dei spazi di esecuzione:</p>
+<ol>
+<li><strong>Call Stack</strong>: è dove il motore JS esegue il codice. Ogni funzione chiamata viene messa qui e poi tolta quando ha finito.</li>
+<li><strong>Web API/Node API</strong>: sono funzioni fornite dall'ambiente e vengono delegate fuori dal thread principale.</li>
+<li><strong>Task Queue (Callback Queue)</strong>: in questa coda vanno a finire le callback o le funzioni da eseguire dopo che le WEB APIs hanno finito.</li>
+<li><strong>Microtask Queue</strong>: una coda speciale usata principalmente per le promesse. Le funzioni in questa coda hanno priorità più alta rispetto alla task queue.</li>
+</ol>
+<p>Dunque, l' evento loop funziona nel seguente modo:</p>
+<ol>
+<li>Prende il primo task dalla <strong>call task</strong> ed esegue.</li>
+<li>Se troa un'operazione asincrona, la passa alle WEB APIs.</li>
+<li>Quando l'operazione è completata (dopo il tempo indicato, o dopo una risposta), la relativa funzione viene messa nella task queue o nella microtask queue.</li>
+<li>L'event loop aspetta che il call stack sia vuoto. Appena è vuoto esegue tutti i microtask (es. <code>.then()</code>) e poi prende un task dalla task queue e lo esegue.</li>
+</ol>
+<h4 id="promises">Promises </h4>
+<p>Una promise è un oggetto che rappresenta il risultato futuro (o il fallimento) di un'operazione asincrona. In pratica, promette che prima o poi verrà completata con un valore (se ha successo) o con un errore (se fallisce). Possiamo immaginarla come una scatola vuota che, nel tempo, verrà riempita con un risultato. Una Promise può trovarsi in 3 stati:</p>
+<ul>
+<li><strong>Pending</strong>: La promessa è stata creata ma l'operazione non è ancora completata.</li>
+<li><strong>Fulfilled</strong>: L'operazione è andata a buon fine e la promessa ha un valore.</li>
+<li><strong>Rejected</strong>: Qualcosa è andato storto e la promessa ha un errore.</li>
+</ul>
+<p>Si creano con il costrutture <code>promise = new Promise((resolve, reject) =&gt; {})</code>. Una volta creata, si pul agire sul risultato con: <code>.then()</code> se ha avuto successo, <code>.catch()</code> se ha fallito, <code>.finally()</code> per codice che dovrea essere eseguito in ogni caso.</p>
+<p>Poiché concatenando Promises, il codice diventa poco leggibile, sono state introdotto due keywork potenti: <code>await</code> e <code>async</code>.</p>
+<ul>
+<li><code>async</code> trasforma una funzione in una funzione asincrona che restituisce sempre una Promise.</li>
+<li><code>await</code> pausa l'esecuzione della funzione <code>async</code> finché la Promise non è completata. Si usa solo all'interno di funzioni <code>async</code>.</li>
+</ul>
+<p>Insieme permettono di scrivere codice asincrono come se fosse sincrono, miglirando chiarezza, leggibilità e manutenzione.</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-function">function</span> <span class="token function">loginUtente</span><span class="token punctuation">(</span><span class="token parameter">username</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/api/login?user=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">risposta</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>risposta<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// Lancia manualmente un errore per entrare nel catch</span>
+                <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Errore di rete"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow keyword-return">return</span> risposta<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">dati</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'Benvenuto,'</span><span class="token punctuation">,</span> dati<span class="token punctuation">.</span><span class="token property-access">nome</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">errore</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span><span class="token string">'Errore durante il login:'</span><span class="token punctuation">,</span> errore<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">loginUtente</span><span class="token punctuation">(</span><span class="token parameter">username</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-try">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-let">let</span> risposta <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/api/login?user=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>risposta<span class="token punctuation">.</span><span class="token property-access">ok</span><span class="token punctuation">)</span> <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Errore di rete"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-let">let</span> dati <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> risposta<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'Benvenuto,'</span><span class="token punctuation">,</span> dati<span class="token punctuation">.</span><span class="token property-access">nome</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow keyword-catch">catch</span> <span class="token punctuation">(</span>errore<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span><span class="token string">'Errore durante il login:'</span><span class="token punctuation">,</span> errore<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="fetch-e-ajax">Fetch e Ajax </h4>
+<p>Fetch e AJAX sono due modi per effettuare richieste HTTP da una pagina web verso un server. Sono usati per ottenere dati, inviarli, aggiornare contenuti senza ricaricare la pagina. In altre parole rende le applicazioni web dinamiche e interattive.</p>
+<ul>
+<li><strong>AJAX</strong>: sta per <strong>Asynchronous JavaScrpit And XML</strong>, è una tecnica che permette a una pagina web di comunicare con un server in modo asincrono, senza dover ricaricare la pgina intera. Si basa sull'oggetto <code>XMLHttpRequest</code> per la comunicazione.</li>
+<li><strong>Fetch</strong>: è un'API moderna introdotta nei browser per semplificare le chiamate HTTP. È basata sulle promesse, è piu leggibile e pulita.</li>
+</ul>
+<h3 id="nodejs">NodeJS </h3>
+<p>NodeJS è un runtime JS basato sul motore V8 di Chrome. Questo significa che prende il motore che interpreta JS e lo incapsula in un ambiente che permette a JS di interagire con il OS, accdendo al file system, gestire connessioni di rete, creare server.</p>
+<p>L'architettura di NodeJS è:</p>
+<ul>
+<li>Single-threaded: usa un solo thread principale per eseguire codice JS.</li>
+<li>Event-driven: basa l'esecuzione su un event loop, che gestisce eventi e callback.</li>
+<li>È asincrono: molte operazioni, quali scrittura su file, query, richieste HTTP sono non bloccanti, quindi il server può gestire migliaia di connessioni contemporaneamente sneza attendere che una finisca per iniziarne un'altra.</li>
+</ul>
+<h4 id="expressjs">Express.js </h4>
+<p>Express è un framework per NodeJSm progettato per la semplificare la creazione di server web e API. Permette di definire e gestire in modo facile e flessibile le route, aggiungere middlerware etc... .</p>
+<p>Il routing consiste nel definire per ogni endpoint una funzione che gestisce la richiesta a tale endpoint con metodi HTTP specifici. I parametri dinamici sono segmenti della URL che fungono da segnapost per valori variabili permettendo di definire endopoint dinamici.</p>
 
       </div>
       
