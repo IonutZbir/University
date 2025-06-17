@@ -1,0 +1,35 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	display: flex;
+	justify-content: center;
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.vertical-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Contenitore con flex-wrap */
+.container-wrap {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+/* --- Per navbar andare in ../navbar --- */
+

@@ -227,19 +227,22 @@ def calcola_perimetro(X):
     
     return np.array(perimetro)
 
-dX = calcola_distanza_centroide(X)
-X_f = np.array([list(x.flatten()) for x in X])
-X_f = np.hstack([X_f, dX])
+c = calcola_centroidi(square)
+print(c)
 
-aree = calcola_aree(square)
-areeC = calcola_area_convessa(square)
-rapporto = aree / areeC
-perimetro = calcola_perimetro(square)
+# dX = calcola_distanza_centroide(X)
+# X_f = np.array([list(x.flatten()) for x in X])
+# X_f = np.hstack([X_f, dX])
 
-print("Aree: ", aree)
-print("Aree Convesse:", areeC)
-print("Rapporto: ", rapporto)
-print("Perimetro: ", perimetro)
+# aree = calcola_aree(square)
+# areeC = calcola_area_convessa(square)
+# rapporto = aree / areeC
+# perimetro = calcola_perimetro(square)
+
+# print("Aree: ", aree)
+# print("Aree Convesse:", areeC)
+# print("Rapporto: ", rapporto)
+# print("Perimetro: ", perimetro)
 
 # print("[INFO]: Array di forme originario:")
 # for xi in X:
