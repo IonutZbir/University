@@ -1,5 +1,8 @@
 import numpy as np
 from scipy.spatial import ConvexHull
+import pandas as pd
+import os
+import csv
 
 X = np.array(
     [
@@ -227,12 +230,158 @@ def calcola_perimetro(X):
     
     return np.array(perimetro)
 
-c = calcola_centroidi(square)
-print(c)
+import numpy as np
+import pandas as pd
+
+def esporta_dataset(filename, X, y, labels):
+    """
+    Esporta le forme in un CSV con stringhe coordinate formattate e label testuali.
+
+    Formato:
+        x0,y0;x1,y1;x2,y2,...,etichetta
+
+    Args:
+        filename (str): Nome del file CSV di output.
+        X (np.ndarray): Array di shape (n_forme, n_punti, 2).
+        y (np.ndarray): Etichette numeriche.
+        labels (list or dict): Mappa da indice a stringa.
+    """
+    righe = []
+    for forma, etichetta in zip(X, y):
+        stringa_coord = ";".join(f"{x:.8f},{y:.8f}" for x, y in forma)
+        righe.append({
+            "coordinate": stringa_coord,
+            "label": labels[etichetta]
+        })
+    
+    df = pd.DataFrame(righe, columns=["coordinate", "label"])
+    
+
+    
+    df.to_csv(filename, index=False)
+    print(f"[INFO]: Dataset esportato con successo in '{filename}' con {len(df)} righe.")
+
+def importa_dataset(filename, labels):
+    df = pd.read_csv(filename)
+
+    y = []
+    X = []
+    for _, row in df.iterrows():
+        label = row['label']
+        raw_coords = row['coordinate']
+
+        print(raw_coords)
+    
+        # Lista di tuple (x, y)
+        points = [tuple(map(float, point.split(','))) for point in raw_coords.split(';')]
+        X.append(points)
+        
+        y.append(labels[label])
+    
+    return np.array(X), np.array(y)
+
+def esporta_piatto():
+
+
+    # Supponiamo che il tuo array si chiami `shapes`
+    shapes = np.array([...])  # il tuo array appiattito
+
+    with open("forme.csv", "w", newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["coordinate"])  # intestazione facoltativa
+
+        for shape in shapes:
+            # forma la stringa "x1,y1;x2,y2;..." per ogni riga
+            coord_string = ";".join(f"{x:.6f},{y:.6f}" for x, y in shape.reshape(-1, 2))
+            writer.writerow([coord_string])
+
+
+def calcola_statistiche_centroide(distanze):
+    """
+    Calcola per ciascuna forma, la media, deviazione standard e massimo e minimo delle distanze.
+    
+    Parametri:
+        distanze (np.ndarray): Array di shape, per ogni forma il relativo array delle distanze dal centroide
+    
+    Restituisce:
+        stats (np.ndarray): Array di shape
+    """
+    
+    print(distanze)
+    
+    mean = np.mean(distanze, axis=1).reshape(-1 ,1)
+    std = np.std(distanze, axis=1).reshape(-1 ,1)
+    M = np.max(distanze, axis=1).reshape(-1 ,1)
+    m = np.min(distanze, axis=1).reshape(-1 ,1)
+    
+    
+    print(mean, "\n")
+    print(std, "\n")
+    print(M, "\n")
+    print(m, "\n")
+    
+    stats = np.hstack([mean, std, M, m])
+    
+    print(stats)
+
+def bounding_box(X):
+    """
+    Calcola la bounding box di una forma 2D.
+
+    Parametri:
+    - X: array di forma (n_punti, 2), contenente coordinate x, y
+
+    Ritorna:
+    - aspect_ratio: rapporto larghezza/altezza
+    """
+    
+    bb = []
+    for xi in X:
+        min_x = np.min(xi[:, 0])
+        max_x = np.max(xi[:, 0])
+        min_y = np.min(xi[:, 1])
+        max_y = np.max(xi[:, 1])
+    
+        width = max_x - min_x
+        height = max_y - min_y
+        aspect_ratio = width / height if height != 0 else 0
+        bb.append(aspect_ratio)
+
+    return np.array(bb)
+
+# labels_idx = {'ellisse': 0, 'rettangolo': 1, 'segmento': 2, 'croce': 3}
+# labels = ['ellisse', 'rettangolo', 'segmento', 'croce']
+# y = np.array([0, 1, 1, 2, 3])
+
+# current_file_path = os.path.abspath(__file__)
+# dir_path = os.path.dirname(current_file_path)
+# filename = os.path.join(dir_path, "data.csv")
+
+# esporta_dataset(filename, X, y, labels)
+# X_i, y = importa_dataset(filename, labels_idx)
+
+# print(X_i)
+# print(y)
+
+# print(X)
+
+
+# esporta_piatto(os.path.join(dir_path, "data_piatto.csv"))
+
+distanze = np.linalg.norm(X[:, -1] - X[:, 0], axis=1)
+print(distanze)
+aspect_ratio = bounding_box(X)
+print(aspect_ratio)
 
 # dX = calcola_distanza_centroide(X)
+
+# stats = calcola_statistiche_centroide(dX)
+
 # X_f = np.array([list(x.flatten()) for x in X])
 # X_f = np.hstack([X_f, dX])
+
+
+
 
 # aree = calcola_aree(square)
 # areeC = calcola_area_convessa(square)
