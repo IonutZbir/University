@@ -30,6 +30,7 @@ app.get("/articoli", (req, res) => {
 
 app.get("/autori", (req, res) => {
   let autori = []
+  console.log(req)
   data.forEach(element => {
     autori.push(element.autore)
   });

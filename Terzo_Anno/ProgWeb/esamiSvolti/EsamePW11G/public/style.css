@@ -1,0 +1,160 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+/* Mobile First */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header, footer {
+	background-color: #fdf6e3;
+	height: 80px;
+}
+
+footer ul{
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	margin: 0 2%;
+}
+
+main {
+	height: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.navbar {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 5%;
+}
+
+.nav-links {
+	display: none;
+	list-style: none;
+	gap: 15px;
+}
+
+.toggle {
+	cursor: pointer;
+}
+
+.toggle div {
+	width: 35px;
+	height: 5px;
+	background-color: black;
+	margin: 6px 0;
+	display: block;
+}
+
+.nav-links.visible {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 1rem 10%;
+	position: absolute;
+	top: 80px;
+	left: 0;
+	align-items: flex-end;
+	background-color: #fdf6e3;
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.vertical-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Contenitore con flex-wrap */
+.container-wrap {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 1.5rem;
+	margin: 1rem;
+	max-width: 350px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	transition: box-shadow 0.2s;
+}
+
+.card-title {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.card-content {
+	font-size: 1rem;
+	color: #444;
+	margin-bottom: 1rem;
+}
+
+.card-button {
+	background-color: #fdf6e3;
+	color: #333;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+
+.card-button:hover {
+	background-color: #ffe9b3;
+	color: #111;
+}
+
+/* --- Per navbar andare in ../navbar --- */
+
+@media (min-width: 900px) {
+	.toggle {
+		display: none;
+	}
+
+	/* quando si passa a desktop, bisogna rimettere i link della nav in orizzantale */
+
+	.nav-links {
+		display: flex !important;
+		flex-direction: row !important;
+		position: relative !important;
+		width: auto !important;
+		padding: 0 !important;
+		/* margin: 0 !important; */
+		align-items: center !important;
+		background-color: transparent !important;
+	}
+}

@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"titolo": "Concerto Jazz",
+		"data": "2025-06-15T20:30:00",
+		"luogo": "Teatro Comunale",
+		"descrizione": "Un viaggio nella musica jazz...",
+		"partecipanti": ["mario.rossi@email.it", "giulia.bianchi@email.it"],
+		"recensioni": [
+			{
+				"utente": "giulia.bianchi@email.it",
+				"testo": "Bellissimo!",
+				"voto": 5
+			}
+		]
+	},
+	{
+		"id": 2,
+		"titolo": "Mostra d'Arte Moderna",
+		"data": "2025-07-10T18:00:00",
+		"luogo": "Galleria d'Arte",
+		"descrizione": "Esposizione di artisti contemporanei.",
+		"partecipanti": ["luca.verdi@email.it", "anna.neri@email.it"],
+		"recensioni": [
+			{
+				"utente": "luca.verdi@email.it",
+				"testo": "Molto interessante!",
+				"voto": 4
+			}
+		]
+	},
+	{
+		"id": 3,
+		"titolo": "Festival del Cinema",
+		"data": "2025-08-22T21:00:00",
+		"luogo": "Cinema Centrale",
+		"descrizione": "Proiezione di film indipendenti.",
+		"partecipanti": ["paolo.bianchi@email.it"],
+		"recensioni": [
+			{
+				"utente": "paolo.bianchi@email.it",
+				"testo": "Film emozionanti.",
+				"voto": 5
+			}
+		]
+	},
+	{
+		"id": 4,
+		"titolo": "Spettacolo Teatrale",
+		"data": "2025-09-05T19:30:00",
+		"luogo": "Teatro Nuovo",
+		"descrizione": "Commedia brillante in due atti.",
+		"partecipanti": ["giulia.bianchi@email.it", "mario.rossi@email.it"],
+		"recensioni": [
+			{
+				"utente": "giulia.bianchi@email.it",
+				"testo": "Divertente e ben recitato.",
+				"voto": 4
+			}
+		]
+	}
+]
