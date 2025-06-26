@@ -1,0 +1,92 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100dvh;
+}
+
+header, footer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80px;
+	background-color: #888;
+}
+
+main{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+ul{
+	list-style: none;
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.vertical-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Contenitore con flex-wrap */
+.container-wrap {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.li-task {
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 10px 0;
+}
+
+.li-task p {
+	font-weight: 800;
+	color: white;
+	padding: 10px;
+}
+
+.li-task button {
+	padding: 8px 16px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.2s;
+}
+
+.li-task button:hover {
+	background-color: #0056b3;
+}
+
+.completed{
+	text-decoration: line-through;
+	color: #888;
+}
+
+/* --- Per navbar andare in ../navbar --- */

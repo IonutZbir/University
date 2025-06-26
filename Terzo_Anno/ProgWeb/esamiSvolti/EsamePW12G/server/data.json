@@ -1,0 +1,6 @@
+[
+	{ "id": 1, "nome": "Taccuino", "prezzo": 12.5 },
+	{ "id": 2, "nome": "Penna Blu", "prezzo": 3.0 },
+	{ "id": 3, "nome": "Evidenziatore Giallo", "prezzo": 2.5 },
+	{ "id": 4, "nome": "Zaino", "prezzo": 45.0 }
+]

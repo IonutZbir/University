@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"nome": "Luca",
+		"cognome": "Rossi",
+		"email": "luca.rossi@example.com"
+	},
+	{
+		"id": 2,
+		"nome": "Giulia",
+		"cognome": "Bianchi",
+		"email": "giulia.bianchi@example.com"
+	},
+	{
+		"id": 3,
+		"nome": "Marco",
+		"cognome": "Verdi",
+		"email": "marco.verdi@example.com"
+	},
+	{
+		"id": 4,
+		"nome": "Sara",
+		"cognome": "Neri",
+		"email": "sara.neri@example.com"
+	},
+	{
+		"id": 5,
+		"nome": "Davide",
+		"cognome": "Russo",
+		"email": "davide.russo@example.com"
+	},
+	{
+		"id": 6,
+		"nome": "Elena",
+		"cognome": "Ferrari",
+		"email": "elena.ferrari@example.com"
+	}
+]

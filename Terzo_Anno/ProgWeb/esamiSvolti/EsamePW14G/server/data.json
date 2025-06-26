@@ -1,0 +1,6 @@
+[
+	{ "id": 1, "text": "Pagare bolletta luce", "completed": true },
+	{ "id": 2, "text": "Studiare per l'esame", "completed": false },
+	{ "id": 3, "text": "Fare la spesa", "completed": false },
+	{ "id": 4, "text": "Portare fuori il cane", "completed": false }
+]

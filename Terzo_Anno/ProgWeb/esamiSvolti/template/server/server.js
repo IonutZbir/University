@@ -24,6 +24,45 @@ const data = JSON.parse(fs.readFileSync(__dirname + "/data.json"))
 ...
 */
 
+/* 
+- app.get(route, handler)
+- app.post(route, handler)
+...
+
+app.get("/eventi", (req, res) => {
+	res.status(200).json({
+		status: "success",
+		data: data
+	})
+});
+
+app.get("/eventi/:id", (req, res) => {
+	const id = parseInt(req.params.id) // parsing da stringa a intero
+	const evento = data.find((item) => item.id === id) // ricerca di un evento
+
+	if(isNaN(id)){ // verifica validità id
+		res.status(400).json({
+			"status": "error",
+			"message": "invalid id",
+			"code": 400
+		})
+	}else if(evento === undefined){ // verifica esistenza dell'oggetto cercato
+		res.status(404).json({
+			"status": "fail",
+			"data": {
+				"id": "id inesistente"
+			}
+		})
+	}else{ // tutto apposto, restuisco l'oggetto desiderato
+		res.status(200).json({
+			"status": "success",
+			"data": evento
+		})
+	}
+})
+
+*/
+
 app.use((req, res, next) => {
 	res.status(404).json({
 		status: "error",

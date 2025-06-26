@@ -1,0 +1,88 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	display: flex;
+	justify-content: center;
+	height: 100dvh;
+}
+
+main {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+header, footer{
+	display: flex;
+	justify-content: center;
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.vertical-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Contenitore con flex-wrap */
+.container-wrap {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 20px;
+}
+
+.card {
+	height: 100px;
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+	flex: 1;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+@media (min-width: 768px) {
+	.card {
+		flex: 1 1 45%; 
+		max-width: 45%;
+		margin: 10px 2.5%;
+	}
+}
+/* Si trova all’interno della regola .card nel media query @media (min-width: 768px).
+
+Spiegazione
+flex: è una proprietà shorthand di CSS Flexbox che combina tre proprietà:
+flex-grow (quanto può crescere l’elemento rispetto agli altri)
+flex-shrink (quanto può restringersi)
+flex-basis (dimensione iniziale preferita)
+Quindi, flex: 1 1 45%; equivale a:
+
+flex-grow: 1; → l’elemento può crescere per occupare spazio extra.
+flex-shrink: 1; → l’elemento può restringersi se serve.
+flex-basis: 45%; → la dimensione di base dell’elemento è il 45% del contenitore.
+In pratica
+In un layout con più .card, ciascuna card proverà ad occupare almeno il 45% della larghezza del contenitore, ma può crescere o restringersi in base allo spazio disponibile e al numero di elementi.
+
+Gotcha:
+Se ci sono più di due card, il valore 45% più i margini potrebbe causare un “wrap” (andare a capo) perché la somma supera il 100% del contenitore.
+
+Fammi sapere se vuoi un esempio visivo! */
+
+/* --- Per navbar andare in ../navbar --- */
+

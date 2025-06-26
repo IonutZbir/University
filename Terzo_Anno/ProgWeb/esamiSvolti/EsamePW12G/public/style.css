@@ -1,0 +1,59 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	height: 100dvh;
+	display: flex;
+	justify-content: center;
+	background-color: #f4f4f4;
+}
+
+header, footer {
+	background-color: #333;
+	color: white;
+	padding: 15px;
+}
+
+main {
+	height: 100%;
+	background-color: #fff;
+	padding: 20px;
+}
+
+.product{
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 800px;
+}
+
+.vertical-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Contenitore con flex-wrap */
+.container-wrap {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+/* --- Per navbar andare in ../navbar --- */
+
