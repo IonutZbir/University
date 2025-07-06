@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Modale con Overlay</title>
+  <title>Modale con JavaScript</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,20 +17,18 @@
       cursor: pointer;
     }
 
-    /* Overlay */
-    .overlay {
+    .modal {
+      display: none; /* Nascosto di default */
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
-      z-index: 999;
+      z-index: 1000;
     }
 
-    .overlay.active {
+    .modal.active {
       display: flex;
     }
 
@@ -41,7 +39,6 @@
       max-width: 400px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
     }
 
     .close-button {
@@ -57,14 +54,14 @@
 </head>
 <body>
 
-  <!-- Bottone per aprire il modale -->
+  <!-- Pulsante per aprire -->
   <button class="open-button" id="openModal">Apri Modale</button>
 
-  <!-- Overlay con modale al centro -->
-  <div class="overlay" id="overlay">
+  <!-- Modale -->
+  <div class="modal" id="myModal">
     <div class="modal-content">
       <h2>Ciao!</h2>
-      <p>Questo è un modale con overlay separato.</p>
+      <p>Questo è un modale con JavaScript.</p>
       <button class="close-button" id="closeModal">Chiudi</button>
     </div>
   </div>
@@ -72,27 +69,27 @@
   <script>
     const openBtn = document.getElementById('openModal');
     const closeBtn = document.getElementById('closeModal');
-    const overlay = document.getElementById('overlay');
+    const modal = document.getElementById('myModal');
 
     openBtn.addEventListener('click', () => {
-      overlay.classList.add('active');
+      modal.classList.add('active');
     });
 
     closeBtn.addEventListener('click', () => {
-      overlay.classList.remove('active');
+      modal.classList.remove('active');
     });
 
-    // Chiudi cliccando sull'overlay (ma non dentro il modale)
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
+    // Chiudi il modale cliccando fuori dal contenuto
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
       }
     });
 
     // Chiudi con ESC
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        overlay.classList.remove('active');
+        modal.classList.remove('active');
       }
     });
   </script>

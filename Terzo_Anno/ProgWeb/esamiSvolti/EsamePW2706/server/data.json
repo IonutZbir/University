@@ -1,0 +1,8 @@
+[
+	{ "id": 1, "testo": "Comprare il pane", "completato": false },
+	{ "id": 2, "testo": "Fare esercizio", "completato": true },
+	{ "id": 3, "testo": "Leggere un libro", "completato": false },
+	{ "id": 4, "testo": "Studiare per l'esame", "completato": true },
+	{ "id": 5, "testo": "Pulire la stanza", "completato": false },
+	{ "id": 6, "testo": "Scrivere il progetto", "completato": false }
+]

@@ -1,0 +1,120 @@
+/* Regole CSS di base per l'esame di Programmazione Web */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	display: flex;
+	justify-content: center;
+}
+
+/* Centra orizzontalmente il contenuto della pagina */
+body {
+	display: flex;
+	justify-content: center;
+	min-width: 400px;
+	max-width: 800px;
+	flex-direction: column;
+}
+
+header {
+	bottom: 0;
+}
+
+header,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	color: #333;
+}
+
+.theme {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 100%;
+}
+
+#chiaro,
+#scuro {
+	cursor: pointer;
+}
+
+.btns {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 100%;
+}
+
+/* Vari contenitori, da specificare solo la dimensione */
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.disabled {
+	cursor: not-allowed;
+}
+
+.box {
+	display: flex;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 5px;
+	flex-direction: column;
+	font-family: "Arial";
+	font-size: 16px;
+	border: 1px solid #666;
+	color: #444;
+	box-shadow: rgb(0, 0, 0, 1);
+}
+
+.box p {
+	flex: 1 1 100%;
+}
+
+.box button {
+	flex: 1 1 100%;
+	width: 100%;
+	padding: 5px;
+}
+
+.btns button {
+	padding: 5px;
+	margin: 10px;
+}
+
+button {
+	cursor: pointer;
+}
+
+.dark-theme {
+	background-color: #222;
+	color: #f0f0f0 !important;
+}
+
+.dark-theme-box {
+	color: #f0f0f0;
+}
+
+.dark-theme-hf {
+	color: #f0f0f0;
+}
+
+@media (min-width: 600px) {
+	.box {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.box button {
+		width: 50%;
+		padding: 5px;
+	}
+}
+
+/* --- Per navbar andare in ../navbar --- */
