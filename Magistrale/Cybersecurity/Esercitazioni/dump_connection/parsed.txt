@@ -1,0 +1,702 @@
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 60 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923634
+        Ack: 0
+        Header Length: 40 bytes
+        Flags: SYN
+        Window: 64240
+        Checksum: 10366
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 60 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823153
+        Ack: 838923635
+        Header Length: 40 bytes
+        Flags: ACK, SYN
+        Window: 65160
+        Checksum: 10366
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923635
+        Ack: 3652823154
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823154
+        Ack: 838923635
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203020323032352d31312d31315431303a32393a30382e313331383731205345435245540a
+        Payload (text): SERVER MSG 0 2025-11-11T10:29:08.131871 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923635
+        Ack: 3652823201
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923635
+        Ack: 3652823201
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 63
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 434c49454e54204d5347203020323032352d31312d31315431303a32393a30382e313335393936205345435245540a
+        Payload (text): CLIENT MSG 0 2025-11-11T10:29:08.135996 SECRET.
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823201
+        Ack: 838923682
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 64
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823201
+        Ack: 838923682
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203120323032352d31312d31315431303a32393a31332e313332303330205345435245540a
+        Payload (text): SERVER MSG 1 2025-11-11T10:29:13.132030 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923682
+        Ack: 3652823248
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 63
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 434c49454e54204d5347203120323032352d31312d31315431303a32393a31332e313336313834205345435245540a
+        Payload (text): CLIENT MSG 1 2025-11-11T10:29:13.136184 SECRET.
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823248
+        Ack: 838923729
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 64
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 36052
+        Sequence Number: 3652823248
+        Ack: 838923729
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203220323032352d31312d31315431303a32393a31382e313332323436205345435245540a
+        Payload (text): SERVER MSG 2 2025-11-11T10:29:18.132246 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 36052
+        Dest Port: 9000
+        Sequence Number: 838923729
+        Ack: 3652823295
+        Header Length: 32 bytes
+        Flags: ACK, RST
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 60 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476718
+        Ack: 0
+        Header Length: 40 bytes
+        Flags: SYN
+        Window: 64240
+        Checksum: 10366
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 60 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929248
+        Ack: 2443476719
+        Header Length: 40 bytes
+        Flags: ACK, SYN
+        Window: 65160
+        Checksum: 10366
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476719
+        Ack: 1857929249
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929249
+        Ack: 2443476719
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203020323032352d31312d31315431303a32393a32362e353630313238205345435245540a
+        Payload (text): SERVER MSG 0 2025-11-11T10:29:26.560128 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476719
+        Ack: 1857929296
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476719
+        Ack: 1857929296
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 63
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 434c49454e54204d5347203020323032352d31312d31315431303a32393a32362e353634373437205345435245540a
+        Payload (text): CLIENT MSG 0 2025-11-11T10:29:26.564747 SECRET.
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929296
+        Ack: 2443476766
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 64
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929296
+        Ack: 2443476766
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203120323032352d31312d31315431303a32393a33312e353630323930205345435245540a
+        Payload (text): SERVER MSG 1 2025-11-11T10:29:31.560290 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476766
+        Ack: 1857929343
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 63
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 434c49454e54204d5347203120323032352d31312d31315431303a32393a33312e353634393637205345435245540a
+        Payload (text): CLIENT MSG 1 2025-11-11T10:29:31.564967 SECRET.
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929343
+        Ack: 2443476813
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 64
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 99 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929343
+        Ack: 2443476813
+        Header Length: 32 bytes
+        Flags: ACK, PSH
+        Window: 64
+        Checksum: 10405
+        Urgent Pointer: 0
+        Payload (hex): 534552564552204d5347203220323032352d31312d31315431303a32393a33362e353630353139205345435245540a
+        Payload (text): SERVER MSG 2 2025-11-11T10:29:36.560519 SECRET.
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476813
+        Ack: 1857929390
+        Header Length: 32 bytes
+        Flags: ACK, FIN
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 96.3f.82.94.7a.26
+  Src:  42.b9.7f.47.b2.b3
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.50 (0a.0a.0a.32)
+    Dest:   10.10.10.10 (0a.0a.0a.0a)
+
+    TCP:
+        Source Port: 9000
+        Dest Port: 35296
+        Sequence Number: 1857929390
+        Ack: 2443476814
+        Header Length: 32 bytes
+        Flags: ACK, FIN
+        Window: 64
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
+Ethernet Frame:
+  Dest: 42.b9.7f.47.b2.b3
+  Src:  96.3f.82.94.7a.26
+  Type: 0x0800 IPv4
+
+  IP Header:
+    Version: 4
+    IHL: 20 bytes
+    Total Length: 52 bytes
+    TTL: 64
+    Protocol: TCP
+    Source: 10.10.10.10 (0a.0a.0a.0a)
+    Dest:   10.10.10.50 (0a.0a.0a.32)
+
+    TCP:
+        Source Port: 35296
+        Dest Port: 9000
+        Sequence Number: 2443476814
+        Ack: 1857929391
+        Header Length: 32 bytes
+        Flags: ACK
+        Window: 63
+        Checksum: 10358
+        Urgent Pointer: 0
+        Payload (hex): 
+        Payload (text): 
+
