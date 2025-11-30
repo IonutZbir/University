@@ -1,0 +1,106 @@
+\documentclass[a4paper,12pt]{report}
+
+% --- Lingua e codifica ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+% --- Margini e impaginazione ---
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+
+% --- Matematica e scienze ---
+\usepackage{amsmath, amssymb, amsfonts, mathtools, amsthm}
+\usepackage{siunitx, physics, mhchem}
+\usepackage{cancel}
+
+% --- Grafica e tabelle ---
+\usepackage{graphicx, subcaption, booktabs, float}
+\usepackage{enumitem}
+
+% --- Tipografia ---
+\usepackage{microtype, csquotes, lmodern}
+
+% --- Citazioni e riferimenti ---
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage[backend=biber,style=numeric]{biblatex}
+
+\usepackage{diagbox} % nel preambolo
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+% --- Aliascnt (per teoremi collegati) ---
+\usepackage{aliascnt}
+\newtheorem{teorema}{Teorema}[section]
+\newaliascnt{lemma}{teorema}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+
+% --- Ambienti personalizzati ---
+\newtheorem{osservazione}{Osservazione}[section]
+
+\newenvironment{definizione}[1][]{
+  \par\noindent\textbf{Definizione%
+  \if\relax\detokenize{#1}\relax\else\ (\textbf{#1})\fi.}\ }{}
+
+% --- Titolo opzionale dei teoremi in grassetto ---
+\makeatletter
+\def\thmhead@plain#1#2#3{%
+  \thmname{#1}\thmnumber{ #2}%
+  \thmnote{\ \textbf{(#3)}}}
+\let\thmhead\thmhead@plain
+\makeatother
+
+% --- Personalizza ambiente proof per titolo opzionale in grassetto ---
+\renewenvironment{proof}[1][]
+  {\par\pushQED{\qed}\normalfont
+   \trivlist
+   \item[\hskip\labelsep\bfseries
+         Dimostrazione%
+         \if\relax\detokenize{#1}\relax\else\ (\textbf{#1})\fi.]\ignorespaces}
+  {\popQED\endtrivlist}
+
+% --- Traduzione completa per \autoref e \cref ---
+\renewcommand*{\chapterautorefname}{Capitolo}
+\renewcommand*{\sectionautorefname}{Sezione}
+\renewcommand*{\subsectionautorefname}{Sezione}
+\renewcommand*{\subsubsectionautorefname}{Sezione}
+\renewcommand*{\figureautorefname}{Figura}
+\renewcommand*{\tableautorefname}{Tabella}
+\renewcommand*{\equationautorefname}{Equazione}
+\renewcommand*{\itemautorefname}{Punto}
+\providecommand*{\teoremaautorefname}{Teorema}
+\providecommand*{\lemmaautorefname}{Lemma}
+\providecommand*{\osservazioneautorefname}{Osservazione}
+
+% --- Traduzioni per cleveref (per coerenza) ---
+\crefname{chapter}{capitolo}{capitoli}
+\crefname{section}{sezione}{sezioni}
+\crefname{subsection}{sezione}{sezioni}
+\crefname{subsubsection}{sezione}{sezioni}
+\crefname{figure}{figura}{figure}
+\crefname{table}{tabella}{tabelle}
+\crefname{equation}{equazione}{equazioni}
+\crefname{teorema}{teorema}{teoremi}
+\crefname{lemma}{lemma}{lemmi}
+\crefname{osservazione}{osservazione}{osservazioni}
+
+\begin{document}
+
+\title{Appunti di Analisi di Reti}
+\author{Zbirciog Ionut Georgian}
+\maketitle
+ 
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\tableofcontents
+
+\include{modelliGenerativi}
+\include{teoriaGrafiERetiSociali}
+\include{DinamicheNelleRetiProcessiDiDiffusione}
+\include{WebSearch}
+
+\end{document}

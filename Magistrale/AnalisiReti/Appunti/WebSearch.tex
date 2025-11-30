@@ -1,0 +1,206 @@
+\chapter{WebSearch}
+
+\section{World Wide Web}
+
+Il Web è un'applicazione sviluppata da \textbf{Tim Berners-Lee}, nel periodo 1989-1991 per consentire alle persone di condividere infomrazioni tramite Internet.
+
+L'architettura del web è di tipo \textbf{client-server} e il suo funzionamento può essere descritto come segue:
+
+\begin{itemize}
+    \item Le informazioni sono salvate su delle macchine \textbf{server} e resi disponibili tramite Internet sotto forma di \textbf{pagine web}.
+    \item Un'applicazione \textbf{client} (browser) richiede tali pagine web pubblicamente accessibili.
+\end{itemize}
+
+A noi ciò che interessa in realtà non è \textbf{l'organizzazione fisica} ma quella \textbf{logica} delle pagine web.Le pagine web possono \textbf{referenziare} in maniera \textit{diretta} altre pagine web, tramite dei \textbf{riferimenti} o \textbf{link}. Possiamo quindi pensare al web come un grafo diretto in cui i nodi sono le pagine web, e gli archi sono i riferimenti tra una pagina e un'altra. Per questo motivo, una pagina web viene anche detta \textbf{ipertesto}.
+
+\subsection{Precursori dell'Ipertesto}
+
+Possiamo considerare l'ipertesto come un'implementazione del concetto di \textbf{memoria associativa}. Un primo precursore all'ipertesto è il concetto di \textbf{referecence}, ad esempio,  le citazioni all'interno di articoli o libri ad altre informazioni o autori di tali infomrazioni. Anche in questo caso si crea un grafo diretto i cui nodi sono i libri o gli articoli e gli archi sono  riferimenti.La differenza sostanziale però con l'ipertesto è la linea temporale nella quale si fanno i riferimenti. Se un libro $X$ fa una citazione a un articolo $Y$ vuol dire che $Y$ è stato scritto e pubblicato prima di $X$, perciò non ci potranno essere riferimenti ad $X$ nell'articolo $Y$.
+
+Invece, nel grado del web capita spesso di avere archi bidirezionali, ovvero due pagine che si referenziano a vicenda.
+
+Un altro precursore dell'ipertesto sono le cosidette \textbf{crossing-referecences}, o \textbf{riferimenti incrociati}. Tale tipo di organizzazione la troviamo per esempio in un enciclopedia, e consente di collegare argomenti differenti attraverso una catena di collegamenti semantici o riferimenti tra altri argomenti.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/WS_references.png}
+    \caption{Esempio di crossing-referecences}
+    \label{fig:WS_references}
+\end{figure}
+
+\subsection{MEMEX}
+
+Vannevar Bush nel suo articolo "As we may think" del 1945 cercò di immaginare come le moderne tecnologie di comunizaione emergenti all'epoca avrebbero influenzato il mondo, grazie alle rivoluzionarie tecniche di \textbf{archiviazione, scambio} e \textbf{accesso} di informazioni.
+
+In particolare Bush osservò che i metodi tradizionali per archiviare le informazioni in un libro, in una biblioteca o nella memoria di un computer erano altamente \textbf{lineari}. Basta pensare a un dizionario enciclopedico in cui tutti gli argomenti sono ordinati uno dopo l'altro.
+
+D'altra parte la mente umana struttura e accede alla propria esperienza mostrando quella che potrebbe essere definita una \text{memoria associativa}, ovvero è strutturata in una \textbf{rete semantica} di concetti. Tu pensi a una cosa, te ne ricorda un'altra tramite una \textit{connessione}, dopodiché ti viene un intuizione che ti porta ad un terzo pensiero, e così via…
+
+Bush ha quindi immaginato un sistema che cercava di imitare questo stile di memorizzazione \textbf{associativa}, il \textbf{MEMEX}, ovvero una versioni digitalizzate di tutta la conoscenza umana collegate da collegamenti associativi. Infatti Bush fu esplicitamente citato da Tim Berners Lee quando progettò il Web.
+
+\subsection{Web 2.0}
+
+Inizialmente, il web era costituito da una collezione di pagine \textbf{statiche} al cui interno erano (eventualmente) presenti degli \textit{hyperlink} ad altre pagine. Tali \textit{hyperlink} sono detti \textbf{navigazionali} in quanto servono appunto a "navigare" nel Web, esattamente come noi navighiamo nella nostra conoscenza, implmentando quindi il conetto di \textbf{memoria associativa}.
+
+Col tempo però il web si è evoluto, passando da pagine totalmente statiche a pagine che consentono di effettuare \textbf{azioni}, come per esempio effettuare una richiesta ad un server oppure effettuare pagamenti. I link che consentono di effettuare tali azioni prendono il nome di link \textbf{transazionali}.
+
+Altre evoluzioni sono per esempio l'avvento dei servizi, come per esempio:
+\begin{itemize}
+    \item La creazione e mantenimento di contenuti in maniera condivisa con Wikipedia.
+    \item Lo scambio di messaggio con i servizi di web-mailing.
+    \item Reti che connettono individui anziché documenti con i social-media.
+    \item Reti che connettono video con YouTube.
+\end{itemize}
+
+Con tali evoluzioni si indica il cosidetto Web 2.0.
+
+\subsection{Il Grafo Diretto del Web}
+
+Il Web può essere visto come un grafo diretto, i cui nodi sono le \textbf{pagine} e gli archi sono gli \textbf{hyperlink} tra esse. Inoltre, è facilmente osservabile che una pagina web conosce solamente le pagine a cui stan puntando (\textbf{archi uscenti}) e non le pagine che la stanno puntando (\textbf{archi entranti}).
+
+In uno studio del 2000, si è osservato che il grafo del web è è composto da milioni di nodi, ed ha una forma a \textbf{bowtie (a fiocco)}. Come si può osservare in \autoref{fig:WS_bowtie}, al centro è presente una \textbf{componente gigante fortemente  connessa} composta appunto dalla maggior parte dei nodi. In tale componente, per ogni pagina $X$ della componente è possibile trovare una serie link che collegano $X$ verso qualsiasi nodo della SCC, e viceversa da qualsiasi altra pagina è possibile navigare e raggiungere $X$.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/WS_bowtie.png}
+    \caption{Il grafo del web come \textbf{bowtie}}
+    \label{fig:WS_bowtie}
+\end{figure}
+
+Dopodiché, si osservo la presenza di altre 2 componenti che formavano una sorta di \textit{flusso} in entrata e in uscita da SCC, le quali sono:
+
+\begin{itemize}
+    \item \textbf{IN}: composta dai nodi dai quali navigando è possibile raggiungere SCC, ma non raggiungibili in alcun modo da SCC.
+    \item \textbf{OUT}: composta dai nodi raggiungibili da SCC tramite una navigazione ma che a loro volta non possono raggiungere SCC. Possiamo quindi die che questa componente rappresenta il flusso in uscita da SCC.
+\end{itemize}
+
+Infine, sono state individuate altre componenti nel grafo del web:
+
+\begin{itemize}
+    \item \textbf{Tendrilis}: detti anche \textit{tentacoli}, è una componente composta da 
+    nodi che sono raggiungibili dai nodi presenti nella componente IN ma dai quali non si può raggiungere SCC e da nodi attraverso i quali si può raggiungere la componente OUT ma i quali non sono raggiungibili dai nodi in SCC.
+    \item \textbf{Tubi}: composto dai nodi che creano un flusso che collega la componente IN alla componente OUT senza passare però per la componente SCC.
+    \item \textbf{Componenti disconnesse}: una serie di nodi disconnessi dalla struttura a fiocco.
+\end{itemize}
+
+\section{Web Search}
+
+Il problema di classificare e ricercare documenti è un problema antico.
+
+Prima dell'avvento del Web, la difficoltà nel ricercare documenti era sostanzialmente dovuta alla scarsità di questi ultimi. Infatti, un tempo bisognava raggiungere fisicamente una biblioteca, libreria o archivio per avere accesso a libri, articoli o documenti, e inoltre non ce n'erano a disposizione una grande quantità. Tuttavia c'era un vantaggio, i documenti in generale erano catalogati in categorie, perciò a chi interessava avere informazioni su un determinato argomento bastava recarsi nel luogo in cui erano raccolti i documenti relativi all'argomento interessato. Per esempio, a un avvocato che necessita delle schede penali di alcune persone basta andare in un archivio di un tribunale. Oppure se ti interessa trovare un nuovo romanzo da leggere, basta andare in libreria nella sezione "Romanzi" e troverai una raccolta di libri inerenti al genere che ti interessa.
+
+Il Web ha letteralmente capovolto i ruoli. Adesso chiunque ha acesso a una infinità di documenti in letteralmente pochissimi istanti. Il problema principale invece è appunto questa \textbf{sovrabbondanza di documenti}, i quali purtroppo non sono catalogati e raggruppati in categorie.
+
+Purtroppo proprio per questa eterogeneità dei documenti, non è possibile effettuare una ricerca specializzata per parole chiave. Oltre al fatto che il numero di parole chiave è potenzialmente illimitato, una parola assume differenti significati. Infatti per esempio la parola "albero" in teoria dei grafi è un grafo particolare, mentre in botanica è un tipo di pianta, oppure ancora può poter significare un albero genealogico.
+
+Si vuole quindi definire uno strumento di web search che consenta di effettuare una ricerca catalogando in base a delle parole chiave e scartando tutte le pagine non coerenti. Questa però non è una condizione sufficiente affinché uno strumento di web search risulti utile. Infatti, come risultato di una ricerca, potrebbe essere restituito un insieme potenzialmente immenso di pagine inerenti alle parole chiave. Perciò è necessario che tale strumento in qualche modo sfoltisca le pagine meno rilevanti, restituendo così un inseme abbastanza piccolo da essere umanamente visitato, e possibilmente ordinando queste pagine in un ordine di rilevanza, ovvero effettuando un \textbf{ranking} delle pagine restituite.
+
+\subsection{Link Analisys}
+
+Purtroppo il contenuto interno di una pagina non consente da solo di quantificarne con precisione la sua rilevanza rispetto alla ricerca in corso.
+
+Un primo strumento utile che consente invece di capire meglio la rilevanza di una pagina sono gli \textbf{hyperlink}. 
+
+Consideriamo prima un esempio:
+
+Stiamo studiando un articolo utile per fare una tesi. Per capire meglio l'argomento un solo articolo non basta, perciò decidiamo di attingere alla bibliografia dell'articolo. Purtroppo notiamo che sono presenti svariate decine di citazioni ad altri articoli. Non potendo leggerli tutti quanti, è sensato considerare gli articoli che più hanno citazioni in generale.
+
+Prendendo quindi come base questo esempio, dopo aver escluso tutte quelle pagine non inerenti alla nostra ricerca, possiamo \textbf{ordinarle} in ordine non crescente di numero di referimenti. Più precisamente, mettiamo tra i primi risultati della ricerca tutte quelle pagine che all'interno del sottoinsieme di pagine inerenti alla ricerca sono \textbf{maggiormente puntate da hyperlink}.
+
+Ovvero la rilevanza di una pagina è calcolata analizzando i link che la coinvolgono.
+
+\subsection{Metodo HITS}
+
+Il primo metodo di link analisys che studiamo è il  metodo \textbf{HITS - Hyperlink-Induced Topic Search}.
+
+Poiché consideriamo come pagine rilevanti le pagine che sono molto puntate da altre pagine nell'insieme, può accadere che una pagina è puntata da tante pagine poco rilevanti ai fini della ricerca, ad esempio, sappiamo che per finalità di marketing possono essere acquistati puntatori
+ad una data pagina, così da far aumentare il suo contatore di \textbf{in-link}. Allora è necessario considerare la seguente questione:
+
+\textit{Quando una pagina è considerata abbastanza autorevole da trasmettere rilevanza ad una pagina a cui punta?}
+
+Il metodo HITS, associa a ciascuna pagina 2 indici:
+
+\begin{itemize}
+    \item Un indice di \textbf{autorità}: questo indice esprime la \textit{rilevanza} della pagina ai fini della ricerca.
+    \item Un indice di \textbf{hub (centro, fulcro)}: questo indice esprime \textit{l'autorevolezza} della pagina a conferire autorità alle pagine alle quali punta. In altre parole indica quanto questa pagine è rilevante per la pagine a cui punta.
+\end{itemize}
+
+Intuitivamente, possiamo definire l'indice d'autorità $a_i$ della pagina $i$, come il numero di pagine attinenti alla ricerca che puntano alla pagina $i$ (\textbf{In-Degree})
+\[
+    a_i = |\{j: j \text{ è attinente alla ricerca e } j \rightarrow i\}|
+\]
+
+In questo modo, se consideriamo la matrice $M$ di adiancenza del sottografo del Web attinente alla ricerca, abbiamo che
+\[
+a_i = \sum_{j=1}^n M_{ji}
+\]
+
+Analogamente, il valore di hub $h_i$ di una pagina $i$, potrebbe essere il numero di pagine attinenti alla ricerca alle quali essa punta (\textbf{Out-Degree})
+
+\[
+    h_i = |\{j: j \text{ è attinente alla ricerca e } i \rightarrow j\}|
+\]
+
+di conseguenza, abbiamo che
+
+\[
+h_i = \sum_{j=1}^n M_{ij}
+\]
+
+dove la matrice di adiacenza $M$ del sottografo rilevante è definita come
+\[
+M_{ij} =
+\begin{cases}
+1 & \text{se } i \rightarrow j,\\[4pt]
+0 & \text{altrimenti,}
+\end{cases}
+\qquad\text{per } i,j = 1,\dots,n.
+\]
+
+
+Raffiniamo il modello introducendo una dipendenza ricorsiva tra i punteggi: il punteggio di \textbf{Autorità ($a_i$)} di una pagina è proporzionale alla somma dei punteggi di \textbf{Hub} delle pagine che la puntano. Simmetricamente, il punteggio di \textbf{Hub ($h_i$)} è proporzionale alla somma dei punteggi di \textbf{Autorità} delle pagine verso cui essa punta.
+
+\begin{itemize}
+    \item Una pagina è una buona \textbf{Authority} se è linkata da ottimi \textbf{Hub}.
+    \item Una pagina è un buon \textbf{Hub} se linka ottime \textbf{Authority}.
+\end{itemize}
+
+Quindi, se supponiamo di conoscere un valore iniziale di Hub, $h_i^{(0)}$ per ciascuna pagina $i$, allora
+
+\[
+a_i^{(1)} = \sum_{j=1}^n M_{ji} h_j^{(0)}
+\]
+
+e poiché il valore di autorità di ciascuna pagina è variato, potremmo calcolare il valore di hub per ottenere una valutazione migliore, ossia
+
+\[
+h_i^{(1)} = \sum_{j=1}^n M_{ij} a_j^{(0)}
+\]
+
+Quindi, al passo $k$, abbiamo che
+
+\begin{equation}\label{eq:auth_and_hub}
+\begin{split}
+    a_i^{(k+1)} &= \sum_{j=1}^n M_{ji} h_j^{(k)} \\
+    h_i^{(k+1)} &= \sum_{j=1}^n M_{ij} a_j^{(k+1)}
+\end{split}
+\end{equation}
+
+definendo quindi un metodo iterativo per il calcolo dei valori di autorità e hub.
+
+Poiché in genere non si hanno informazioni iniziali circa il valore del hub delle pagine che si stanno considerando, si può assumere che tali valori siano uguali per tutte le pagine, ossia
+\[
+\forall i = 1, \dots n,\ h_i^{(0)} = 1.
+\]
+Inoltre, possiamo riscrivere le equazioni \eqref{eq:auth_and_hub} nel seguente modo:
+
+\begin{equation}
+\begin{split}
+    a^{(k+1)} &= M^T\ h^{(k)} \\
+    h^{(k)} &= M\ a^{(k)}
+\end{split}
+\end{equation}
+
+dove $a^{(k+1)}$ e $h^{(k)}$ sono vettori colonna.
+
+\section{Google PageRank}

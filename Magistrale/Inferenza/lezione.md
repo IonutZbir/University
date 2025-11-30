@@ -1,59 +1,93 @@
-# Stimatori e le loro proprietà
+# Metodo di Massima Verosimiglianza
 
-Diamo prima di tutto una defizione
+Supponiamo di avere di fronte a noi due urne, una con $90$ palline bianche e $10$ nere, e l’altra con $10$ nere e $90$ bianche; identifichiamo le urne con la proporzione di palline bianche che contengono (denotata con $p$), in modo tale che la prima urna corrisponda a $p = .9$ e la seconda a $p = .1$
 
->[!definition]- Campione Aleatorio (Random Sample)
->È un insieme di variabili aleatorie indipendenti ed identicamente distribuite $X_{1},\dots,X_{n}$ definite su uno spazio di prob $\{\Omega,\mathcal F,P\}$
+Viene estratta una singola pallina e non sappiamo da quale urna venga; osserviamo però che la pallina è bianca. 
 
-**oss**:
-In realtà ne l'ipotesi di indipendenza ne quella di identica distribuzione sono necessarie e saranno entrambe abbandonate più avanti
+Dovendo cercare di risalire all’urna di provenienza, sembra naturale scegliere quella che rende più probabile osservare quello che abbiamo effettivamente osservato, cioè l’urna che contiene la maggiore proporzione di palline bianche; in altre parole, dall’osservazione "è stata estratta una pallina bianca" sembra naturale far discendere lo stimatore $\hat{p} = 0.9$
 
-Supponiamo ora che la misura di probabilità $P$ sia nota solo a meno di un valore di un certo parametro $\theta$, ottenendo quindi $P_{\theta}$
+Supponiamo ora che invece di una sola pallina ne siano estratte $5$, e che risultino essere $3$ bianche e $2$ nere; immaginiamo altresì che l’alternativa non sia solo tra due urne, ma tra un continuo di urne con tutte le possibili proporzioni di palline bianche tra $0$ ed $1$, identificate sempre con $p$. 
 
-In genere, si definisce 
-- *Statistica Parametrica* la disciplina che studia le tecniche per risalire al valore di $\theta$ nel caso in cui esso appartenga ad uno spazio di dimensione finita, $\theta\in\mathbb R^{p},p\in\mathbb N$ 
-- *Statistica Non Parametrica* la disciplina che studia il caso in cui $\theta$ ha dimensione infinita
+In questo caso, la probabilità di osservare $3$ bianche e $2$ nere è data da una legge binomiale:
+$$Pr(3b,2n)=\binom{5}{3}p^{3}(1-p)^{2}$$
+ed è facilmente verificabile che questa probabilità è massimizzata prendendo $\hat{p}=\frac{3}{5}$
 
-Diamo ora la definizione di stimatore
+Questo esempio molto semplice dovrebbe aiutare a capire l’idea che è alla base degli stimatori di massima verosimiglianza - si tratta di costruire la funzione di probabilità (o di densità, nel caso continuo) relativa ad un certo campione aletaorio, e vederla quindi non più come funzione del campione, ma come funzione (aleatoria) dei parametri, prendendo come date le osservazioni. 
 
->[!definition]- Stimatore
->Uno **stimatore** di un certo parametro $\theta\in\mathbb R^{p}$ è una funzione (o meglio successione di funzioni) misurabile $T_{n}:\mathbb R^{n}\to\mathbb R^{p}$ di un campione aleatorio.
->Si scrive come: $$T_{n}=\hat\theta_{n}=T_{n}(X_{1},\dots,X_{n})$$
+In altre parole, si ha la seguente definizione:
 
-**oss** : La definizione è lasciata volutamente molto generica: qualsiasi funzione misurabile è uno stimatore, quindi il punto cruciale sarà determinare quali siano le proprietà che consentono di valutare la qualità e bontà della scelta fatta
+>[!definition]- Funzione di Verosimiglianza
+>Sia $X_{1},\dots,X_{n}$ un campione aleatorio con legge (=funzione di prob. o densità, a seconda del caso discreto o continuo) $f_{\theta},\theta\in\mathbb R^{p}$
+>La **funzione di verosimiglianza** $L:\mathbb R^{p}\to\mathbb R$ è quindi definita come $$L(\theta;X_{1},\dots,X_{n}):=\prod_{i=1}^{n}f(X_{i};\theta)=f(X_{1},\dots,X_{n};\theta)$$
 
-Vediamo alcuni esempi di stimatori
+**oss**
+
+Vediamo che la definizione di funzione di verosimiglianza in qualche modo "assomiglia" alla densità congiunta.
+Quello che cambia è che la verosimiglianza è funzione del parametro prendendo i valori di $X_{1},\dots,X_{n}$ come dati, mentre la densità congiunta prende il parametro $\theta$ come dato ed è funzione dei possibili valori delle osservazioni $x_{1},\dots,x_{n}$
+
+Definiamo poi il concetto di **stimatore di massima verosimiglianza (ML)**
+
+>[!definition]- Stimatore di massima verosimiglianza (ML)
+>Data $L$ la funzione di verosimiglianza appena definita, indichiamo con $\hat{\theta}$ lo **stimatore di massima verosimiglianza**, in questo modo: $$\hat{\theta}:=\underset{\theta}{\arg\max}\space L(\theta;X_{1},\dots,X_{n})$$
+>Ovvero quel valore di $\theta$ che **massimizza** il risultato della funzione $L$
+
+Vediamo ora una carrellata di esempi
 
 **Esempio 1**
-L'esempio più ovvio di stimatore (per il valor medio $\mu=\mathbb E[X_{i}]$) è la media aritmetica, cioè
-$$\hat X_{n}=\hat\mu_{n}=\frac{1}{n}\sum\limits_{i=1}^{n}X_{i}$$
+
+Prendiamo un campione aleatorio di variabili Bernoulliane $X_{1},\dots,X_n\sim Ber(\theta)$, dove $$X_{i}=\begin{cases}
+1&\theta\space(p)\\0&1-\theta\space(1-p)
+\end{cases}$$ 
+La funzione di verosimiglianza sarà quindi:
+$$L(\theta;X_1,\dots,X_{n})=\theta^{\sum\limits_{i=1}^{n}X_{i}}(1-\theta)^{n-\sum\limits_{i=1}^{n}X_{i}}$$
+Sfruttiamo la $\log$-verosimiglianza, in modo tale da eliminare produttorie varie e rimanere con solamente le sommatorie
+
+La $\log L$ sarà quindi $$\log L=\left(\sum\limits_{i=1}^{n}X_{i}\right)\log(\theta)+\left(n-\sum\limits_{i=1}^{n}X_{i}\right)\log(1-\theta)$$
+Dobbiamo ora massimizzare la $\log L$, facendone la derivata e ponendola uguale a $0$; così facendo otteniamo che 
+$$\begin{align*}
+\frac{d\log L}{d\theta}&=\frac{\sum\limits_{i=1}^{n}X_{i}}{\theta}-\frac{n-\sum\limits_{i=1}^{n}X_{i}}{1-\theta}\\&=\frac{\sum\limits_{i=1}^{n}X_{i}-n\theta}{\theta(1-\theta)}
+\end{align*}$$
+Ponendo questo uguale a $0$ otteniamo che 
+$$\hat{\theta}_{ML}=\frac{1}{n}\sum\limits_{i=1}^{n}X_{i}$$
+Piccola osservazione, avremmo potuto scrivere la verosimiglianza come 
+$$L(\theta;X_1,\dots,X_{n})=\dbinom{n}{\sum\limits_{i=1}^nX_{i}}\theta^{\sum\limits_{i=1}^{n}X_{i}}(1-\theta)^{n-\sum\limits_{i=1}^{n}X_{i}}$$
+La cosa che cambia fra la prima equazione e la seconda è puramente "filosofica", ovvero scritta nel secondo modo noi stiamo prendendo una *qualsiasi sequenza di successi*, mentre nel primo caso stiamo prendendo *una sequenza esatta di successi*.
+
+Entrambe le versioni sono equivalenti
 
 **Esempio 2**
-Altro stimatore naturale è la cosidetta varianza empirica (che stima $\sigma^2=Var(X_{i})$), cioè
-$$S_{n}^{2}=\hat\sigma_{n}^{2}=\frac{1}{n}\sum\limits_{i=1}^{n}(X_{i}-\hat\mu_{n})^2$$
-## Criteri per valutare gli stimatori
 
-Ci sono $4$ criteri per valutare gli stimatori, essi sono:
-1. **Correttezza** (anche chiamata Non-Distorsione/Asintotica non distorsione), cioè $$\mathbb E[T_{n}]=\theta,\quad\left(\lim_{n\to\infty}\mathbb E[T_{n}]=\theta\right)$$**condizione non fondamentale**
-2. **Consistenza**, che si divide per ogni metodo di convergenza studiato, infatti abbiamo:
-	1. *consistenza debole* (convergenza in probabilità) : $T_{n}\to_p\theta$ quando $n\to\infty$
-	2. *consistenza forte* (convergenza quasi certa) : $T_{n}\to_{q.c}\theta$ quando $n\to\infty$
-	3. *consistenza $r$-esima* (convergerza in media $r$-esima) : $T_{n}\to_r\theta$ quando $n\to\infty$
-	4. *consistenza completa* (convergenza completa) : $T_{n}\to_{c.c}\theta$ quando $n\to\infty$
-3. **Efficienza**, che dice che presi due stimatori distinti $T_{n},T^{'}_{n}$, tra i due scegliamo quello con varianza minore, quindi diremo che $T_{n}$ è più *efficiente di* $T^{'}_{n}$ se e solo se $$Var(T_{n})\leq Var(T^{'}_{n})$$
-4. **Asintotica Gaussianità**, che afferma che quando $n\to\infty$ deve valere che $$\frac{T_{n}-\theta}{\sqrt{Var(T_{n})}}\to_{d}N(0,1)\quad\text{CLT}$$
+Prendiamo un campione aleatorio di variabili esponenziali $X_{1},\dots,X_n$, con densità $$\begin{align*}f(x)=&\lambda e^{-\lambda x},x\geq0\\=&\frac{1}{\theta}e^{-\frac{x}{\theta}},x\geq0\end{align*}$$
+Notiamo le che due rappresentazioni della densità sono equivalenti
 
-Vediamo qualche osservazione 
-1) In generale, vale che $1.\cancel\implies 2.$ 
-2) $2.\implies 1.$ solo se si tratta di consistenza in media $r$-esima, con $r\geq1$. In tutti gli altri casi vale che $2. \cancel\implies 1.$
-	1) per la seconda parte di questa affermazione, basta prendere $$T_{n}=\begin{cases}0&1- \frac{1}{n^{2}}\\ n^2& \frac{1}{n^{2}}\end{cases},\theta=0\implies T_{n}\to0\space ma\space \mathbb E[T_n]=1\neq\theta$$
-	2) per la prima parte, basta usare il seguente lemma, che afferma che $T_{n}\to_{r}\theta,r\geq1\implies\mathbb E[T_{n}]\to\theta$. La dimostrazione è la seguente $$\lim_{n\to\infty}\mathbb E[T_{n}-\theta]=0\space perchè\space\big|\mathbb E[T_{n}-\theta]\big|\leq\mathbb E[T_{n}-\theta]$$
+Risolviamo per $\lambda$, ottenendo che la verosimiglianza è pari a
+$$L(\lambda;X_{1},\dots,X_{n})=\lambda^{n}e^{-\lambda\sum\limits_{i=1}^{n}X_{i}}$$
+La log-verosimiglianza è quindi:
+$$\log L=n\log(\lambda)-\lambda\sum\limits_{i=1}^{n}X_{i}$$
+Facciamo la derivata per $\lambda$ e la poniamo $=0$ per ottenere lo stimatore $\hat{\lambda}_{ML}$
+$$\frac{d\log L}{d\lambda}=\frac{n}{\lambda}-\sum\limits_{i=1}^{n}X_{i}\underbrace{\implies}_{\text{ponendo la der. uguale a 0}}\hat{\lambda}_{ML}=\frac{n}{\sum\limits_{i=1}^{n}X_{i}}$$
+**oss**
 
-Vediamo ora qualche esempio 
+(1) Lo stimatore non dipende da come viene scritta la densità della funzione
+(2) Non si può avere uno stimatore che sia non distorto, e allo stesso tempo invariante
 
-**Esempio 1**: Media aritmetica $X_{n}= \frac{1}{n}\sum\limits_{i=1}^{n}X_{i}$. 
-Se le $X_{i}\sim$ i.i.d con $\mathbb E[X_{i}]=\mu$ e $Var(X_{i})=\sigma^{2}$ allora vale che 
-- Non Distorsione? $\checkmark$ 
-- Consistente? $\checkmark$
-- Efficiente? $\checkmark$ (vedremo poi)
-- Asintotica Gaussianità? $\checkmark$ (vale il CLT)
+**Esempio 3**
+
+Prendiamo $X_{1},\dots,X_{n}\sim N(\mu,\sigma^{2})$ i.id
+
+Vale allora che la verosimiglianza è
+$$L(\mu,\sigma^{2};X_1,\dots,X_{n})=\frac{1}{(2\pi)^{\frac{n}{2}}}\frac{1}{(\sigma^{2})^{\frac{n}{2}}}e^{-\frac{1}{2}\sum\limits_{i=1}^{n}\frac{(X_{i}-\mu)^{2}}{\sigma^{2}}}$$
+
+**oss**
+
+La densità di una v.a Normale (Gaussiana) cambia a seconda dei valori di $\mu,\sigma^{2}$. 
+Alcuni esempi sono:
+$$\begin{align*}&N(0,1)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}X}\\&N(\mu,\sigma^{2})=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{1}{2}\frac{(X-\mu)}{\sigma}}\end{align*}$$
+Ritornando all'esempio, la log-verosimiglianza è
+$$\log L=-\frac{n}{2}\log(2\pi)-\frac{n}{2}\log(\sigma^{2})-\frac{1}{2}\sum\limits_{i=1}^{n}\frac{(X_{i}-\mu)^{2}}{\sigma^{2}}$$
+A questo punto dobbiamo derivare e porre uguale a $0$, però qui non abbiamo più un solo parametro, ma ne abbiamo ben $2$ (nel mondo del Machine Learning in generale $\theta$ non è un parametro solo ma un vettore di parametri)
+
+Dobbiamo quindi fare le derivate parziali, una per $\mu$ e l'altra per $\sigma^{2}$, ottenendo 
+$$\begin{align*}&\frac{d\log L}{d\mu}=\frac{1}{\sigma^{2}}\sum\limits_{i=1}^{n}(X_{i}-\mu)\\&\frac{d\log L}{d\sigma^{2}}=-\frac{n}{2\sigma^{2}}+\frac{1}{2\sigma^{4}}\sum\limits_{i=1}^{n}(X_{i}-\mu)^{2}\end{align*}$$
+Ponendole $=0$ otteniamo che 
+$$\begin{align*}&\hat{\mu}_{ML}=\frac{1}{n}\sum\limits_{i=1}^{n}X_{i}\\&\hat{\sigma}^{2}_{ML}=\frac{1}{n}\sum\limits_{i=1}^{n}(X_{i}-\overline{X}_{n})^{2},\quad\overline{X}_{n}=\frac{1}{n}\sum\limits_{i=1}^{n}X_{i}\end{align*}$$

@@ -1,0 +1,68 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Modelli generativi di grafi aleatori e loro rilevanza nella rappresentazione di reti}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Il Modello di Erd\"{o}s-Renyi}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Componenti Giganti}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Grado dei Nodi}{7}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Power Law, Rich Get Richer e Modello Barabasi-Albert}{10}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Come riconoscere una Power Law?}{10}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Fenomeno Rich Get Richer}{10}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Modello Barabasi-Albert}{11}{subsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}Formalizzazione del modello}{11}{subsubsection.1.2.3.1}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Legge aleatoria per la variazione del grado}{14}{subsubsection.1.2.3.2}%
+\contentsline {subsubsection}{\numberline {1.2.3.3}Approssimazione deterministica e continua}{14}{subsubsection.1.2.3.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.4}Risoluzione dell'equazione differenziale}{15}{subsubsection.1.2.3.4}%
+\contentsline {subsubsection}{\numberline {1.2.3.5}Individuazione della Power Law}{16}{subsubsection.1.2.3.5}%
+\contentsline {section}{\numberline {1.3}Grafi Geometrici aleatori e reti wireless}{18}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Reti Wireless ad-hoc}{19}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Connessione di $G(n, r(n))$}{20}{subsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2.1}Delimitazione superiore al minimo raggio di connessione}{20}{subsubsection.1.3.2.1}%
+\contentsline {subsubsection}{\numberline {1.3.2.2}Delimitazione inferiore al minimo raggio di connessione}{22}{subsubsection.1.3.2.2}%
+\contentsline {section}{\numberline {1.4}Modello Small World}{26}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Modello Watts - Strogatz}{27}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Navigabilità del modello Watts-Strogatz}{29}{subsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2.1}Ricerca decentralizzata (ricerca miope)}{30}{subsubsection.1.4.2.1}%
+\contentsline {subsection}{\numberline {1.4.3}Un modello per la ricerca decentralizzata}{30}{subsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.3.1}Prestazioni della ricerca miope (decentralizzata)}{32}{subsubsection.1.4.3.1}%
+\contentsline {subsubsection}{\numberline {1.4.3.2}Perché $q = d$ funziona bene in $\mathbb {R}^d$}{37}{subsubsection.1.4.3.2}%
+\contentsline {subsubsection}{\numberline {1.4.3.3}Perché $q \neq d$ funziona male in $\mathbb {R}^d$}{38}{subsubsection.1.4.3.3}%
+\contentsline {chapter}{\numberline {2}Teoria dei grafi e delle reti sociali}{39}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Esperimento di Granovatter}{39}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Bridge \& Local Bridges}{39}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Weak \& Strong Ties}{40}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Strong Triadic Closure Property}{40}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}STCP \& Local Bridges}{41}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Comunità e Coefficiente di Clustering}{41}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Comunità}{42}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Cut-communities}{42}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Web-community}{44}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Relazione tra Cut e Web-communities}{45}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Strong Web-Communities Partitiong (SWCP)}{45}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Partizionare un grafo in comunità: approccio euristico}{50}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Betwenness di un Arco}{50}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Metodo di Girvan-Newman}{51}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}Fase 1}{52}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {2.3.2.2}Fase 2}{53}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.3}Fase 3}{53}{subsubsection.2.3.2.3}%
+\contentsline {section}{\numberline {2.4}Rilassare il Modello}{55}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Conclusioni}{56}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Dinamiche nelle Reti - Processi di Diffusione}{57}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Coordination Game - Modello Lineare}{57}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Comportamento a Cascata}{59}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Esempio 1}{60}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Esempio 2}{60}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Cascate e Cluster}{61}{section.3.3}%
+\contentsline {section}{\numberline {3.4}The Cascade Capacity on Infinite Network with bounded Degree}{64}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Esempio 1 - Catena Infinita}{64}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Esempio 2 - Grafo a Griglia Infinita}{65}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Soglia di Adozione Massima}{65}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}WebSearch}{69}{chapter.4}%
+\contentsline {section}{\numberline {4.1}World Wide Web}{69}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Precursori dell'Ipertesto}{69}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}MEMEX}{70}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Web 2.0}{70}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Il Grafo Diretto del Web}{71}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Web Search}{72}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Link Analisys}{73}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Metodo HITS}{73}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Google PageRank}{75}{section.4.3}%
