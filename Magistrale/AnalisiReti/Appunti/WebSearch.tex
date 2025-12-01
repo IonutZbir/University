@@ -174,7 +174,7 @@ a_i^{(1)} = \sum_{j=1}^n M_{ji} h_j^{(0)}
 e poiché il valore di autorità di ciascuna pagina è variato, potremmo calcolare il valore di hub per ottenere una valutazione migliore, ossia
 
 \[
-h_i^{(1)} = \sum_{j=1}^n M_{ij} a_j^{(0)}
+h_i^{(1)} = \sum_{j=1}^n M_{ij} a_j^{(1)}
 \]
 
 Quindi, al passo $k$, abbiamo che
@@ -202,5 +202,31 @@ Inoltre, possiamo riscrivere le equazioni \eqref{eq:auth_and_hub} nel seguente m
 \end{equation}
 
 dove $a^{(k+1)}$ e $h^{(k)}$ sono vettori colonna.
+
+Abbiamo quindi introdotto un procedimento iterativo che aggiorna progressivamente i punteggi di hub e di authority per ciascuna pagina. L'obiettivo è che, ad ogni passo, tali valori riflettano sempre meglio la rilevanza delle pagine; perché questo avvenga è però necessario che la procedura converga verso dei valori limite, che costituiscono i punteggi "reali" di hub e authority.
+
+Le relazioni che aggiornano i vettori $a^{(k)}$ e $h^{(k)}$ sono somme di termini non negativi; di conseguenza i loro valori tendono ad aumentare con le iterazioni e non convergono verso un vettore limite. Perciò la convergenza ha senso solo dopo l'applicazione di un'opportuna \textbf{normalizzazione}.
+
+\begin{teorema}
+    Esistono un valore $c \in \mathbb{R}^+$ e un vettore $z \in \mathbb{R}^n$ non nullo tali che, per ogni vettore iniziale $h^{(0)}$ a coordinate positivie,
+    \begin{equation}
+    \begin{split}
+        \lim_{k \to \infty} \frac{h^{(k)}}{c^k} &= z \\
+        &\text{e} \\
+        \lim_{k \to \infty} \frac{a^{(k)}}{c^k} &= z
+    \end{split}
+    \end{equation}
+\end{teorema}
+
+\subsubsection{Richiami di Algebra Lineare}
+
+Prima di dimostrare questo teorema è necessario ricordare alcune nozioni di algebra lineare.
+
+\begin{definizione}[Autovalore e Autovettore]
+    Data una matrice quadrata $A \in \mathbb{R}^{n\times n}$, un vettore $x \in \mathbb{C}^n$ e un valore $\lambda \in \mathbb{C},\ \lambda \neq 0$, diremo che $x$ e $\lambda$ sono rispettivamente un \textbf{autovettore} e un \textbf{autovalore} per $A$ se e solo se
+    \[
+        Ax = \lambda x
+    \]
+\end{definizione}
 
 \section{Google PageRank}
