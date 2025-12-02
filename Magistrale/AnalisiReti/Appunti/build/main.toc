@@ -66,4 +66,4 @@
 \contentsline {subsection}{\numberline {4.2.1}Link Analisys}{73}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Metodo HITS}{73}{subsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.2.1}Richiami di Algebra Lineare}{75}{subsubsection.4.2.2.1}%
-\contentsline {section}{\numberline {4.3}Google PageRank}{75}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Google PageRank}{76}{section.4.3}%
