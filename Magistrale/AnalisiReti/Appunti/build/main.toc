@@ -65,5 +65,9 @@
 \contentsline {section}{\numberline {4.2}Web Search}{72}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Link Analisys}{73}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Metodo HITS}{73}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}Richiami di Algebra Lineare}{75}{subsubsection.4.2.2.1}%
-\contentsline {section}{\numberline {4.3}Google PageRank}{76}{section.4.3}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Richiami di Algebra Lineare}{76}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}Dimostrazione del Teorema}{77}{subsubsection.4.2.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Google PageRank}{81}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}PageRank}{81}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}PageRank Scalato}{83}{subsubsection.4.2.3.2}%
+\contentsline {subsection}{\numberline {4.2.4}PageRank e RandomWalk}{85}{subsection.4.2.4}%
