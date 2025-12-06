@@ -8,9 +8,25 @@
 \contentsline {section}{\numberline {4}IPSec Security Protocols}{11}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Authentication Header}{11}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Servizio Anti-Replay e Sequence Numbers}{12}{subsubsection.4.1.1}%
+\contentsline {paragraph}{Extended Sequence Number (ESN)}{13}{section*.2}%
+\contentsline {subsubsection}{\numberline {4.1.2}Meccanismo della Sliding Window (Anti-Replay)}{13}{subsubsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.2}Encapsulated Security Payload}{13}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Modalità Operative: Transport vs Tunnel}{14}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {4.3.1}Transport Mode}{14}{subsubsection.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Tunnel Mode}{14}{subsubsection.4.3.2}%
 \contentsline {subsubsection}{\numberline {4.3.3}Traffic Flow Confidentiality (TFC)}{15}{subsubsection.4.3.3}%
-\contentsline {paragraph}{La Minaccia: Traffic Fingerprinting}{15}{section*.2}%
+\contentsline {paragraph}{La Minaccia: Traffic Fingerprinting}{16}{section*.3}%
+\contentsline {section}{\numberline {5}IKEv2}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Handshake regolare e attacco Man-in-the-Middle}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}FASE 1: Exchange Info - \texttt {IKE\_SA\_INIT}}{19}{subsection.5.2}%
+\contentsline {paragraph}{Payload scambiati}{19}{section*.4}%
+\contentsline {paragraph}{Calcolo delle chiavi}{20}{section*.5}%
+\contentsline {subsubsection}{\numberline {5.2.1}Protezione dagli attacchi DoS (Denial of Service)}{20}{subsubsection.5.2.1}%
+\contentsline {paragraph}{Obiettivo}{20}{section*.6}%
+\contentsline {paragraph}{Sequenza di messaggi (4-way stateless cookie)}{20}{section*.7}%
+\contentsline {paragraph}{Proprietà desiderate del Cookie}{21}{section*.8}%
+\contentsline {paragraph}{Esempio di costruzione del Cookie}{21}{section*.9}%
+\contentsline {paragraph}{Validazione e politiche operative}{21}{section*.10}%
+\contentsline {subsection}{\numberline {5.3}FASE 2: \texttt {IKE\_AUTH}}{22}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Il Payload AUTH}{22}{subsubsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.4}Generazione della CHILD\_SA}{22}{subsection.5.4}%

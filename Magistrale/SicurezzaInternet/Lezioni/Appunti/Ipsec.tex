@@ -357,23 +357,33 @@ Altri campi dell'AH:
 
 Uno dei servizi opzionali (ma raccomandati e attivi di default) di IPsec è la protezione contro i \textbf{Replay Attacks}. Poiché l'header IP nativo non possiede un numero di sequenza, un attaccante potrebbe intercettare un pacchetto cifrato valido e ritrasmetterlo successivamente per duplicare l'azione (es. duplicare una transazione bancaria).
 
-Per mitigare questo rischio, IPsec introduce un campo \textbf{Sequence Number} nell'header (AH o ESP).
+Per mitigare questo rischio, IPsec introduce un campo \textbf{Sequence Number} nell'header (AH o ESP). È un contatore incrementale di 32 bit gestito come segue:
 
-È un contatore incrementale di 32 bit gestito come segue:
 \begin{itemize}
     \item \textbf{Inizializzazione}: Al momento della creazione della Security Association (SA), il contatore viene impostato a 0.
     \item \textbf{Incremento}: Il primo pacchetto trasmesso avrà $SN=1$. Il contatore viene incrementato di 1 per ogni pacchetto successivo.
-    \item \textbf{Verifica}: Il ricevente mantiene una "finestra scorrevole" (sliding window) per scartare pacchetti con numeri vecchi (già ricevuti) o troppo fuori sequenza.
+    \item \textbf{Verifica}: Il ricevente mantiene una "finestra scorrevole" (\textit{sliding window}) per scartare pacchetti con numeri vecchi (già ricevuti) o troppo fuori sequenza.
 \end{itemize}
 
 Una regola ferrea di IPsec è che il Sequence Number \textbf{non può mai ricominciare da zero (wrap-around)}.
+
 \begin{quote}
     \textit{Limite Operativo}: Una volta raggiunto il valore massimo ($2^{32}-1$, circa 4.3 miliardi di pacchetti), la SA corrente \textbf{deve essere terminata} immediatamente e ne deve essere negoziata una nuova (con nuove chiavi).
 \end{quote}
+
 Questo vincolo è necessario per preservare la sicurezza crittografica: riutilizzare lo stesso contatore con la stessa chiave crittografica comprometterebbe l'unicità del \textit{Keystream} (specialmente in modalità come CTR o GCM), rendendo banale la decifrazione del traffico.
 
-Con l'aumento delle velocità di rete, il limite dei 32 bit è diventato un collo di bottiglia.
-Il limite dei 32 bit del Sequence Number diventa critico alle velocità moderne: a 1 Gbps con MTU 1500 si esaurisce in ~14 ore, mentre a 10-40 Gbps la SA potrebbe scadere in pochi minuti obbligando a continui rinnovi. La RFC 4303 risolve il problema introducendo l'Extended Sequence Number a 64 bit, ma senza aumentare l'overhead sul filo: viene infatti trasmessa solo la parte bassa (low-order 32 bit) mentre i 32 bit alti sono mantenuti e sincronizzati localmente da mittente e destinatario incrementandoli quando la parte bassa va in overflow. Per preservare la sicurezza, il valore completo a 64 bit è incluso nel calcolo dell'ICV, così che anche la parte alta, pur non inviandosi esplicitamente, risulti autenticata e protetta contro manomissioni.
+\paragraph{Extended Sequence Number (ESN)}
+Con l'aumento delle velocità di rete, il limite dei 32 bit è diventato un collo di bottiglia. A 1 Gbps con MTU 1500 si esaurisce in $\sim$14 ore, mentre a 10-40 Gbps la SA potrebbe scadere in pochi minuti. 
+La RFC 4303 risolve il problema introducendo l'\textbf{Extended Sequence Number a 64 bit}, ma senza aumentare l'overhead sul filo: viene trasmessa solo la parte bassa (low-order 32 bit) mentre i 32 bit alti sono mantenuti e sincronizzati localmente. Per preservare la sicurezza, il valore completo a 64 bit è incluso nel calcolo dell'ICV.
+
+\subsubsection{Meccanismo della Sliding Window (Anti-Replay)}
+
+Per difendersi dai replay attack IPsec adotta una finestra scorrevole di dimensione W gestita dal ricevente. La dimensione non è negoziata (tipicamente minima 32, default 64) e il margine destro della finestra coincide con il Sequence Number più alto già accettato.
+
+Il comportamento è semplice e robusto: quando arriva un pacchetto con numero di sequenza SeqN il ricevente procede così — se SeqN è troppo piccolo (a sinistra della finestra) il pacchetto viene scartato; se SeqN cade nella finestra si verifica la bitmask per rilevare duplicati e si controlla l'ICV: se l'ICV è valido il pacchetto viene accettato e il corrispondente bit viene marcato; se SeqN è maggiore del margine destro il pacchetto è nuovo e, dopo aver validato l'ICV, la finestra viene fatta scorrere a destra aggiornando il nuovo margine e scartando i bit ormai fuori range.
+
+Regole operative importanti: non si sposta la finestra prima della verifica dell'ICV (evitando facili DoS) e lo Sequence Number non deve mai riavvolgersi (wrap-around), pena la terminazione della SA e la negoziazione di una nuova.
 
 \subsection{Encapsulated Security Payload}
 
@@ -389,7 +399,7 @@ ESP è oggi lo standard pratico per IPsec: offre confidenzialità, integrità e 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.45\linewidth]{images/esp.png}
+    \includegraphics[width=0.6\linewidth]{images/esp.png}
     \caption{ESP insime insieme al Pacchetto IP}
     \label{fig:esp}
 \end{figure}
@@ -446,8 +456,11 @@ In conlusione, AH in tunnel fornisce soprattutto integrità e autenticazione anc
 Sebbene la cifratura ESP garantisca che il contenuto e il campo \textit{Next Header} siano illeggibili — impedendo a un osservatore di distinguere deterministicamente il protocollo applicativo (es. VoIP vs SMTP) — la sola cifratura non garantisce la \textbf{unlinkability} (non collegabilità).
 Come evidenziato dagli studi su \textit{Statistical Traffic Pattern Analysis}, rimangono esposti metadati critici come la dimensione dei pacchetti e la temporizzazione degli invii.
 
+\textbf{NOTA:} L'attacco si chiama \textit{Statistical Traffic Analisys} mentre il metodo di difesa prende il nome di \textit{Traffic Flow Confidentiality}.
+
 \paragraph{La Minaccia: Traffic Fingerprinting}
 Anche in un tunnel cifrato, servizi diversi generano "forme" di traffico diverse. Ad esempio, visitare \texttt{amazon.com} genera un profilo statistico di dimensioni dei pacchetti molto diverso da quello di un video su YouTube. Un attaccante può utilizzare queste "impronte" (\textit{fingerprinting}) per dedurre quale sito o servizio l'utente sta utilizzando, pur non potendo leggere i dati.
+Per mitigare questa minaccia si possono agire su tre leve principali: la dimensione dei pacchetti, la temporizzazione degli invii e la presenza/assenza di pacchetti. IPsec fornisce supporto soltanto parziale alla prima leva (mascheramento delle dimensioni).
 
 Per contrastare queste analisi, ESP implementa due specifiche contromisure di \textit{Traffic Flow Confidentiality}:
 
@@ -469,11 +482,204 @@ Per contrastare queste analisi, ESP implementa due specifiche contromisure di \t
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.5\linewidth]{images/fingerprint.png}
+    \includegraphics[width=0.40\linewidth]{images/fingerprint.png}
     \caption{Esempio di "impronta" di un sito}
     \label{fig:fingerprint}
 \end{figure}
 
-\textbf{Conclusione}: L'obiettivo finale di queste tecniche è trasformare un traffico reale di tipo VBR in un flusso \textbf{CBR (Constant Bit Rate)} indistinguibile e piatto. Tuttavia, queste contromisure comportano un costo elevato in termini di efficienza di rete (spreco di banda per padding e pacchetti inutili), motivo per cui il TFC è spesso opzionale o disabilitato per default.
+\section{IKEv2}
 
+Per stabilire e mantenere in modo scalabile le Security Associations (SA) si utilizza IKE (Internet Key Exchange); la versione corrente è IKEv2 (RFC 7296). IKEv2 automatizza la negoziazione dei parametri di protezione (AH/ESP, modalità, algoritmi), la derivazione e il rinnovo delle chiavi e la selezione delle policy di traffico, risolvendos i limiti della gestione manuale (manual keying) e garantendo proprietà moderne come il rekeying e la Perfect Forward Secrecy.
+
+Concettualmente IKEv2 distingue due tipologie di SA: l'IKE SA, che protegge gli stessi messaggi di controllo di IKE, e le CHILD SA, che proteggono il traffico dati (ESP o AH). Lo scambio tipico si articola in una prima fase di negoziazione dei parametri crittografici e di Diffie-Hellman (\texttt{IKE\_SA\_INIT}), seguita dall'autenticazione dei peer e dalla creazione della prima CHILD SA (\texttt{IKE\_AUTH}).
+Successivamente si possono creare ulteriori CHILD SA tramite \texttt{CREATE\_CHILD\_SA} e gestire notifiche o chiusure con messaggi INFORMATIONAL.
+
+\begin{description}
+    \item [IKE SA:] È una Security Association utilizzata per scambiare i messaggi di controllo del protocollo IKE stesso.
+    \item [CHILD SA:] È una Security Association utilizzata per scambiare i messaggi di dati veri e propri, utilizzando i protocolli AH o ESP. Possono essere stabilite molteplici CHILD SA tra due peer.
+\end{description}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/ike_1.png}
+    \caption{Messaggi IKEv2}
+    \label{fig:ike}
+\end{figure}
+
+Operativamente, IKEv2 gira su UDP (porta 500, o 4500 quando è attivo il NAT-Traversal) e include meccanismi integrati di ritrasmissione e riconoscimento per garantire affidabilità. Un messaggio IKE è incapsulato sopra UDP e contiene un header seguito da una sequenza di payload tipizzati:
+\[
+    [\text{IP}] [\text{UDP}] [\text{IKE header}] [\text{Payload}_1] \ldots [\text{Payload}_N]
+\]
+I payload sono concatenati e ogni payload possiede un piccolo header con campo \texttt{Next Payload}, un bit \texttt{Critical} (che, se impostato, obbliga il destinatario a rifiutare il messaggio se non supporta quel payload) e la lunghezza del payload. Questa struttura a catena rende IKEv2 estendibile: nuovi tipi di payload possono essere aggiunti senza rompere la compatibilità verso implementazioni più vecchie.
+
+L'header IKE contiene, fra gli altri, gli identificatori Initiator SPI e Responder SPI (8 byte ciascuno), il Message ID per correlare richieste/risposte e gestire ritrasmissioni/replay, il tipo di exchange (es. \texttt{IKE\_SA\_INIT}, \texttt{IKE\_AUTH}, \texttt{CREATE\_CHILD\_SA}) e la lunghezza totale del messaggio. Questi elementi permettono a IKEv2 di correlare le sequenze di messaggi, supportare ritrasmissioni e prevenire replay, mantenendo al contempo flessibilità e sicurezza nella negoziazione delle SA.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/ike_2.png}
+    \caption{Header IKEv2}
+    \label{fig:ike_header}
+\end{figure}
+
+Il bit o flag V sta per "Version".
+\begin{description}
+    \item[V = 0:] "Questa è la mia versione massima" oppure "Non sto segnalando capacità superiori".
+    \item[V = 1:] "Sto usando questa versione (es. N-1) per compatibilità, ma in realtà sono capace di parlare una versione più recente (es. N)".
+\end{description}
+
+\subsection{Handshake regolare e attacco Man-in-the-Middle}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/ike_3.png}
+    \caption{Utilizzo bit $V$}
+    \label{fig:ike_vbit}
+\end{figure}
+
+\begin{description}
+    \item[Handshake regolare]
+    Consideriamo prima il caso ideale senza attaccanti. L'Initiator supporta la versione \texttt{N}, il Responder la versione \texttt{N-1}. L'Initiator propone \texttt{N} e il Responder risponde che al massimo può arrivare a \texttt{N-1}. Dopo la fase di negoziazione iniziale, quando la comunicazione è ormai cifrata e autenticata, l'Initiator invia messaggi usando la versione concordata (\texttt{N-1}) ma segnala con il flag \texttt{V=1} che lui sarebbe comunque in grado di usare una versione più recente (\texttt{N}). Il Responder, vedendo questa informazione autenticata, conclude correttamente che la scelta comune è \texttt{N-1} e la connessione procede normalmente.
+    \item[Handshake sotto attacco MITM.]
+    Nello scenario con un attaccante che opera in mezzo, l'obiettivo dell'avversario è forzare entrambe le parti a scendere a una versione molto vecchia e vulnerabile (\texttt{N-2}). L'Initiator invia la proposta \texttt{N}, ma l'attaccante altera il pacchetto in transito trasformandolo in \texttt{N-2}. Il Responder, credendo che l'altro sia antiquato, accetta \texttt{N-2} ma imposta il flag \texttt{V=1} per indicare autenticata capacità di usare \texttt{N-1}. L'attaccante però rimuove o azzera questo flag prima di inoltrare la risposta all'Initiator, nascondendo così al mittente la reale capacità del Responder. A questo punto parte la fase autenticata: l'Initiator, convinto di parlare con \texttt{N-2}, invia messaggi autenticati che includono il flag \texttt{V=1} (segno che lui supporta \texttt{N}). Il Responder riceve ora, all'interno della parte autenticata, un messaggio che dichiara \texttt{V=1} mentre la negoziazione iniziale in chiaro aveva stabilito \texttt{N-2}. Questo conflitto è un chiaro indicatore di manomissione della negoziazione in chiaro, perché implica che qualcuno ha modificato i messaggi prima dell'instaurazione della protezione. Di conseguenza il Responder rifiuta la connessione e l'handshake viene interrotto, impedendo il downgrade forzato.
+\end{description}
+
+Questo meccanismo intelligente (il flag V) non esiste in IKEv1. Quindi, se un attaccante riesce a forzare un downgrade fino alla versione 1 del protocollo, questo controllo di sicurezza non scatta e l'attacco ha successo. Ecco perché disabilitare IKEv1 sui server moderni è fondamentale.
+
+\subsection{FASE 1: Exchange Info - \texttt{IKE\_SA\_INIT}}
+
+In questa prima fase i due peer si scambiano le informazioni iniziali necessarie per concordare "come" proteggeranno le comunicazioni successive. I messaggi viaggiano in chiaro e contengono le proposte di parametri (algoritmi di crittografia, integrità, PRF e gruppi Diffie-Hellman), i valori effimeri per il key exchange e i nonce casuali: tutto ciò serve a costruire una base crittografica condivisa ma non ancora autenticata. 
+
+Lo scopo pratico è duplice: da un lato selezionare in modo interoperabile le primitive crittografiche che verranno poi usate; dall'altro raccogliere il materiale  necessario per eseguire il Diffie-Hellman e ottenere una secret root comune. Poiché questa negoziazione è in chiaro, le informazioni trasmesse devono essere tali da non compromettere le proprietà essenziali (le chiavi finali sono comunque protette dalle proprietà del DH e dai nonce).
+
+Come risultato di \texttt{IKE\_SA\_INIT} si ottiene SKEYSEED, una chiave di partenza calcolata tramite la PRF negoziata sui valori DH e sui nonce; da SKEYSEED verranno poi derivate tutte le chiavi operative (autenticazione, cifratura e materiale per le CHILD SA). Questa fase costituisce quindi il fondamento crittografico su cui si appoggiano le successive fasi di autenticazione e creazione delle SA dati.
+
+\paragraph{Payload scambiati}
+\begin{itemize}
+    \item \textbf{SAi1 / SAr1 (Security Association)}: l'Initiator propone la lista degli algoritmi supportati; il Responder seleziona le proposte accettate per funzione (crittografia, integrità/PRF, DH).
+    \item \textbf{KEi / KEr (Key Exchange)}: valori effimeri per lo scambio Diffie-Hellman.
+    \item \textbf{Ni / Nr (Nonce)}: numeri casuali (minimo 16 byte) usati per la derivazione delle chiavi e per prevenire replay.
+    \item \textbf{CERTREQ (opzionale)}: richiesta di certificati.
+\end{itemize}
+
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,title=Nota]
+Diversamente da TLS, dove le cipher suite sono spesso fornite come combinazioni predefinite, in IKEv2 è possibile negoziare separatamente le primitive crittografiche (cifratura, autenticazione, PRF, gruppo DH), consentendo di ottenere liberamente qualsiasi combinazione di algoritmi.
+\end{tcolorbox}
+
+\paragraph{Calcolo delle chiavi}
+Al termine di \texttt{IKE\_SA\_INIT} viene calcolata la secret root:
+\[
+    \mathrm{SKEYSEED} = \mathrm{prf}(N_i,\; N_r,\; g^{ir})
+\]
+dove \(\mathrm{prf}\) è la funzione pseudo-casuale negoziata durante l'handshake e $g^{ir}$ è il DH coefficient.
+
+A partire da SKEYSEED si deriva un insieme di chiavi tramite una costruzione estesa della PRF (spesso indicata come \(\mathrm{prf+}\)), utilizzando inoltre i Nonce e gli SPI:
+
+\begin{itemize}
+    \item \(\mathrm{SK}_{ai},\ \mathrm{SK}_{ar}\): chiavi di autenticazione (Initiator / Responder).
+    \item \(\mathrm{SK}_{ei},\ \mathrm{SK}_{er}\): chiavi di cifratura.
+    \item \(\mathrm{SK}_{pi},\ \mathrm{SK}_{pr}\): chiavi usate per generare il payload AUTH nella fase successiva.
+    \item \(\mathrm{SK}_{d}\): materiale chiave fondamentale per derivare le chiavi delle future CHILD\_SA (traffic SA).
+\end{itemize}
+
+Nota: a differenza di TLS, la PRF in IKEv2 è negoziabile; ciò permette di scegliere la funzione di derivazione più adatta durante la negoziazione.
+
+\subsubsection{Protezione dagli attacchi DoS (Denial of Service)}
+
+Gli scambi iniziali di IKEv2 richiedono operazioni costose (calcoli Diffie-Hellman, allocazione di strutture di stato, derivazione di chiavi). Un avversario può sfruttare questo fatto inviando molteplici richieste iniziali forgiate (spesso con IP sorgente spoofato) per costringere il Responder a consumare CPU e memoria e quindi degradare o interrompere il servizio. 
+
+Per mitigare questo rischio IKEv2 adotta un meccanismo di \textbf{stateless cookie handshake} (handshake a 4 vie) che consente al Responder di verificare l'autenticità della richiesta senza allocare immediatamente stato persistente. Di seguito una descrizione dettagliata e robusta del meccanismo.
+
+\paragraph{Obiettivo}
+Ridurre il costo computazionale e la memoria usata dal Responder in risposta a richieste iniziali non verificate, obbligando il peer legittimo a dimostrare la raggiungibilità dell'indirizzo IP sorgente prima che il Responder esegua operazioni pesanti.
+
+\paragraph{Sequenza di messaggi (4-way stateless cookie)}
+\begin{enumerate}
+    \item \textbf{INIT (da Initiator a Responder)}: l'Initiator invia SAi1 | KEi | Ni (proposta SA, valore DH effimero, nonce).
+    \item \textbf{COOKIE-REPLY (da Responder a Initiator)}: il Responder risponde \emph{senza} allocare stato e \emph{senza} eseguire DH, inviando un messaggio contenente solo un cookie e il proprio Ni o una indicazione di richiesta cookie.
+    \item \textbf{INIT+COOKIE (da Initiator a Responder)}: l'Initiator ritrasmette la proposta originaria includendo il cookie ricevuto.
+    \item \textbf{Verifica e continuazione (da Responder)}: il Responder verifica il cookie. Se valido, allora alloca lo stato (SPI) ed esegue le operazioni DH/derive necessarie e prosegue con il normale IKE\_SA\_INIT/ IKE\_AUTH.
+\end{enumerate}
+
+Il cookie non deve essere né statico (ad esempio rigenerato ogni 10 minuti), perché in quel caso un avversario potrebbe inviare un \texttt{IKE\_SA\_INIT} e poi riutilizzare il cookie senza attendere la richiesta legittima dal server. Allo stesso modo non può essere completamente casuale, poiché ciò implicherebbe la necessità di memorizzarlo sul Responder per poterlo verificare. Pertanto il cookie dovrebbe essere derivato in modo deterministico da parametri crittografici della richiesta (es. nonce, SPI, eventuali campi stabili dell'IP/porta), permettendo la verifica senza mantenere stato persistente.
+
+\paragraph{Proprietà desiderate del Cookie}
+\begin{itemize}
+    \item \textbf{Statelessness del Responder}: il Responder non deve mantenere una tabella di cookie emessi (evita consumo di memoria e race condition).
+    \item \textbf{Unicità e legame alla richiesta}: il cookie deve legarsi in modo affidabile ai parametri della richiesta (es. nonce, IP/port, SPI) così che solo chi possiede il controllo dell'indirizzo IP sorgente possa riproporre la richiesta con il cookie valido.
+    \item \textbf{Resistenza alla predizione e riproduzione}: il cookie deve essere calcolato con una funzione crittografica sicura e un segreto noto solo al Responder; il segreto deve ruotare periodicamente per limitare la finestra di validità dei cookie.
+\end{itemize}
+
+\paragraph{Esempio di costruzione del Cookie}
+Un costrutto sicuro e pratico è l'uso di una MAC o HMAC:
+\[
+    \text{Cookie} \;=\; \text{VersionID} \,\|\, \text{HMAC}_{K_{\text{secret}}}\big(\,N_i \,\|\; \text{IP}_i \,\|\; \text{Port}_i \,\|\; \text{SPI}_i \,\big)
+\]
+dove
+\begin{itemize}
+    \item \(N_i\) = nonce dell'Initiator,
+    \item \(\text{IP}_i,\ \text{Port}_i\) = indirizzo e porta sorgente (attenzione a NAT; vedere nota),
+    \item \(\text{SPI}_i\) = SPI proposto dall'Initiator,
+    \item \(K_{\text{secret}}\) = segreto periodicamente rinnovato dal Responder
+\end{itemize}
+
+Il campo VersionID permette di gestire formati diversi di cookie durante aggiornamenti del protocollo.
+
+\paragraph{Validazione e politiche operative}
+\begin{description}
+    \item[Ricezione] 
+    Il Responder riceve il messaggio \texttt{IKE\_SA\_INIT} riformulato dall'Initiator, il quale ora include il Cookie che era stato precedentemente generato e inviato dal Responder stesso.
+
+    \item[Ricalcolo] 
+    Il Responder ricalcola il valore HMAC sui dati contenuti nella richiesta (ad esempio SPI, Nonce, IP) utilizzando il proprio segreto locale ($K_{\text{secret}}$). Per evitare fallimenti durante la rotazione delle chiavi, il Responder verifica la validità del cookie anche utilizzando il segreto immediatamente precedente.
+
+    \item[Confronto e Allocazione] 
+    Il Responder confronta l'HMAC appena calcolato con il valore del Cookie presente nel pacchetto ricevuto:
+    \begin{itemize}
+        \item \textbf{Verifica superata:} Se i valori corrispondono, l'indirizzo IP dell'Initiator è confermato. Solo in questo momento il Responder \textbf{alloca lo stato} in memoria e procede con la negoziazione.
+        \item \textbf{Verifica fallita:} Se i valori non corrispondono, il pacchetto viene ignorato e non viene allocata alcuna risorsa (nessuno stato viene memorizzato).
+    \end{itemize}
+\end{description}
+
+\subsection{FASE 2: \texttt{IKE\_AUTH}}
+
+La fase \texttt{IKE\_AUTH} segue immediatamente lo scambio iniziale (\texttt{IKE\_SA\_INIT}). A differenza della fase precedente, tutti i payload scambiati in questa fase sono \textbf{crittografati e autenticati} (ad eccezione dell'header IKE).
+
+Gli obiettivi principali di questa fase sono autenticare le identità dei peer, verificare l'integrità dello scambio precedente e stabilire la prima connessione dati (CHILD\_SA).
+
+\begin{itemize}
+    \item \textbf{Protezione del Messaggio:} Il messaggio viene cifrato utilizzando la chiave di cifratura ($SK_e$) e autenticato con la chiave di autenticazione ($SK_a$), entrambe derivate durante la fase INIT.
+    \item \textbf{Algoritmi:} Vengono utilizzati gli algoritmi di crittografia e autenticazione negoziati precedentemente.
+\end{itemize}
+
+Lo scambio prevede l'invio di diversi payload critici:
+
+\begin{itemize}
+    \item \textbf{IDi / IDr (Identities):} Identificativi dell'Initiator e del Responder. Possono essere indirizzi IP, nomi di dominio (FQDN), indirizzi email o altro.
+    \item \textbf{CERT / CERTREQ:} Payload opzionali per l'invio di certificati digitali o la richiesta di certificati al peer.
+\end{itemize}
+
+\subsubsection{Il Payload AUTH}
+Questo è il componente fondamentale per la sicurezza dello scambio:
+\begin{itemize}
+    \item \textbf{Funzione:} Autentica il messaggio precedente (INIT) e le identità dichiarate ($ID_i, ID_r$).
+    \item \textbf{Prevenzione Attacchi:} Firmando crittograficamente i messaggi precedenti, questo payload combatte efficacemente i \textit{downgrade attacks} (impedendo a un attaccante di modificare la negoziazione in chiaro della fase INIT).
+    \item \textbf{Metodo:} Se si utilizzano certificati, l'autenticazione avviene tramite la corrispondente chiave privata.
+\end{itemize}
+
+\subsection{Generazione della CHILD\_SA}
+Durante la fase \texttt{IKE\_AUTH} viene creata anche la prima \texttt{CHILD\_SA} (il tunnel per il traffico dati vero e proprio).
+
+\begin{itemize}
+    \item \textbf{Incorporazione:} La negoziazione della prima SA figlia è direttamente incorporata nei messaggi AUTH, evitando round-trip aggiuntivi.
+    \item \textbf{Nuovi Parametri:} Vengono trasmessi i payload $SA$ ($SA_{i2}, SA_{r2}$) per negoziare i parametri di sicurezza specifici per questa connessione dati.
+    \item \textbf{Traffic Selectors (TS):} Vengono definiti i parametri $TS_i$ e $TS_r$ che specificano quale traffico deve passare nel tunnel.
+    \begin{itemize}
+        \item Includono intervalli di indirizzi IP (es. 192.168.1.1-12), numeri di porta e protocolli.
+        \item Questi parametri vengono confrontati con la Security Policy Database (SPD) locale.
+    \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,title=PER L'ESAME]
+Il prof ha esplicitamento detto che gli interessa maggiormente come avviene l'attacco MITM alla versione e come proteggerci, il cookie e come funziona \texttt{IKE\_SA\_INIT}.
+\end{tcolorbox}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.30)  30 NOV 2025 17:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.30)  5 DEC 2025 11:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,7 +714,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<images/vpn.png, id=119, 2505.36pt x 1702.36pt>
+<images/vpn.png, id=160, 2505.36pt x 1702.36pt>
 File: images/vpn.png Graphic file (type png)
 <use images/vpn.png>
 Package pdftex.def Info: images/vpn.png  used on input line 44.
@@ -724,7 +724,7 @@ Package pdftex.def Info: images/vpn.png  used on input line 44.
 [2{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/vpn.png (PNG copy)>]
 
 [3]
-<images/vpn_tunnel.png, id=147, 788.9475pt x 452.69125pt>
+<images/vpn_tunnel.png, id=187, 788.9475pt x 452.69125pt>
 File: images/vpn_tunnel.png Graphic file (type png)
 <use images/vpn_tunnel.png>
 Package pdftex.def Info: images/vpn_tunnel.png  used on input line 100.
@@ -732,7 +732,7 @@ Package pdftex.def Info: images/vpn_tunnel.png  used on input line 100.
 
 
 [4 <./images/vpn_tunnel.png>]
-<images/ipsec_tls.png, id=155, 3276.24pt x 1316.92pt>
+<images/ipsec_tls.png, id=196, 3276.24pt x 1316.92pt>
 File: images/ipsec_tls.png Graphic file (type png)
 <use images/ipsec_tls.png>
 Package pdftex.def Info: images/ipsec_tls.png  used on input line 144.
@@ -744,7 +744,7 @@ Package pdftex.def Info: images/ipsec_tls.png  used on input line 144.
 [6]
 
 [7]
-<images/ipsec_protocols.png, id=174, 2409.0pt x 1766.6pt>
+<images/ipsec_protocols.png, id=215, 2409.0pt x 1766.6pt>
 File: images/ipsec_protocols.png Graphic file (type png)
 <use images/ipsec_protocols.png>
 Package pdftex.def Info: images/ipsec_protocols.png  used on input line 234.
@@ -756,7 +756,7 @@ Package pdftex.def Info: images/ipsec_protocols.png  used on input line 234.
 [9]
 
 [10]
-<images/ah_header.png, id=196, 1143.27126pt x 800.9925pt>
+<images/ah_header.png, id=236, 1143.27126pt x 800.9925pt>
 File: images/ah_header.png Graphic file (type png)
 <use images/ah_header.png>
 Package pdftex.def Info: images/ah_header.png  used on input line 338.
@@ -766,57 +766,91 @@ Package pdftex.def Info: images/ah_header.png  used on input line 338.
 [11 <./images/ah_header.png (PNG copy)>]
 
 [12]
-<images/esp.png, id=207, 1149.29375pt x 809.0225pt>
+<images/esp.png, id=247, 1149.29375pt x 809.0225pt>
 File: images/esp.png Graphic file (type png)
 <use images/esp.png>
-Package pdftex.def Info: images/esp.png  used on input line 392.
-(pdftex.def)             Requested size: 203.83417pt x 143.48213pt.
+Package pdftex.def Info: images/esp.png  used on input line 402.
+(pdftex.def)             Requested size: 271.7835pt x 191.31775pt.
 
 
-[13 <./images/esp.png (PNG copy)>]
+[13]
 
-[14]
-<images/ah_transport_tunnel.png, id=218, 1304.875pt x 584.1825pt>
+[14 <./images/esp.png (PNG copy)>]
+<images/ah_transport_tunnel.png, id=259, 1304.875pt x 584.1825pt>
 File: images/ah_transport_tunnel.png Graphic file (type png)
 <use images/ah_transport_tunnel.png>
-Package pdftex.def Info: images/ah_transport_tunnel.png  used on input line 434.
+Package pdftex.def Info: images/ah_transport_tunnel.png  used on input line 444.
 (pdftex.def)             Requested size: 271.7835pt x 121.67467pt.
-<images/esp_transport_tunnel.png, id=219, 1615.03375pt x 649.42625pt>
+<images/esp_transport_tunnel.png, id=260, 1615.03375pt x 649.42625pt>
 File: images/esp_transport_tunnel.png Graphic file (type png)
 <use images/esp_transport_tunnel.png>
-Package pdftex.def Info: images/esp_transport_tunnel.png  used on input line 438.
+Package pdftex.def Info: images/esp_transport_tunnel.png  used on input line 448.
 (pdftex.def)             Requested size: 271.7835pt x 109.28123pt.
 
 
 [15 <./images/ah_transport_tunnel.png (PNG copy)> <./images/esp_transport_tunnel.png (PNG copy)>]
-<images/fingerprint.png, id=228, 890.32625pt x 901.3675pt>
+<images/fingerprint.png, id=267, 890.32625pt x 901.3675pt>
 File: images/fingerprint.png Graphic file (type png)
 <use images/fingerprint.png>
-Package pdftex.def Info: images/fingerprint.png  used on input line 472.
-(pdftex.def)             Requested size: 226.48395pt x 229.28864pt.
+Package pdftex.def Info: images/fingerprint.png  used on input line 485.
+(pdftex.def)             Requested size: 181.18439pt x 183.43365pt.
 
 
-[16 <./images/fingerprint.png (PNG copy)>] (build/Ipsec.aux)
+[16 <./images/fingerprint.png (PNG copy)>]
+<images/ike_1.png, id=276, 871.255pt x 489.83pt>
+File: images/ike_1.png Graphic file (type png)
+<use images/ike_1.png>
+Package pdftex.def Info: images/ike_1.png  used on input line 504.
+(pdftex.def)             Requested size: 317.07614pt x 178.25952pt.
+<images/ike_2.png, id=277, 2698.08pt x 1606.0pt>
+File: images/ike_2.png Graphic file (type png)
+<use images/ike_2.png>
+Package pdftex.def Info: images/ike_2.png  used on input line 519.
+(pdftex.def)             Requested size: 317.07614pt x 188.71729pt.
+
+
+[17 <./images/ike_1.png>]
+<images/ike_3.png, id=285, 1132.23pt x 598.235pt>
+File: images/ike_3.png Graphic file (type png)
+<use images/ike_3.png>
+Package pdftex.def Info: images/ike_3.png  used on input line 534.
+(pdftex.def)             Requested size: 317.07614pt x 167.53204pt.
+
+
+[18 <./images/ike_2.png (PNG copy)> <./images/ike_3.png (PNG copy)>]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 548.
+
+
+[19]
+
+[20]
+
+[21]
+
+[22]
+
+[23] (build/Ipsec.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Ipsec.out' has not changed.
-(rerunfilecheck)             Checksum: 5AE3F3F9EC598C8A25F28D7A7846BDC7;2319.
+(rerunfilecheck)             Checksum: 9C4258605F13BA9542250AB67BC09D43;4083.
  ) 
 Here is how much of TeX's memory you used:
- 29095 strings out of 475160
- 576475 string characters out of 5766666
- 995865 words of memory out of 5000000
- 51564 multiletter control sequences out of 15000+600000
- 576253 words of font info for 77 fonts, out of 8000000 for 9000
+ 29210 strings out of 475160
+ 578771 string characters out of 5766666
+ 997989 words of memory out of 5000000
+ 51648 multiletter control sequences out of 15000+600000
+ 576566 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,11n,105p,926b,658s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on build/Ipsec.pdf (16 pages, 14531012 bytes).
+ 98i,11n,105p,1403b,658s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on build/Ipsec.pdf (23 pages, 20258774 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 306 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 428 PDF objects out of 1000 (max. 8388607)
+ 324 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 385 words of extra memory for PDF output out of 10000 (max. 10000000)
 
