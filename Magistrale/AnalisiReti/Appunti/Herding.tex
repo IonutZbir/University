@@ -1,0 +1,167 @@
+\chapter{Herding}
+
+Abbiamo visto che quando degli individui sono connessi tra di loro in una \textit{rete}, le loro decisioni e comportamenti possono essere influenzati (ed influenzare) da quello degli altri individui vicini.
+
+Nello studio dei processi di diffusione abbiamo visto come il comportamento dei singoli individui veniva influenzato dalla diretta comunicazione col proprio vicinato. In questa sezione vedremo come le decisioni dei singoli individui possono essere influenzate dalle osservazioni fatte sul comportamento degli altri, senza lo scambio di alcuna informazione. In sostanza come è possibile estrapolare informazioni dal comportamento della massa.
+
+Come primo esempio supponiamo di essere in vacanza in un nuovo posto e di dover scegliere un ristorante in cui mangiare. In base alle nostre ricerche personali scopriamo che il ristorante $A$ è il migliore che ci sia in zona, e quindi decidiamo di andarci. Poco prima di entrare vediamo che nel ristorante accanto, il ristorante $B$, c'è moltissima clientela, mentre il ristorante $A$ è praticamente vuoto. Non è del tutto irrazionale pensare che tutte le persone che vanno al ristorante $B$ abbiano \textbf{informazioni private} che noi non abbiamo, e supporre che in realtà il ristorante è il migliore. In effetti il fatto che il ristorante $A$ sia quasi vuoto non aiuta: verrebbe da pensare che siamo in possesso di informazioni non del tutto esatte o complete. Perciò decidiamo anche noi di andare al ristorante $B$.
+
+In questo caso diremo che è avvenuta una \textbf{cascata informativa} (o \textbf{herding}). In poche parole, una cascata informativa occorre quando gli individui prendono decisioni in maniera sequenziale, osservando ciò che hanno fatto gli altri prima e cercando di inferire qualche informazione aggiuntiva che ha spinto gli altri ad agire in tale maniera
+
+La cosa più interessante è che gli individui che “imitano” gli altri non lo fanno del tutto stupida, bensì facendo una serie di ragionamenti ed inferenze più che sensate. Naturalmente, l'imitazione può verificarsi anche a causa della pressione sociale all'esigienza di volersi conformare, senza alcuna causa informativa sottostante, e non è sempre facile distinguere questi due fenomeni. Consideriamo infatti l'esperimento di \textit{Milgram, Bickman e Berkowitz} del 1960, in cui venivano poste agli angoli delle strade dei gruppi di persone (da un minimo di 1 a un massimo di 15) a guardare il cielo senza alcun motivo. Si è osservato quanti passanti si sono fermati e hanno volto lo sguardo al cielo. Come prima osservazione si è visto che con una sola persona, pochissimi passanti si fermavano. Se invece 5 persone fissavano il cielo, alcuni passanti si fermavano a imitare, ma la maggior parte li ignorava. Infine, con un gruppo di 15 persone che guardano verso l'alto, hanno scoperto che il 45\% dei passanti imitava, fermandosi e guardare il cielo cercando di capire.
+
+Quest'ultimo esperimento lascia pensare che esiste una \textbf{soglia critica} oltre la quale si scatena l'herding su una considerevole porzione di popolazione. Infatti, se camminando per strada vediamo due persone che fissano il cielo, è naturale pensare che i due individui non siano proprio sani mentalmente. Se invece ne vediamo 15, molto probabilmente guarderemo anche noi verso l'alto, per cercare di capire cosa c'è di interessante.
+
+Alcune domande nascono spontanee:
+\begin{itemize}
+    \item esiste sempre una soglia critica che scatena l'herding di massa?
+    \item e se esiste, come fare a trovarla?
+\end{itemize}
+
+\section{A Simple Herding Experiment: Il Gioco delle Urne}
+
+Consideriamo un genere di gioco con la seguente tipologia di regole
+
+\begin{enumerate}
+    \item C'è una decisione da prendere
+    \item I giocatori prendono le proprie decisioni in sequenza (uno dopo l'altro), e ogni persona può osservare le scelte fatte da coloro che hanno agito prima.
+    \item Ogni giocatore ha alcune \textit{informazioni private} che aiutano a guidare la propria decisione.
+    \item Un giocatore non può osservare direttamente le informazioni private che gli altri giocatori hanno, ma può trarre deduzioni su queste informazioni private da ciò che fanno.
+\end{enumerate}
+
+Secondo queste indicazioni, istanziamo un gioco con le seguenti regole:
+
+\begin{itemize}
+    \item C'è uno \textbf{scommettitore} in una stanza chiusa, e una serie di \textbf{giocatori} all'esterno.
+    \item Lo scommettitore inserisce due palline rosse ed una blu in un'urna (che chiameremo $MR$, a Maggioranza Rossa), e due palline blu e una rossa in un'altra urna (che chiameremo $MB$, a Maggioranza Blu).
+    \item Lo scommettitore poi mischia le due urne e ne sceglie una a caso (senza avere la possibilità di vederne il contenuto).
+    \item Un giocatore alla volta entra nella stanza ed estrae una pallina dall'urna, e poi la reinserisce.
+    \item Il giocatore comunica a tutti quanti se ritiene che l'urna sia $MR$ o $MB$ (sulla base delle sue informazioni). \textbf{Importante:} il giocatore non deve comunicare il colore della pallina pescata.
+    \item Al termine vinceranno solo i giocatori che hanno indovinato quale urna è stata scelta inizialmente ($MR$ o $MB$).
+\end{itemize}
+
+Per definizione di questo gioco, l'informazione privata dei singoli giocatori è l'esito dell'estrazione (pallina blu o pallina rossa), e questa non viene mai condivisa con gli altri. Un giocatore però può inferire quale urna è meglio scegliere in base alle scelte fatte dagli altri prima (come vedremo adesso).
+
+\begin{description}
+    \item[Primo Giocatore:] Prima di estrarre la pallina, il primo giocatore è in possesso della sola informazione "l'urna è $MR$ o $MB$". Non avendo altre informazioni, a prescindere da cosa pescherà il primo giocatore, la probabilità che l'urna sia $MR$ o $MB$ è la stessa. Perciò gli conviene scomettere sul colore della pallina estratta: se pesca una pallina blu gli conviene scommettere su $MB$ (stesso discorso per $MR$).
+    \item[Secondo Giocatore:] A questo punto il secondo giocatore può dedurre l'esito dell'estrazione del primo giocatore sulla base della sua scommessa. Senza perdita di generalità, supponiamo che il primo giocatore abbia scommesso $MB$ (e che quindi abbia estratto una pallina blu). Se il secondo estrae una pallina blu, allora sa che sono state estratte due palline blu consecutive, e che quindi è più conveniente scommettere su $MB$. Se invece estrae una pallina rossa, si ritrova nella stessa situazione inizale del primo giocatore (senza alcuna informazione rilevante), perciò gli conviene scommettere $MR$ in accordo alla sua estrazione.
+    \item[Terzo Giocatore:] Anche il terzo giocatore è in grado di dedurre le estrazioni dei giocatori precedenti: se sono discordi allora sono avvenute due estrazioni discorde, se sono concorde allora sono avvenute due estrazioni di palline dello stesso colore. Consideriamo il caso in cui le prime due estrazioni siano discordi, in questo caso al terzo giocatore conviene rispondere in accordo a ciò che pesca (se pesca una pallina blu gli conviene votare $MB$, se ne pesca una rossa gli conviene votare $MR$). Consideriamo ora il caso in cui i primi due giocatori abbiamo voti condori, e senza perdita di generalità supponiamo che abbiano entrambi votato $MB$. Se il terzo giocatore pesca una pallina blu, allora vuol dire che sono state estratte tre palline blu di seguito, rafforzando la propbailità che $MB$ sia la risposta esatta. Se invece estrae una rossa, comunque è più probabile che la risposta esatta sia $MB$, perché sono state estratte due palline blu di seguito e poi una rossa. Quindi in ogni caso gli conviene votare $MB$.
+    \item[Quarto Giocatore:] A questo punto il quarto giocatore può dedurre ciò che hanno fatto tutti i giocatori precedenti solamente se ci sono 2 voti concordi ed uno discorde (2 a 1). Perché se ci fossero 3 voti concordi, sappiamo che il terzo giocatore avrebbe votato in accordo ai primi due in ogni caso a prescindere dall'esito della sua estrazione. Supponiamo di essere nella situazione di "3 a 0" per $MB$. Al quarto giocatore conviene votare $MB$ in ogni caso (esattamente come per il terzo giocatore).     
+\end{description}
+
+A questo punto, dal quinto giocatore in poi, si genera una cascata informativa a favore di $MB$, a prescindere dalle singole estrazioni.
+
+\section{Teorema di Bayes}
+
+Al fine di formalizzare meglio la meccanica descritta sopra è necessario enunciare il \textbf{Teorema di Bayes}.
+
+\begin{teorema}[di Bayes]
+    Siano \(A\) e \(B\) due eventi con \(\Pr[B]>0\). Allora vale
+    \[
+    \Pr[A\mid B]=\frac{\Pr[B\mid A]\,\Pr[A]}{\Pr[B]}.
+    \]
+\end{teorema}
+
+\begin{proof}
+    Per definizione di probabilità condizionata abbiamo che
+    \begin{align*}
+        \Pr[A \mid B] = \frac{\Pr[A \cap B]}{\Pr[B]} \\
+        \Pr[B \mid A] = \frac{\Pr[B \cap A]}{\Pr[A]}
+    \end{align*}
+    Da questo segue che:
+    \[
+        \Pr[A \cap B] = \Pr[A \mid B] \cdot \Pr[B] = \Pr[B \mid A] \cdot \Pr[A]
+    \]
+    Sostituendo opportunamente otteniamo l'enunciato del teorema
+    \[
+        \Pr[A \mid B] = \frac{\Pr[A \cap B]}{\Pr[B]} = \frac{\Pr[B \mid A]}{\Pr[B]} 
+    \]
+\end{proof}
+
+\begin{definizione}[Probabilità Totale]
+    Sia \(A\) un evento e sia \(\{B_i\}_{i=1}^n\) una partizione dello spazio campionario tale che \(\Pr[B_i]>0\) per ogni \(i\) e \(\bigcup_{i=1}^n B_i=\Omega\) con \(B_i\cap B_j=\varnothing\) per \(i\neq j\). Allora la probabilità di \(A\) si esprime tramite la formula della probabilità totale:
+    \[
+        \Pr[A]=\sum_{i=1}^n \Pr[A\mid B_i]\,\Pr[B_i].
+    \]
+    Più in generale, se \(\{B_i\}_{i\ge1}\) è una partizione numerabile, la somma è estesa su tutti gli indici.
+    
+    \begin{proof}
+        Poiché \(A=\bigcup_{i=1}^n (A\cap B_i)\) è unione disgiunta, vale
+        \[
+            \Pr[A]=\sum_{i=1}^n \Pr[A\cap B_i]=\sum_{i=1}^n \Pr[A\mid B_i]\,\Pr[B_i],
+        \]
+        da cui l'enunciato.
+    \end{proof}
+\end{definizione}
+
+Usando questa formula, possiamo riscrivere la formula di Bayes ne seguente modo:
+
+\[
+    \Pr[A\mid B]= \frac{\Pr[B\mid A]\,\Pr[A]}{\Pr[B]} = \frac{\Pr[B\mid A]\,\Pr[A]}{\Pr[B \mid A] \cdot \Pr[A] + \Pr[B \mid A^C] \cdot \Pr[A^C]}.
+\]
+
+Possiamo ora formalizzare l'esempio precedente utilizzando la formula di Bayes.
+
+Definiamo gli eventi:
+\begin{itemize}
+    \item $MR$: l'urna è a maggioranza rossa;
+    \item $MB$: l'urna è a maggioranza blu;
+    \item $r$: la pallina estratta è rossa
+    \item $b$: la pallina estratta è blu
+\end{itemize}
+
+Osserviamo inoltre che che i precedenti eventi sono mutualmente complementari.
+
+\begin{align*}
+    MR &= MB^C \\
+    MB &= MR^C \\
+    b &= r^C \\
+    r &= b^C
+\end{align*}
+
+Secondo quindi le regole del gioco, sappiamo che
+
+\begin{align*}
+    \Pr[MR] &= \Pr[MB] = \frac{1}{2} \\
+    \Pr[r \mid MR] &= \frac{2}{3}; \quad \Pr[b \mid MR] = \frac{1}{3}; \\
+    \Pr[b \mid MB] &= \frac{2}{3}; \quad \Pr[r \mid MB] = \frac{1}{3}; 
+\end{align*}
+
+\begin{description}
+    \item[Giocatore 1:] Supponiamo senza perdità di generalità che il giocatore 1 estrae una pallina blu, essi dovrà calcolare la probabilità che l'urna sia a maggioranza blu o rossa, e questo si può fare sfruttando il teorema di Bayes.
+    \begin{align*}
+        \Pr[MB \mid b] = \frac{\Pr[b\mid MB]\,\Pr[MB]}{\Pr[b \mid MB] \cdot \Pr[MB] + \Pr[b \mid MR] \cdot \Pr[MR]} = \frac{2}{3} \\[0.5cm]
+        \Pr[MR \mid b] = \frac{\Pr[b\mid MR]\,\Pr[MR]}{\Pr[b \mid MR] \cdot \Pr[MR] + \Pr[b \mid MB] \cdot \Pr[MB]} = \frac{1}{3}
+    \end{align*}
+    \item[Giocatore 2:] Vediamo ora quale strategia è migliore per il secondo giocatore. Consideriamo come prima situazione quella in cui esso estrae una pallina rossa, ed indichiamo con \textbf{br} l'evento \textit{sono state estratte in ordine una pallina blu e poi una rossa}. Dato che il secondo giocatore sa esattamente cosa ha pescato il primo (dato che lo può inferire con certezza assumendo che il primo giocatore giochi correttamente), si può affermare che il secondo giocatore si trova a dover calcolare le seguenti probabilità:
+    \begin{align*}
+        \Pr[MB \mid br] = \frac{\Pr[br\mid MB]\,\Pr[MB]}{\Pr[br \mid MB] \cdot \Pr[MB] + \Pr[br \mid MR] \cdot \Pr[MR]} = \frac{1}{2} \\[0.5cm]
+        \Pr[MR \mid br] = \frac{\Pr[br\mid MR]\,\Pr[MR]}{\Pr[br \mid MR] \cdot \Pr[MR] + \Pr[br \mid MB] \cdot \Pr[MB]} = \frac{1}{2}
+    \end{align*} 
+    Perciò il secondo giocatore non può estrarre alcuna informazione utile dall'estrazione del primo, e quindi gli conviene scommettere in accordo a ciò che estrae.
+
+    Consideriamo ora il caso in cui il secondo giocate estrae una pallina blu. In questo l'informazione riguardo la prima estrazione è realmente utile, in quanto possiamo dire che la probabilità è nettamente più sbilanciata verso $MB$
+    \begin{align*}
+        \Pr[MB \mid bb] = \frac{\Pr[bb\mid MB]\,\Pr[MB]}{\Pr[bb \mid MB] \cdot \Pr[MB] + \Pr[bb \mid MR] \cdot \Pr[MR]} = \frac{4}{5} \\[0.5cm]
+        \Pr[MR \mid bb] = \frac{\Pr[bb\mid MR]\,\Pr[MR]}{\Pr[bb \mid MR] \cdot \Pr[MR] + \Pr[bb \mid MB] \cdot \Pr[MB]} = \frac{1}{5}
+    \end{align*}
+    \item[Giocatore 3:] A questo punto (sempre supponendo che la prima estrazione sia stata una pallina blu) possiamo essere in due situazioni differenti
+    \begin{itemize}
+        \item $br$: sono avvenute in sequenza le estrazioni blu-rossa
+        \item $bb$: sono avvenute in sequenza le estrazioni blu-blu
+    \end{itemize}
+    Per semplicità consideriamo solo il caso $bb$.
+    
+    Se il terzo giocatore estrare una pallina blu, allora le probabilità che deve calcolare sono:
+    \begin{align*}
+        \Pr[MB \mid bbb] = \frac{\Pr[bbb\mid MB]\,\Pr[MB]}{\Pr[bbb \mid MB] \cdot \Pr[MB] + \Pr[bbb \mid MR] \cdot \Pr[MR]} = \frac{8}{9} \\[0.5cm]
+        \Pr[MR \mid bbb] = \frac{\Pr[bbb\mid MR]\,\Pr[MR]}{\Pr[bbb \mid MR] \cdot \Pr[MR] + \Pr[bbb \mid MB] \cdot \Pr[MB]} = \frac{1}{9}
+    \end{align*}
+    Se invece il terzo giocatore estrare una pallina rossa, allora le probabilità che deve calcolare sono:
+    \begin{align*}
+        \Pr[MB \mid bbr] = \frac{\Pr[bbr\mid MB]\,\Pr[MB]}{\Pr[bbr \mid MB] \cdot \Pr[MB] + \Pr[bbr \mid MR] \cdot \Pr[MR]} = \frac{1}{3} \\[0.5cm]
+        \Pr[MR \mid bbr] = \frac{\Pr[bbr\mid MR]\,\Pr[MR]}{\Pr[bbr \mid MR] \cdot \Pr[MR] + \Pr[bbr \mid MB] \cdot \Pr[MB]} = \frac{2}{3}
+    \end{align*}
+    In questo caso al giocatore 3 conviene votare in accordo a ciò che hanno votato i primi due giocatori, a prescindere da quale sarà l'esito della sua estrazione.
+    \item[Giocatore 4:] 
+\end{description}
