@@ -1,0 +1,87 @@
+\chapter{Broadcast}
+
+Il primo esempio di comunicazione tra processi è il \textit{broadcast}. Consideriamo un sistema distribuito dove un'entità ha una qualche informazione da condividere con tutte le altre entità. Il processo di inviare un messaggio a tutti gli altri processi è chiamato \textit{broadcast}.
+
+Sia $\mathcal{E}$ l'insieme di tutte le entità nel sistema distribuito e sia $G = (V, E)$ il grafo che rappresenta la rete di comunicazione, dove $V = \mathcal{E}$ e $E$ è l'insieme degli archi che rappresentano le interconnessioni tra i nodi.
+
+Prima di procedere con l'algoritmo di broadcast, è importante assumere alcune restrizioni sul sistema distribuito:
+\begin{description}
+    \item[Bidirectional Links (BL):] Consideriamo un grafo non diretto, dove ogni arco rappresenta una connessione bidirezionale tra due nodi.
+    \item[Total Reliability (TR):] Assumiamo che i messaggi inviati tra i nodi siano sempre consegnati senza errori o perdite.
+    \item[Connectivity (CN):] Il grafo $G$ è connesso, il che significa che esiste un percorso tra ogni coppia di nodi nel grafo. Questa assunzione è fondamentele per garantire la risoluzione del problema di broadcast, poiché se il grafo non fosse connesso, alcuni nodi non potrebbero ricevere il messaggio.
+    \item[Unique Initiator (UI):] Supponiamo che ci sia un unico nodo che inizia il processo di broadcast, chiamato \texttt{initiator}. Questo nodo è responsabile di inviare il messaggio iniziale a tutti gli altri nodi.
+\end{description}
+
+Formalmente, il problema di broadcast può essere definito come segue: dato un grafo $G = (V, E)$ e un nodo $s \in V$ che è l'initiator, l'obiettivo è garantire che ogni nodo $v \in V$ riceva un messaggio da $s$. 
+
+Definiamo l'insieme $\Sigma = \{\texttt{initiator}, \texttt{idle}, \texttt{informed}\}$ come l'insieme di tutti gli stati che può assumere un nodo $x \in \mathcal{E}$.
+
+Definiamo ora le configurazioni del sistema. Una configurazione $C$ è una funzione che associa a ogni nodo $x \in \mathcal{E}$ uno stato in $\Sigma$. Inizialmente, la configurazione $C_{init}$ è tale che esiste unico nodo $s \in V$ tale che $C_{init}(s) = \texttt{initiator}$ e $C_{init}(x) = \texttt{idle}$ per ogni nodo $x \in V \setminus \{s\}$. Il numero di configurazioni iniziali possibili è
+\[
+    \binom{n}{1} = n,
+\]
+dove $n$ è il numero di nodi nel grafo. Questo perché possiamo scegliere qualsiasi nodo come initiator.
+
+L'unica configurazione finale accettabile è quella in cui ogni nodo $x \in V$ è nello stato \texttt{informed}, ovvero
+\[
+    C_{final}(x) = \texttt{informed} \quad \forall x \in V.
+\]
+
+Quindi, il problema del broadcast si formalizza mediante la quadrupla:
+\[
+    \langle \mathcal{R},\ \Sigma,\ C_{init},\ C_{final} \rangle,
+\]
+dove $\mathcal{R} = \{\texttt{BL, TR, CN, UI}\}$ è l'insieme delle restrizioni, $\Sigma$ è l'insieme degli stati, $C_{init}$ è la configurazione iniziale e $C_{final}$ è la configurazione finale desiderata.
+
+\section{Algoritmo Flooding}
+
+L'idea generale dell'algoritmo di broadcast è quella di utilizzare un approccio di flooding, dove ogni nodo che riceve il messaggio lo inoltra a tutti i suoi vicini. L'algoritmo può essere descritto come segue:
+\begin{algorithm}[H]
+\caption{Algoritmo di Broadcast (Flooding)}
+    \begin{algorithmic}
+    \If{$C(s) = \texttt{initiator}$}
+        \State $C(s) \gets \texttt{informed}$
+        \ForAll{$v \in N(s)$}
+            \State send($m$, $v$)
+        \EndFor
+    \EndIf
+    \State
+    \If{$C(x) = \texttt{idle}$}
+        \State $m \gets$ receive() 
+        \State $C(x) \gets \texttt{informed}$
+        \ForAll{$v \in N(x) \setminus \{\texttt{sender}\}$}
+            \State send($m$, $v$)
+        \EndFor
+    \EndIf
+    \State
+    \If{$C(x) = \texttt{informed}$}
+        \State do\_nothing()
+    \EndIf
+    \end{algorithmic}
+\end{algorithm}
+
+Descritto in questa maniera, l'algoritmo di flooding risolve il task nella maniera corretta, e dimostreremo inoltre che termina in un tempo finito. Tuttavia, è importante notare che questo algoritmo non è efficiente in termini di complessità di messaggi, poiché ogni nodo potrebbe ricevere lo stesso messaggio più volte da diversi vicini, portando a un numero esponenziale di messaggi inviati.
+
+\textbf{Osservazione.} Se non considerassimo l'insieme degli stati $\Sigma = \{\texttt{initiator}, \texttt{idle}\}$ e non avessimo la condizione che un nodo non inoltra il messaggio se è già informato, l'algoritmo di flooding potrebbe non terminare, poiché i nodi continuerebbero a inoltrare il messaggio indefinitamente.
+
+\begin{lemma}
+L'algoritmo di flooding termina in un tempo finito. Sia $\texttt{diam}(G)$ il diametro del grafo $G$, ovvero la massima distanza tra due nodi qualsiasi nel grafo. 
+
+Esiste un tempo massimo $\tau$ tale che tutti i nodi $x$ a distanza $h$ da $s$ ricevano il messaggio $m$ entro il tempo $\tau$.
+\[
+    \forall h \leq \texttt{diam}(G),\ \exists \tau \in \mathbb{R}^{+}:\ \forall x \in V\ |\ dist(x,s) = h \implies C_f(x) = \texttt{informed} \land t(x) \leq \tau.
+\]
+
+\begin{proof}
+Dimostriamo il lemma per induzione su $h$.
+\begin{description}
+    \item[Passo Base $\mathbf{h = 1}$] Sfruttando la condizione di Total Reliability, ogni nodo $v$ adiacente a $s$ riceve il messaggio $m$ entro un tempo finito $\tau_1$. Quindi, per ogni nodo $v$ tale che $dist(v, s) = 1$, abbiamo $C_f(v) = \texttt{informed}$ e $t(v) \leq \tau_1$.
+    \item[Passo Induttivo $\mathbf{h + 1}$] Sfruttando la condizione di Connectivity, per ogni nodo $x \in V \setminus \{s\}:\ d(s, x) = h + 1$. 
+    
+    Questo implica che esiste un shortest path $P$ da $s \to x$ di lunghezza $h + 1$. Sia $y$ il nodo adiacente a $x$ su questo percorso, quindi $dist(y, s) = h$. Per ipotesi induttiva, esiste un tempo finito $\tau_h$ tale che $C_{final}(y) = \texttt{informed}$ e $t(y) \leq \tau_h$. 
+    
+    Sfruttando nuovamente la condizione di Total Reliability, il nodo $x$ riceve il messaggio da $y$ entro un tempo finito $\tau_{h+1}$, quindi $C_{final}(x) = \texttt{informed}$ e $t(x) \leq \tau_{h+1}$.
+\end{description}
+\end{proof}
+
+\end{lemma}

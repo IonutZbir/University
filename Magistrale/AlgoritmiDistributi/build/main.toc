@@ -1,0 +1,9 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Modellazione Del Sistema}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definizioni Elementari}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Assiomi e Restrizioni}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Assiomi}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Resitrizioni}{6}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Broadcast}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Algoritmo Flooding}{9}{section.2.1}%

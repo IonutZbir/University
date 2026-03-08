@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{report}
+
+% --- 1. Lingua e Codifica ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{microtype} % Migliora la tipografia (giustificazione)
+
+% --- 2. Layout e Margini ---
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{parskip} % Gestisce lo spazio tra paragrafi senza rientri
+
+% --- 3. Matematica Avanzata ---
+\usepackage{amsmath, amssymb, amsfonts, mathtools, amsthm}
+\usepackage{physics, mhchem} % Utili per simboli specifici
+\usepackage{siunitx}         % Per unità di misura: \unit{\meter\per\second}
+\usepackage{cancel}
+
+% --- 4. Teoremi e Definizioni (Utilizzo di thmtools per ordine) ---
+\usepackage{thmtools}
+\declaretheoremstyle[
+    headfont=\bfseries,
+    notefont=\bfseries, 
+    bodyfont=\itshape,
+    postheadspace=0.5em
+]{mystyle}
+
+\declaretheorem[style=mystyle, name=Teorema, numberwithin=section]{teorema}
+\declaretheorem[style=mystyle, name=Lemma, sibling=teorema]{lemma}
+\declaretheorem[style=mystyle, name=Osservazione, numberwithin=section]{osservazione}
+
+% Definizione personalizzata (non corsiva)
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont]{defstyle}
+\declaretheorem[style=defstyle, name=Definizione, numberwithin=section]{definizione}
+
+% Personalizzazione Proof
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}\normalfont\trivlist
+  \item[\hskip\labelsep\bfseries #1.]\ignorespaces
+}{%
+  \popQED\endtrivlist
+}
+
+% --- 5. Grafica, Tabelle e Algoritmi ---
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{diagbox}
+\usepackage{algorithm, algpseudocode}
+
+% --- 6. Riferimenti e Citazioni ---
+\usepackage[hidelinks, colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{cleveref} % Caricare SEMPRE dopo hyperref
+
+% Traduzioni Cleveref
+\crefname{teorema}{teorema}{teoremi}
+\crefname{lemma}{lemma}{lemmi}
+\crefname{osservazione}{osservazione}{osservazioni}
+\crefname{definizione}{definizione}{definizioni}
+
+% --- 7. Informazioni Documento ---
+\title{Appunti di Algoritmi Distribuiti e Reti Complesse}
+\author{Zbirciog Ionut Georgian}
+\date{\today}
+
+% ---------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% Nota: è buona norma usare \include per capitoli interi o \input per file più piccoli
+\include{introduzione}
+\include{broadcast}
+
+\end{document}
