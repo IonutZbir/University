@@ -113,6 +113,16 @@ N(x) = N_{\text{out}}(x) \cup N_{\text{in}}(x)
 \]
 \end{definizione}
 
+\begin{definizione}[Tempo di Terminazione]
+Un protocollo si dice \textbf{terminante} se, a partire da qualsiasi configurazione iniziale, raggiunge una configurazione finale in un tempo finito. Formalmente, esiste un tempo finito $t$ tale che, per ogni nodo $x \in V$, il nodo raggiune uno stato \textit{quiescente} (ossia, uno stato in cui non esegue più azioni) entro $t$.
+\end{definizione}
+
+\begin{definizione}[Tempo di Completamento]
+Un protocollo si dice \textbf{completante} se, a partire da qualsiasi configurazione iniziale, raggiunge una configurazione finale \textbf{accettabile} in un tempo finito. In altre parole, esiste un istante di tempo finito $t$, per cui il task è risolto, ossia, ogni nodo $x \in V$ si trova in uno stato accettabile entro $t$.
+\end{definizione}
+
+In generale, un protocollo terminante non è necessariamente completante, e viceversa.
+
 \section{Assiomi e Restrizioni}
 
 La definzione di sistema distribuito è accompagnata da 2 \textit{assiomi fondamentali}. Qualsisi assunzione aggiuntiva che si vuole fare su un sistema distribuito sarà chiamata \textit{restrizione}

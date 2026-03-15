@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.7)  8 MAR 2026 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.7)  15 MAR 2026 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -709,6 +709,12 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip91
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen334
+\pgfarrowlength=\dimen335
+\pgfarrowwidth=\dimen336
+\pgfarrowlinewidth=\dimen337
 ) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -728,7 +734,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 ) (/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen334
+\@linkdim=\dimen338
 \Hy@linkcounter=\count378
 \Hy@pagecounter=\count379
  (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -758,15 +764,15 @@ Package hyperref Info: Bookmarks ON on input line 4468.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen335
+\XeTeXLinkMargin=\dimen339
  (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count382
-\Field@Width=\dimen336
-\Fld@charsize=\dimen337
+\Field@Width=\dimen340
+\Fld@charsize=\dimen341
 Package hyperref Info: Hyper figures OFF on input line 6084.
 Package hyperref Info: Link nesting OFF on input line 6089.
 Package hyperref Info: Hyper index ON on input line 6092.
@@ -1033,36 +1039,36 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count514
 \@quotereset=\count515
-(build/main.aux (build/introduzione.aux) (build/broadcast.aux))
+(build/main.aux (build/introduzione.aux) (build/broadcast.aux) (build/spanning_tree.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Info: Redefining \it@ocap on input line 75.
-LaTeX Info: Redefining \it@ccap on input line 75.
-LaTeX Info: Redefining \microtypecontext on input line 75.
-Package microtype Info: Applying patch `item' on input line 75.
-Package microtype Info: Applying patch `toc' on input line 75.
-Package microtype Info: Applying patch `eqnum' on input line 75.
-Package microtype Info: Applying patch `footnote' on input line 75.
-Package microtype Info: Applying patch `verbatim' on input line 75.
-LaTeX Info: Redefining \microtypesetup on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Info: Redefining \it@ocap on input line 76.
+LaTeX Info: Redefining \it@ccap on input line 76.
+LaTeX Info: Redefining \microtypecontext on input line 76.
+Package microtype Info: Applying patch `item' on input line 76.
+Package microtype Info: Applying patch `toc' on input line 76.
+Package microtype Info: Applying patch `eqnum' on input line 76.
+Package microtype Info: Applying patch `footnote' on input line 76.
+Package microtype Info: Applying patch `verbatim' on input line 76.
+LaTeX Info: Redefining \microtypesetup on input line 76.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1111,18 +1117,18 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Package chemgreek Info: Activating mapping `default' on line 75.
+Package chemgreek Info: Activating mapping `default' on line 76.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count516
-\scratchdimen=\dimen338
+\scratchdimen=\dimen342
 \scratchbox=\box93
 \nofMPsegments=\count517
 \nofMParguments=\count518
 \everyMPshowfont=\toks58
 \MPscratchCnt=\count519
-\MPscratchDim=\dimen339
+\MPscratchDim=\dimen343
 \MPnumerator=\count520
 \makeMPintoPDFobject=\count521
 \everyMPtoPDFconversion=\toks59
@@ -1143,12 +1149,12 @@ Package siunitx Warning: Detected the "physics" package:
 (siunitx)                
 (siunitx)                to your preamble.
 
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 75.
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 76.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 75.
+Package hyperref Info: Link coloring ON on input line 76.
 (build/main.out) (build/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1166,15 +1172,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (build/main.bbl)
-Package biblatex Info: Reference section=0 on input line 75.
-Package biblatex Info: Reference segment=0 on input line 75.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+Package biblatex Info: Reference section=0 on input line 76.
+Package biblatex Info: Reference segment=0 on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1189,7 +1195,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.80 \newpage
+l.81 \newpage
               [1
 
 ]
@@ -1207,18 +1213,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}
                                                   \__shipout_drop_firstpage_...
 l.28 \]
        {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3] [4]
-<images/orientation.png, id=89, 871.255pt x 136.51pt>
+<images/orientation.png, id=134, 871.255pt x 136.51pt>
 File: images/orientation.png Graphic file (type png)
 <use images/orientation.png>
-Package pdftex.def Info: images/orientation.png  used on input line 136.
+Package pdftex.def Info: images/orientation.png  used on input line 146.
 (pdftex.def)             Requested size: 364.19667pt x 57.06302pt.
- [5 <./images/orientation.png (PNG copy)>]
-<images/bidirectional.png, id=100, 665.48625pt x 308.15125pt>
+ [5]
+<images/bidirectional.png, id=148, 665.48625pt x 308.15125pt>
 File: images/bidirectional.png Graphic file (type png)
 <use images/bidirectional.png>
-Package pdftex.def Info: images/bidirectional.png  used on input line 162.
+Package pdftex.def Info: images/bidirectional.png  used on input line 172.
 (pdftex.def)             Requested size: 364.19667pt x 168.64204pt.
- [6 <./images/bidirectional.png (PNG copy)>]) [7]
+ [6 <./images/orientation.png (PNG copy)>]) [7 <./images/bidirectional.png (PNG copy)>]
 \openout2 = `broadcast.aux'.
 
  (./broadcast.tex
@@ -1236,30 +1242,183 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 40.
  [9]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 68.
-) [10] (build/main.aux (build/introduzione.aux) (build/broadcast.aux))
+ [10] [11]
+<images/seq1.png, id=206, 678.535pt x 228.855pt>
+File: images/seq1.png Graphic file (type png)
+<use images/seq1.png>
+Package pdftex.def Info: images/seq1.png  used on input line 150.
+(pdftex.def)             Requested size: 273.14923pt x 92.12703pt.
+<images/seq2.png, id=207, 668.4975pt x 238.8925pt>
+File: images/seq2.png Graphic file (type png)
+<use images/seq2.png>
+Package pdftex.def Info: images/seq2.png  used on input line 171.
+(pdftex.def)             Requested size: 273.14923pt x 97.61484pt.
+ [12 <./images/seq1.png (PNG copy)> <./images/seq2.png (PNG copy)>]
+pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.192 \begin{definizione}[Stato Locale Interno]
+                                               
+Package hyperref Info: bookmark level for unknown teorema defaults to 0 on input line 203.
+ [13]
+<images/lowerbound.png, id=222, 705.63625pt x 344.28625pt>
+File: images/lowerbound.png Graphic file (type png)
+<use images/lowerbound.png>
+Package pdftex.def Info: images/lowerbound.png  used on input line 221.
+(pdftex.def)             Requested size: 364.19667pt x 177.69551pt.
+) [14 <./images/lowerbound.png (PNG copy)>]
+\openout2 = `spanning_tree.aux'.
+
+ (./spanning_tree.tex
+Capitolo 3.
+
+pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \begin{definizione}[Spanning Tree]
+                                      
+pdfTeX warning (ext4): destination with the same identifier (name{definizione.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.7 ...ione}[SPT Construction Distributed Problem]
+                                                   [15
+
+
+
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58     \If
+            {state(x) = \texttt{initiator}} spontaneously
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.59         \State
+                    root $\gets$ true
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.60         \State
+                    \texttt{tree\_neigh(x)} $\gets \emptyset$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.61         \State
+                    state(x) $\gets$ \texttt{active}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.62         \State
+                    counter $\gets 0$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.63         \ForAll
+                    {$v \in N(x)$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.64             \State
+                        send(\texttt{Q}, $v$)
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.65         \EndFor
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.66     \EndIf
+               
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.67     \State
+               
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.68     \If
+            {state(x) = \texttt{idle}}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.69         \State
+                    $\texttt{Q} \gets$ receive()
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.70         \State
+                    \texttt{tree\_neigh(x)} $\gets \{ \texttt{sender} \}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.71         \State
+                    root $\gets$ false
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.72         \State
+                    counter $\gets 1$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.73         \State
+                    send(\texttt{YES}, \texttt{sender})
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.74         \If
+                 {counter $= |N(x)|$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.75             \State
+                        state(x) $\gets$ \texttt{done} [16]
+<images/shout.png, id=238, 573.14125pt x 696.6025pt>
+File: images/shout.png Graphic file (type png)
+<use images/shout.png>
+Package pdftex.def Info: images/shout.png  used on input line 110.
+(pdftex.def)             Requested size: 227.62206pt x 276.65901pt.
+ [17]
+pdfTeX warning (ext4): destination with the same identifier (name{lemma.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.122 \begin{lemma}[Coerenza]
+                             \label{lemma:coerenza}
+pdfTeX warning (ext4): destination with the same identifier (name{lemma.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.132 \begin{lemma}[Connettività/Spanning]
+                                           \label{lemma:spanning} [18 <./images/shout.png (PNG copy)>] [19]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 221.
+ [20]) [21] (build/main.aux (build/introduzione.aux) (build/broadcast.aux) (build/spanning_tree.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8E91E1E294081096A7AC80121069B812;953.
+(rerunfilecheck)             Checksum: F95D31A68AC5815E4830C07BBADB187F;2495.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44558 strings out of 469504
- 892628 string characters out of 5470380
- 1727523 words of memory out of 5000000
- 72350 multiletter control sequences out of 15000+600000
- 655603 words of font info for 199 fonts, out of 8000000 for 9000
+ 45257 strings out of 469504
+ 908266 string characters out of 5470380
+ 1747381 words of memory out of 5000000
+ 72916 multiletter control sequences out of 15000+600000
+ 657999 words of font info for 225 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,7n,108p,1062b,1823s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on build/main.pdf (11 pages, 347148 bytes).
+ 98i,10n,108p,1091b,1823s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on build/main.pdf (22 pages, 576248 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 52303 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 54443 words of extra memory for PDF output out of 61914 (max. 10000000)
 
