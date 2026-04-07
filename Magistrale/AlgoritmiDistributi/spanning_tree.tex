@@ -81,7 +81,7 @@ Possimo quindi considerare il protocollo SHOUT come un broadcast con reply.
         \EndIf
     \EndIf
     \State
-    \If{$state(x) = \texttt{active}$}
+    \If{state(x) = \texttt{active}}
         \State $\texttt{reply} \gets$ receive()
         \If {reply = \texttt{YES}}
             \State \texttt{tree\_neigh(x)} $\gets$ \texttt{tree\_neigh(x)} $\cup$ \{\texttt{sender}\}
@@ -252,3 +252,113 @@ Quindi, il numero totale di messaggi è:
 
 \newpage
 \section{Single Source SHOUT+ Protocol}
+
+Si osserva che nel protocollo SHOUT, i messaggi di risposta \texttt{NO} non sono necessari per far sapere al nodo che ha inviato la richiesta quando entrare nello stato \texttt{done}. Infatti, se un nodo $y$ invia \texttt{NO} ad $x$, allora $y$ ha inviato un messaggio \texttt{Q} ad $x$ prima dell'invio di \texttt{NO}, in quanto $y$ per inviare \texttt{NO} deve trovarsi nello stato \texttt{active}, e per trovarsi nello stato \texttt{active}, il nodo $y$ deve avere già scelto un nodo come padre e aver mandato il messaggio \texttt{Q} a tutti i suoi vicini. Dunque il nodo $x$ può interpretare il messaggio \texttt{Q} inviato da $y$ come un messaggio \texttt{NO}, e quindi non è necessario inviare un messaggio \texttt{NO} esplicito. 
+
+In questa maniera, la message complexity del protocollo SHOUT si riduce a 
+\[
+    M[\texttt{SHOUT+}] = 2(n - 1) + 2(m - n + 1) = 2m = O(|E|).
+\]
+
+Riguardo la terminazione locale del protocollo, ogni nodo sa che il suo compito è terminato nel momento in cui passa nello stato \texttt{done}. Sarebbe interessante sapere se un nodo è in grado di capire quanto il processo termina globalmente, cioè quando tutti i nodi sono nello stato \texttt{done}. Certamente, se la sorgente è $s$ è in grado di sapere quanto lo spanning tree è completato, allora potrebbe mandare una notifica in broadcast a tutti i nodi e avvertirli della terminazione globale. Il problema è che ogni nodo ha solamente una \textbf{visione locale} della rete in cui si trova, perciò a meno che non ci sia un nodo che riesca ad osservare lo stato della rete dall'alto non è possibile sapere solo col protocollo \texttt{SHOUT/SHOUT+} quando il processo è terminato globalmente.
+
+\textbf{Osservazione.} Osserviamo che anche nel caso della costruzione dello spanning tree, il lower bound $\Omega(m)$ è rispettato, in quanto per costruire lo spanning tree è necessario che ogni nodo riceva almeno un messaggio da ogni vicino, e quindi è necessario che ogni arco venga attraversato da almeno un messaggio.
+
+\textbf{Osservazione.} Si può osservare che lo spanning tree costruito dal protocollo \texttt{SHOUT/SHOUT+} dipende fortemente dalla singola esecuzione e non dal protocollo, in quanto i ritardi di trasmissione variano ogni volta. Ciò implica che maneggiando adeguatamente i ritardi di trasmissione potrebbe accadere che $diam(ST) >> diam(G)$.
+
+\begin{teorema}
+    L'esecuzione di ogni protocollo di \texttt{Broadcast} costuisce uno spanning tree \textbf{entrante} (ogni nodo possiede solamente informazioni su chi è il nodo padre, generando un albero orientato verso la radice) del grafo $G$.
+    \begin{proof}
+        Diamo un'idea della dimostrazione. Definiamo
+        \[
+        father(x) = \text{ il nodo dal quale } x \text{ ha ricevuto per primo il messaggio } m
+        \]
+        Allora, se consideriamo l'ordinamente \textit{parziale} $father(x) > x$ otteniamo uno spanning tree entrante, con radice $s$.
+    \end{proof}
+\end{teorema}
+
+\begin{algorithm}[H]
+\caption{Algoritmo di SHOUT}
+    \begin{algorithmic}
+    \If{state(x) = \texttt{initiator}} spontaneously
+        \State root $\gets$ true
+        \State \texttt{tree\_neigh(x)} $\gets \emptyset$
+        \State state(x) $\gets$ \texttt{active}
+        \State counter $\gets 0$
+        \ForAll{$v \in N(x)$}
+            \State send(\texttt{Q}, $v$)
+        \EndFor
+    \EndIf
+    \State
+    \If{state(x) = \texttt{idle}}
+        \State $\texttt{Q} \gets$ receive()
+        \State \texttt{tree\_neigh(x)} $\gets \{ \texttt{sender} \}$
+        \State root $\gets$ false
+        \State counter $\gets 1$
+        \State send(\texttt{YES}, \texttt{sender})
+        \If {counter $= |N(x)|$}
+            \State state(x) $\gets$ \texttt{done}
+        \Else        
+            \ForAll{$v \in N(x) \setminus \{\texttt{sender}\}$}
+                \State send($\texttt{Q}$, $v$)
+            \EndFor
+            \State state(x) $\gets$ \texttt{active}
+        \EndIf
+    \EndIf
+    \State
+    \If{state(x) = \texttt{active}}
+        \State $\texttt{reply} \gets$ receive()
+        \If {reply = \texttt{YES}}
+            \State \texttt{tree\_neigh(x)} $\gets$ \texttt{tree\_neigh(x)} $\cup$ \{\texttt{sender}\}
+            \State counter $\gets$ counter + 1
+            \If {counter $= |N(x)|$}
+                \State state(x) $\gets$ \texttt{done}
+            \EndIf
+        \EndIf
+        \State
+        \If {reply = \texttt{Q}}
+            \State counter $\gets$ counter + 1
+            \If {counter $= |N(x)|$}
+                \State state(x) $\gets$ \texttt{done}
+            \EndIf
+        \EndIf
+    \EndIf
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+
+\section{Multiple Sources Spanning Tree Construction}
+
+Supponiamo ora di avere più nodi \texttt{initiator}, ossia che 
+\[
+    \exists I \subseteq V,\ |I| > 1 \text{ e } \forall s \in I,\ state(s) = \texttt{initiator}.
+\]
+In questo scenario, l'insieme delle restrizioni diventa $R = \{\texttt{TR, BL, CN}\}$
+
+\begin{teorema}\label{th:MultipleSourcesST}
+    Sotto le assunzioni $R = \{\texttt{TR, BL, CN}\}$, il problema della costruzione di spanning tree con multipli \texttt{initiator} non è deterministicamente risolvibile.
+    \begin{proof}
+    Consideriamo una clique di 3 nodi $x, y, z$, tutti e tre \texttt{initiator}. Consideriamo il caso sincrono in cui tutti si attivano e iniziano il protocollo al tempo $t_0$.
+
+    \begin{center}
+        \begin{tikzpicture}
+            \node[circle, draw] (x) at (1, 1.5) {$x$};
+            \node[circle, draw] (y) at (0, 0) {$y$};
+            \node[circle, draw] (z) at (2, 0) {$z$};
+            \draw (x) -- (y);
+            \draw (y) -- (z);
+            \draw (z) -- (x);
+        \end{tikzpicture}
+    \end{center}
+    Sappiamo che se prendiamo dei nodi aventi lo stesso stato interno $\sigma(v, t)$, allora essi da quel momento in poi si comporteranno allo stesso modo, dato che nessuno è in grado di distinguire una loro \textit{identità} all'interno della rete. In questo caso, al tempo $t_0$, abbiamo che $\sigma(x, t_0) = \sigma(y, t_0) = \sigma(z, t_0) = \texttt{initiator}$, e quindi $x, y, z$ si comporteranno allo stesso modo. Quindi ciascun nodo invierà un messaggio \texttt{Q} ed entrerà nello stato \texttt{active}. Quando  riceveranno un messaggio \texttt{Q} da ciascuno dei loro vicini, risponderanno con un messaggio \texttt{NO} a ciascuno dei loro vicini, e quindi entreranno nello stato \texttt{done}. Quindi, alla fine dell'esecuzione, avremo che 
+    \[
+        \texttt{tree\_neigh(x)} = \texttt{tree\_neigh(y)} = \texttt{tree\_neigh(z)} = \emptyset,
+    \]
+    e quindi non è stato costruito alcun albero ricoprente del grafo $G$.
+    \end{proof}
+\end{teorema}
+
+Per risolvere questo problema è necessario risolvere un'altro problema: il problema della \textbf{leader election}. Eletto un leader tra tutti i nodi \texttt{initiator}, esso potrà eseguire uno dei protocolli di costruzione di spanning tree a singola sorgente già noti.
+
+Vedremo in futuro che il problema della leader election può essere risolto in maniera deterministica solamente se i nodi sono univocamente identificati in maniera globale

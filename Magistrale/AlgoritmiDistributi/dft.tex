@@ -1,0 +1,164 @@
+\chapter{Depth First Traversal (DFT) Protocol}
+
+Consideriamo un problema in cui uno \textit{inziale} possiede un \textbf{token}, e di volere che questo token (non replicabile) venga passato a \textbf{tutti} i nodi dell rete. Possiamo vedere questo problema come un problema di \textit{scheduling/assegnazione} di un compito/risorsa (il token) a più processori (i nodi della rete), dove la risorsa è \textit{mutualmente esclusiva} tra i nodi.
+
+Formalmente, il problema è definito dalla seguente tripla $\langle P_{init}, P_{final}, R \rangle$, dove, sia per ogni nodo $x \in V$, \texttt{received(x)} un registro interno che contiene \texttt{true} se $x$ ha ricevuto il token almeno una volta, e \texttt{false} altrimenti:
+\begin{itemize}
+    \item $P_{init}: \exists! x \in V$ tale che \texttt{received($x$)} = \texttt{true} e per ogni $y \in V$ con $y \neq x$, \texttt{received($y$)} = \texttt{false}, ossia $x$ è il nodo iniziale che possiede il token.
+    \item $P_{final}$ : per ogni $x \in V$, \texttt{received(x)} = \texttt{true}, ossia tutti i nodi hanno ricevuto il token almeno una volta seguendo l'ordine di una DFS.
+    \item $R=\{ \texttt{TR, BL, CN, UI} \}$.
+\end{itemize}
+
+\section{Protocollo BACK}
+
+Il protocollo più semplice per risolvere questo problema è il protocollo BACK, che funziona come segue:
+\begin{enumerate}
+    \item Quando un nodo riceve il token per la \textit{prima volta}, ricorda il nodo che gli ha inviato il token (il padre) e inoltra il token ad uno dei suoi vicini non visitati con il messaggio \texttt{token}, aspettando la sua risposta.
+    \item  Quando il vicino riceve il token, se lo ha già ricevuto lo ritorna immediatamente con il messaggio \texttt{back\_edge}, altrimenti lo inoltra a tutti i suoi vicini in modo sequenziale, per poi ritornarlo al nodo da cui lo ha ricevuto con il messaggio \texttt{return}.
+    \item Alla ricezione di un \texttt{return}, il nodo inoltra il token al vicino successivo non visitato, se esiste, altrimenti lo ritorna al padre con il messaggio \texttt{return}.
+\end{enumerate}
+
+\begin{itemize}
+    \item $S = \{\texttt{initiator, idle, visited, done}\}$
+    \item $S_{init} = \{\texttt{initiator, idle}\}$
+    \item $S_{final} = \{\texttt{done}\}$
+\end{itemize}
+
+\begin{algorithm}
+\caption{Protocollo BACK}
+\begin{algorithmic}[1]
+    \If{state(x) = \texttt{initiator}} spontaneously
+        \State \texttt{unvisited} $\gets N(x)$
+        \State \texttt{initiator} $\gets True$
+        \State \texttt{visit()}
+    \EndIf
+    \State
+    \If{state(x) = \texttt{idle}}
+        \State \texttt{token} $\gets$ \texttt{receive()}
+        \State \texttt{parent} $\gets$ \texttt{sender(token)}
+        \State \texttt{unvisited} $\gets N(x) \setminus \{\texttt{parent}\}$
+        \State \texttt{initiator} $\gets False$
+        \State \texttt{visit()}
+    \EndIf
+    \State
+    \If{state(x) = \texttt{visited}}
+        \State \texttt{msg} $\gets$ \texttt{receive()}
+        \If{\texttt{msg} = \texttt{token}}
+            \State \texttt{unvisited} $\gets N(x) \setminus \{\texttt{sender(msg)}\}$
+            \State \texttt{send(back\_edge, sender(msg))}
+        \ElsIf{\texttt{msg} = \texttt{return}}
+            \State \texttt{visit()}
+        \ElsIf{\texttt{msg} = \texttt{back\_edge}}
+            \State \texttt{visit()}
+        \EndIf
+    \EndIf
+    \State
+    \If{state(x) = \texttt{done}}
+        \State \texttt{do\_nothing()}
+    \EndIf
+    \State
+    \Procedure{visit}{}
+        \If{\texttt{unvisited} $\neq \emptyset$}
+            \State \texttt{next} $\gets$ \texttt{pop(unvisited)}
+            \State \texttt{send(token, next)}
+            \State state(x) $\gets$ \texttt{visited}
+        \Else
+            \If{\texttt{not initiator}}
+                \State \texttt{send(return, parent)}
+            \EndIf
+            \State state(x) $\gets$ \texttt{done}
+        \EndIf
+    \EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{teorema}[Message Complexity]
+    \[
+        M[\texttt{BACK}] = 2m \in \theta(m)
+    \]
+    \begin{proof}
+        Osserviamo che esistono 3 tipologie di messaggi: 
+        \begin{itemize}
+            \item \texttt{token}, quando un nodo inoltra il token per procedere con la visita.
+            \item \texttt{return}, quando un nodo già visitato restituisce il token al padre dopo aver visitato tutti i suoi vicini.
+            \item \texttt{back\_edge}, quando un nodo già visitato riceve il token e lo restituisce immediatamente al mittente.
+        \end{itemize}
+        Inoltre, su ogni arco può passare uno tra i messaggi \texttt{back\_edge} e \texttt{return}, mentre il messaggio \texttt{token} può passare al massimo una volta per ogni arco, quando viene inoltrato per la prima volta. Di conseguenza, il numero totale di messaggi è al massimo $2m \in \theta(m)$. In realtà si dimostra che il lower bound rimane $\Omega(m)$, in quanto non è possibile effettuare il broadcasting di una informazione in meno di $m$ messaggi.
+    \end{proof}
+\end{teorema}
+
+\begin{teorema}[Ideal Time]
+    Sotto le restrizioni 
+    \[
+    R \cup \{\texttt{Synchronized Clock, Bounded Communication Delay}\}
+    \]
+    si ha che
+    \[
+        T[\texttt{BACK}] = \theta(m)
+    \]
+    \begin{proof}
+        Ogni nodo esplora \textbf{sequentialmente} i suoi vicini, e ogni messaggio impiega un tempo costante per essere consegnato. Di conseguenza, il tempo totale è proporzionale al numero di messaggi, che è $\theta(m)$.
+    \end{proof}
+\end{teorema}
+    
+\section{Protocollo BACK+}
+
+Il principale difetto del protocollo BACK è che ogni nodo esplora i suoi vicini in modo sequenziale, e questo porta ad un tempo totale di $\theta(m)$. Il protocollo BACK+ migliora questo aspetto, permettendo ad ogni nodo di esplorare i suoi vicini in modo \textbf{parallelo}, e questo porta ad un tempo totale di $\theta(n)$, che è ottimale, aumentando la message complexity di un fattore 2.
+
+\begin{itemize}
+    \item Quando un nodo $x$ riceve il token, \textbf{informa} il suo vicinato $N(x)$ che possiede il token, ossia che è stato visitato.
+    \item Tutti i nodi in $N(x)$ inviano un messaggio di \texttt{ack} a $x$ per confermare che hanno ricevuto l'informazione.
+    \item Dopo aver ricevuto tutti gli \texttt{ack}, $x$ inoltra il token a uno dei suoi vicini non visitati.
+\end{itemize}
+
+La differenza sostanziale di questo protocollo è che i \texttt{back\_edges} sono scoperti in parallelo e non più in modo sequenziale.
+
+\begin{teorema}[Message Complexity]
+    \[
+        M[\texttt{BACK+}] = 4m \in \theta(m)
+    \]
+    \begin{proof}
+        Osserviamo che esistono 4 tipologie di messaggi: 
+        \begin{itemize}
+            \item \texttt{token}, quando un nodo inoltra il token per procedere con la visita.
+            \item \texttt{visited}, qunado un nodo che ha appena ricevuto il token lo notifica ai suoi vicini.
+            \item \texttt{ack}, quando un nodo conferma di aver ricevuto l'informazione che il suo vicino è stato visitato.
+            \item \texttt{return}, quando un nodo già visitato restituisce il token al padre dopo aver visitato tutti i suoi vicini.
+        \end{itemize}
+        Ogni nodo (eccetto la sorgente $s$) riceverà \texttt{token} una volta, e invierà \texttt{return} una sola volta, per un totale di $2(n-1)$ messaggi.
+
+        Per quanto riguarda il messaggio \texttt{visited}, ogni nodo lo invierà a tutto il suo vicinato meno che al nodo da cui hanno ricevuto il token. La sorgente sarà l'unico nodo che lo invierà a tutto il suo vicinato, quindi:
+        \begin{align*}
+            M[\texttt{visited}] &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - 1 = \\
+            &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - \sum_{x \in V \setminus \{s\}} 1 = \\
+            &= \sum_{x \in V} |N(x)| - \sum_{x \in V \setminus \{s\}} 1 = 2m - (n-1)
+        \end{align*}
+        Inoltre, per ogni notifica \texttt{visited} corrisponde un messaggio \texttt{ack}, quindi 
+        \[
+            M[\texttt{BACK+}] = 2(n-1) + 2(2m - (n-1)) = 4m = 2M[\texttt{BACK}] \in \theta(m)
+        \]
+    \end{proof}
+\end{teorema}
+
+\begin{teorema}[Ideal Time]
+    Sotto le restrizioni 
+    \[
+    R \cup \{\texttt{Synchronized Clock, Bounded Communication Delay}\}
+    \]
+    si ha che
+    \[
+        T[\texttt{BACK+}] = \theta(n)
+    \]
+    \begin{proof}
+        Abbiamo che in soli due istanti, ogni nodo invierà le notifiche e riceverà le risposte. Per il tempo necessario al completamento del task sarà:
+        \begin{itemize}
+            \item $n - 1$ per messaggi inviati di tipo \texttt{return}.
+            \item $n - 1$ per messaggi inviati di tipo \texttt{token}.
+            \item $n$ per messaggi inviati di tipo \texttt{visited}.
+            \item $n$ per messaggi inviati di tipo \texttt{ack}.
+        \end{itemize}
+        per un totale di $4n - 2 \in \theta(n)$.
+    \end{proof}
+\end{teorema}
+
+\textbf{Osservazione.} Con questa ottimizzazione, anche se si paga un fattore $2$ alla message complexity, si ottiene un miglioramento significativo del tempo di esecuzione, che passa da $\theta(m)$ a $\theta(n)$, che è ottimale. In particolare, in grafi densi, dove $m$ è dell'ordine di $n^2$, questo miglioramento è particolarmente rilevante.

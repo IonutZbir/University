@@ -99,7 +99,7 @@ Si osserva che un'entità in un certo stato potrebbe non reagire a un evento: in
 \end{definizione}
 
 \begin{definizione}[Comunicazione]
-Le entità in un sistema distribuito interagiscono attraverso lo \textbf{scambio di messagl'insieme dei nodi con cui $x$ può comunicare direttamente, ossia:gi (message passing)}. Un messaggio è una \textbf{sequenza finita di bit} che transita su canali di comunicazione tra nodi. La topologia di comunicazione è rappresentata da un grafo diretto $G = (V, E)$ ($V = \mathcal{E}$), dove un arco $(x, y) \in E$ indica che il nodo $x$ può inviare messaggi al nodo $y$. Non tutti i nodi possono comunicare direttamente: la capacità di comunicazione tra due nodi è determinata dalla struttura della rete sottostante.
+Le entità in un sistema distribuito interagiscono attraverso lo \textbf{scambio di messaggi} (message passing). Un messaggio è una \textbf{sequenza finita di bit} che transita su canali di comunicazione tra nodi. La topologia di comunicazione è rappresentata da un grafo diretto $G = (V, E)$ ($V = \mathcal{E}$), dove un arco $(x, y) \in E$ indica che il nodo $x$ può inviare messaggi al nodo $y$. Non tutti i nodi possono comunicare direttamente: la capacità di comunicazione tra due nodi è determinata dalla struttura della rete sottostante.
 
 Si osserva che i nodi \textit{non hanno una visione globale} del sistema (ossia non conoscono la tologia del grafo della rete), ma solo una \textbf{visione locale}. Formalemente, $\forall x \in V$, possiamo definire gli insieme:
 \begin{itemize}

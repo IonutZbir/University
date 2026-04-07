@@ -1,0 +1,98 @@
+\chapter{Wake-Up Problem}
+
+Il problema del wake-up è un problema nel mondo dei sistemi distribuiti che riguarda un insieme di nodi iniziali \textit{svegli (attivi)} che devono svegliare un insieme di nodi \textit{dormienti (inattivi)} tramite lo scambio di messaggi. Il problema del wake-up è una generalizzazione del problema del broadcast, in cui non c'è un solo nodo \texttt{initiator}, bensì un sottoinsieme di nodi.
+
+Formalmente, il problema del wake-up può essere definito come segue, dalla quadrupla $\langle P_{init}, P_{final}, R, \Sigma \rangle$, e sia $W \subseteq V$ l'insieme di \texttt{initiator} tale che $W \neq \emptyset$:
+\begin{description}
+    \item[$P_{init}$] = $\forall x \in V$
+    \[
+        state(x) =
+        \begin{cases}
+            \texttt{awake} & \texttt{ if } x \in W \\
+            \texttt{asleep} & \texttt{ if } x \in V \setminus W
+        \end{cases}
+    \]
+    \item[$P_{final}$] = $\forall x \in V,\ state(x) = \texttt{awake}$
+    \item[$R$] = $\{\texttt{TR, BL, CN}\}$
+    \item[$\Sigma$] = \{\texttt{awake}, \texttt{asleep}\} 
+\end{description}
+
+\textbf{Osservazione.} Se il numero di nodi $|V| = n$, allora il numero possibile di configurazioni iniziali $|P_{init}| = 2^n - 1$ (insieme vuoto). Quindi l'avversario è in grado di scegliere tra $2^n - 1$ configurazioni iniziali una volta visto il grafo della rete, oltre a poter ritardare a piacere le trasmissioni.
+
+\begin{algorithm}[H]
+\caption{Algoritmo WFlood}
+\begin{algorithmic}
+    \If {state(x) = \texttt{awake}} spontaneamente
+        \ForAll{$y \in N(x)$}
+           \State \texttt{send}(\texttt{wake-up}, $y$)
+        \EndFor
+    \EndIf
+    \If {state(x) = \texttt{asleep} $\wedge$ \texttt{receive}(\texttt{wake-up}, $sender$)}
+        \State state(x) $\gets$ \texttt{awake}
+        \ForAll{$z \in N(x) \setminus \{sender\}$}
+           \State \texttt{send}(\texttt{wake-up}, $z$)
+        \EndFor
+    \EndIf
+    \end{algorithmic}
+\end{algorithm}
+
+\section{Analisi dell'algoritmo WFlood}
+
+\subsection{Correttezza}
+
+La correttezza dell'algoritmo WFlood segue dalla correttezza dell'algoritmo di flooding. Di seguito è riportata una dimostrazione formale:
+\begin{teorema}
+    Esiste un tempo $t \in \mathbb{R}^+$ tale che $\forall x \in V, state(x) = \texttt{awake}$, ossia che al tempo $t$, $W \equiv V$.
+    \begin{proof}
+        Consideriamo $W \subset V$ sottoinsieme proprio. Se $ W = V $, allora il tempo di terminazione dell'algoritmo è $t = 0$. Definiamo ora la distanza di un nodo dall'insieme $W$ come
+        \[
+            d(x, W) = \min_{y \in W} d(x, y)
+        \]
+        Per definizione del protocollo, sappiamo che a un certo punto tutti i nodi che sono nello stato \texttt{awake} avranno inviato il messaggio a tutti i vicini, e data l'assunzione di \texttt{TR}, possiamo essere certi che esiste un tempo finito $t_1$ entro il quale tutti i nodi a distanza $1$ da $W$ avranno ricevuto il messaggio. Definiamo quindi l'insieme
+        \[
+            L_1 = \{x \in V: d(x, W) = 1\}
+        \]
+        Supponiamo per \textit{ipotesi induttiva} che questo valga per una qualsiasi distanza $d > 1$, ossia che esiste un tempo $t_d$ tale che tutti i nodi in $L_d$ sono nello stato \texttt{awake}. Consideriamo un nodo $x \in L_{d + 1}$. Osserviamo che poichè $x \in L_{d + 1}$, allora deve esistere un nodo $y \in L_{d-1}$ tale per cui $(y, x) \in E$. Se così non fosse, allora ogni cammino minimo da $W$ arriverebbe in $x$ tramite un arco $(z, x)$ tale che $z \in L_k$ con $k \neq d$, e ciò implica che $x$ è a distanza $k + 1 \neq d + 1$, ovvero che $x \not \in L_{d+1}$. 
+
+        Dato che $y$ è stato informato entro il tempo $t_d$, per definizione del protocollo $y$ invierà \texttt{wake-up} a tutti i suoi vicini, compreso $x$. Grazie alla \texttt{TR}, siamo certi che questo messaggio arriverà entro un tempo finito $t_{d+1}$. Quindi possiamo concludere che $\exists\ t_{d+1}$ tempo finito entro il quale $\forall x \in L_{d+1},\ state(x) = \texttt{awake}$.
+    \end{proof}
+\end{teorema}
+
+\subsection{Message Complexity}
+
+Sia $k = |W|$ il numero di nodi iniziali nello stato \texttt{awake}. Ogni nodo in $W$ invia un messaggio a tutti i suoi vicini, mentre ogni nodo in $V \setminus W$ invia un messaggio a tutti i suoi vicini eccetto il \texttt{sender}. Dunque, il numero totali di messaggi sono:
+
+\begin{align*}
+    M[\texttt{WFlood}] 
+    &= \sum_{u \in W} |N(u)| + \sum_{u \in V \setminus W} (|N(u)| - 1) \\ 
+    &= \sum_{u \in W} |N(u)| + \sum_{u \in V \setminus W} |N(u)| - \sum_{u \in V \setminus W}1 \\
+    &= \sum_{u \in V} |N(u)| - \sum_{u \in V \setminus W} 1 \\
+    &= 2m - (n - k) = 2m + n - k 
+\end{align*}
+
+\textbf{Osservazione.} Osserviamo che il caso peggiore è quando $k = n$, ossia che $W \equiv V$. In questo caso il numero di messaggi è esattamente $2m$. Viceversa, il caso migliore è quando il $|W| = 1$ (come nel broadcast) e il numero di messaggi è $2m - n + 1$. Vale quindi la seguente relazione:
+
+\[
+    M[\texttt{WFlood}/R] \geq 
+    M[\texttt{Broadcast}R_{\texttt{bcast}}] = \Omega(m)
+\]
+
+Questo dimostra ancora che il problema del \textbf{wake-up} è una generalizzazione del problema del broadcast.
+
+\subsection{Ideal Time Complexity}
+
+Consideriamo il nuovo insieme di restrizioni
+\[
+    R = R\ \cup\ \{\texttt{Syncronized Clock, Bounded Communication Delay}\}
+\]
+allora possiamo calcolare il tempo di terminazione ottimale. Abbiamo osservato che il caso $|W| = n$ rappresenta il worst-case scenario nel caso della message complexity. Per quanto riguarda il costo temporale, il caso peggiore è quando $|W| = 1$, infatti in questo caso abbiamo che
+\[
+    T[\texttt{Broadcast}R_{\texttt{bcast}}] = T[\texttt{WFlood}/R] = O(\texttt{diam}(G))
+\]
+
+\textbf{Osservazione.} Se consideriamo il problema del wake-up su un albero, allora è vero che
+\[
+M[\texttt{WFlood/Tree}] = 2m - n + k = 2(n - 1) - n + k = n + k - 2
+\]
+
+\section{Lower Bound su Clique (Da FARE)}
