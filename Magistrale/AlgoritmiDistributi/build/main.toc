@@ -52,3 +52,9 @@
 \contentsline {section}{\numberline {9.2}Randomized Distributed Graph Coloring}{56}{section.9.2}%
 \contentsline {subsection}{\numberline {9.2.1}Rand-2$\Delta $}{56}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}Rand-$\Delta $+}{56}{subsection.9.2.2}%
+\contentsline {chapter}{\numberline {10}Gossip Models}{57}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Proprietà}{57}{section.10.1}%
+\contentsline {section}{\numberline {10.2}$\mathcal {PULL}$ Broadcast Protocol on Clique}{58}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Expanders}{63}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}$\mathcal {PULL}$ Protocol over $\Delta $-Expanders}{63}{subsection.10.3.1}%
+\contentsline {section}{\numberline {10.4}Majority Consensus: 3-Maj Protocol}{63}{section.10.4}%
