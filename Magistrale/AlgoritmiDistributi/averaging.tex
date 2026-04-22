@@ -1,0 +1,291 @@
+\chapter{Averaging Protocol}
+
+Consideriamo una rete modellata come un grafo connesso e non bipartito $G = (V, E)$. Ci troviamo sotto le restrizioni 
+\[
+    R = \{\texttt{TR, CN, BL, SYNC, LOCAL}\} 
+\]
+Ogni nodo $v \in V$ possiede un valore, diciamo $x(v) \in \mathbb{R}^+$ e localmente deve calcolare la media globale $\mu$ di tutti i valori posseduti da ciascun nodo
+\[
+    \mu=\frac{1}{|V|}\sum_{v\in V} x(v).
+\]
+Si richiede quindi una computazione distribuita della media: al termine, ogni nodo deve aver eseguito il calcolo di \(\mu\) a partire dalle sole informazioni scambiate nel protocollo.
+
+Possiamo quindi modellare il problema con la tripla $\langle P_{init}, P_{final}, R\rangle$, dove
+
+\begin{itemize}
+    \item $P_{init}:$ la configurazione iniziale di ciascun nodo è $x^{(0)}(v)$. Se consideriamo tutti i valori inizali, allora possiamo definire un vettore $\mathbf{x} = \langle x^{(0)}(1), \dots, x^{(0)}(n)\rangle^T$
+    \item $P_{final}$ la configurazione finale di ciascun nodo è $x^{(t)}:\ |x^{(t)} - x^{(t-1)}| \leq \epsilon$.
+\end{itemize}
+
+Definiamo quindi il protocollo \texttt{AVG} come segue:
+\begin{enumerate}
+    \item Al round $t = 0$, ogni nodo $v \in V$ possiede un valore iniziale $x^{(0)}(v) \in \mathbb{R}$
+    \item Ad ogni round $t \geq 1$, ogni nodo $v \in V$ aggiora il suo valore $x^{(t)}(v)$ con la \textbf{media dei valori posseduti dai suoi vicini} al termine del round precedente $t - 1$, ossia
+    \[
+        x^{(t)}(v) = \frac{1}{\delta(v)} \sum_{u \in N(v)} x^{(t-1)}(u)
+    \]
+    \item Se $x^{(t)}:\ |x^{(t)} - x^{(t-1)}| \leq \epsilon$ allora \textbf{return} $x^{(t)}$ e \textbf{stop}.
+\end{enumerate}
+
+Definiamo $\forall v \in V$ il suo grado come $\delta(v) = |N(v)|$ (compreso se stesso). Diremo inoltre che il grafo è $\delta$\texttt{-regular} se $\delta(v) = \delta\ \forall v \in V$.
+
+\section{Analisi del protocolo \texttt{AVG} per grafi $\delta$\texttt{-regular} e connessi}
+
+\begin{teorema}[Message Complexity]
+    La message complexity ad ogni round del protocollo \texttt{AVG} è $\theta(m)$.
+    \begin{proof}
+        Consideriamo i nodi $u, v \in V$ tali che l'arco $(u, v) \in E$. Ad ogni round $t \geq 1$, $u$ invia $x^{(t)}(u)$ a $v$ e viceversa, per un totale di 2 messaggi. Quindi, il numero totale di messaggi in un round è:
+        \[
+            M[\texttt{AVG}]_t = \sum_{v \in V} 2\delta(v) = 2\sum_{v \in V} \delta(v) = 4m \in \theta(m)
+        \]
+    \end{proof}
+\end{teorema}
+
+Vogliamo ora dimostrare che questo protocollo, converge ad un certo valore $\mu$ che è esattamente la media globale, e inoltre vogliamo determinare il tempo di convergenza.
+
+\begin{teorema}[Convergenza]\label{teo:convergenza}
+    Se il grafo $G = (V, E)$ è connesso, non bipartito e $\delta\texttt{-regular}$, allora il protocollo \texttt{AVG} converge in norma $L_2$ ad una configurazione stabile nella quale ogni nodo ha come valore 
+    \[
+        x(v) = \frac{1}{n}\sum_{v \in V} x^{(0)}(v)
+    \]
+    ossia, \textbf{converge} alla \textbf{media globale}.
+\end{teorema}
+
+La dimostrazione di questo teorema si articola in diverse fasi. In primo luogo, stabiliremo la convergenza nel caso più generale di un grafo non $\delta\texttt{-regular}$, per poi applicare l'ipotesi di regolarità.
+
+Inoltre, per dimostrare questo teorema, faremo uso dell'algebra lineare e della teoria spettrale.
+
+\begin{definizione}[Norma $L_p$]
+    Sia $\mathbf{x} \in \mathbb{R}^n$, per ogni $p \in \mathbb{N}$ fissato, definiamo la norma $L_p$ come
+    \[
+        \norm{\mathbf{x}}_p = \left( \sum_{i = 1}^{n} |x_j|^p \right)^{1/p}
+    \]
+\end{definizione}
+
+\begin{definizione}[Norma $L_\infty$]
+    Sia $\mathbf{x} \in \mathbb{R}^n$, definiamo la norma $L_\infty$ come
+    \[
+        \norm{\mathbf{x}}_\infty = \max \{ |x_j|: j \in [n] \}
+    \]
+\end{definizione}
+
+\begin{lemma}
+    Per ogni vettore $\mathbf{x} \in \mathbb{R}^n$, vale che:
+    \[
+        \norm{\mathbf{x}}_\infty \leq \norm{\mathbf{x}}_2 \leq \norm{\mathbf{x}}_1 \leq \sqrt{n}\norm{\mathbf{x}}_2 \leq n\norm{\mathbf{x}}_\infty
+    \]
+\end{lemma}
+
+Infine, definiamo la matrice di adiacenza $A,\ n \times n$ del grafo $G$ ponendo $A(i, j) = 1 \iff (i, j) \in E$. Definiamo inoltre la matrice diagonale $D^{-1},\ n \times n$ ponendo $D^{-1}(i, i) =  \frac{1}{\delta(i)}\ \forall i \in V$ e nelle altre entrate 0.
+
+\begin{lemma}
+    Per ogni round $t \geq 1$, la configurazione del sistema al round $t$ soddisfa la seguente equazione:
+    \begin{equation}\label{eq:1}
+        \mathbf{x}^{(0)} := \mathbf{x} \qquad \mathbf{x}^{(t+1)} := (D^{-1}A)\mathbf{x}^{(t)} = D^{-1} (A\mathbf{x}^t) 
+    \end{equation}
+    Più precisamente, se definiamo la matrice $P := D^{-1}A$ la \textbf{matrice di transizione} del grafo $G$, allora
+    \begin{equation}\label{eq:2}
+        \mathbf{x}^{(0)} := \mathbf{x} \qquad \mathbf{x}^{(t+1)} := P\mathbf{x}^{(t)} = PP\mathbf{x}^{(t-1)} = \dots = P^t\mathbf{x} 
+    \end{equation}
+    \begin{proof}
+        Per ogni $i \in V$, possiamo scrivere la componente $i$-esima del vettore $\mathbf{x^{(t+1)}}$ come
+        \[
+            x^{(t+1)}(i) = \frac{1}{\delta(i)} \sum_{j = 1}^{n} A(i, j)x^{(t)}(j) = \frac{1}{\delta(i)} \sum_{j \in N(i)}x^{(t)}(j)
+        \]
+    \end{proof}
+\end{lemma}
+
+\textbf{Osservazione:} La matrice $P$ è \textbf{stocastica}, ossia rispetta le seguenti proprietà:
+\begin{itemize}
+    \item \textbf{Non negatività degli elementi:}
+    \[
+        \forall i,j \in [n],\ P_{i,j} \geq 0
+    \]
+    \item \textbf{Somma unitaria per ogni riga:}
+    \[
+        \forall i \in [n],\ \sum_{j = 1}^{n} P_{ij} = 1
+    \]
+\end{itemize}
+Inoltre, se $G$ è anche \textbf{regolare}, allora la matrice $P$ è \textbf{doppiamente stocastica}, $(P = P^T)$ ossia vale anche la \textbf{somma unitaria per ogni colonna:}
+\[
+    \forall j \in [n],\ \sum_{i = 1}^{n} P_{ij} = 1
+\]
+
+\begin{lemma}
+    Assumendo che $G$ è connesso e non bipartito e poichè la matrice $P$ è positiva a valori reali, ammette quindi $n$ autovalori $\lambda_1, \lambda_2, \dots, \lambda_n$ tali per cui $|\lambda_i| \leq 1,\ \forall i \in [n]$ e inoltre si ha un ordinamento di tali autovalori in senso non decrescente
+    \[
+        \langle \lambda_1 = 1, \lambda_2 < 1, \dots, \lambda_n \rangle
+    \]
+\end{lemma}
+
+Ora, possiamo scrivere il vettore $\mathbf{x}$ come combinazione lineare della base formata dagli \textbf{autovettori} di $P$. Sia $\langle \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n \rangle$ tale base, allora 
+\[
+    \mathbf{x} = \alpha_1\mathbf{u}_1 + \alpha_2\mathbf{u}_2 + \dots + \alpha_n\mathbf{u}_n
+\]
+e sostituendo nell'\autoref{eq:2}, otteniamo
+\begin{equation}\label{eq:decomp-pt}
+\begin{aligned}
+    \mathbf{x}^{(t+1)}
+    &= P^t \mathbf{x}
+    = P^t\left(\alpha_1\mathbf{u}_1 + \alpha_2\mathbf{u}_2 + \dots + \alpha_n\mathbf{u}_n\right) \\
+    &= \alpha_1 P^t\mathbf{u}_1 + \alpha_2 P^t\mathbf{u}_2 + \dots + \alpha_n P^t\mathbf{u}_n \\
+    &= \alpha_1 \lambda_1^t \mathbf{u}_1 + \alpha_2 \lambda_2^t \mathbf{u}_2 + \dots + \alpha_n \lambda_n^t \mathbf{u}_n \\
+    &= \alpha_1 \mathbf{u}_1 + \sum_{i=2}^{n} \alpha_i \lambda_i^t \mathbf{u}_i.
+\end{aligned}
+\end{equation}
+
+Osserviamo quindi che per $t \to \infty$, siccome $|\lambda_i| < 1,\ \forall i > 1$, allora 
+\[
+    \sum_{i=2}^{n} \alpha_i \lambda_i^t \mathbf{u}_i \xrightarrow[t \to \infty]{} \mathbf{0}.
+\]
+quindi, abbiamo ottenuto che il nostro sistema convergo a qualcosa (anche quando $G$ non è regolare).
+
+Se sfruttiamo l'ipotesi di $\delta$\texttt{-regular} del grafo $G$ e quindi che la matrice $P$ è simmetrica, allora la base formata dagli autovettori $\langle \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n \rangle$ è \textbf{ortonormale}, ossia i vettori $\mathbf{u}_i$ sono \textit{mutualmente} ortogonali avente norma $\norm{\mathbf{u}_i}_2 = 1$.
+
+\begin{definizione}[Base Ortonormale]
+    Sia $V$ uno spazio vettoriale di dimensione finita sul campo $K$, nel quale sia definito il prodotto scalare. Una base ortonormale per $V$ è una base composta dai vettori $\langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ tale che:
+    \begin{itemize}
+        \item \textbf{Vettori mutualmente ortogonali:} $\langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0, \quad \forall i \neq j$
+        \item \textbf{Norma uguale a 1:} $\norm{\mathbf{u}_i}_2 = 1$
+    \end{itemize}
+\end{definizione}
+Se $B = \langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ è ortonormale, allora
+\[    
+    \mathbf{x} = \sum_{\mathbf{u}_i \in B} \langle \mathbf{x}, \mathbf{u}_i \rangle \mathbf{u}_i
+\]
+
+\begin{lemma}
+    A partire da una qualsiasi configurazione iniziale $\mathbf{x}$, il sistema converge (in qualsiasi norma) a 
+    \begin{equation}\label{eq:convergence}
+        \mathbf{x}^{(t)} \to \alpha_1\mathbf{u}_1
+    \end{equation}
+\end{lemma}
+
+Ci domandiamo ora chi sono $\alpha_1$ e $\mathbf{u}_1$. Per definizione di autovettore con autovalore $\lambda = 1$, abbiamo che $P \mathbf{u}_1 = \lambda \mathbf{u}_1 = \mathbf{u}_1$,
+\[
+\mathbf{u}_1 = P\,\mathbf{u}_1 =
+\begin{bmatrix}
+\frac{1}{\delta_1} & 0 & \cdots & \frac{1}{\delta_1} & 0 & \cdots & \frac{1}{\delta_1} \\
+0 & \frac{1}{\delta_2} & \cdots & \frac{1}{\delta_2} & 0 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \frac{1}{\delta_i} & \cdots & \frac{1}{\delta_i} & 0 \\
+0 & 0 & \cdots & \frac{1}{\delta_n} & \cdots & 0 & \frac{1}{\delta_n}
+\end{bmatrix}
+\begin{bmatrix}
+u_1(1) \\
+u_1(2) \\
+\vdots \\
+u_1(i) \\
+\vdots \\
+u_1(n)
+\end{bmatrix}.
+\]
+
+Per trovare una base $B$ ortonormale, in particolare l'autovettore $\mathbf{u}_1$, si prende un autovettore generico $\mathbf{v}_1$ relativo a $\lambda = 1$ e lo si normalizza, quindi
+\[
+    \mathbf{u}_1 = \frac{\mathbf{v_1}}{\norm{\mathbf{v}_1}_2}
+\]
+Sostituendo ora nell'\autoref{eq:convergence}, otteniamo che
+\begin{equation}\label{eq:convergence2}
+    \mathbf{x}^{(t)} \to \alpha_1\mathbf{u}_1 = \langle \mathbf{x}, \mathbf{u_1} \rangle \mathbf{u}_1 = \frac{\mathbf{v_1}}{\norm{\mathbf{v}_1}_2} \cdot \left( \sum_{j = 1}^{n} x(j)u_1(j) \right)
+\end{equation}
+In questo modo, ci rimane solo da determinare chi è il nostro autovettore $\mathbf{v}_1$ relativo a $\lambda = 1$.
+
+\begin{lemma}\label{lemma:right_eigenvector}
+    Il vettore $\mathbf{y} = \langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle$ è un \textbf{1-autovettore destro} della matrice $P^T = (D^{-1}A)^T = AD^{-1}$, ossia
+    \[
+        P^T\mathbf{y} = \mathbf{y}
+    \]
+    \begin{proof}
+        Calcoliamo l'$i$-esimo elemento del prodotto $P^T\mathbf{y}$
+        \begin{align*}
+            \left(P^T\mathbf{y} \right)_i &= \sum_{j = 1}^{n} \left(P^T\right)_{i,j}\mathbf{y}_j
+            = \sum_{j = 1}^{n} \frac{A(i, j)}{\delta_j}\frac{\delta_j}{2m} \\
+            &= \sum_{j = 1}^{n} \frac{A(i, j)}{2m} = \frac{1}{2m}\sum_{j = 1}^{n} A(i, j) \\
+            &= \frac{\delta_i}{2m}
+        \end{align*}
+        Poiché $\sum_{j = 1}^{n} A(i, j)$ rappresenta la somma della riga $i$ della matrice di adiacenza, ovvero il numero di totale di collegamenti del nodo $i$, ce per definizione è il suo grado $\delta_i$.
+    \end{proof}
+\end{lemma}
+In sintesi, abbiamo individuato un autovettore \textbf{destro} di $P^T$, cioè $\mathbf{y}$ tale che $P^T\mathbf{y}=\mathbf{y}$. Inoltre, dalla relazione
+\[
+\left(P^T\mathbf{y}\right)^T=\mathbf{y}^TP,
+\]
+segue che $\mathbf{y}^T$ è un autovettore \textbf{sinistro} di $P$ associato all'autovalore $1$.
+
+Tuttavia, per la nostra analisi serve un autovettore \textbf{destro} di $P$. In generale, se $P\neq P^T$, autovettori sinistri e destri non coincidono. Possiamo però ottenerne uno in modo esplicito ponendo
+\[
+\mathbf{v}_1:=D^{-1}\mathbf{y}.
+\]
+Mostriamo ora che $\mathbf{v}_1$ è effettivamente un autovettore destro di $P$ relativo a $\lambda=1$:
+
+\[
+    P\mathbf{v}_1 = (D^{-1}A)D^{-1}\mathbf{y} = D^{-1}(AD^{-1})\mathbf{y} = D^{-1}P^T\mathbf{y} = D^{-1}\mathbf{y} = \mathbf{v}_1
+\]
+dove
+\[
+    \mathbf{v}_1 = D^{-1}\langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle = \langle \frac{1}{2m}, \frac{2}{2m}, \dots, \frac{n}{2m} \rangle
+\]
+Abbiamo quindi individuato un autovettore \textbf{destro} $\mathbf{v}_1$, valido anche nel caso in cui il grafo $G$ non sia regolare. Tuttavia, nel nostro caso stiamo considerando grafi $\delta$\texttt{-regular}, cioè grafi in cui ogni nodo ha lo stesso grado $\delta_i = \delta$. 
+
+\begin{lemma}
+    Se $G$ è $\delta$\texttt{-regular} (quindi $P$ è simmetrica), allora un autovettore destro di $P$ associato a $\lambda=1$ è
+    \[
+    \mathbf{v}_1=\left\langle \frac{\delta}{2m},\frac{\delta}{2m},\dots,\frac{\delta}{2m}\right\rangle
+    \]
+
+    \begin{proof}
+    Dal \autoref{lemma:right_eigenvector} sappiamo che
+    \[
+    \mathbf{y}=\left\langle \frac{\delta_1}{2m},\frac{\delta_2}{2m},\dots,\frac{\delta_n}{2m}\right\rangle
+    \]
+    soddisfa
+    \[
+    P^T\mathbf{y}=\mathbf{y}.
+    \]
+    Se il grafo è $\delta$\texttt{-regular}, allora $\delta_i=\delta$ per ogni $i$, quindi
+    \[
+    \mathbf{y}=\left\langle \frac{\delta}{2m},\frac{\delta}{2m},\dots,\frac{\delta}{2m}\right\rangle.
+    \]
+    Inoltre, nel caso regolare $P$ è simmetrica, dunque $P=P^T$. Ne segue
+    \[
+    P\mathbf{y}=P^T\mathbf{y}=\mathbf{y}.
+    \]
+    Pertanto $\mathbf{y}$ (cioè $\mathbf{v}_1$) è un autovettore destro di $P$ relativo all'autovalore $1$.
+    \end{proof}
+\end{lemma}
+
+Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
+\begin{proof}
+    Sappiamo che il sistema converge a $\alpha_1\mathbf{u}_1$. Essendo una base ortonormale, $\alpha_1 = \langle \mathbf{x}, \mathbf{u_1}$, quindi
+    \[
+        \mathbf{x}^{(t)} \to \langle \mathbf{x}, \mathbf{u}_1 \rangle \mathbf{u}_1
+    \]
+    Ora, avevamo definito $\mathbf{u}_1 = \frac{\mathbf{v}_1}{\norm{\mathbf{v_1}}_2}$, sostituendo 2 volte questa definizione otteniamo
+    \[
+        \mathbf{x}^{(t)} \to \left\langle \mathbf{x}, \frac{\mathbf{v}_1}{\norm{\mathbf{v_1}}_2} \right\rangle \frac{\mathbf{v}_1}{\norm{\mathbf{v_1}}_2}
+    \]
+    Siccome la norma $\norm{\mathbf{v_1}}_2$ è uno scalare, per le proprietà del prodotto scalare la possiamo tirare fuori, ottenendo il quadrato della norma
+    \[
+        \mathbf{x}^{(t)} \to \frac{1}{\norm{\mathbf{v_1}}_2^2}\langle \mathbf{x}, \mathbf{v}_1 \rangle \mathbf{v}_1
+    \]
+    \begin{itemize}
+        \item \textbf{Denominatore:} Per calcolare $\norm{\mathbf{v_1}}_2^2$ dobbiamo elevare al quadrato ogni componente di $\mathbf{v}_1$ e sommarle. Siccome ci sono $n$ componenti tutte uguali a $\frac{\delta}{2m}$, ottenimo:
+        \[
+            \norm{\mathbf{v_1}}_2^2 = n \left( \frac{\delta}{2m} \right)^2 = \frac{nd^2}{4m^2}
+        \]
+        \item \textbf{Prodotto Scalare} $\langle \mathbf{x}, \mathbf{v}_1 \rangle$:
+        \[
+            \langle \mathbf{x}, \mathbf{v}_1 \rangle = \sum_{j = 1}^{n}x(j)v_1(j) = \sum_{j = 1}^{n}x(j)\frac{\delta}{2m}
+        \]
+        \item Volendo calcolare il valore di un singolo nodo $i$, prendiamo l'$i$-esima componente del vettore $\mathbf{v}_1(i) = \frac{\delta}{2m}$
+    \end{itemize}
+    Mettendo tutto insieme per il nodo $i$, otteniamo:
+    \begin{align*}
+        x^{(t)}(i) &\to \frac{1}{\frac{n\delta^2}{4m^2}} \left( \sum_{j = 1}^{n}x(j)\frac{\delta}{2m} \right) \frac{\delta}{2m} \\
+        &= \frac{1}{\frac{n\delta^2}{4m^2}} \left( \frac{\delta}{2m} \frac{\delta}{2m} \right) \sum_{j = 1}^{n}x(j) \\
+        &= \frac{1}{\frac{n\delta^2}{4m^2}} \left( \frac{\delta^2}{4m^2} \right) \sum_{j = 1}^{n}x(j) \\
+        &= \frac{4m^2}{n\delta^2} \left( \frac{\delta^2}{4m^2} \right) \sum_{j = 1}^{n}x(j) \\
+        &= \frac{1}{n}\sum_{j = 1}^{n}x(j)
+    \end{align*}
+\end{proof}
