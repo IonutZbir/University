@@ -95,14 +95,14 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
 
 \begin{enumerate}
     \item Inizialmente, la sorgente $s \in V$ è nello stato $\texttt{informed}$ ed è l'unico nodo informato all'interno della rete. Il resto dei nodi non è informato e si trova nello stato $\texttt{notInformed}$.
-    \item Ad ogni round $t \leq 1$, ogni nodo $v \in V: state(v) = \texttt{ notInformed}$ esegue un'operazione di \textit{pull} su un'altro nodo $u \in_{u} N(v)$. Se $state(u) = \texttt{informed}$, allora $v$ si fa inviare una copia del messaggio $M$ da $u$ e passa nello stato $\texttt{informed}$.
+    \item Ad ogni round $t \geq 1$, ogni nodo $v \in V: state(v) = \texttt{ notInformed}$ esegue un'operazione di \textit{pull} su un'altro nodo $u \in_{u} N(v)$. Se $state(u) = \texttt{informed}$, allora $v$ si fa inviare una copia del messaggio $M$ da $u$ e passa nello stato $\texttt{informed}$.
     \item Il protocollo termina globalmente quando tutti i nodi si trovano dello stato $\texttt{informed}$. 
 \end{enumerate}
 
 \begin{teorema}
     Il protocollo BP con input $K_n$ termina in $\theta(\log n)$ w.h.p.
     \begin{proof}
-        Fissiamo un time slot $t \leq 0$, e definiamo l'insieme
+        Fissiamo un time slot $t \geq 0$, e definiamo l'insieme
         \[
             I_0 := \{s\} \qquad \qquad
             I_t := \{v \in V: v \texttt{ is informed at time } t\}
@@ -292,5 +292,266 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
 \end{teorema}
 
 \section{Expanders}
-\subsection{$\mathcal{PULL}$ Protocol over $\Delta$-Expanders}
-\section{Majority Consensus: 3-Maj Protocol}
+
+Ci chiediamo se esistono modelli di grafi diversi da una clique, aventi $o(n^2)$ archi, nei quali però il broadcasting di un'informazione tramite protocolli di GOSSIP termina in termpo $O(\texttt{POLY}(\log n))$? È chiaro che le caratteristiche che ci interessa di avere in questo modello sono \textbf{diametro basso} e una buona \textbf{connettività / fault-tollerance} (togliere alcuni archi non compromette la connettività del grafo).
+
+Vedremo nel dettaglio la nozione di grafo expander, ossia un grafo che è \textbf{sparso}, ma è \textbf{altamente connesso}.
+
+\begin{definizione}[Node-Expansion]
+    Dato un grafo $G = (V, E)\ \Delta$-regolare, ovvero ogni nodo ha grado $\Delta$, per ogni sottoinsieme $S \subset V$, la sua \textit{node-expansion} è definita come
+    \[
+        |N(S)| \text{ dove } N(S) := \{ v \in V \setminus S:\ (u, v) \in E \land u \in S \}
+    \] 
+\end{definizione}
+
+\begin{definizione}[$\alpha$-Expander]
+    Per ogni costante fissata $\alpha \geq 0$, diremo che il grafo $G$ è una $\alpha$-expander se ogni sottoinsieme $S \subset V$ tale che $|S| \leq \frac{n}{2}$, ha espansione \textbf{almeno} 
+    \[
+        |N(S)| \geq \min \{ n, \alpha|S| \}
+    \]
+\end{definizione}
+
+Se consideriamo una famiglia infinita di grafi, 
+\[
+    \{ G_n=(V_n, E_n):\ V=[n] \land n \geq 1 \}
+\]
+il coefficiente $\alpha$ di espansione è dato da 
+\[
+    \alpha = \min_{1 \leq |S| \leq n/2} \frac{|N(S)|}{|S|}.
+\]
+
+\textbf{Esempio.} Consideriamo un grafo ad anello $G = (V, E)$ con $n$ nodi, dove $V = [n]$ e $n \geq 2$. Vogliamo calcolare il suo coefficiente di espansione (node-expansion) $\alpha$. 
+
+\begin{center}
+    \begin{tikzpicture}[
+        scale=1.2,
+        % Definizione degli stili per i nodi
+        node_style/.style={circle, draw, thick, minimum size=0.8cm, font=\bfseries},
+        subset_S/.style={fill=blue!20, draw=blue!80, thick},
+        subset_N/.style={fill=red!20, draw=red!80, thick},
+        normal/.style={fill=white, draw=black!80, thick}
+    ]
+
+        % Disegno i nodi posizionandoli in cerchio (raggio 2.5cm)
+        \node[node_style, subset_S] (1) at (90:2.5cm) {1};
+        \node[node_style, subset_S] (2) at (45:2.5cm) {2};
+        \node[node_style, subset_S] (3) at (0:2.5cm) {3};
+        \node[node_style, subset_S] (4) at (315:2.5cm) {4};
+        
+        \node[node_style, subset_N] (5) at (270:2.5cm) {5};
+        \node[node_style, normal] (6) at (225:2.5cm) {6};
+        \node[node_style, normal] (7) at (180:2.5cm) {7};
+        \node[node_style, subset_N] (8) at (135:2.5cm) {8};
+
+        % Disegno gli archi (i lati del grafo)
+        \draw[thick, black!70] (1) -- (2) -- (3) -- (4) -- (5) -- (6) -- (7) -- (8) -- (1);
+
+        % Aggiungo un arco tratteggiato esterno per raggruppare visivamente S
+        \draw[blue!80, very thick, dashed] (105:3.2cm) arc (105:-60:3.2cm);
+        \node[blue!90, font=\bfseries] at (22:3.8cm) {Sottoinsieme S ($|S|=4$)};
+
+        % Aggiungo le etichette per i nodi vicini
+        \node[red!90, font=\bfseries] at (135:3.4cm) {Vicino 1 $\in N(S)$};
+        \node[red!90, font=\bfseries] at (270:3.4cm) {Vicino 2 $\in N(S)$};
+
+    \end{tikzpicture}
+\end{center}
+
+Per definizione, dobbiamo calcolare il valore minimo del rapporto tra il numero di vicini $|N(S)|$ e la cardinalità $|S|$, valutato su tutti i possibili sottoinsiemi di dimensione al massimo $n/2$. 
+
+Per minimizzare l'espansione, il caso pessimo si verifica scegliendo un sottoinsieme $S$ composto da nodi \textit{contigui}. In un anello, un qualsiasi segmento di nodi contigui ha sempre esattamente due vicini (i nodi adiacenti ai due estremi del segmento), da cui ricaviamo che $|N(S)| = 2$.
+
+Essendo il numeratore costante, il minimo del rapporto si ottiene massimizzando il denominatore $|S|$, ovvero ponendo la cardinalità al suo limite massimo consentito $|S| = n/2$. Otteniamo quindi:
+\begin{align*}
+    \alpha &= \min_{1 \leq |S| \leq n/2} \frac{|N(S)|}{|S|} \\
+           &= \frac{2}{n/2} = \frac{4}{n}
+\end{align*}
+
+Possiamo quindi concludere che il coefficiente di espansione decresce in modo inversamente proporzionale al numero di nodi, ovvero $\alpha \in \Theta\left(\frac{1}{n}\right)$.
+
+\textbf{Osservazione:} Il valore di $\alpha$ misura la qualità della connessione all'interno del grafo. Più $\alpha$ è alto, migliore è l'expander. Possiamo quindi concludere che \textbf{il grafo ad anello non è un buon expander}.
+
+L'interesse dei $\Omega(1)$-expanders è motivato dal seguente teorema.
+
+\begin{teorema}
+    Consideriamo la famiglia infinita di grafi al crescere della loro dimensione
+    \[
+        \{ G_n=(V_n, E_n):\ V=[n] \land n \geq 1 \}
+    \]
+    \begin{enumerate}
+        \item Se esiste una costante assoluta $\alpha > 0$ tale che, per $n$ sufficientemente grande, ogni grafo $G_n$ è un $\alpha$-expander, allora il \textbf{diametro} di $G_n$ è $O(\log n)$.
+        \item Per scollegare totalemente ogni sottoinsieme $S \subset V_n$, con $|S| \geq \frac{n}{2}$, bisogna rimuovere un numero \textbf{lineare} in $|S|$ di archi.
+    \end{enumerate}
+
+    \begin{proof}
+        Per dimostrare la (1), eseguiamo una visita in ampiezza del grafo (una visita \texttt{BFS}). Consideriamo una qualsiasi sorgente $s \in V$, ed applichiamo la visita in ampiezza su $s$ che però si ferma non appena visita più di $\frac{n}{2}$ nodi. Più precisamente, definiamo
+        \begin{align*}
+            L_t := \{ v \in V: d(s, v) = t \}, \forall\ t = 0, 1, \dots, n - 1 \\
+            L_0 := \{ s \} \\
+            I_t := I_{t-1} \cup L_t, \forall\ t = 0, 1, \dots, n - 1
+        \end{align*}
+        dove $L_t$ è l'insieme dei nodi ad altezza $t$ nell'albero \texttt{BFS}, $I_t$ è l'insieme di tutti i nodi che appartengono ad un livello al più $t$.
+
+        La visita \texttt{BFS} si fermerà quando si arriverà ad un livello $L_{\tau}$ tale che
+        \[
+            \tau = \min \{t \geq 1:\ |I_t| > \frac{n}{2}\}
+        \]
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{images/alpha-expander1.png}
+            \caption{Risultato della \texttt{BFS}.}
+        \end{figure}
+
+        Quello che ci interesa dimostrare è che $|I_t|$ cresce in maniera esponenziale. Per prima cosa vediamo come cresce $|L_t|$ in funzione di $|I_{t-1}|$. Per $t = 1$ avremo che
+        \[
+            L_1 = N(s) \implies |L_1| \geq 1
+        \]
+        Inoltre, si osserva che $L_t = N(I_{t-1})$, riuscendo quindi a definire la seguente relazione generale
+        \[
+            |I_t| = |I_{t-1}| + |L_t| = |I_{t-1}| + |N(I_{t-1})| \underbrace{\geq}_{(*)} |I_{t-1}| + \alpha|I_{t-1}| = (1 + \alpha)|I_{t-1}|
+        \]
+        (*) Poiché $|I_{t-1}| \leq \frac{n}{2}$ e $G$ è un $\alpha$-expander ($|N(S)| \geq \alpha|S|$ per def. di $\alpha$-expander).
+
+        Srotolonado la ricorrenza, otteniamo
+        \[
+            |I_t| \geq (1 + \alpha)|I_{t-1}| \geq (1 + \alpha)^2|I_{t-2}| \geq \dots \geq (1 + \alpha)^{t-1}|I_{1}| \geq (1 + \alpha)^{t-1} 
+        \]
+        Infine, ponendo $\tau \approx \log_{(1 + \alpha)}\left( \frac{n}{2} \right) \in \Theta(\log n)$, otteremo che $I_{\tau} > \frac{n}{2}$. Ciò implica che il numero di nodi a distanza $\tau$ da $s$ sono \textbf{almeno} $\frac{n}{2}$.
+
+        Consideriamo ora un altro nodo $w \in V \setminus I_{\tau}$ e ripetiamo lo stesso tipo di visita $\texttt{BSF}$ partendo da $w$. Grazie ancora al fatto che $G$ è un $\alpha$-expander, avremo che dopo $\tau' \in \Theta(\log n)$ livelli dell'albero \texttt{BFS} $w$ può raggiungere almeno $\frac{n}{2}$ nodi con distanze logaritmiche. Dato che entrambe le visite, quella che parte da $s$ e quella che parte da $w$, raggiungeranno almeno la metà dei nodi, avremo che i due alberi \texttt{BFS} si intersecano. Perciò avremo che $s$ e $w$ sono distanti \textbf{al più} $\tau + \tau' \in \Theta(\log n)$, implicando così che il grafo $G$ $\alpha$-expander ha \textbf{diametro logaritmico} per un $n$ sufficientemente grande. 
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.8\textwidth]{images/alpha-expander2.png}
+            \caption{Intersezione dei due alberi \texttt{BFS}.}
+        \end{figure}
+
+        Infine, per dimostrare la (2), ossia la robustezza di $G$, basta osservare che, poiché ogni $S$ in questione ha una $\alpha$ espansione, per disconnettere $S$ bisogna rimuovere $\Omega(\alpha|S|)$ archi. Infatti, per ogni $S$, $|N(S)| \geq \alpha|S|$, perciò è necessario rimuovere almeno $|N(S)|$ archi.
+    \end{proof}
+\end{teorema}
+
+\begin{lemma}
+    Consideriamo una famiglia di grafi infinita di dimensione crescente
+    \[
+        \{ G_n=(V_n, E_n):\ V=[n] \land n \geq 1 \}
+    \]
+    Se esiste una costante assoluta $\alpha > 0$ tale che, per un $n$ sufficientemente grande, il grafo $G_n$ è un $\alpha$-expander, allora
+    \[
+        T[\texttt{Flood}] = O(\log n)
+    \]
+\end{lemma}
+
+\subsection{Broadcast $\mathcal{PULL}$ Protocol over $\Delta$-Regular Expanders}
+
+Consideriamo una versione del protocollo probabilistico $\mathcal{PULL}$ per il broadcasting. Le assunzioni sono che il grafo in questione $G = (V, E)$ è un $\alpha$-expander e $\Delta$-regular, con $\Delta \in O(1)$. Ciò implica che $G$ è sparso.
+
+Formalemente, possiamo descrivere il problema mediante la tripla $\langle P_{init}, P_{P_final}, G_{pull} \rangle$, dove:
+\begin{itemize}
+    \item $P_{init}: \exists! x \in V: state(x) = \texttt{ informed } \land \forall y \neq x, state (y) = \texttt{ notInformed}$;
+    \item $P_{final}: \forall x \in V: state(x) = \texttt{ informed}$;
+    \item $G_{pull}:$ Restrizioni modello Gossip Pull.
+\end{itemize}
+
+Data una sorgente $s$ dalla quale far partire il broadcast di un messaggio $M$, il protocollo $\mathcal{PULL}(G, s)$ funziona nel seguente modo:
+
+\begin{enumerate}
+    \item Inizialmente, la sorgente $s \in V$ è nello stato $\texttt{informed}$ ed è l'unico nodo informato all'interno della rete. Il resto dei nodi non è informato e si trova nello stato $\texttt{notInformed}$.
+    \item Ad ogni round $t \geq 1$, ogni nodo $v \in V: state(v) = \texttt{notInformed}$ esegue un'operazione di \textit{pull} su un'altro nodo $u \in_{u} N(v)$. Se $state(u) = \texttt{informed}$, allora $v$ si fa inviare una copia del messaggio $M$ da $u$ e passa nello stato $\texttt{informed}$.
+    \item Il protocollo termina globalmente quando tutti i nodi si trovano dello stato $\texttt{informed}$. 
+\end{enumerate}
+
+\begin{teorema}
+    Sia $G=(V,E)$ un grafo $\alpha$-expander e $\Delta$-regular, dove $\alpha > 0$ è una qualsiasi costante fissata. Applicando il protocollo $\mathcal{PULL}(G, s)$ per una qualsiasi sorgente $s$, verrà terminato il task del broadcast in tempo $O(\log n)$ \textit{w.h.p.}
+    \begin{proof}
+        Per semplicità verrà fatta un'analisi di tipo \textbf{mean field} del protocollo, tralasciando l'alta probabilità. Definiamo la seguente \textit{sequenza di variabili aleatorie}
+        \begin{align*}
+            &I_0 := \{ s \} \\
+            &I_t := \{ v \in V:\ v \texttt{ is informed in some round } t' \leq t \} 
+        \end{align*}
+        L'obiettivo è dimostrare che la dimensione di $I_t$ cresce esponenzialmente veloce al crescere di $t$.
+
+        Fissato un $t \geq 1$, definiamo $N(I_t)$ l'insieme dei nodi al di fuori di $I_t$ che però hanno almeno un vicino in $I_t$, ovvero
+        \[
+            N(I_t) := \{ v \in V \setminus I_t:\ \exists (u,v) \in R:\ u \in I_t \}
+        \]
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{images/alpha-expander3.png}
+            \caption{$I_t$ e $N(I_t)$}
+        \end{figure}
+
+        Ora, per ogni $v \in N(I_t)$ definiamo la v.a. $Y_v$ che vale 1 se $v$ fa pull su un nodo $u \in I_t$ e quindi diventa \texttt{informed} al tempo $t+1$, e 0 altrimenti
+        \[
+            Y_v = 
+            \begin{cases}
+                1 \texttt{ if } v \texttt{ get informed at time } t + 1 \\
+                0 \texttt{ otherwise}
+            \end{cases}
+        \]
+        Allora la probabilità che un nodo $v \in N(I_t)$ sia informato al round $t+1$ corrisponde alla probabilità di scegliere tra tutti i suoi $\Delta$ vicini uno di quelli che si trovano in $I_t$, ossia
+        \[
+            \mathbb{E}[Y_v] = \Pr(Y_v = 1) = \frac{|I_t \cap N(v)|}{\Delta} \geq \frac{1}{\Delta}
+        \]
+
+        Considerando $|I_t| \leq \frac{n}{2}$, possiamo dare un \textit{lowerbound} al numero di nodi $v \in N(I_t)$ sfruttando l'$\alpha$-espandibilità di $G$
+        \[
+            |N(I_t)| \geq \alpha |I_t|
+        \]
+        Applicando queste due disuguaglianze possiamo minorare il numero medio di nodi informati al tempo $t+1$ come segue:
+        \begin{align*}
+            \mathbb{E}[|I_{t+1}|] 
+            &= |I_t| + \sum_{v \in N(I_t)} \mathbb{E}[Y_v] \underbrace{\geq}_{(*)} |I_t| +\alpha|I_t|\frac{1}{\Delta} \\
+            &= \left(1 + \frac{\alpha}{\Delta}\right) = (1 + \Omega(1))|I_t|
+        \end{align*}
+        (*) I nuovi nodi che diventano informati sono almeno quelli presenti in $N(I_t)$, e sappiamo che ciascun nodo $v \in N(I_t)$ ha probabilità di diventare informato $\geq \frac{1}{\Delta}$.
+
+        Questa disuguaglianza dimostra che in \textbf{media} $|I_t|$, fintantoché non è più grande di $\frac{n}{2}$, incrementa di un fattore costante dato che $G$ è un expander $\Delta$-regolare con $\Delta = O(1)$. Dunque in media dopo $O(\log n)$ round, almeno $\frac{n}{2}$ nodi saranno informati.
+
+        Si può applicare lo stesso ragionamento per la restante metà di grafo e dimostrare ancora che in tempo logaritmico verranno informati i restanti nodi, ma tale dimostrazione è un pò più complessa è perciò viene omessa.
+    \end{proof}
+\end{teorema}
+
+\newpage
+
+\section{Majority Consensus: 3-\texttt{MAJ} Protocol}
+
+Sia $G = (V = [n], E)$ un grafo ed una sua colorazione iniziale definita come
+\[
+    [n] \to C := \{0, 1\}
+\]
+
+Si vuole progettare un protocollo efficiente per il problema del \texttt{Majority Consensus}. Partendo dall'assunzione che la configurazione iniziale abbia un certo sbilanciamento $s$ (\textit{bias}), l'obiettivo è quelo di convergere ad una configurazione monocromatica dove ogni nodo è colorato col colore più popolare inizialmente.
+
+Più precisamente, indichiamo con
+
+\begin{itemize}
+    \item $x^t_v$ il colore del nodo $v$ al tempo $t$.
+    \item $x^t(0) = |\{ v \in V:\ x^t_v = 0 \}| = a_t$, il numero di nodi che al tempo $t$ sono nel colore \textbf{0}.
+    \item $x^t(1) = |\{ v \in V:\ x^t_v = 1 \}| = b_t$, il numero di nodi che al tempo $t$ sono nel colore \textbf{1}.
+    \item $C_t \in \{0, 1\}^n$ la colorazione del grafo $G$ al tempo $t$.
+    \item Assumendo che all'inizio la maggioranza ha colore \textbf{1} $\left( x^0(1) > x^0(0) \right)$ definiamo il \textbf{bias (sbilanciamento)} iniziale la quantità
+    \[
+        x^0(1) = \frac{n}{2} + s_0 \implies s_0 = x^0(1) - \frac{n}{2}
+    \]
+\end{itemize}
+D'ora in poi faremo riferimento semplicemente ad $s$ come al \textit{bias} che dipende dal corrente contesto $C_t$.
+
+\textbf{Osservazione.} Se generalizziamo nel caso $|C| = h$, allora una colorazione iniziale rappresenta una $h$ partizione del insieme devi vertici $V$. Nel caso di bicoloramento, l'insieme dei nodi è \textit{bipartizionato}.
+
+\begin{definizione}[$l$\texttt{-Majority-Consensus Problem}]
+    Dato un sistema distribuito $G = ([n], E)$, l'$l$\texttt{-Majority-Consensus Problem} è definito tramite le seguenti proprietà. Iniziando da una colorazione iniziale $C_0$ con bias $s > l$, il sistema deve convergere ad uno stato stabile in cui tutti i nodi hanno adottato il colore di maggioranza iniziale, ovvero arrivare a un tempo $\tau$ tale che
+    \[
+        C_{\tau} = \{ \max(a_0, b_0) \}^n
+    \]
+\end{definizione}
+
+\begin{definizione}[$k$-\texttt{Majority Protocol}]
+    Il protocollo $k$\texttt{-MAJ} funziona nel seguente modo:
+    
+    Ad ogni round $t \geq 1$, ciascun nodo sceglie \textit{u.a.r.} $k>1$ vicini (incluso se stesso) e si colora in base alla maggioranza dei vicini che ha scelto. 
+\end{definizione}
+
+\subsection{1\texttt{-MAJ} - Voter Model}
+\subsection{2\texttt{-MAJ}}
+\subsection{3\texttt{-MAJ}}

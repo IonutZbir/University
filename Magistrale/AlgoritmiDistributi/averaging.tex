@@ -34,14 +34,16 @@ Definiamo $\forall v \in V$ il suo grado come $\delta(v) = |N(v)|$ (compreso se 
 \begin{teorema}[Message Complexity]
     La message complexity ad ogni round del protocollo \texttt{AVG} è $\theta(m)$.
     \begin{proof}
-        Consideriamo i nodi $u, v \in V$ tali che l'arco $(u, v) \in E$. Ad ogni round $t \geq 1$, $u$ invia $x^{(t)}(u)$ a $v$ e viceversa, per un totale di 2 messaggi. Quindi, il numero totale di messaggi in un round è:
+        Consideriamo il nodo $v \in V$ e contiamo il numero di messaggi che invia per round. Ad ogni rount $t,\ v$ invia $x^{(t)}(v)$ a ciascuno dei suoi $\delta(v)$ vicini, quindi in totale, abbiamo che il numero di messaggi scambiati ad ogni round è:
         \[
-            M[\texttt{AVG}]_t = \sum_{v \in V} 2\delta(v) = 2\sum_{v \in V} \delta(v) = 4m \in \theta(m)
+            M[\texttt{AVG}]_t = \sum_{v \in V} \delta(v) = \sum_{v \in V} \delta(v) = 2m \in \theta(m)
         \]
     \end{proof}
 \end{teorema}
 
 Vogliamo ora dimostrare che questo protocollo, converge ad un certo valore $\mu$ che è esattamente la media globale, e inoltre vogliamo determinare il tempo di convergenza.
+
+\subsection{Convergenza}
 
 \begin{teorema}[Convergenza]\label{teo:convergenza}
     Se il grafo $G = (V, E)$ è connesso, non bipartito e $\delta\texttt{-regular}$, allora il protocollo \texttt{AVG} converge in norma $L_2$ ad una configurazione stabile nella quale ogni nodo ha come valore 
@@ -76,6 +78,18 @@ Inoltre, per dimostrare questo teorema, faremo uso dell'algebra lineare e della 
     \]
 \end{lemma}
 
+\begin{definizione}[Base Ortonormale]
+    Sia $V$ uno spazio vettoriale di dimensione finita sul campo $K$, nel quale sia definito il prodotto scalare. Una base ortonormale per $V$ è una base composta dai vettori $\langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ tale che:
+    \begin{itemize}
+        \item \textbf{Vettori mutualmente ortogonali:} $\langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0, \quad \forall i \neq j$
+        \item \textbf{Norma uguale a 1:} $\norm{\mathbf{u}_i}_2 = 1$
+    \end{itemize}
+\end{definizione}
+Se $B = \langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ è ortonormale, allora
+\[    
+    \mathbf{x} = \sum_{\mathbf{u}_i \in B} \langle \mathbf{x}, \mathbf{u}_i \rangle \mathbf{u}_i
+\]
+
 Infine, definiamo la matrice di adiacenza $A,\ n \times n$ del grafo $G$ ponendo $A(i, j) = 1 \iff (i, j) \in E$. Definiamo inoltre la matrice diagonale $D^{-1},\ n \times n$ ponendo $D^{-1}(i, i) =  \frac{1}{\delta(i)}\ \forall i \in V$ e nelle altre entrate 0.
 
 \begin{lemma}
@@ -94,6 +108,8 @@ Infine, definiamo la matrice di adiacenza $A,\ n \times n$ del grafo $G$ ponendo
         \]
     \end{proof}
 \end{lemma}
+
+\textbf{Osservazione:} La matrice $P$ è \textbf{diagonalizzabile}, poichè è una matrice \textit{simile} ad una simmetrica [Da dimostrare quando avrò voglia e tempo]. 
 
 \textbf{Osservazione:} La matrice $P$ è \textbf{stocastica}, ossia rispetta le seguenti proprietà:
 \begin{itemize}
@@ -134,6 +150,7 @@ e sostituendo nell'\autoref{eq:2}, otteniamo
 \end{aligned}
 \end{equation}
 
+
 Osserviamo quindi che per $t \to \infty$, siccome $|\lambda_i| < 1,\ \forall i > 1$, allora 
 \[
     \sum_{i=2}^{n} \alpha_i \lambda_i^t \mathbf{u}_i \xrightarrow[t \to \infty]{} \mathbf{0}.
@@ -141,18 +158,6 @@ Osserviamo quindi che per $t \to \infty$, siccome $|\lambda_i| < 1,\ \forall i >
 quindi, abbiamo ottenuto che il nostro sistema convergo a qualcosa (anche quando $G$ non è regolare).
 
 Se sfruttiamo l'ipotesi di $\delta$\texttt{-regular} del grafo $G$ e quindi che la matrice $P$ è simmetrica, allora la base formata dagli autovettori $\langle \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n \rangle$ è \textbf{ortonormale}, ossia i vettori $\mathbf{u}_i$ sono \textit{mutualmente} ortogonali avente norma $\norm{\mathbf{u}_i}_2 = 1$.
-
-\begin{definizione}[Base Ortonormale]
-    Sia $V$ uno spazio vettoriale di dimensione finita sul campo $K$, nel quale sia definito il prodotto scalare. Una base ortonormale per $V$ è una base composta dai vettori $\langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ tale che:
-    \begin{itemize}
-        \item \textbf{Vettori mutualmente ortogonali:} $\langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0, \quad \forall i \neq j$
-        \item \textbf{Norma uguale a 1:} $\norm{\mathbf{u}_i}_2 = 1$
-    \end{itemize}
-\end{definizione}
-Se $B = \langle \mathbf{u}_1, \dots, \mathbf{u}_n \rangle$ è ortonormale, allora
-\[    
-    \mathbf{x} = \sum_{\mathbf{u}_i \in B} \langle \mathbf{x}, \mathbf{u}_i \rangle \mathbf{u}_i
-\]
 
 \begin{lemma}
     A partire da una qualsiasi configurazione iniziale $\mathbf{x}$, il sistema converge (in qualsiasi norma) a 
@@ -181,15 +186,19 @@ u_1(n)
 \end{bmatrix}.
 \]
 
-Per trovare una base $B$ ortonormale, in particolare l'autovettore $\mathbf{u}_1$, si prende un autovettore generico $\mathbf{v}_1$ relativo a $\lambda = 1$ e lo si normalizza, quindi
+Poiché a noi ci interessa la massa di $\mathbf{x}$ (ossia $\sum_{j \in V} x(j)$), possiamo considerare un qualsiasi autovettore $\mathbf{v}_1$ relativo a $\lambda = 1$ e lo possiamo normalizzare (ottenere un nuovo autovettore di norma 1) $\mathbf{u}_1$ nel seguente modo:
 \[
     \mathbf{u}_1 = \frac{\mathbf{v_1}}{\norm{\mathbf{v}_1}_2}
 \]
+In questo modo, otteniamo che $\alpha_1 = \langle \mathbf{x}, \mathbf{u}_1 \rangle$.
+
 Sostituendo ora nell'\autoref{eq:convergence}, otteniamo che
 \begin{equation}\label{eq:convergence2}
     \mathbf{x}^{(t)} \to \alpha_1\mathbf{u}_1 = \langle \mathbf{x}, \mathbf{u_1} \rangle \mathbf{u}_1 = \frac{\mathbf{v_1}}{\norm{\mathbf{v}_1}_2} \cdot \left( \sum_{j = 1}^{n} x(j)u_1(j) \right)
 \end{equation}
 In questo modo, ci rimane solo da determinare chi è il nostro autovettore $\mathbf{v}_1$ relativo a $\lambda = 1$.
+
+\textbf{Osservazione:} $\alpha_i = \langle \mathbf{x}, \mathbf{u}_i \rangle$ sono le proiezioni del vettore iniziale $\mathbf{x}$ lungo la base \textit{ortonormale} di vettori. Inolre, $|\alpha_i| = |\langle \mathbf{x}, \mathbf{u}_i \rangle| \leq \mathcal{M} = \sum_{j \in V} x(j)$.
 
 \begin{lemma}\label{lemma:right_eigenvector}
     Il vettore $\mathbf{y} = \langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle$ è un \textbf{1-autovettore destro} della matrice $P^T = (D^{-1}A)^T = AD^{-1}$, ossia
@@ -224,7 +233,7 @@ Mostriamo ora che $\mathbf{v}_1$ è effettivamente un autovettore destro di $P$ 
 \]
 dove
 \[
-    \mathbf{v}_1 = D^{-1}\langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle = \langle \frac{1}{2m}, \frac{2}{2m}, \dots, \frac{n}{2m} \rangle
+    \mathbf{v}_1 = D^{-1}\langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle = \langle \frac{1}{2m}, \frac{1}{2m}, \dots, \frac{1}{2m} \rangle
 \]
 Abbiamo quindi individuato un autovettore \textbf{destro} $\mathbf{v}_1$, valido anche nel caso in cui il grafo $G$ non sia regolare. Tuttavia, nel nostro caso stiamo considerando grafi $\delta$\texttt{-regular}, cioè grafi in cui ogni nodo ha lo stesso grado $\delta_i = \delta$. 
 
@@ -257,7 +266,7 @@ Abbiamo quindi individuato un autovettore \textbf{destro} $\mathbf{v}_1$, valido
 
 Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
 \begin{proof}
-    Sappiamo che il sistema converge a $\alpha_1\mathbf{u}_1$. Essendo una base ortonormale, $\alpha_1 = \langle \mathbf{x}, \mathbf{u_1}$, quindi
+    Sappiamo che il sistema converge a $\alpha_1\mathbf{u}_1$. Essendo una base ortonormale, $\alpha_1 = \langle \mathbf{x}, \mathbf{u_1} \rangle$, quindi
     \[
         \mathbf{x}^{(t)} \to \langle \mathbf{x}, \mathbf{u}_1 \rangle \mathbf{u}_1
     \]
@@ -272,7 +281,7 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
     \begin{itemize}
         \item \textbf{Denominatore:} Per calcolare $\norm{\mathbf{v_1}}_2^2$ dobbiamo elevare al quadrato ogni componente di $\mathbf{v}_1$ e sommarle. Siccome ci sono $n$ componenti tutte uguali a $\frac{\delta}{2m}$, ottenimo:
         \[
-            \norm{\mathbf{v_1}}_2^2 = n \left( \frac{\delta}{2m} \right)^2 = \frac{nd^2}{4m^2}
+            \norm{\mathbf{v_1}}_2^2 = n \left( \frac{\delta}{2m} \right)^2 = \frac{n\delta^2}{4m^2}
         \]
         \item \textbf{Prodotto Scalare} $\langle \mathbf{x}, \mathbf{v}_1 \rangle$:
         \[
@@ -289,3 +298,85 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
         &= \frac{1}{n}\sum_{j = 1}^{n}x(j)
     \end{align*}
 \end{proof}
+
+\newpage
+
+\subsection{Tempo di Convergenza}
+\begin{teorema}\label{teo:terminazione}
+    Il protocollo \texttt{AVG} termina dopo
+    \[
+    \mathcal{T} \;=\; \log\left(\frac{n\mathcal{M}}{\epsilon}\right) / \log\left(\frac{1}{\lambda}\right)
+    \]
+    iterazioni; inoltre, per ogni nodo \(i \in V\), al tempo \(\mathcal{T}\) vale
+    \[
+    \left|x^{(\mathcal{T})}(i)-x^{(\mathcal{T}-1)}(i)\right| \le \epsilon .
+    \]
+    \begin{proof}
+        Poiché consideriamo il valore \textit{locale} di ciacun nodo, ci interessa utilizzare la $\norm{\cdot}_{\infty}$ in quanto ci dò un upper bound \textit{massimale} al valore dei nodi. Per ogni $t \leq 1$, abbiamo che
+        \begin{equation}\label{eq:tempo_convergenza}
+        \begin{aligned}
+            \mathbf{x}^{(t+1)} - \mathbf{x}^{(t)} &= P^{t+1}\mathbf{x} - P^t\mathbf{x} \\
+            &= P^{t+1}(\alpha_1\mathbf{u}_1 + \dots + \alpha_n\mathbf{u}_n) + P^{t}(\alpha_1\mathbf{u}_1 + \dots + \alpha_n\mathbf{u}_n) \\
+            [P\mathbf{u}_i = \lambda_1\mathbf{u}_i] &= \lambda_1^{t+1}\alpha_1\mathbf{u}_1 + \dots + \lambda_1^{t+1}\alpha_n\mathbf{u}_n + \lambda_1^{t}\alpha_1\mathbf{u}_1 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n \\
+            &= \alpha_1\mathbf{u}_1 - \alpha_1\mathbf{u}_1 + \sum_{i = 2}^{n} (\lambda_i - 1)\lambda_i^t\alpha_i\mathbf{u}_i \\
+            &= (\lambda_2 - 1)\lambda_2^t\alpha_2\mathbf{u}_2 + \dots + (\lambda_n - 1)\lambda_n^t\alpha_n\mathbf{u}_n
+        \end{aligned}
+        \end{equation}
+
+        Definiamo ora 
+        \[
+            \lambda = \max \{ |\lambda_j|:\ j \geq 2 \}, \qquad \lambda_{\min} = \min \{ |\lambda_j|:\ j \geq 2 \}
+        \]
+        e ricordando che $G$ è connesso e non bipartito abbiamo che $0 < \lambda_{\min} \leq \lambda < 1$. Applicando quindi la $\norm{\cdot}_{\infty}$ all'equazione \autoref{eq:tempo_convergenza}, otteniamo
+        \begin{align*}
+            \norm{\mathbf{x}^{(t+1)} - \mathbf{x}^{(t)}}_{\infty} 
+            &= \norm{P^{t+1}\mathbf{x} - P^t\mathbf{x}}_{\infty} \\
+            &\leq n(1 - \lambda_{\min})\lambda^t\alpha_n\norm{\mathbf{u}_n}_{\infty} \\
+            &= n(1 - \lambda_{\min})\lambda^t\mathcal{M}
+        \end{align*}
+        Applicando la norma, $\norm{\lambda_{\min} - 1}_{\infty} = |\lambda_{\min} - 1| = 1 - \lambda_{\min}$. Ricordiamo che $\mathcal{M} = \sum_{j \in V} x(j)$ e osserviamo che $\forall i \in [n],\ \alpha_i \leq \mathcal{M}$. Quindi possiamo individuare quanto debba essere $\mathcal{T}$ affichè l'ultimo incremento sia sufficientemente piccolo, ossia
+        \begin{align*}
+            \norm{\mathbf{x}^{(t+1)} - \mathbf{x}^{(t)}}_{\infty} 
+            &\leq n(1 - \lambda_{\min})\lambda^\mathcal{T}\mathcal{M} \leq \epsilon \\
+            &\implies \lambda^\mathcal{T} \leq \frac{\epsilon}{n\mathcal{M}(1 - \lambda_{\min})} \\
+            &\implies \mathcal{T} \log(\lambda) \leq \log\left(\frac{\epsilon}{n\mathcal{M}(1 - \lambda_{\min})}\right) \\
+            &\implies \mathcal{T} \geq \frac{\log\left(\frac{\epsilon}{n\mathcal{M}(1 - \lambda_{\min})}\right)}{\log(\lambda)} \quad \text{(poiché } |\lambda| < 1 \implies \log(\lambda) < 0 \text{)} \\
+            &\implies \mathcal{T} \geq \frac{-\log\left(\frac{n\mathcal{M}(1 - \lambda_{\min})}{\epsilon}\right)}{-\log\left(\frac{1}{\lambda}\right)} \\
+            &\implies \mathcal{T} \geq \frac{\log\left(\frac{n\mathcal{M}(1 - \lambda_{\min})}{\epsilon}\right)}{\log\left(\frac{1}{\lambda}\right)} \\
+            &\implies \mathcal{T} \geq \frac{\log\left(\frac{n\mathcal{M}}{\epsilon}\right)}{\log\left(\frac{1}{\lambda}\right)} \quad \text{(poiché } |\lambda_{\min}| < 1 \text{)} \\ 
+        \end{align*}
+    \end{proof}
+\end{teorema}
+
+\begin{teorema}[Terminazione e Corretezza (Accuratezza)]
+    Dato in input un qualsiasi grafo $G = (V, E)$ connesso, non bipartito e $\delta$\texttt{-regular} e un parametro di confidenza $\epsilon > 0$, il protocollo \texttt{AVG} termina dopo
+    \[
+        \mathcal{T} \;=\; \log\left(\frac{n\mathcal{M}}{\epsilon}\right) / \log\left(\frac{1}{\lambda}\right)
+    \]
+    passi. Inoltre, ogni nodo $i \in [n]$ restituisce un valore $x^{\mathcal{T}}(i)$ tale che:
+    \[
+        \left| x^{\mathcal{T}}(i) - \frac{1}{n}\sum_{i \in V} x(i) \right| \leq \epsilon
+    \]
+    \begin{proof}
+        Come abbiamo visto sopra, possiamo limitare la variazione tra due passi successivi. Sia $t \geq 1$, allora vale sempre che
+        \[
+            \norm{\mathbf{x}^{(t+1)} - \mathbf{x}^{(t)}}_{\infty} \leq n\lambda^t\mathcal{M}
+        \]
+        Limitiamo poi la distanza della vera media globale. Andiamo a guardare la variazione tra il valore attuale $\mathbf{x}^{(t)}$ e il limite reale $\alpha_1\mathbf{u}_1$.
+        \begin{align*}
+            \norm{\mathbf{x}^{(t)} - \alpha_1\mathbf{u}_1}_{\infty} &= \norm{P^{t}\mathbf{x} - \alpha_1\mathbf{u}_1}_{\infty} \\
+            &= \lambda_1^{t}\alpha_1\mathbf{u}_1 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n - \alpha_1\mathbf{u}_1 \\
+            [\lambda_1 = 1] &= (\alpha_1\mathbf{u}_1 - \alpha_1\mathbf{u}_1) + \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n \\
+            &=  \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n \\
+            &\leq n\lambda^t\mathcal{M}\norm{\mathbf{u}_n}_\infty = n\lambda^t\mathcal{M}
+        \end{align*}
+
+        Grazie al \autoref{teo:terminazione}, possiamo affermare che, quando il nodo $i$ termina la sua computazione, dopo $\mathcal{T}$ round, il suo valore è:
+        \[
+            \left|x^{(\mathcal{T})}(i) - \alpha_1\mathbf{u}_1\right| = \left|x^{(\mathcal{T})}(i) - \frac{\mathcal{M}}{n}\right| \leq n\lambda^{\mathcal{T}}\mathcal{M} \leq \epsilon
+        \]
+    \end{proof}
+\end{teorema}
+
+\paragraph{Il ruolo dei Grafi Expander.} 
+In un grafo expander, il secondo autovalore $\lambda$ è limitato superiormente da una costante strettamente minore di 1, indipendentemente dal numero di nodi $n$. Di conseguenza, il termine $\log(1/\lambda)$ al denominatore della formula del tempo di convergenza rimane costante, rendendo il suo impatto trascurabile sulle prestazioni asintotiche. Questo garantisce che il protocollo raggiunga il consenso in tempo puramente logaritmico rispetto alla dimensione della rete. Tale proprietà riflette l'elevata conduttanza del sistema e l'assenza di colli di bottiglia topologici (sparse cuts) che rallenterebbero la diffusione della massa.
