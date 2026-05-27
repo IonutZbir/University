@@ -99,8 +99,9 @@ Infine, definiamo la matrice di adiacenza $A,\ n \times n$ del grafo $G$ ponendo
     \end{equation}
     Più precisamente, se definiamo la matrice $P := D^{-1}A$ la \textbf{matrice di transizione} del grafo $G$, allora
     \begin{equation}\label{eq:2}
-        \mathbf{x}^{(0)} := \mathbf{x} \qquad \mathbf{x}^{(t+1)} := P\mathbf{x}^{(t)} = PP\mathbf{x}^{(t-1)} = \dots = P^t\mathbf{x} 
+        \mathbf{x}^{(0)} := \mathbf{x} \qquad \mathbf{x}^{(t+1)} := P\mathbf{x}^{(t)} = PP\mathbf{x}^{(t-1)} = \dots = P^t\mathbf{x} \quad \text{Power Method}
     \end{equation}
+    Questa equazione ci sta modellando un sistema dinamico lineare, in cui la configurazione al round $t + 1$ è ottenuta moltiplicando la matrice $P$ per la configurazione al round $t$.
     \begin{proof}
         Per ogni $i \in V$, possiamo scrivere la componente $i$-esima del vettore $\mathbf{x^{(t+1)}}$ come
         \[
@@ -127,6 +128,10 @@ Inoltre, se $G$ è anche \textbf{regolare}, allora la matrice $P$ è \textbf{dop
     \forall j \in [n],\ \sum_{i = 1}^{n} P_{ij} = 1
 \]
 
+Applicando la teoria spettrale (decomposizione spettrale), possiamo individuare gli autovalori di $P$ e le loro proprietà.
+
+Vogliamo studiare la convergenza del sistema in norma $L_2$.
+
 \begin{lemma}
     Assumendo che $G$ è connesso e non bipartito e poichè la matrice $P$ è positiva a valori reali, ammette quindi $n$ autovalori $\lambda_1, \lambda_2, \dots, \lambda_n$ tali per cui $|\lambda_i| \leq 1,\ \forall i \in [n]$ e inoltre si ha un ordinamento di tali autovalori in senso non decrescente
     \[
@@ -150,12 +155,14 @@ e sostituendo nell'\autoref{eq:2}, otteniamo
 \end{aligned}
 \end{equation}
 
+\textbf{Osservazione:} Esistono autovettori con moltiplicità maggiore di 1, quindi è possibile che $\lambda_2 = \lambda_3 = \dots = \lambda_k$ per qualche $k > 2$. In questo caso, possiamo semplicemente raggruppare tali autovettori in un unico autovettore con autovalore $\lambda_2$.
 
 Osserviamo quindi che per $t \to \infty$, siccome $|\lambda_i| < 1,\ \forall i > 1$, allora 
 \[
     \sum_{i=2}^{n} \alpha_i \lambda_i^t \mathbf{u}_i \xrightarrow[t \to \infty]{} \mathbf{0}.
 \]
-quindi, abbiamo ottenuto che il nostro sistema convergo a qualcosa (anche quando $G$ non è regolare).
+in \textbf{norma}. 
+Quindi, applicando un analisi spettrale della matrice di transizione $P$ del grafo, sotto certe condizioni abbiamo che il sistema converge ad uno stato stazionario $\alpha_1\mathbf{u}_1$.
 
 Se sfruttiamo l'ipotesi di $\delta$\texttt{-regular} del grafo $G$ e quindi che la matrice $P$ è simmetrica, allora la base formata dagli autovettori $\langle \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n \rangle$ è \textbf{ortonormale}, ossia i vettori $\mathbf{u}_i$ sono \textit{mutualmente} ortogonali avente norma $\norm{\mathbf{u}_i}_2 = 1$.
 
@@ -198,7 +205,13 @@ Sostituendo ora nell'\autoref{eq:convergence}, otteniamo che
 \end{equation}
 In questo modo, ci rimane solo da determinare chi è il nostro autovettore $\mathbf{v}_1$ relativo a $\lambda = 1$.
 
-\textbf{Osservazione:} $\alpha_i = \langle \mathbf{x}, \mathbf{u}_i \rangle$ sono le proiezioni del vettore iniziale $\mathbf{x}$ lungo la base \textit{ortonormale} di vettori. Inolre, $|\alpha_i| = |\langle \mathbf{x}, \mathbf{u}_i \rangle| \leq \mathcal{M} = \sum_{j \in V} x(j)$.
+\textbf{Osservazione:} $\alpha_i = \langle \mathbf{x}, \mathbf{u}_i \rangle$ sono le proiezioni del vettore iniziale $\mathbf{x}$ lungo la base (\textit{ortonormale}) di vettori. Inolre, $|\alpha_i| = |\langle \mathbf{x}, \mathbf{u}_i \rangle| \leq \mathcal{M} = \sum_{j \in V} x(j)$.
+
+Ora ci chiediamo chi è $\mathbf{v}_1$?
+
+Abbiamo due casistiche, caso 1: $P$ è simmetrica, caso 2: $P$ non è simmetrica.
+
+\textbf{CASO 1: $\mathbf{G}$ non regolare, quindi $\mathbf{P}$ non simmetrica.}
 
 \begin{lemma}\label{lemma:right_eigenvector}
     Il vettore $\mathbf{y} = \langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle$ è un \textbf{1-autovettore destro} della matrice $P^T = (D^{-1}A)^T = AD^{-1}$, ossia
@@ -236,6 +249,8 @@ dove
     \mathbf{v}_1 = D^{-1}\langle \frac{\delta_1}{2m}, \frac{\delta_2}{2m}, \dots, \frac{\delta_n}{2m} \rangle = \langle \frac{1}{2m}, \frac{1}{2m}, \dots, \frac{1}{2m} \rangle
 \]
 Abbiamo quindi individuato un autovettore \textbf{destro} $\mathbf{v}_1$, valido anche nel caso in cui il grafo $G$ non sia regolare. Tuttavia, nel nostro caso stiamo considerando grafi $\delta$\texttt{-regular}, cioè grafi in cui ogni nodo ha lo stesso grado $\delta_i = \delta$. 
+
+\textbf{CASO 2: $\mathbf{G}$ regolare, quindi $\mathbf{P}$ simmetrica.}
 
 \begin{lemma}
     Se $G$ è $\delta$\texttt{-regular} (quindi $P$ è simmetrica), allora un autovettore destro di $P$ associato a $\lambda=1$ è
@@ -312,7 +327,7 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
     \left|x^{(\mathcal{T})}(i)-x^{(\mathcal{T}-1)}(i)\right| \le \epsilon .
     \]
     \begin{proof}
-        Poiché consideriamo il valore \textit{locale} di ciacun nodo, ci interessa utilizzare la $\norm{\cdot}_{\infty}$ in quanto ci dò un upper bound \textit{massimale} al valore dei nodi. Per ogni $t \leq 1$, abbiamo che
+        Poiché consideriamo il valore \textit{locale} di ciacun nodo, ci interessa utilizzare la $\norm{\cdot}_{\infty}$ in quanto ci dà un upper bound \textit{massimale} al valore dei nodi. Per ogni $t \leq 1$, abbiamo che
         \begin{equation}\label{eq:tempo_convergenza}
         \begin{aligned}
             \mathbf{x}^{(t+1)} - \mathbf{x}^{(t)} &= P^{t+1}\mathbf{x} - P^t\mathbf{x} \\
@@ -348,6 +363,12 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
     \end{proof}
 \end{teorema}
 
+\textbf{Osservazione:} Il tempo di convergenza è logaritmico rispetto a $n$ e $\mathcal{M}$, e inversamente proporzionale a $\log(1/\lambda)$, quindi nella dimensione del grafo e nella massa totale (\textbf{molto buono!}), mentre è inversamente proporzionale alla distanza tra 1 e il secondo autovalore $\lambda$ (cioè salla \textbf{spectral gap} topologia del del grafo).
+\begin{itemize}
+    \item Nel caso di grafi regolari, determina la qualità d'espansione del grafo, ossia quanto è "ben connesso" il grafo. Più il grafo è un buon expander, più grande è la spectral gap ($\lambda_1 - \lambda_2$ è grande), quindi il grafo è ben connesso e il protocollo converge più velocemente. Se il grafo è un buon expander, allora $\lambda$ è limitato superiormente da una costante strettamente minore di 1, indipendentemente dal numero di nodi $n$, garantendo una convergenza rapida.
+    \item Nel caso di grafi non regolari, la spectral gap è influenzata anche dalla distribuzione dei gradi dei nodi, quindi se ci sono nodi con gradi molto diversi tra loro, la spectral gap potrebbe essere più piccola, rallentando la convergenza del protocollo.
+\end{itemize}
+
 \begin{teorema}[Terminazione e Corretezza (Accuratezza)]
     Dato in input un qualsiasi grafo $G = (V, E)$ connesso, non bipartito e $\delta$\texttt{-regular} e un parametro di confidenza $\epsilon > 0$, il protocollo \texttt{AVG} termina dopo
     \[
@@ -365,9 +386,9 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
         Limitiamo poi la distanza della vera media globale. Andiamo a guardare la variazione tra il valore attuale $\mathbf{x}^{(t)}$ e il limite reale $\alpha_1\mathbf{u}_1$.
         \begin{align*}
             \norm{\mathbf{x}^{(t)} - \alpha_1\mathbf{u}_1}_{\infty} &= \norm{P^{t}\mathbf{x} - \alpha_1\mathbf{u}_1}_{\infty} \\
-            &= \lambda_1^{t}\alpha_1\mathbf{u}_1 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n - \alpha_1\mathbf{u}_1 \\
-            [\lambda_1 = 1] &= (\alpha_1\mathbf{u}_1 - \alpha_1\mathbf{u}_1) + \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n \\
-            &=  \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_1^{t}\alpha_n\mathbf{u}_n \\
+            &= \lambda_1^{t}\alpha_1\mathbf{u}_1 + \dots + \lambda_n^{t}\alpha_n\mathbf{u}_n - \alpha_1\mathbf{u}_1 \\
+            [\lambda_1 = 1] &= (\alpha_1\mathbf{u}_1 - \alpha_1\mathbf{u}_1) + \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_n^{t}\alpha_n\mathbf{u}_n \\
+            &=  \lambda_2^{t}\alpha_2\mathbf{u}_2 + \dots + \lambda_n^{t}\alpha_n\mathbf{u}_n \\
             &\leq n\lambda^t\mathcal{M}\norm{\mathbf{u}_n}_\infty = n\lambda^t\mathcal{M}
         \end{align*}
 
@@ -377,6 +398,3 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
         \]
     \end{proof}
 \end{teorema}
-
-\paragraph{Il ruolo dei Grafi Expander.} 
-In un grafo expander, il secondo autovalore $\lambda$ è limitato superiormente da una costante strettamente minore di 1, indipendentemente dal numero di nodi $n$. Di conseguenza, il termine $\log(1/\lambda)$ al denominatore della formula del tempo di convergenza rimane costante, rendendo il suo impatto trascurabile sulle prestazioni asintotiche. Questo garantisce che il protocollo raggiunga il consenso in tempo puramente logaritmico rispetto alla dimensione della rete. Tale proprietà riflette l'elevata conduttanza del sistema e l'assenza di colli di bottiglia topologici (sparse cuts) che rallenterebbero la diffusione della massa.

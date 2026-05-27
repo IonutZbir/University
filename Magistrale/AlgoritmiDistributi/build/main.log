@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.18)  1 MAY 2026 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.18)  27 MAY 2026 15:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -5490,35 +5490,237 @@ l.479 \begin{definizione}[Mesh]
  (./coloring.tex
 Capitolo 9.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 11.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 11.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 12.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 12.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 12.
-
-) [56
+pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \begin{definizione}[$\alpha$-coloring]
+                                           [56
 
 
 
 
 ]
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.47 \For
+         {node $v \in V$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.48     \For
+             {phase $k = \alpha, \alpha-1, \dots, \Delta+2$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.49         \State
+                    \textbf{send} $C(v)$ to $N(v)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.50         \State
+                    \textbf{receive} $C(u)$ for all $u \in N(v)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.51         \If
+                {$C(v) = k$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.52             \State
+                        choose $j \in \{1, \dots, k-1\} \setminus C(N(v))$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.53             \State
+                        $C(v) \leftarrow j$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.54         \EndIf
+                   
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.55     \EndFor
+                
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.56 \EndFor
+            
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.60 \begin{teorema}[Correttezza]
+                                 
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.80 ...ma}[Time Complexity \& Message Complexity]
+                                                   [57]
+<images/khunProcedure.jpg, id=3322, 1284.8pt x 869.2475pt>
+File: images/khunProcedure.jpg Graphic file (type jpg)
+<use images/khunProcedure.jpg>
+Package pdftex.def Info: images/khunProcedure.jpg  used on input line 137.
+(pdftex.def)             Requested size: 182.09486pt x 123.19261pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[58]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 149.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 149.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.164 \State
+             An algorithm for each vertex $v \in V$.
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.165 \State
+             Initially $T_v = \emptyset$, $F_v = \emptyset$, for each $v \in...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.166 \State
+             \textit{$T_v$ is the set of temporary colors selected by neighb...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.167 \State
+             \textit{$F_v$ is the set of final colors selected by neighbors ...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.169 \For
+          {each round}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.170     \State
+                 $T_v = \emptyset$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.171     \State
+                 $c(v) :=$ draw a color from $[2\Delta]$ u.a.r., independent...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.172     \State
+                 $\texttt{send}(c(v)) \to N(v)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.173     \For
+              {each received color $c(u)$ from a neighbor $u$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.174         \State
+                     $T_v := T_v \cup \{c(u)\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.175     \EndFor
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.176     \If
+             {$c(v) \notin T_v \cup F_v$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.177         \State
+                     $\texttt{send}(\texttt{final} \; c(v)) \to N(v)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.178         \State
+                     select $c(v)$ as the final color $\varphi_v$ of $v$ and...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.179     \Else
+               
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.180         \For
+                  {each received message $\texttt{final} \; c(u)$ from a nei...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.181             \State
+                         $F_v := F_v \cup \{c(u)\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.182         \EndFor
+                     
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.183         \State
+                     discard $c(v)$ and continue to the next round
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.184     \EndIf
+                
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.185 \EndFor
+              [59 <./images/khunProcedure.jpg>]
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.192 \begin{teorema}[Correttezza]
+                                  
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.201 \begin{teorema}[Time Complexity]
+                                       [60]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 225.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 225.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.235 \begin{teorema}[Correttezza]
+                                  
+pdfTeX warning (ext4): destination with the same identifier (name{teorema.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.239 \begin{teorema}[Time Complexity]
+                                      ) [61]
 \openout2 = `gossip.aux'.
 
  (./gossip.tex
@@ -5533,7 +5735,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{lemma.1}) has 
 <to be read again> 
                    \relax 
 l.18     V
-          algono i seguenti fatti: [57
+          algono i seguenti fatti: [62
 
 
 
@@ -5547,22 +5749,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 83.
 
-[58]
+[63]
 pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.103     I
-           l protocollo BP con input $K_n$ termina in $\theta(\log n)$ w.h.p. [59]
+           l protocollo BP con input $K_n$ termina in $\theta(\log n)$ w.h.p. [64]
 pdfTeX warning (ext4): destination with the same identifier (name{lemma.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.168                 P
-                       er ogni $\alpha > 0$ esiste una costante $\gamma = \g... [60]
+                       er ogni $\alpha > 0$ esiste una costante $\gamma = \g... [65]
 pdfTeX warning (ext4): destination with the same identifier (name{lemma.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.218                 E
-                       siste un $\beta$ sufficientemente grande, tale che do... [61] [62]
+                       siste un $\beta$ sufficientemente grande, tale che do... [66] [67]
 pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5572,23 +5774,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{definizione.2}
 <to be read again> 
                    \relax 
 l.307 \begin{definizione}[$\alpha$-Expander]
-                                             [63]
+                                             [68]
 pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.377     C
-           onsideriamo la famiglia infinita di grafi al crescere della loro ... [64]
-<images/alpha-expander1.png, id=3367, 1283.79625pt x 800.9925pt>
+           onsideriamo la famiglia infinita di grafi al crescere della loro ... [69]
+<images/alpha-expander1.png, id=3412, 1283.79625pt x 800.9925pt>
 File: images/alpha-expander1.png Graphic file (type png)
 <use images/alpha-expander1.png>
 Package pdftex.def Info: images/alpha-expander1.png  used on input line 402.
 (pdftex.def)             Requested size: 364.19667pt x 227.22191pt.
-<images/alpha-expander2.png, id=3368, 1141.26375pt x 831.105pt>
+<images/alpha-expander2.png, id=3413, 1141.26375pt x 831.105pt>
 File: images/alpha-expander2.png Graphic file (type png)
 <use images/alpha-expander2.png>
 Package pdftex.def Info: images/alpha-expander2.png  used on input line 426.
 (pdftex.def)             Requested size: 364.19667pt x 265.21082pt.
- [65 <./images/alpha-expander1.png (PNG copy)>]
+ [70 <./images/alpha-expander1.png (PNG copy)>]
 pdfTeX warning (ext4): destination with the same identifier (name{lemma.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5614,18 +5816,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 445.
 
-[66 <./images/alpha-expander2.png (PNG copy)>]
+[71 <./images/alpha-expander2.png (PNG copy)>]
 pdfTeX warning (ext4): destination with the same identifier (name{teorema.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.465     S
            ia $G=(V,E)$ un grafo $\alpha$-expander e $\Delta$-regular, dove ...
-<images/alpha-expander3.png, id=3383, 523.9575pt x 437.635pt>
+<images/alpha-expander3.png, id=3427, 523.9575pt x 437.635pt>
 File: images/alpha-expander3.png Graphic file (type png)
 <use images/alpha-expander3.png>
 Package pdftex.def Info: images/alpha-expander3.png  used on input line 480.
 (pdftex.def)             Requested size: 227.62206pt x 190.11592pt.
- [67 <./images/alpha-expander3.png (PNG copy)>] [68]
+ [72 <./images/alpha-expander3.png (PNG copy)>] [73]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 517.
 
@@ -5641,7 +5843,7 @@ l.549 ...inizione}[$k$-\texttt{Majority Protocol}]
                                                   
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 555.
-) [69]
+) [74]
 \openout2 = `averaging.aux'.
 
  (./averaging.tex
@@ -5663,7 +5865,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) ha
 <to be read again> 
                    \relax 
 l.34 \begin{teorema}[Message Complexity]
-                                         [70
+                                         [75
 
 
 
@@ -5693,18 +5895,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{definizione.3}
 <to be read again> 
                    \relax 
 l.81 \begin{definizione}[Base Ortonormale]
-                                           [71] [72] [73] [74] [75] [76]) [77]
+                                           [76] [77] [78] [79] [80] [81] [82]) [83]
 \openout2 = `radio_network.aux'.
 
  (./radio_network.tex
 Capitolo 12.
-[78
+[84
 
 
 
 
 ]
-<images/radionet3.png, id=3495, 363.3575pt x 202.7575pt>
+<images/radionet3.png, id=3545, 363.3575pt x 202.7575pt>
 File: images/radionet3.png Graphic file (type png)
 <use images/radionet3.png>
 Package pdftex.def Info: images/radionet3.png  used on input line 137.
@@ -5713,7 +5915,7 @@ Package pdftex.def Info: images/radionet3.png  used on input line 137.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[79]
+[85]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5758,7 +5960,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) ha
 <to be read again> 
                    \relax 
 l.167 \begin{teorema}[Correttezza]
-                                   [80 <./images/radionet3.png>]
+                                   [86 <./images/radionet3.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5778,7 +5980,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.3}) ha
 <to be read again> 
                    \relax 
 l.208 \begin{teorema}[Message Comeplixity]
-                                           [81]
+                                           [87]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5828,7 +6030,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) 
 <to be read again> 
                    \relax 
 l.240 \EndFor
-              [82]
+              [88]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5893,7 +6095,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) ha
 <to be read again> 
                    \relax 
 l.306 \begin{teorema}[ClementiMontiSilvestri]
-                                              [83]
+                                              [89]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -5944,18 +6146,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{lemma.2}) has 
                    \relax 
 l.332 \begin{lemma}\label
                          {lemma:select}
-<images/lowerboundRadioNet1.jpg, id=3536, 1284.8pt x 784.9325pt>
+<images/lowerboundRadioNet1.jpg, id=3585, 1284.8pt x 784.9325pt>
 File: images/lowerboundRadioNet1.jpg Graphic file (type jpg)
 <use images/lowerboundRadioNet1.jpg>
 Package pdftex.def Info: images/lowerboundRadioNet1.jpg  used on input line 348.
 (pdftex.def)             Requested size: 273.14923pt x 166.87679pt.
- [84 <./images/lowerboundRadioNet1.jpg>]
-<images/lowerboundRadioNet2.jpg, id=3546, 1284.8pt x 876.27374pt>
+ [90 <./images/lowerboundRadioNet1.jpg>]
+<images/lowerboundRadioNet2.jpg, id=3595, 1284.8pt x 876.27374pt>
 File: images/lowerboundRadioNet2.jpg Graphic file (type jpg)
 <use images/lowerboundRadioNet2.jpg>
 Package pdftex.def Info: images/lowerboundRadioNet2.jpg  used on input line 363.
 (pdftex.def)             Requested size: 218.51521pt x 149.03142pt.
-<images/lowerboundRadioNet3.jpg, id=3547, 1284.8pt x 957.5775pt>
+<images/lowerboundRadioNet3.jpg, id=3596, 1284.8pt x 957.5775pt>
 File: images/lowerboundRadioNet3.jpg Graphic file (type jpg)
 <use images/lowerboundRadioNet3.jpg>
 Package pdftex.def Info: images/lowerboundRadioNet3.jpg  used on input line 370.
@@ -5965,8 +6167,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.3}) ha
 <to be read again> 
                    \relax 
 l.393 \begin{teorema}[Lower Bound]
-                                   [85 <./images/lowerboundRadioNet2.jpg> <./images/lowerboundRadioNet3.jpg>]
-<images/radionet4.png, id=3559, 363.3575pt x 222.8325pt>
+                                   [91 <./images/lowerboundRadioNet2.jpg> <./images/lowerboundRadioNet3.jpg>]
+<images/radionet4.png, id=3608, 363.3575pt x 222.8325pt>
 File: images/radionet4.png Graphic file (type png)
 <use images/radionet4.png>
 Package pdftex.def Info: images/radionet4.png  used on input line 411.
@@ -5980,7 +6182,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 430.
 
-[86 <./images/radionet4.png>]
+[92 <./images/radionet4.png>]
 File: images/radionet4.png Graphic file (type png)
 <use images/radionet4.png>
 Package pdftex.def Info: images/radionet4.png  used on input line 437.
@@ -6040,12 +6242,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) ha
 <to be read again> 
                    \relax 
 l.460     I
-           l protocollo \texttt{BGI} su grafi $d$-regular e $D$ layered comp...) [87]
+           l protocollo \texttt{BGI} su grafi $d$-regular e $D$ layered comp...) [93]
 \openout2 = `hashing.aux'.
 
  (./hashing.tex
 Capitolo 13.
-) [88
+) [94
 
 
 
@@ -6055,7 +6257,7 @@ Capitolo 13.
 
  (./sampling.tex
 Capitolo 14.
-) [89
+) [95
 
 
 
@@ -6072,18 +6274,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55611 strings out of 469504
- 1240334 string characters out of 5470379
- 1832565 words of memory out of 5000000
- 82680 multiletter control sequences out of 15000+600000
- 676337 words of font info for 343 fonts, out of 8000000 for 9000
+ 55656 strings out of 469504
+ 1241075 string characters out of 5470379
+ 1831676 words of memory out of 5000000
+ 82692 multiletter control sequences out of 15000+600000
+ 676949 words of font info for 349 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,17n,108p,1091b,2722s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on build/main.pdf (90 pages, 7671359 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
+Output written on build/main.pdf (96 pages, 7774494 bytes).
 PDF statistics:
- 3835 PDF objects out of 4296 (max. 8388607)
- 2248 compressed objects within 23 object streams
- 402 named destinations out of 1000 (max. 500000)
- 91773 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 3892 PDF objects out of 4296 (max. 8388607)
+ 2296 compressed objects within 23 object streams
+ 423 named destinations out of 1000 (max. 500000)
+ 91778 words of extra memory for PDF output out of 106986 (max. 10000000)
 
