@@ -52,29 +52,30 @@
 \contentsline {section}{\numberline {9.2}Randomized Distributed Graph Coloring}{59}{section.9.2}%
 \contentsline {subsection}{\numberline {9.2.1}Rand-2$\Delta $}{59}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}Rand-$\Delta $+}{61}{subsection.9.2.2}%
-\contentsline {chapter}{\numberline {10}Gossip Models}{62}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Proprietà}{62}{section.10.1}%
-\contentsline {section}{\numberline {10.2}$\mathcal {PULL}$ Broadcast Protocol on Clique}{63}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Expanders}{68}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Broadcast $\mathcal {PULL}$ Protocol over $\Delta $-Regular Expanders}{71}{subsection.10.3.1}%
-\contentsline {section}{\numberline {10.4}Majority Consensus: 3-\texttt {MAJ} Protocol}{74}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}1\texttt {-MAJ} - Voter Model}{74}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}2\texttt {-MAJ}}{74}{subsection.10.4.2}%
-\contentsline {subsection}{\numberline {10.4.3}3\texttt {-MAJ}}{74}{subsection.10.4.3}%
-\contentsline {chapter}{\numberline {11}Averaging Protocol}{75}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Analisi del protocolo \texttt {AVG} per grafi $\delta $\texttt {-regular} e connessi}{75}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Convergenza}{76}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Tempo di Convergenza}{82}{subsection.11.1.2}%
-\contentsline {chapter}{\numberline {12}Radio Networks}{84}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Broadcast on Radio Networks}{85}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Round-Robin Protocol}{86}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Analisi Round-Robin}{86}{subsection.12.1.2}%
-\contentsline {section}{\numberline {12.2}Generalized Round-Robin Protocol}{88}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}Terminazione Locale}{88}{subsection.12.2.1}%
-\contentsline {subsection}{\numberline {12.2.2}Ottimizzazione}{89}{subsection.12.2.2}%
-\contentsline {section}{\numberline {12.3}Selective Protocol \& Lower Bound}{89}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Probabilistic Protocol}{92}{section.12.4}%
-\contentsline {subsection}{\numberline {12.4.1}BGI Protocol on $d$-Regular Layered Graphs}{93}{subsection.12.4.1}%
-\contentsline {subsection}{\numberline {12.4.2}BGI Protocol on General Graphs}{93}{subsection.12.4.2}%
-\contentsline {chapter}{\numberline {13}Consistent Hashing}{94}{chapter.13}%
-\contentsline {chapter}{\numberline {14}Distributed Random Sampling}{95}{chapter.14}%
+\contentsline {chapter}{\numberline {10}Maximal Independent Set}{62}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Averaging Protocol}{63}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Analisi del protocolo \texttt {AVG} per grafi $\delta $\texttt {-regular} e connessi}{63}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Convergenza}{64}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Tempo di Convergenza}{70}{subsection.11.1.2}%
+\contentsline {chapter}{\numberline {12}Gossip Models}{72}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Proprietà}{72}{section.12.1}%
+\contentsline {section}{\numberline {12.2}$\mathcal {PULL}$ Broadcast Protocol on Clique}{73}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Expanders}{78}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Broadcast $\mathcal {PULL}$ Protocol over $\Delta $-Regular Expanders}{81}{subsection.12.3.1}%
+\contentsline {section}{\numberline {12.4}Majority Consensus: 3-\texttt {MAJ} Protocol}{84}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}1\texttt {-MAJ} - Voter Model}{84}{subsection.12.4.1}%
+\contentsline {subsection}{\numberline {12.4.2}2\texttt {-MAJ}}{85}{subsection.12.4.2}%
+\contentsline {subsection}{\numberline {12.4.3}3\texttt {-MAJ}}{86}{subsection.12.4.3}%
+\contentsline {chapter}{\numberline {13}Radio Networks}{90}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Broadcast on Radio Networks}{91}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Round-Robin Protocol}{92}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}Analisi Round-Robin}{92}{subsection.13.1.2}%
+\contentsline {section}{\numberline {13.2}Generalized Round-Robin Protocol}{94}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Terminazione Locale}{94}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Ottimizzazione}{95}{subsection.13.2.2}%
+\contentsline {section}{\numberline {13.3}Selective Protocol \& Lower Bound}{95}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Probabilistic Protocol}{98}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}BGI Protocol on $d$-Regular Layered Graphs}{99}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}BGI Protocol on General Graphs}{99}{subsection.13.4.2}%
+\contentsline {chapter}{\numberline {14}Consistent Hashing}{100}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Distributed Random Sampling}{101}{chapter.15}%

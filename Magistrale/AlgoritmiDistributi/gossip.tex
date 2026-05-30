@@ -549,9 +549,247 @@ D'ora in poi faremo riferimento semplicemente ad $s$ come al \textit{bias} che d
 \begin{definizione}[$k$-\texttt{Majority Protocol}]
     Il protocollo $k$\texttt{-MAJ} funziona nel seguente modo:
     
-    Ad ogni round $t \geq 1$, ciascun nodo sceglie \textit{u.a.r.} $k>1$ vicini (incluso se stesso) e si colora in base alla maggioranza dei vicini che ha scelto. 
+    Ad ogni round $t \geq 1$, ciascun nodo sceglie \textit{u.a.r.} $k>1$ vicini (incluso se stesso) e si colora in base alla maggioranza dei vicini che ha scelto. Il protocollo termina quando tutti i nodi sono colorati con lo stesso colore.
 \end{definizione}
 
+\textbf{Goal.} Vogliamo risolvere il problema del $l$\texttt{-Majority-Consensus} su \textbf{clique} $K_n$ di $n$ nodi. Consideremo il protocollo $3$\texttt{-MAJ} e vogliamo dimostrare che, se $s$ è sufficientemente grande, allora il protocollo converge in tempo $O(\log n)$ \textit{w.h.p.}
+
+Prima di analizzare il protocollo $3$\texttt{-MAJ}, vediamo cosa succede se $k = 1$ e $k = 2$.
+
 \subsection{1\texttt{-MAJ} - Voter Model}
+
+Consideriamo la versione più semplice del protocollo, ovvero quella in cui $k = 1$. In questo caso, ad ogni round $t \geq 1$, ogni nodo sceglie un solo vicino e si colora con il colore di quel vicino. Questa versione è anche conosciuta come \textbf{voter model}.
+
+È facile dimostrare che la versione del 1\texttt{-MAJ} è molto poco efficiente, ovverò convergerà molto lentamente nello stato finale desiderato. Per dimostrarlo, basta mostrare che mediamente ad ogni time slot il \textit{bias} $s$ rimane uguale al \textit{bias} $s$ al tempo precedente.
+
+Sia $s_t = b_t - \frac{n}{2}$ il valore del bias al tempo $t$ e sia la v.a. $s_{t+1}$ che indica il valore del bias al tempo $t+1$. Siano inoltre le v.a. binarie $X_1, \dots, X_n$ tali che $X_i = 1$ se il nodo $v_i$ campiona un nodo colorato di 1 al tempo $t$, quindi al tempo $t+1$ si colora di 1, e $X_i = 0$ altrimenti, per ogni $v_i \in V$. Sapendo che $b_t = \frac{n}{2} + s_t$, allora tali variabili avranno probalità:
+\[
+    \Pr(X_i = 1 | s_t) = \frac{b_t}{n} = \frac{1}{2} + \frac{s_t}{n}
+\]
+Ossia, la probabilità che un nodo campioni un nodo colorato di 1 è: numero di nodi colorati di 1 diviso il numero totale di nodi.
+
+Allora, in media il numero di nodi colorati di 1 al tempo $t+1$ sarà
+\[
+    \mathbb{E}[b_{t+1} | s_t] = \sum_{i=1}^n \Pr[X_i = 1| s_t] = n\left( \frac{1}{2} + \frac{s_t}{n} \right) = \frac{n}{2} + s_t
+\]
+
+Ciò implica che in media $s_t$ varrà:
+\[
+    \mathbb{E}[s_{t+1} | s_t] = \mathbb{E}[b_{t+1} | s_t] - \frac{n}{2} = s_t
+\]
+
 \subsection{2\texttt{-MAJ}}
+
+Analizziamo ora il caso in cui $k = 2$. In questo caso, ad ogni round $t \geq 1$, ogni nodo sceglie due vicini e si colora in base alla maggioranza dei vicini che ha scelto. Se i due vicini hanno colori diversi, allora il nodo si colora con il colore di uno dei due vicini scelti, con probabilità $\frac{1}{2}$ (supponiamo che il nodo lanci una moneta e se esce testa si colora di 1, altrimenti di 0).
+
+Sia $s_t = b_t - \frac{n}{2}$ il valore del bias al tempo $t$ e sia la v.a. $s_{t+1}$ che indica il valore del bias al tempo $t+1$. Siano inoltre le v.a. binarie $X_1, \dots, X_n$ tali che $X_i = 1$ se il nodo $v_i$ campiona un nodo colorato di 1 al tempo $t$, quindi al tempo $t+1$ si colora di 1, e $X_i = 0$ altrimenti, per ogni $v_i \in V$. Sapendo che $b_t = \frac{n}{2} + s_t$, allora tali variabili avranno probalità:
+\begin{align*}
+    \Pr(X_i = 1 | s_t) 
+    &= \Pr(\texttt{both neighbors are 1}) + \Pr(\texttt{neighbors are different}) \cdot \frac{1}{2} \\
+    &= \left( \frac{b_t}{n} \right)^2 + 2 \cdot \frac{b_t}{n} \cdot \left(1 - \frac{b_t}{n}\right) \cdot \frac{1}{2} \quad \text{perché 2: un vicino è 1 e l'altro 0 o viceversa}\\
+    &= \left( \frac{b_t}{n} \right)^2 + \frac{b_t}{n} \cdot \left(\frac{n - b_t}{n}\right) \\
+    &= \frac{b_t^2}{n^2} + \frac{b_tn - b_t^2}{n^2} = \frac{b_tn}{n^2} = \frac{1}{2} + \frac{s_t}{n} \\
+\end{align*}
+Dunque, in media, il numero di nodi colorati di 1 al tempo $t+1$ sarà
+\[
+    \mathbb{E}[b_{t+1} | s_t] = \sum_{i=1}^n \Pr[X_i = 1| s_t] = n\left( \frac{1}{2} + \frac{s_t}{n} \right) = \frac{n}{2} + s_t
+\]
+Ciò implica che in media $s_t$ varrà
+\[
+    \mathbb{E}[s_{t+1} | s_t] = \mathbb{E}[b_{t+1} | s_t] - \frac{n}{2} = s_t
+\]
+Dunque, come nel caso precedente, anche in questo caso il bias $s$ rimane costante in media, implicando che il protocollo 2\texttt{-MAJ} è inefficiente e converge molto lentamente allo stato finale desiderato.
+
 \subsection{3\texttt{-MAJ}}
+
+Analizziamo ora il caso in cui $k = 3$. In questo caso, ad ogni round $t \geq 1$, ogni nodo sceglie tre vicini e si colora in base alla maggioranza dei vicini che ha scelto. Osserviamo che, poiché consideriamo una colorazione binario, la maggioranza è sempre ben definita, dunque non ci sono casi di parità.
+
+\begin{definizione}
+    Data una qualunque $2$-colorazione $C: [n] \to \{0,1\}$, diremo che $C$ è $\omega$-unbalanced se il bias $s \geq \omega$.
+\end{definizione}
+
+Si dimostra che se la configurazione iniziale è sufficientemente sbilanciata, ovvero $s \in \Omega(\sqrt{n \log n})$, allora il protocollo 3\texttt{-MAJ} converge in tempo $O(\log n)$ \textit{w.h.p.}, ossia che porta la rete in una configurazione monocromatica in cui tutti i nodi sono colorati con il colore di maggioranza in tempo logaritmico con alta probabilità.
+
+\begin{teorema}
+    Se $G = K_n$ è una clique di $n$ nodi, con una 2-colorazione iniziale $C_0$ con bias $s \in \Omega(\sqrt{n \log n})$, allora il protocollo 3\texttt{-MAJ} converge in tempo $O(\log n)$ \textit{w.h.p.}
+    \begin{proof}
+
+        Assumiamo senza perdità di generalità che il colore di maggioranza iniziale sa il colore 1, ovvero che $b_0 > a_0$. Inoltre, fissato un generico tempo $t \geq 1$, ci riferiremo semplicemente ad $a = a_t$ come il numero di nodi colorati di $\mathbf{0}$, e a $b = b_t$ come il numero di nodi colorati di $\mathbf{1}$ (maggioranza).
+
+        Sia la v.a. $X_t$ che indica il numero di nodi colorati di $\mathbf{0}$ (la minoranza) al tempo $t$. Per ogni nodo $v \in V$, indichiamo con $Y_v^i$ la v.a. binaria che vale $1$ se al tempo $i + 1$ il nodo $v$ si colora di $0$, oppure vale $0$ se si colora di $1$.
+
+        Perciò avremo che la probabilità che al tempo $t + 1$ un nodo $v$ si colori del colore di minoranza (ossia che campioni 3 nodi al  tempo $t$ colorati con $\mathbf{0}$), sapendo che precedentemente ci sono $X_t = a$ nodi colorati di $0$, sarà
+        \[
+            \Pr(Y_v^{t+1} = 1 | X_t = a) = \left( \frac{a}{n} \right)^3 + \binom{3}{2} \frac{a^2(n - a)}{n^3} = \frac{a^2}{n^3}(3n - 2a)
+        \]
+        Ossia, o scelgo 3 nodi colorati di $0$ oppure ho $\binom{3}{2}$ combinazioni di scegliere 2 nodi colorati di $0$ e un nodo colorato di $1$.
+
+        Perciò mediamente il numero di nodi colorati col numero di \textbf{minoranza} $\mathbf{0}$ al tempo $t + 1$ è
+        \[
+            \mathbb{E}[X_{t+1} | X_t = a] = \sum_{v \in V} \mathbb{E}[Y_v^{t+1} = 1 | X_t = a] = \frac{a^2}{n^2}(3n - 2a)
+        \]
+
+        Arrivati a questo punto, assumeremo che il valore iniziale del \textit{bias} sia $\Omega(\sqrt{(n \log n)})$. La dimostrazione si divide in 3 fasi:
+
+        \begin{description}
+            \item[FASE 1] In questa fase si considera $X_t = a \in [\frac{n}{4}, \frac{n}{2} - \sqrt{(n \log n)}]$.
+            
+            Si eseprime $a$ in funzione del \textit{bias} $s$ come segue:
+                \[
+                a = \frac{n}{2} - s, \quad c\sqrt{(n \log n)} \leq s \leq \frac{n}{4}
+            \]
+
+            In questa fase di dimostra che:
+            \begin{enumerate}
+                \item Finché $c\sqrt{(n \log n)} \leq s \leq \frac{n}{4}$, allora con alta probabilità il bias \textbf{incrementa esponenzialmente} ad ogni round, ossia che $a$ decresce in modo esponenziale.
+                \item Con alta probabilità, in $T = O(\log n)$ round, $X_T = a_T < n/4$.
+            \end{enumerate}
+
+            \textbf{Crescita Esponenziale}
+
+            Osserviamo che la funzione
+            \[
+                f(a) = {a^2}(3n - 2a) = n^2 \cdot \mathbb{E}[X_{t+1} | X_t = a]
+            \]
+            è sempre crescente per $1 < a < n$.
+
+            Dato che $a \leq n/2 - s$
+            \begin{align*}
+            \mathbb{E}[X_{t+1} \mid X_t = a]
+                &= \frac{f(a)}{n^2}
+                = \frac{1}{n^2} f\!\left(\frac{n}{2} - s\right) \\
+                &\leq \frac{1}{n^2} \left(\frac{n}{2} - s\right)^2
+                    \left[3n - 2\left(\frac{n}{2} - s\right)\right] \\
+                &= \frac{1}{n^2}
+                \left(\frac{n^2}{4} + s^2 - ns\right)(2n + 2s) \\
+                &= \frac{n}{2} - \frac{3}{2}s + \frac{2s^3}{n^2}
+                = \frac{n}{2} - \frac{3}{2}s + s \cdot \frac{2s^2}{n^2} \\
+                &\leq \frac{n}{2} - \frac{3}{2}s + \frac{s}{8}
+                = \frac{n}{2} - \frac{11}{8}s
+                \leq \frac{n}{2} - \frac{5}{4}s
+            \end{align*}
+
+            dove nell'ultimo passaggio si usa il fatto che $s \leq \frac{n}{4}$, da cui:
+            \[
+                2s^2 \leq \frac{n^2}{8}
+                \implies
+                \frac{2s^2}{n^2} \leq \frac{1}{8}
+            \]
+
+            Osserviamo che $X_{t+1}$ è la somma di v.a.\ \textbf{indipendenti} $Y_v^{t+1}$,
+            perciò possiamo applicare il \textit{Chernoff Bound} nella \textbf{forma additiva}
+            con parametri:
+            \[
+                \mu = \frac{n}{2} - \frac{5}{4}s, \qquad \lambda = \frac{s}{8}
+            \]
+
+            Quindi, per $a \leq s \leq \dfrac{n}{4}$, otteniamo:
+            \begin{align*}
+            \Pr\!\left(X_{t+1} \geq \mu + \lambda \mid X_t = a\right)
+                &= \Pr\!\left(X_{t+1} \geq \frac{n}{2} - \frac{5}{4}s + \frac{s}{8}
+                \;\middle|\; X_t = a\right) \\
+                &= \Pr\!\left(X_{t+1} \geq \frac{n}{2} - \frac{9}{8}s
+                \;\middle|\; X_t = a\right) \\
+                &\leq e^{-\frac{s^2}{64n}}
+            \end{align*}
+
+            Poiché si assume $s \geq c\sqrt{n \log n}$ per $c$ sufficientemente grande, ne segue che:
+            \[
+                \Pr\!\left(X_{t+1} \geq \frac{n}{2} - \frac{9}{8}s \;\middle|\; X_t = a\right)
+                \leq \frac{1}{n^{\Theta(1)}}
+            \]
+
+            e quindi, con alta probabilità (\textit{w.h.p.}):
+            \[
+                \Pr\!\left(X_{t+1} \leq \frac{n}{2} - \frac{9}{8}s \;\middle|\; X_t = a\right)
+                \geq 1 - \frac{1}{n^{\Theta(1)}}
+            \]
+
+            Si osserva che si è appena dimostrato che finché il bias è contenuto nell'intervallo
+            \[
+                c\sqrt{n \log n} \leq s \leq \frac{n}{4}
+            \]
+            questo incrementa in modo \textbf{esponenziale} con alta probabilità. Infatti se $X_{t+1} = a_{t+1} = \frac{n}{2} - \frac{9}{8}s_t$, allora
+            \[
+                s_{t+1} = \frac{n}{2} - a_{t+1} \geq \frac{n}{2} - \frac{n}{2} + \frac{9}{8}s_t =\frac{9}{8}s_t 
+            \]
+            Quindi, srotolando la relazione ricorsiva, otteniamo
+            \[
+                s_t \geq \left(\frac{9}{8}\right)^t s_0 = \left(\frac{9}{8}\right)c\sqrt{n \log n}
+            \]
+
+            \textbf{Terminazione in $\mathbf{O(\log(n))}$ round}
+
+            Dobbiamo ora dimostrare che con alta probabilità la prima fase termina in $O(\log n)$ round. Affinché succeda questo, in ogni round $t$ deve avvenire il seguente evento:
+            \[
+                \mathcal{E}_t = "X_t \leq \max \left\{ \frac{n}{4}, \frac{n}{2} - \left( \frac{9}{8} \right)^t \right\}"
+            \]
+
+            Dai calcoli fatti in precedenza, possiamo affermare che l'evento condizionato $\mathcal{E}_{t+1} | \cap_{i = 1}^t \mathcal{E}_i$ accade anch'esso con alta probabilità. Infatti
+            \[
+                \Pr\left( X_{t+1} \geq \frac{n}{2} - \frac{9}{8} \right) \leq \Pr\left( X_{t+1} \geq \frac{n}{2} - s\frac{9}{8} \right) \leq \frac{1}{n^{\alpha}}
+            \]
+            Perciò
+            \[
+                \Pr\left( \mathcal{E}_{t+1} | \cap_{i = 1}^t \mathcal{E}_i \right) \geq 1 - n^{-\alpha}
+            \]
+            Ponendo ora $T = \log_{9/8}(\frac{n}{4}) \in O(\log n)$, la probabilità che i nodi colorati di $0$ vadano sono $n/4$ entro $T$ in modo da passare alla fase successiva sarà
+            \begin{align*}
+                \Pr(\exists t \in [0,T]: X_t \leq n/4) &\geq \Pr\left( \cap_{i = 1}^T \mathcal{E}_i \right) = \prod_{i = 1}^{T} \Pr\left( \mathcal{E}_{i} | \cap_{j = 1}^{i-1} \mathcal{E}_j \right) \\ 
+                &\geq (1 - n^{-\alpha})^T \geq 1 - 2Tn^{-\alpha} \geq 1 - n^{-\alpha/2}
+            \end{align*}
+            Quindi con alta probabilità in $O(\log n)$ passi si supera la prima fase.
+
+            \item[FASE 2] In questa fase, si considera $X_t = a \in [O(\log n), \frac{n}{4}]$ e si dimostrano le seguenti affermazioni:
+            \begin{enumerate}
+                \item Finché $a \in \Omega(\log n)$, allora con alta probabilità si ha una decrescita esponenziale del numero di nodi colorati di $0$ ad ogni round.
+                \item Inoltre, tale decrescita avviene con alta probabilità in $O(\log n)$ round.
+            \end{enumerate}
+
+            \textbf{Decrescita esponenziale}
+
+            Vale che:
+            \begin{align*}
+                \mathbb{E}[X_{t+1} | X_t = a] 
+                &= \frac{f(a)}{n^2} \leq \frac{1}{n^2}f\left(\frac{n}{4}\right) \\                
+                &= \frac{1}{n^2}\left(a \cdot \frac{n}{4}\right) \left(3n - \frac{n}{2}\right) \\
+                &\leq a\left(\cdot \frac{n/4}{n^2}\right)3n \leq \frac{3}{4}n 
+            \end{align*}
+
+            Applicando ora il \textit{Chernoff Bound} nella \textbf{forma moltiplicativa} con parametri
+            \[
+                \mu = \frac{3}{4}, \quad \delta = \frac{1}{15}
+            \]
+            otteniamo che la probabilità che il numero di nodi colorati di $0$ al round $t$ sia maggiore o uguale di $\frac{5}{4}a > \frac{3}{4}a$ è
+            \[
+                \Pr (X_{t+1} \geq (1 + \delta)\mu | X_t = a) = \Pr (X_{t+1} \geq \frac{5}{4}a | X_t = a) \leq e^{\beta \alpha}
+            \]
+            con $\beta = \frac{1}{900}$. Quindi finché $\alpha \in \Omega(\sqrt{n \log n})$, avremo che
+            \[
+                \Pr(X_{t+1} \geq \frac{5}{4}a | X_t = a) \leq n^{-\beta}
+            \]
+            \[
+                \implies \Pr(X_{t+1} \leq \frac{5}{4}a | X_t = a) \geq 1 - n^{-\beta}
+            \]
+            cioè il numero di nodi colorati di $0$ decresce in maniera esponenziale w.h.p. impiegando $O(\log n)$ round w.h.p.
+
+            \item[FASE 3] Nell'ultima fase consideriamo $X_t = a \in [0, O(\log n)]$. Dimostreremo che il numero $a$ di nodi colorati col colore di minoranza passa da $O(\log n)$ a $0$ in un solo step w.h.p.
+            
+            Ancora una volta, dato che $a \leq c \log n$, avremo che 
+            \begin{align*}
+                \mathbb{E}[X_{t+1} | X_t = a] &= \frac{f(a)}{n^2} \leq \frac{f(c \log n)}{n^2} \\
+                &= \left( \frac{c \log n}{n} \right)^2 (3n - 2a) \\  
+                &\leq \left( \frac{c \log n}{n} \right)^2 3n = 3c^2 \frac{\log^2 n}{n}
+            \end{align*}
+
+            Applicando ora la \textbf{disuguaglianza di Markov}, si ha che la probabilità che ci sia almeno un nodo colorato di $0$ al round $t + 1$ sapendo che ci sono $a \leq c\log n$ nodi colorati di $0$ al round $t$ è 
+            \[
+                \Pr(X_{t+1} \geq 1 | X_t = a) \leq 3c^2 \frac{\log^2 n}{n}
+            \]
+            \[
+                \implies \Pr(X_{t+1} \leq 1 | X_t = a) \geq 1 - 3c^2 \frac{\log^2 n}{n}
+            \]
+            Ossia che con alta probabilità si passerà da $O(\log n)$ nodi colorati di $0$ a nessuno in un solo step, cioè la terza fase terminerà in un singolo round e il sistema raggiungerà il consenso ricercato.
+        \end{description}
+    \end{proof}
+\end{teorema}
