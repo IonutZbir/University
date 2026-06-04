@@ -37,7 +37,7 @@
 \contentsline {chapter}{\numberline {8}Leader Election}{40}{chapter.8}%
 \contentsline {section}{\numberline {8.1}All The Way}{41}{section.8.1}%
 \contentsline {subsection}{\numberline {8.1.1}Analisi}{42}{subsection.8.1.1}%
-\contentsline {section}{\numberline {8.2}As Far}{42}{section.8.2}%
+\contentsline {section}{\numberline {8.2}As Far}{44}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1}Analisi}{46}{subsection.8.2.1}%
 \contentsline {section}{\numberline {8.3}Stage Technique}{47}{section.8.3}%
 \contentsline {subsection}{\numberline {8.3.1}Analisi}{49}{subsection.8.3.1}%
@@ -76,6 +76,6 @@
 \contentsline {section}{\numberline {13.3}Selective Protocol \& Lower Bound}{95}{section.13.3}%
 \contentsline {section}{\numberline {13.4}Probabilistic Protocol}{98}{section.13.4}%
 \contentsline {subsection}{\numberline {13.4.1}BGI Protocol on $d$-Regular Layered Graphs}{99}{subsection.13.4.1}%
-\contentsline {subsection}{\numberline {13.4.2}BGI Protocol on General Graphs}{99}{subsection.13.4.2}%
-\contentsline {chapter}{\numberline {14}Consistent Hashing}{100}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Distributed Random Sampling}{101}{chapter.15}%
+\contentsline {subsection}{\numberline {13.4.2}BGI Protocol on General Graphs}{100}{subsection.13.4.2}%
+\contentsline {chapter}{\numberline {14}Consistent Hashing}{101}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Distributed Random Sampling}{102}{chapter.15}%

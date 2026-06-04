@@ -25,6 +25,8 @@ Formalmente, possiamo definire il problema mediente la tripla $\langle P_{init},
     \end{proof}
 \end{teorema}
 
+Questo risultato di \textit{impossibilità} è dato dalla condizione di \textbf{perfetta simmetria} nella rete. Il fenomeno della \textbf{perfetta simmetria} avviene quando una rete ha una struttura totalmente simmetrica, ossia, ogni nodo non è in grado di distiguersi da un altro nodo. Dunque, se tutti i nodi si trovano nello stesso stato interno $\sigma$ ad un instante di tempo $t$, formalmente $\forall x,y \in V: \sigma(x, t) = \sigma(y,t)$, da quel momento in poi si comporteranno in modo identico, dato che avranno la stessa visione del mondo esterno: non potendo comportarsi in maniera diversa, i nodi cambieranno stato allo stesso modo e quindi non è possibile arrivare in una situazione in cui un nodo si definisce \textit{leader} e gli altri nodi \textit{follower}.
+
 È necessario ampliare l'insieme delle restrizioni $R$ per poter risolvere il problema di leader election. Una restrizione banale è quella di \texttt{unique initiator}, che permette di risolvere il problema in modo banale. 
 
 Tuttavia, è possibile risolvere il problema assegnando un identificatore univoco a ciascun nodo e considerare come topologia di rete quella più simmetrica possibile, ovvero un anello.
@@ -78,7 +80,7 @@ Consideriamo il primo protocollo, detto \textbf{all the way}, il quale consiste 
 
 L'idea è la seguente: quando un nodo $x$ si attiva (spontaneamente o dopo aver ricevuto un messaggio), inoltra un messaggio in direzione concorde a tutti (ad esempio a destra) con all'interno $id(x)$. Quando un nodo riceve un messagggio con l'id di qualcun'altro, invia il proprio id se non lo ha ancora fatto, aggiora una variabile locale $min$ che tiene traccia del id minimo ricevuto fin'ora e inoltra il messaggio. 
 
-Possiamo vedere il processo come segue: ogni entità crea un messaggio contenente il proprio id, e questo messaggio attraversa tutta la rete. Ogni entità, per via delle resitrizioni di $TR$, verà entro un tempo finito tutti gli id di tutti gli agenti, incluso il valore minimo. Potrà quindi determinare se è il minimo o meno, e quindi, se entrare nello stato \texttt{leader} o \texttt{follower}. 
+Possiamo vedere il processo come segue: ogni entità crea un messaggio contenente il proprio id, e questo messaggio attraversa tutta la rete. Ogni entità, per via delle resitrizioni di $TR$, vedrà entro un tempo finito tutti gli id di tutti gli agenti, incluso il valore minimo. Potrà quindi determinare se è il minimo o meno, e quindi, se entrare nello stato \texttt{leader} o \texttt{follower}. 
 
 La domanda che sorge è: quando un nodo capisce di aver visto gli id di tutti gli altri nodi? Il valore $n$ non è noto, perciò è necessario trovare un modo per calcolare il valore $n$.
 
@@ -242,7 +244,7 @@ Siano
 
 L'esatto numero di messaggi scambiati dipende dalla disposizione degli id e dal senso di invio. Consideriamo il costo causato dal messaggio \texttt{Election} di un nodo $x$. Tale messaggio viaggerà attraverso l'anello sino a quando non viene ricevuto da un nodo che ha ricevuto in precedenza un $id$ minore, oppure sino a quando non raggiunge il proprio mittente.
 
-Consideriamo il caso peggiore, siano $id_1 < id_2 < \ldots < id_n$ gli id dei nodi nell'anello e supponiamo che l'invio avvenga in senso orario (verso destra). L'$id_1$ attraverserà sempre tutto l'anellom avendo quindi un costo di $n$ messaggi, l'$id_2$ attraverserà $n-1$ nodi, venendo bloccato da $id_1$, l'$id_3$ attraverserà $n-2$ nodi, e così via. Dunque, il costo totale è
+Consideriamo il caso peggiore, siano $id_1 < id_2 < \ldots < id_n$ gli id dei nodi nell'anello e supponiamo che l'invio avvenga in senso orario (verso destra). L'$id_1$ attraverserà sempre tutto l'anello avendo quindi un costo di $n$ messaggi, l'$id_2$ attraverserà $n-1$ nodi, venendo bloccato da $id_1$, l'$id_3$ attraverserà $n-2$ nodi, e così via. Dunque, il costo totale è
 \[
     M[\texttt{As Far}] = 2n + (n-1) + (n-2) + \ldots + 1 = n + \sum_{i=1}^{n} i = n + \frac{n(n+1)}{2} = O(n^2).
 \]
@@ -275,7 +277,7 @@ Consideriamo il caso peggiore, siano $id_1 < id_2 < \ldots < id_n$ gli id dei no
     \label{fig:worst_case_as_far}
 \end{figure}
 
-Il caso migliore si ottiene qando il nodo con etichetta minima inizia il protocollo per primo e la sua etichetta riece a fare il giro completa della rete prima che le altre vengano inoltrate al proprio vicino. In particolare, il messaggio con etichetta minima viene inoltrato $n$ volte, mentre ogni messaggio con etichetta maggiore viene inoltrato una sola volta, dunque
+Il caso migliore si ottiene quando il nodo con etichetta minima inizia il protocollo per primo e la sua etichetta riesce a fare il giro completa della rete prima che le altre vengano inoltrate al proprio vicino. In particolare, il messaggio con etichetta minima viene inoltrato $n$ volte, mentre ogni messaggio con etichetta maggiore viene inoltrato una sola volta, dunque
 \[
     M[\texttt{As Far}] = n + (n-1) = O(n).
 \]
@@ -294,9 +296,9 @@ Se l'etichetta $id(x)$ arriva a distanza $2^{i-1}$, allora $x$ ha completato il 
 
 Notiamo che se $x$ non riceve alcun feedback da \textbf{almeno} un lato, allora vorrà dire che esiste un nodo $z$ con $id(z) < id(x)$ entro $2^{i-1}$ passi da $x$, e quindi $x$ non potrà essere eletto leader, dunque passerà in stato \texttt{defeated}.
 
-Infine, quando un nodo $l$ riceverà riceverà da destra (o sinistra) il messaggio che aveva inviato a sinistra (o destra), allora $l$ si dichiarerà leader, e invierà un messaggio di notifica in \texttt{broadcast} a tutti gli altri nodi, che si dichiareranno follower e termineranno localmente.
+Infine, quando un nodo $l$ riceverà da destra (o sinistra) il messaggio che aveva inviato a sinistra (o destra), allora $l$ si dichiarerà leader, e invierà un messaggio di notifica in \texttt{broadcast} a tutti gli altri nodi, che si dichiareranno follower e termineranno localmente.
 
-\textbf{Osservazione.} Durante l'esecuzione del protocollo, è possibile che diversi nodi si trovino in diversi stages, Ci si chiede quindi cosa succede se un nodo viene "sconfitto" da un messaggio dello stage $k$ mentre lui si trova nello stage $i < k$. In questo caso, il nodo sconfitto non potrà più essere eletto leader, dunque passerà in stato \texttt{defeated}, e potrà solamente inoltrare messaggi di altri nodi. (NB, il minimo id vince sempre.)
+\textbf{Osservazione.} Durante l'esecuzione del protocollo, è possibile che diversi nodi si trovino in diversi stages. Ci si chiede quindi cosa succede se un nodo viene "sconfitto" da un messaggio dello stage $k$ mentre lui si trova nello stage $i < k$. In questo caso, il nodo sconfitto non potrà più essere eletto leader, dunque passerà in stato \texttt{defeated}, e potrà solamente inoltrare messaggi di altri nodi. (NB, il minimo id vince sempre.)
 
 Siano
 \begin{itemize}
@@ -317,7 +319,7 @@ Siano
     \Statex
     \Statex \textbf{Upon} receiving $msg = \langle \text{"Forth"}, id^*, stage^*, limit^*\rangle$:
     \If{state(x) = \texttt{asleep}}
-        \If{$id* < id(x)$}
+        \If{$id^* < id(x)$}
             \State \Call{Process-Message}{}
             \State state(x) $\gets$ \texttt{defeated}
         \Else
@@ -339,7 +341,7 @@ Siano
     \EndIf
 
     \Statex
-    \Statex \textbf{Upon} receiving $msg = \langle \text{"Back"}, id^*\rangle$ from left:
+    \Statex \textbf{Upon} receiving $msg = \langle \text{"Back"}, id^*\rangle$:
     \If{state(x) = \texttt{candidate}}
         \If{$id^* = id(x)$}
             \State \Call{Check}{}
@@ -347,7 +349,7 @@ Siano
     \EndIf
 
     \Statex
-    \Statex \textbf{Upon} receiving $msg = \langle \text{"Notify"}\rangle$ from left:
+    \Statex \textbf{Upon} receiving $msg = \langle \text{"Notify"}\rangle$:
     \If{state(x) = \texttt{candidate}}
         \State \textbf{send} $\langle \text{"Notify"}\rangle$ to \textbf{other}
         \State state(x) $\gets$ \texttt{follower}
@@ -394,7 +396,7 @@ Siano
     \Statex
     \Procedure{Check}{}
         \State $\text{count} \gets \text{count} + 1$
-        \If {count = 1}
+        \If {count = 2} $\qquad$ //se ho ricevuto sia da destra che da sinistra "Back"
             \State $\text{count} \gets 0$
             \State $\text{stage} \gets \text{stage} + 1$
             \State $\text{limit} \gets dis(stage)$
@@ -531,7 +533,7 @@ Il protocollo consiste di tre fasi:
 
 \section{Randomized Algorithm}
 
-Abbiamo visto che il problema della leader election non è risolvibile in modo deterministico in una rete in cui i nodi sono anonimi, ossia non esiste una etichettamente univoco dei nodi. 
+Abbiamo visto che il problema della leader election non è risolvibile in modo deterministico in una rete in cui i nodi sono anonimi, ossia non esiste uno etichettamento univoco dei nodi. 
 
 Consideriamo ora una anello $G = (V, E)$ di dimensione $n$, dove i nodi sono \textbf{anonimi}, e conoscono la topologia della rete e il numero di nodi $n$. In questo caso, è possibile risolvere il problema della leader election in modo \textbf{randomizzato}.
 
@@ -589,7 +591,7 @@ Tale evento può essere modellato come l'unione di v.a. binamiali.
     &= \mathcal{P} \left( \bigcup_{k=2}^{n} \{ \text{esistono } k \text{ palline nell'urna } i \} \right) \\
     \text{unione di eventi disgiunti } &= \sum_{k=2}^{n} \mathcal{P} (\text{esistono } k \text{ palline nell'urna } i) \\
     &= \sum_{k=2}^{n} \binom{n}{k} \left( \frac{1}{m} \right)^k \left( 1 - \frac{1}{m} \right)^{n-k} \leq \sum_{k=2}^{n} \binom{n}{k} \left( \frac{1}{m} \right)^k \\
-    \text{Stirling's approx } &\leq \sum_{k=2}^{n} \left( \frac{ne}{k} \cdot \frac{1}{m}\right)^k \leq O(\frac{n^2}{m^2}) + \sum_{k=3}^{n} \left( \frac{ne}{k} \cdot \frac{1}{m}\right)^k \\
+    \text{Stirling's approx } &\leq \sum_{k=2}^{n} \left( \frac{ne}{k} \cdot \frac{1}{m}\right)^k \leq O\left(\frac{n^2}{m^2}\right) + \sum_{k=3}^{n} \left( \frac{ne}{k} \cdot \frac{1}{m}\right)^k \\
     &\leq O\left(\frac{n^2}{m^2} + \frac{n^4}{m^3}\right)
 \end{align*}
 
@@ -608,5 +610,5 @@ Ponendo ora $m = n^3$, avremo che tale probabilità sarà al più
 
 Possiamo quindi concludere che per $m \geq n^3$, l'esecuzione del protocollo $\mathcal{RL}(G, n; m)$ porterà la rete in una configurazione finale accettabile con \textbf{alta probabilità (w.h.p.)} 
 \[
-    \mathcal{P}(\overline{\mathcal{B}}) = 1 - O\left(\frac{1}{n}\right)
+    \mathcal{P}(\mathcal{B}) = 1 - O\left(\frac{1}{n}\right)
 \]

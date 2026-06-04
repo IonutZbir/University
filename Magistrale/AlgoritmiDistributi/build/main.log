@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.18)  28 MAY 2026 15:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1087,33 +1087,33 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (build/main.aux (build/introduzione.aux) (build/broadcast.aux) (build/spanning_tree.aux) (build/wake_up.aux) (build/labeled_hypercube.aux) (build/dft.aux) (build/tree.aux) (build/leader_election.aux) (build/coloring.aux) (build/maximal_ind_set.aux) (build/averaging.aux) (build/gossip.aux) (build/radio_network.aux) (build/hashing.aux) (build/sampling.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Info: Redefining \it@ocap on input line 82.
-LaTeX Info: Redefining \it@ccap on input line 82.
-LaTeX Info: Redefining \microtypecontext on input line 82.
-Package microtype Info: Applying patch `item' on input line 82.
-Package microtype Info: Applying patch `toc' on input line 82.
-Package microtype Info: Applying patch `eqnum' on input line 82.
-Package microtype Info: Applying patch `footnote' on input line 82.
-Package microtype Info: Applying patch `verbatim' on input line 82.
-LaTeX Info: Redefining \microtypesetup on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Info: Redefining \it@ocap on input line 83.
+LaTeX Info: Redefining \it@ccap on input line 83.
+LaTeX Info: Redefining \microtypecontext on input line 83.
+Package microtype Info: Applying patch `item' on input line 83.
+Package microtype Info: Applying patch `toc' on input line 83.
+Package microtype Info: Applying patch `eqnum' on input line 83.
+Package microtype Info: Applying patch `footnote' on input line 83.
+Package microtype Info: Applying patch `verbatim' on input line 83.
+LaTeX Info: Redefining \microtypesetup on input line 83.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1180,7 +1180,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Package chemgreek Info: Activating mapping `default' on line 82.
+Package chemgreek Info: Activating mapping `default' on line 83.
 
 
 Package siunitx Warning: Detected the "physics" package:
@@ -1193,12 +1193,12 @@ Package siunitx Warning: Detected the "physics" package:
 (siunitx)                
 (siunitx)                to your preamble.
 
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 82.
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 83.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 82.
+Package hyperref Info: Link coloring ON on input line 83.
 (build/main.out) (build/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1216,15 +1216,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (build/main.bbl)
-Package biblatex Info: Reference section=0 on input line 82.
-Package biblatex Info: Reference segment=0 on input line 82.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+Package biblatex Info: Reference section=0 on input line 83.
+Package biblatex Info: Reference segment=0 on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1441,234 +1441,229 @@ pdfTeX warning (ext4): destination with the same identifier (name{lemma.2}) has 
 <to be read again> 
                    \relax 
 l.132 \begin{lemma}[Connettività/Spanning]
-                                           \label{lemma:spanning}
-Overfull \hbox (48.89517pt too wide) in paragraph at lines 133--135
-[]\T1/cmr/bx/n/10.95 (-20) Lemma 3.1.2 (Con-net-ti-vi-t�/Spanning). []\T1/cmr/m/it/10.95 (-20) Il sot-to-gra-fo $\OML/cmm/m/it/10.95 T \OT1/cmr/m/n/10.95 (-20) = (\OML/cmm/m/it/10.95 V; E[]\OT1/cmr/m/n/10.95 (-20) )$ \T1/cmr/m/it/10.95 (-20) de-fi-ni-to da $\OML/cmm/m/it/10.95 E[] \OT1/cmr/m/n/10.95 (-20) = [][] []$
- []
-
-[19 <./images/shout.png (PNG copy)>] [20]
+                                           \label{lemma:spanning} [19 <./images/shout.png (PNG copy)>] [20]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 221.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 225.
  [21]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.283     \If
+l.287     \If
              {state(x) = \texttt{initiator}} spontaneously
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.284         \State
+l.288         \State
                      root $\gets$ true
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.285         \State
+l.289         \State
                      \texttt{tree\_neigh(x)} $\gets \emptyset$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.286         \State
+l.290         \State
                      state(x) $\gets$ \texttt{active}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.287         \State
+l.291         \State
                      counter $\gets 0$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.288         \ForAll
+l.292         \ForAll
                      {$v \in N(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.289             \State
+l.293             \State
                          send(\texttt{Q}, $v$)
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.290         \EndFor
+l.294         \EndFor
                      
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.291     \EndIf
+l.295     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.292     \State
+l.296     \State
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.293     \If
+l.297     \If
              {state(x) = \texttt{idle}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.294         \State
+l.298         \State
                      $\texttt{Q} \gets$ receive()
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.295         \State
+l.299         \State
                      \texttt{tree\_neigh(x)} $\gets \{ \texttt{sender} \}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.296         \State
+l.300         \State
                      root $\gets$ false
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.297         \State
+l.301         \State
                      counter $\gets 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.298         \State
+l.302         \State
                      send(\texttt{YES}, \texttt{sender})
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.299         \If
+l.303         \If
                   {counter $= |N(x)|$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.300             \State
+l.304             \State
                          state(x) $\gets$ \texttt{done}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.301         \Else
+l.305         \Else
                    
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.302             \ForAll
+l.306             \ForAll
                          {$v \in N(x) \setminus \{\texttt{sender}\}$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.303                 \State
+l.307                 \State
                              send($\texttt{Q}$, $v$)
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.304             \EndFor
+l.308             \EndFor
                          
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.305             \State
+l.309             \State
                          state(x) $\gets$ \texttt{active}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.306         \EndIf
+l.310         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.25}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.307     \EndIf
+l.311     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.26}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.308     \State
+l.312     \State
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.27}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.309     \If
+l.313     \If
              {state(x) = \texttt{active}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.28}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.310         \State
+l.314         \State
                      $\texttt{reply} \gets$ receive()
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.29}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.311         \If
+l.315         \If
                   {reply = \texttt{YES}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.30}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.312             \State
+l.316             \State
                          \texttt{tree\_neigh(x)} $\gets$ \texttt{tree\_neigh...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.31}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.313             \State
+l.317             \State
                          counter $\gets$ counter + 1
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.32}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.314             \If
+l.318             \If
                       {counter $= |N(x)|$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.33}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.315                 \State
+l.319                 \State
                              state(x) $\gets$ \texttt{done}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.34}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.316             \EndIf
+l.320             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.35}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.317         \EndIf
+l.321         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.36}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.318         \State
+l.322         \State
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.37}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.319         \If
+l.323         \If
                   {reply = \texttt{Q}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.38}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.320             \State
+l.324             \State
                          counter $\gets$ counter + 1
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.39}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.321             \If
+l.325             \If
                       {counter $= |N(x)|$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.40}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.322                 \State
+l.326                 \State
                              state(x) $\gets$ \texttt{done}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.41}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.323             \EndIf
+l.327             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.42}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.324         \EndIf
+l.328         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.43}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.325     \EndIf
+l.329     \EndIf
                  [22] [23]
 pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.339 \begin{teorema}\label
+l.343 \begin{teorema}\label
                            {th:MultipleSourcesST}) [24]
 \openout2 = `wake_up.aux'.
 
@@ -4862,7 +4857,7 @@ l.19 \begin{teorema}[Impossibilità]
 pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 \begin{definizione}[Anello]
+l.36 \begin{definizione}[Anello]
                                 
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: T1).
@@ -4872,604 +4867,604 @@ Package microtype Info: Loading generic protrusion settings for font family
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104     \If
+l.106     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105         \State
+l.107         \State
                      \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.106         \State
+l.108         \State
                      state(x) $\gets$ \texttt{awake}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.107     \EndIf
+l.109     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.111     \If
+l.113     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112         \State
+l.114         \State
                      \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113         \State
+l.115         \State
                      \textbf{send} $\langle \text{"Election"}, id, counter +...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.114         \State
+l.116         \State
                      $\text{min} \gets \min(id, \text{min})$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.115         \State
+l.117         \State
                      $\text{count} \gets \text{count} + 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.116         \State
+l.118         \State
                      state(x) $\gets$ \texttt{awake}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.117     \EndIf
+l.119     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.120     \If
+l.122     \If
              {state(x) = \texttt{awake}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.121         \If
+l.123         \If
                  {$id \neq \text{id}(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.122             \State
+l.124             \State
                          $\text{min} \gets \min(id, \text{min})$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.123             \State
+l.125             \State
                          $\text{count} \gets \text{count} + 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124             \State
+l.126             \State
                          \textbf{send} $\langle \text{"Election"}, id, count...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.125             \If
+l.127             \If
                      {known = \texttt{True}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.126                 \State
+l.128                 \State
                              \Call{Check}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.127             \EndIf
+l.129             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128         \Else
+l.130         \Else
                    
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.129             \State
+l.131             \State
                          $\text{size} \gets counter$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.130             \State
+l.132             \State
                          $\text{known} \gets \texttt{True}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.131             \State
+l.133             \State
                          \Call{Check}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.132         \EndIf
+l.134         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.25}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.133     \EndIf
+l.135     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.26}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.136     \Procedure
+l.138     \Procedure
                     {Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.27}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137         \State
+l.139         \State
                      $\text{count} \gets 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.28}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.138         \State
+l.140         \State
                      $\text{min} \gets \text{id}(x)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.29}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.139         \State
+l.141         \State
                      $\text{size} \gets 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.30}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.140         \State
+l.142         \State
                      $\text{known} \gets \texttt{False}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.31}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141         \State
+l.143         \State
                      \textbf{send} $\langle \text{"Election"}, \text{id}(x),...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.32}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.142     \EndProcedure
+l.144     \EndProcedure
                        
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.33}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145     \Procedure
+l.147     \Procedure
                     {Check}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.34}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.146         \If
+l.148         \If
                  {count = size}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.35}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147             \If
+l.149             \If
                      {min = id(x)}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.36}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.148                 \State
+l.150                 \State
                              state(x) $\gets$ \texttt{leader}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.37}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.149             \Else
+l.151             \Else
                        
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.38}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.150                 \State
+l.152                 \State
                              state(x) $\gets$ \texttt{follower}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.39}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151             \EndIf
+l.153             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.40}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.152         \EndIf
+l.154         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.41}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153     \EndProcedure
+l.155     \EndProcedure
                         [42] [43]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.195     \If
+l.197     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.196         \State
+l.198         \State
                      \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.197         \State
+l.199         \State
                      state(x) $\gets$ \texttt{awake}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.198     \EndIf
+l.200     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.202     \If
+l.204     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.203         \State
+l.205         \State
                      \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.204         \If
+l.206         \If
                   {$id < min$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.205             \State
+l.207             \State
                          \textbf{send} $\langle \text{"Election"}, id \rangl...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.206             \State
+l.208             \State
                          $\text{min} \gets id$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.207         \EndIf
+l.209         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.208         \State
+l.210         \State
                      state(x) $\gets$ \texttt{awake}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.209     \EndIf
+l.211     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.212     \If
+l.214     \If
              {state(x) = \texttt{awake}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.213             \If
+l.215             \If
                       {$id < min$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.214                 \State
+l.216                 \State
                              \textbf{send} $\langle \text{"Election"}, id \r...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.215                 \State
+l.217                 \State
                              $\text{min} \gets id$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.216             \Else
+l.218             \Else
                        
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.217                 \If
+l.219                 \If
                           {$id = min$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.218                     \State
+l.220                     \State
                                  state(x) $\gets$ \texttt{leader}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.219                     \State
+l.221                     \State
                                  \textbf{send} $\langle \text{"Leader"}\rang...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.220                 \EndIf
+l.222                 \EndIf
                             
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.221             \EndIf
+l.223             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.222     \EndIf
+l.224     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.226     \If
+l.228     \If
              {state(x) = \texttt{awake}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.25}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.227         \State
+l.229         \State
                      state(x) $\gets$ \texttt{follower}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.26}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228         \State
+l.230         \State
                      \textbf{send} $\langle \text{"Leader"}\rangle$ to right
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.27}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.229     \EndIf
+l.231     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.28}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.232     \Procedure
+l.234     \Procedure
                     {Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.29}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.233         \State
+l.235         \State
                      $\text{min} \gets \text{id}(x)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.30}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234         \State
+l.236         \State
                      \textbf{send} $\langle \text{"Election"}, \text{id}(x)\...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.31}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.235     \EndProcedure
+l.237     \EndProcedure
                         [44] [45] [46]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.312     \If
+l.314     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.313         \State
+l.315         \State
                      \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.314         \State
+l.316         \State
                      state(x) $\gets$ \texttt{candidate}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.315     \EndIf
+l.317     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.319     \If
+l.321     \If
              {state(x) = \texttt{asleep}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.320         \If
-                 {$id* < id(x)$}
+l.322         \If
+                 {$id^* < id(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.321             \State
+l.323             \State
                          \Call{Process-Message}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.322             \State
+l.324             \State
                          state(x) $\gets$ \texttt{defeated}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.323         \Else
+l.325         \Else
                    
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.324             \State
+l.326             \State
                          \Call{Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.325             \State
+l.327             \State
                          state(x) $\gets$ \texttt{candidate}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.326         \EndIf
+l.328         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.327     \EndIf
+l.329     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.330     \If
+l.332     \If
              {state(x) = \texttt{candidate}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.331             \If
+l.333             \If
                       {$id^* < id(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.332                 \State
+l.334                 \State
                              \Call{Process-Message}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.333                 \State
+l.335                 \State
                              state(x) $\gets$ \texttt{defeated}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.334             \Else
+l.336             \Else
                        
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.335                 \If
+l.337                 \If
                           {$id^* = id(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.336                     \State
+l.338                     \State
                                  \Call{Notify}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.337                 \EndIf
+l.339                 \EndIf
                             
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.338             \EndIf
+l.340             \EndIf
                         
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.339     \EndIf
+l.341     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.343     \If
+l.345     \If
              {state(x) = \texttt{candidate}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.25}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.344         \If
+l.346         \If
                  {$id^* = id(x)$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.26}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.345             \State
+l.347             \State
                          \Call{Check}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.27}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.346         \EndIf
+l.348         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.28}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.347     \EndIf
+l.349     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.29}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.351     \If
+l.353     \If
              {state(x) = \texttt{candidate}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.30}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.352         \State
+l.354         \State
                      \textbf{send} $\langle \text{"Notify"}\rangle$ to \text...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.31}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.353         \State
+l.355         \State
                      state(x) $\gets$ \texttt{follower}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.32}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.354     \EndIf
+l.356     \EndIf
                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.33}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.358     \If
+l.360     \If
              {state(x) = \texttt{defeated}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.34}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.359         \State
+l.361         \State
                      \textbf{send} $msg$ to \textbf{other}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.35}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.360         \If
+l.362         \If
                   {$msg = \langle \text{"Notify"}\rangle$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.36}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.361             \State
+l.363             \State
                          state(x) $\gets$ \texttt{follower}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.37}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.362         \EndIf
+l.364         \EndIf
                     
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.38}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.363     \EndIf
+l.365     \EndIf
                  [47] [48]
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.39}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.377     \Procedure
+l.379     \Procedure
                     {Initialize}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.40}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.378         \State
+l.380         \State
                      $\text{stage} \gets 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.41}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.379         \State
+l.381         \State
                      $\text{limit} \gets dis(stage)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.42}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.380         \State
+l.382         \State
                      $\text{count} \gets 0$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.43}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.381         \State
+l.383         \State
                      \textbf{send} $\langle \text{"Forth"}, \text{id}(x), st...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.44}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.382     \EndProcedure
+l.384     \EndProcedure
                        
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.45}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.385     \Procedure
+l.387     \Procedure
                     {Process-Message}{}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.46}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.386         \State
+l.388         \State
                      $\text{limit*} \gets \text{limit*} - 1$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.47}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.387         \If
+l.389         \If
                   {limit* = 0}
 pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.419 \begin{teorema}[Message Complexity]
+l.421 \begin{teorema}[Message Complexity]
                                          
-Overfull \hbox (2.57832pt too wide) in paragraph at lines 420--421
+Overfull \hbox (2.57832pt too wide) in paragraph at lines 422--423
 []\T1/cmr/bx/n/10.95 (-20) Teorema 8.3.1 (Mes-sa-ge Com-ple-xi-ty). []\T1/cmr/m/it/10.95 (-20) La mes-sa-ge com-ple-xi-ty del pro-to-col-lo \T1/cmtt/m/it/10.95 Stage Technique
  []
 
@@ -5477,13 +5472,13 @@ Overfull \hbox (2.57832pt too wide) in paragraph at lines 420--421
 <images/stage_tecnique_msg.png, id=3264, 873.2625pt x 502.87875pt>
 File: images/stage_tecnique_msg.png Graphic file (type png)
 <use images/stage_tecnique_msg.png>
-Package pdftex.def Info: images/stage_tecnique_msg.png  used on input line 432.
+Package pdftex.def Info: images/stage_tecnique_msg.png  used on input line 434.
 (pdftex.def)             Requested size: 364.19667pt x 209.72668pt.
  [50 <./images/stage_tecnique_msg.png>] [51]
 pdfTeX warning (ext4): destination with the same identifier (name{definizione.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.479 \begin{definizione}[Mesh]
+l.481 \begin{definizione}[Mesh]
                                 [52] [53] [54]) [55]
 \openout2 = `coloring.aux'.
 
@@ -6124,12 +6119,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) h
 <to be read again> 
                    \relax 
 l.320     \For
-              {time $t = 0, 1, \dots, t$}
+              {time $t = 0, 1, \dots, j$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.321         \For
-                  {each node $x \in H_i$}
+                  {each node $x \in H_j$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -6202,10 +6197,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 430.
 
 [98 <./images/radionet4.png>]
-File: images/radionet4.png Graphic file (type png)
-<use images/radionet4.png>
-Package pdftex.def Info: images/radionet4.png  used on input line 437.
-(pdftex.def)             Requested size: 182.09486pt x 111.67438pt.
+<images/radionet5.png, id=3658, 1148.29pt x 706.64pt>
+File: images/radionet5.png Graphic file (type png)
+<use images/radionet5.png>
+Package pdftex.def Info: images/radionet5.png  used on input line 437.
+(pdftex.def)             Requested size: 182.09486pt x 112.05115pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
@@ -6261,12 +6257,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{teorema.1}) ha
 <to be read again> 
                    \relax 
 l.460     I
-           l protocollo \texttt{BGI} su grafi $d$-regular e $D$ layered comp...) [99]
+           l protocollo \texttt{BGI} su grafi $d$-regular e $D$ layered comp... [99 <./images/radionet5.png (PNG copy)>]) [100]
 \openout2 = `hashing.aux'.
 
  (./hashing.tex
 Capitolo 14.
-) [100
+) [101
 
 
 
@@ -6276,7 +6272,7 @@ Capitolo 14.
 
  (./sampling.tex
 Capitolo 15.
-) [101
+) [102
 
 
 
@@ -6293,18 +6289,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55695 strings out of 469504
- 1241982 string characters out of 5470379
- 1834494 words of memory out of 5000000
- 82711 multiletter control sequences out of 15000+600000
- 676949 words of font info for 349 fonts, out of 8000000 for 9000
+ 55705 strings out of 469504
+ 1242200 string characters out of 5470380
+ 1834493 words of memory out of 5000000
+ 82718 multiletter control sequences out of 15000+600000
+ 677026 words of font info for 350 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,17n,108p,1091b,2722s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on build/main.pdf (102 pages, 7796342 bytes).
+Output written on build/main.pdf (103 pages, 7866244 bytes).
 PDF statistics:
- 3939 PDF objects out of 4296 (max. 8388607)
- 2336 compressed objects within 24 object streams
- 436 named destinations out of 1000 (max. 500000)
- 91786 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 3946 PDF objects out of 4296 (max. 8388607)
+ 2341 compressed objects within 24 object streams
+ 437 named destinations out of 1000 (max. 500000)
+ 91791 words of extra memory for PDF output out of 106986 (max. 10000000)
 

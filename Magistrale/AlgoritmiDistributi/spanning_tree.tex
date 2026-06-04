@@ -130,7 +130,11 @@ Per dimostrare la correttezza del protocollo SHOUT, dobbiamo mostrare che alla f
 \end{lemma}
 
 \begin{lemma}[Connettività/Spanning]\label{lemma:spanning}
-    Il sottografo $T = (V, E')$ definito da $E' = \bigcup_{x \in V} \texttt{tree\_neigh(x)}$ è connesso e include tutti i nodi di $V$. In altre parole, il sottografo indotto dagli archi su cui è viaggiato il messaggio \texttt{YES} è connesso e include tutti i nodi di $V$ (è ricoprente e connesso).
+    Il sottografo $T = (V, E')$ definito da 
+    \[
+        E' = \bigcup_{x \in V} \texttt{tree\_neigh(x)}
+    \]
+    è connesso e include tutti i nodi di $V$. In altre parole, il sottografo indotto dagli archi su cui è viaggiato il messaggio \texttt{YES} è connesso e include tutti i nodi di $V$ (è ricoprente e connesso).
     \begin{proof}
         Vogliamo dimostrare che per ogni nodo $x \in V \setminus \{s\}$, se $x$ ha risposto \texttt{YES} ad un nodo $y$, allora $x \in \texttt{tree\_neigh(y)}$, dove quest'ultimo è connesso alla sorgente $s$ tramite una sequenza di archi sui quali sono passati i messaggi \texttt{YES}, e tale sequenza formerà un cammino da $s \to x$.
         
@@ -219,7 +223,7 @@ Più precisamente, i messaggi inviati dal protocollo possono essere divisi in du
 
 \begin{description}
     \item [(\texttt{NO}, \texttt{YES})] Non può accadere in quanto il nodo sinitro per rispondere a \texttt{NO} deve prima aver ricevuto una richiesta dal nodo destro, ma per inviare una richiesta, il nodo destro deve avere già un padre, dunque non può rispondere con \texttt{YES} a nessuna richiesta.
-    \item [(\texttt{YES}, \texttt{YES})] Non può accadere in quanto due nodi per inviarsi reciprocamente un messaggio \texttt{YES} devono essersi entrambi inviati reciprocamente un messaggio \texttt{Q}, ma ciò implica che ciò implica che hanno già un padre, e quindi hanno già risposto con un messaggio \texttt{YES} a un altro nodo.
+    \item [(\texttt{YES}, \texttt{YES})] Non può accadere in quanto due nodi per inviarsi reciprocamente un messaggio \texttt{YES} devono essersi entrambi inviati reciprocamente un messaggio \texttt{Q}, ma ciò implica che hanno già un padre, e quindi hanno già risposto con un messaggio \texttt{YES} a un altro nodo.
 \end{description}
 
 \begin{center}

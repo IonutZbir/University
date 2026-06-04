@@ -184,7 +184,7 @@ L'idea del protocollo \texttt{Round-Robin (RR)} è quella di scandire il protoco
 \end{teorema}
 
 \begin{definizione}[Eccentricità]
-    Definiziamo l'eccentricità di un nodo $v \in V$ in un grafo connesso $G$ come la massima distanza tra $v$ e qualsiasi altro nodo del grafo. 
+    Definiamo l'eccentricità di un nodo $v \in V$ in un grafo connesso $G$ come la massima distanza tra $v$ e qualsiasi altro nodo del grafo. 
     \[
         \forall v \in V, \qquad e(v) := \max_{u \in V}d(v, u)
     \]
@@ -317,8 +317,8 @@ una famiglia $\mathbf{(n,d)}$\textbf{-selective} dove $d = \max_{v \in V} \delta
 \caption{Selective Protocol}
 \begin{algorithmic}[1]
 \For{phase $j = 0, 1, 2, \dots$}
-    \For{time $t = 0, 1, \dots, t$}
-        \For{each node $x \in H_i$}
+    \For{time $t = 0, 1, \dots, j$}
+        \For{each node $x \in H_j$}
             \If{$\text{state}(x) = \texttt{informed}$}
                 \State \texttt{send(msg)}
             \EndIf
@@ -354,7 +354,7 @@ Analizziamo ora questo protocollo. Vale il seguente lemma:
     \end{proof}
 \end{lemma}
 
-Tuttavia, sorge un problema: la definizione di famiglia selettiva garantisce solo l'esistenza di un $H_i$ tale che esattamente un nodo di $N(y)$ appartiene ad $H_i$, ma no ci dice chi è questo nodo.
+Tuttavia, sorge un problema: la definizione di famiglia selettiva garantisce solo l'esistenza di un $H_i$ tale che esattamente un nodo di $N(y)$ appartiene ad $H_i$, ma non ci dice chi è questo nodo.
 
 \begin{figure}[h]
 \centering
@@ -391,7 +391,7 @@ Con questa modifica al protocollo, ora il \autoref{lemma:select} è valido, quin
 dove $D = diam(G)$. Dunque, per $D$ e $d$ piccoli, otteniamo un tempo di completamento migliore rispetto al protocollo \texttt{Round-Robin}. Il teorema successivo ci dice inoltre che non possiamo fare di meglio.
 
 \begin{teorema}[Lower Bound]
-    Data un grafo diretto di trasmissione $G=(V,E)$ relativo ad una rete wireless, con diametro $D$, grado massimo $\Delta$ tale che $D\Delta < n$, allora esiste sempre un modo di manipolare i ritardi in modo tale che non si possa risolvere il problema del broadcasting a singola sorgente in un tempo migliore di
+    Dato un grafo diretto di trasmissione $G=(V,E)$ relativo ad una rete wireless, con diametro $D$, grado massimo $\Delta$ tale che $D\Delta < n$, allora esiste sempre un modo di manipolare i ritardi in modo tale che non si possa risolvere il problema del broadcasting a singola sorgente in un tempo migliore di
     \[
         \Omega(D\Delta \log\left(\frac{n}{D}\right))
     \]
@@ -412,9 +412,9 @@ Definiamo un protocollo probabilistico molto semplice, in cui ogni nodo informat
     \caption{Controesempio.}
 \end{figure}\label{fig:controesempio}
 
-Sia la $u$ la sorgente. Sicuramente esiste un tempo $t_0$ in cui $u$ trasmette il messaggio a tutti i suoi vicini $1, 2, \dots, n-1$ senza interferenze. Dal time slot successivo tutti i suoi vicini inizieranno a trasmettere verso $v$, ognuno con probabilità $p$. Supponiamo per esempio che $p = \frac{1}{2}$, e cerchiamo di stabilire entro quanto tempo ci si aspetta che $v$ verrà informato senza alcuna interferenza. Per prima cosa dobbiamo calcolare con quale probabilità l'evento 
+Sia la $u$ la sorgente. Sicuramente esiste un tempo $t_0$ in cui $u$ trasmette il messaggio a tutti i suoi vicini $1, 2, \dots, n-2$ senza interferenze. Dal time slot successivo tutti i suoi vicini inizieranno a trasmettere verso $v$, ognuno con probabilità $p$. Supponiamo per esempio che $p = \frac{1}{2}$, e cerchiamo di stabilire entro quanto tempo ci si aspetta che $v$ verrà informato senza alcuna interferenza. Per prima cosa dobbiamo calcolare con quale probabilità l'evento 
 \[
-    \mathcal{E} = "v \texttt{ viene informato }"
+    \mathcal{E} = "v \texttt{ viene informato}"
 \]
 occorre, e questo si può fare usando la distribuzione binomiale
 \[
@@ -425,16 +425,16 @@ Ogni time slot rappresenta un tentativo indipendente in cui l'evento $\mathcal{E
 
 Anche se $v$ avesse molti meno vicini, per sempio $\sqrt{n}$, il tempo di completamento sarebbe comunque pessimo, $\Theta\left(\frac{2^{\sqrt{n}}}{\sqrt{n}}\right)$
 
-Se inveve $v$ avesse solamento $2$ vicini che trasmettono, il protcollo terminerebbe in tempi brevissimi. Ciò ci suggerisce che dobbiamo trovare un valore di $p$ in modo tale che è \textbf{poco probabile} che avvengano interferenze, ovvero un valore per il quale \textbf{in media} trasmette un solo vicino di ogni nodo. Considerando sempre il precedente controesempio, il valore ottimale per $p$ per il quale i vicini di $v$ devono trasmettere è $\frac{1}{d^{in}(v)}$, ovvero il grado entrante di $v$.
+Se inveve $v$ avesse solamente $2$ vicini che trasmettono, il protocollo terminerebbe in tempi brevissimi. Ciò ci suggerisce che dobbiamo trovare un valore di $p$ in modo tale che è \textbf{poco probabile} che avvengano interferenze, ovvero un valore per il quale \textbf{in media} trasmette un solo vicino di ogni nodo. Considerando sempre il precedente controesempio, il valore ottimale per $p$ per il quale i vicini di $v$ devono trasmettere è $\frac{1}{d^{in}(v)}$, ovvero il grado entrante di $v$.
 
 \subsection{BGI Protocol on $d$-Regular Layered Graphs}
 
-Come primo passo consideriamo grafi con strutture che in qualche modo ci semplificano il lavoro. Consideriamo grafi di tipo $d$\textbf{-regula layered}, ovvero grafi suddivisi in \textbf{strati} $L_1, L_2, \dots, L_D$ in cui esistono archi solamente da un livello a quello successivo, e in cui ogn nodo v ha un grado entrante costante a tutti pari a $d^{(in)(v)} = d$. Inoltre esiste una sorgente $s$ tale che $(s,v) \in E \forall v \in L_1$.
+Come primo passo consideriamo grafi con strutture che in qualche modo ci semplificano il lavoro. Consideriamo grafi di tipo $d$\textbf{-regular layered}, ovvero grafi suddivisi in \textbf{strati} $L_1, L_2, \dots, L_D$ in cui esistono archi solamente da un livello a quello successivo, e in cui ogn nodo v ha un grado entrante costante a tutti pari a $d^{(in)(v)} = d$. Inoltre esiste una sorgente $s$ tale che $(s,v) \in E \forall v \in L_1$.
 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.4\textwidth]{images/radionet4.png}
+    \includegraphics[width=0.4\textwidth]{images/radionet5.png}
     \caption{Esempio di $d$-regular}
 \end{figure}\label{fig:dlayered}
 
@@ -458,6 +458,44 @@ Osservare che la descrizione appena data non è propriamente precisa, in quanto 
 
 \begin{teorema}
     Il protocollo \texttt{BGI} su grafi $d$-regular e $D$ layered completa \textit{w.h.p.} il task del broadcast dalla sorgente $s$ in $O(D)$ stages e quindi in $O(D \log n)$ time slots.
+    \begin{proof}
+        La dimostrazione verrà fatta per induzione sui livelli $j = 1, 2, \dots, D$, ovvero si vuole dimostrare che al termine dello stage $j$ con alta probabilità tutti i nodi del livello $L_j$ saranno informati.
+
+        Il caso per $j = 1$ è banale, perciò assumiamo come \textit{ipotesi iduttiva} che \textbf{con alta probabilità} entro la file dello stage $j > 1$ tutti i nodi nel livello $L_j$ sono già informati (ovvero entro $O(j \log n)$ time slots). Si vuole dimostrare che questo è vero anche per $j + 1$.
+
+        Consideriamo quindi un nodo $v \in L_{j+1}$. Inziamo con calcolare la probabilità che $v$ viene informato in un dato time slot della fase $j+1$. Tale probabilità è pari alla probabilità che uno solo dei suo $d$ \textit{inner-neighbours} trasmette, mentre tutti gli altri $d-1$ non trasmettono, e ciò avviene con probabilità:
+        \[
+            \binom{d}{1}\frac{1}{d}\left(1 - \frac{1}{d}\right)^{d-1} = \frac{d}{d}\left(1 - \frac{1}{d}\right)^{d-1} = \left(1 - \frac{1}{d}\right)^{d-1}
+        \]
+        Per valori $d \geq 2$, la quantità $\left(1 - \frac{1}{d}\right)^{d-1} > \frac{1}{8}$ (non ha senso considerare $d = 1$).
+
+        Proseguendo, possiamo dire che il nodo $v$ al livello $j + 1$ non viene informato in un time slot con probabilità al più $1 - \frac{1}{8}$. Quindi
+
+        \begin{align*}
+            P(v \text{ non informato in tutti i } c\log n  &\text{ time slot dello stage } j+1) \\
+            &< \left(1 - \frac{1}{8}\right)^{c\log n} \\
+            &< e^{-\frac{c}{8} \log n} \\
+            &= \frac{1}{n^{c/8}}
+        \end{align*}
+        La prima disuguaglianza è vera perché ogni nodo trasmette in maniera totalmente indipendente dagli altri, mentre la seconda è data dalla seguente espressione
+        \[
+            1 - x < e^{-x} \quad \forall 0 < x < 1
+        \]
+
+        Quindi, se definiamo l'evento
+        \[
+            \mathcal{E}_v = v \text{ non informato in tutti i } c\log n  \text{ time slot dello stage } j+1
+        \]
+        occore con al più
+        \[
+            P(\mathcal{E}_v) \geq \frac{1}{n^{c/8}}
+        \]
+        Per \textbf{union bound}, possiamo dire che esiste \textbf{almeno un nodo} al livello $L_{j+1}$ che non viene informato entro la fine dello stage $j+1$ occorre con probabilità al più
+        \[
+            P\left(\cup_{v \in L_{j+1}} \mathcal{E}_v \right) \leq \sum_{v \in L_{j+1}}  P(\mathcal{E}_v) < n \frac{1}{n^{c/8}} = \frac{1}{n^{c/8 - 1}}
+        \]
+        A questo punto, ponendo $c = 16$, avremo che la probabilità di avere un cosidetto \textit{bad stage} in cui \textbf{non tutti} i nodi del relativo livello vengono informati è al più $\frac{1}{n}$. Possiamo quindi concludere dicendo che ogni nodo $v \in L_{j+1}$ viene informato entro la fine dello stage $j+1$ con probabilità \textbf{almeno} $1 - \frac{1}{n}$, dimostrando così il teorema.
+    \end{proof}
 \end{teorema}
 
 \subsection{BGI Protocol on General Graphs}

@@ -3314,10 +3314,11 @@ INPUT ./images/radionet4.png
 INPUT ./images/radionet4.png
 INPUT ./images/radionet4.png
 INPUT ./images/radionet4.png
-INPUT ./images/radionet4.png
-INPUT ./images/radionet4.png
-INPUT ./images/radionet4.png
-INPUT ./images/radionet4.png
+INPUT ./images/radionet5.png
+INPUT ./images/radionet5.png
+INPUT ./images/radionet5.png
+INPUT ./images/radionet5.png
+INPUT ./images/radionet5.png
 INPUT ./hashing.tex
 INPUT ./hashing.tex
 OUTPUT build/hashing.aux
