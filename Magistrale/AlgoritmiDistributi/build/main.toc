@@ -1,81 +1,84 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Modellazione Del Sistema}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Definizioni Elementari}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Assiomi e Restrizioni}{6}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Assiomi}{6}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Resitrizioni}{6}{subsection.1.2.2}%
-\contentsline {chapter}{\numberline {2}Broadcast}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Algoritmo Flooding}{10}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Complessità Temporale}{12}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Stati ed Eventi}{12}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Lowerbound alla Message Complexity}{13}{subsection.2.1.3}%
-\contentsline {chapter}{\numberline {3}Spanning Tree Construction}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Single Source SHOUT Protocol}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Terminazione}{19}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Correttezza}{19}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Message Complexity}{20}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Single Source SHOUT+ Protocol}{22}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Multiple Sources Spanning Tree Construction}{24}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Wake-Up Problem}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analisi dell'algoritmo WFlood}{26}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Correttezza}{26}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Message Complexity}{26}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Ideal Time Complexity}{27}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Lower Bound su Clique (Da FARE)}{27}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Labeled Hypercube}{28}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Broadcast su Labeled Hypercube}{28}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Costruzione Hypercube}{29}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Protocollo Hyperflood}{31}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Depth First Traversal (DFT) Protocol}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Protocollo BACK}{34}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Protocollo BACK+}{36}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Tree Computations}{38}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Saturation Technique}{38}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Minimum Finding}{39}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Eccentricities \& Center Finding}{39}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Leader Election}{40}{chapter.8}%
-\contentsline {section}{\numberline {8.1}All The Way}{41}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Analisi}{42}{subsection.8.1.1}%
-\contentsline {section}{\numberline {8.2}As Far}{44}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Analisi}{46}{subsection.8.2.1}%
-\contentsline {section}{\numberline {8.3}Stage Technique}{47}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Analisi}{49}{subsection.8.3.1}%
-\contentsline {section}{\numberline {8.4}Mesh Architecture}{52}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Protocollo}{52}{subsection.8.4.1}%
-\contentsline {section}{\numberline {8.5}Randomized Algorithm}{53}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Analisi}{53}{subsection.8.5.1}%
-\contentsline {chapter}{\numberline {9}Graph Coloring}{56}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Deterministic Distributed Graph Coloring}{56}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Basic Color Reduction Procedure - BCP}{56}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}Khun-Wattenhofen Procedure}{58}{subsection.9.1.2}%
-\contentsline {section}{\numberline {9.2}Randomized Distributed Graph Coloring}{59}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Rand-2$\Delta $}{59}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}Rand-$\Delta $+}{61}{subsection.9.2.2}%
-\contentsline {chapter}{\numberline {10}Maximal Independent Set}{62}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Averaging Protocol}{63}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Analisi del protocolo \texttt {AVG} per grafi $\delta $\texttt {-regular} e connessi}{63}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Convergenza}{64}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Tempo di Convergenza}{70}{subsection.11.1.2}%
-\contentsline {chapter}{\numberline {12}Gossip Models}{72}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Proprietà}{72}{section.12.1}%
-\contentsline {section}{\numberline {12.2}$\mathcal {PULL}$ Broadcast Protocol on Clique}{73}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Expanders}{78}{section.12.3}%
-\contentsline {subsection}{\numberline {12.3.1}Broadcast $\mathcal {PULL}$ Protocol over $\Delta $-Regular Expanders}{81}{subsection.12.3.1}%
-\contentsline {section}{\numberline {12.4}Majority Consensus: 3-\texttt {MAJ} Protocol}{84}{section.12.4}%
-\contentsline {subsection}{\numberline {12.4.1}1\texttt {-MAJ} - Voter Model}{84}{subsection.12.4.1}%
-\contentsline {subsection}{\numberline {12.4.2}2\texttt {-MAJ}}{85}{subsection.12.4.2}%
-\contentsline {subsection}{\numberline {12.4.3}3\texttt {-MAJ}}{86}{subsection.12.4.3}%
-\contentsline {chapter}{\numberline {13}Radio Networks}{90}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Broadcast on Radio Networks}{91}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}Round-Robin Protocol}{92}{subsection.13.1.1}%
-\contentsline {subsection}{\numberline {13.1.2}Analisi Round-Robin}{92}{subsection.13.1.2}%
-\contentsline {section}{\numberline {13.2}Generalized Round-Robin Protocol}{94}{section.13.2}%
-\contentsline {subsection}{\numberline {13.2.1}Terminazione Locale}{94}{subsection.13.2.1}%
-\contentsline {subsection}{\numberline {13.2.2}Ottimizzazione}{95}{subsection.13.2.2}%
-\contentsline {section}{\numberline {13.3}Selective Protocol \& Lower Bound}{95}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Probabilistic Protocol}{98}{section.13.4}%
-\contentsline {subsection}{\numberline {13.4.1}BGI Protocol on $d$-Regular Layered Graphs}{99}{subsection.13.4.1}%
-\contentsline {subsection}{\numberline {13.4.2}BGI Protocol on General Graphs}{100}{subsection.13.4.2}%
-\contentsline {chapter}{\numberline {14}Consistent Hashing}{101}{chapter.14}%
-\contentsline {chapter}{\numberline {15}Distributed Random Sampling}{102}{chapter.15}%
+\contentsline {chapter}{\numberline {1}Modellazione Del Sistema}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definizioni Elementari}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Assiomi e Restrizioni}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Assiomi}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Resitrizioni}{7}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Broadcast}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Algoritmo Flooding}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Complessità Temporale}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Stati ed Eventi}{13}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Lowerbound alla Message Complexity}{14}{subsection.2.1.3}%
+\contentsline {chapter}{\numberline {3}Spanning Tree Construction}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Single Source SHOUT Protocol}{18}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Terminazione}{20}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Correttezza}{20}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Message Complexity}{21}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Single Source SHOUT+ Protocol}{23}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Multiple Sources Spanning Tree Construction}{25}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Wake-Up Problem}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analisi dell'algoritmo WFlood}{27}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Correttezza}{27}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Message Complexity}{27}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Ideal Time Complexity}{28}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Lower Bound su Clique (Da FARE)}{28}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Labeled Hypercube}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Broadcast su Labeled Hypercube}{29}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Costruzione Hypercube}{30}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Protocollo Hyperflood}{32}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Depth First Traversal (DFT) Protocol}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Protocollo BACK}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Protocollo BACK+}{37}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Tree Computations}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Saturation Technique}{39}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Full-Saturation Protocol}{40}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Applicazioni Saturazione}{43}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Minimum Finding}{43}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Average}{44}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Eccentricities \& Center Finding}{44}{subsection.7.2.3}%
+\contentsline {chapter}{\numberline {8}Leader Election}{45}{chapter.8}%
+\contentsline {section}{\numberline {8.1}All The Way}{46}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Analisi}{47}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}As Far}{49}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Analisi}{51}{subsection.8.2.1}%
+\contentsline {section}{\numberline {8.3}Stage Technique}{52}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Analisi}{54}{subsection.8.3.1}%
+\contentsline {section}{\numberline {8.4}Mesh Architecture}{57}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Protocollo}{57}{subsection.8.4.1}%
+\contentsline {section}{\numberline {8.5}Randomized Algorithm}{58}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Analisi}{58}{subsection.8.5.1}%
+\contentsline {chapter}{\numberline {9}Graph Coloring}{61}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Deterministic Distributed Graph Coloring}{61}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Basic Color Reduction Procedure - BCP}{61}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Khun-Wattenhofen Procedure}{63}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Randomized Distributed Graph Coloring}{64}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Rand-2$\Delta $}{64}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Rand-$\Delta $+}{66}{subsection.9.2.2}%
+\contentsline {chapter}{\numberline {10}Maximal Independent Set}{67}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Averaging Protocol}{68}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Analisi del protocolo \texttt {AVG} per grafi $\delta $\texttt {-regular} e connessi}{68}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Convergenza}{69}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Tempo di Convergenza}{75}{subsection.11.1.2}%
+\contentsline {chapter}{\numberline {12}Gossip Models}{77}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Proprietà}{77}{section.12.1}%
+\contentsline {section}{\numberline {12.2}$\mathcal {PULL}$ Broadcast Protocol on Clique}{78}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Expanders}{83}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Broadcast $\mathcal {PULL}$ Protocol over $\Delta $-Regular Expanders}{86}{subsection.12.3.1}%
+\contentsline {section}{\numberline {12.4}Majority Consensus: 3-\texttt {MAJ} Protocol}{89}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}1\texttt {-MAJ} - Voter Model}{89}{subsection.12.4.1}%
+\contentsline {subsection}{\numberline {12.4.2}2\texttt {-MAJ}}{90}{subsection.12.4.2}%
+\contentsline {subsection}{\numberline {12.4.3}3\texttt {-MAJ}}{91}{subsection.12.4.3}%
+\contentsline {chapter}{\numberline {13}Radio Networks}{95}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Broadcast on Radio Networks}{96}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Round-Robin Protocol}{97}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}Analisi Round-Robin}{97}{subsection.13.1.2}%
+\contentsline {section}{\numberline {13.2}Generalized Round-Robin Protocol}{99}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}Terminazione Locale}{99}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Ottimizzazione}{100}{subsection.13.2.2}%
+\contentsline {section}{\numberline {13.3}Selective Protocol \& Lower Bound}{100}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Probabilistic Protocol}{103}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}BGI Protocol on $d$-Regular Layered Graphs}{104}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}BGI Protocol on General Graphs}{105}{subsection.13.4.2}%
+\contentsline {chapter}{\numberline {14}Consistent Hashing}{106}{chapter.14}%
+\contentsline {chapter}{\numberline {15}Distributed Random Sampling}{107}{chapter.15}%

@@ -3215,6 +3215,8 @@ INPUT ./tree.tex
 INPUT tree.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/eccc0800.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/eccc0600.tfm
 INPUT ./leader_election.tex
 INPUT ./leader_election.tex
 OUTPUT build/leader_election.aux

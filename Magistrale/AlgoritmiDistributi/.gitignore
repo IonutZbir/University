@@ -1,0 +1,5 @@
+# 1. Ignora tutti i file all'interno della cartella
+build/*
+
+# 2. Mantieni (non ignorare) il file specifico
+!build/main.pdf

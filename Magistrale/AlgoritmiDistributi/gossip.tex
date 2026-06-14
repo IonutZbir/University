@@ -116,7 +116,7 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
         \end{itemize}
         
         \begin{description}
-            \item[FASE 1] Sia $t_{max} = \max\{t \leq 0: m_t \leq \frac{n}{2}\}$. Fissiamo quindi un tempo $0 \leq t \leq t_{max}$ e definiamo la v.a. binaria $Y_v$ che indica la probabilità che un nodo \texttt{notInformed} diventi \texttt{informed} al tempo $t + 1$.
+            \item[FASE 1] Sia $t_{max} = \max\{t \geq 0: m_t \leq \frac{n}{2}\}$. Fissiamo quindi un tempo $0 \leq t \leq t_{max}$ e definiamo la v.a. binaria $Y_v$ che indica la probabilità che un nodo \texttt{notInformed} diventi \texttt{informed} al tempo $t + 1$.
             \[
                 Y_v = Y^{(t+1)}_v = 
                 \begin{cases*}
@@ -226,7 +226,7 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
                         \end{cases*}
                         \forall v \in V \setminus I_t
                     \]
-                    Grazie alla prima parte della dimostrazione sappiamo Chernoff
+                    Grazie alla prima parte della dimostrazione sappiamo
                     \[
                         \mathbb{E}\left[ |I_{t+1}|\ |\ |I_t = m_t| \right] \geq \frac{3}{2}m_t
                     \]
@@ -234,7 +234,7 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
                     \[
                         \mathbb{E}[m_{t+1}] = \mathbb{E}\left[ |I_{t+1}|\ |\ |I_t = m_t| \right] \geq \frac{3}{2}m_t \geq \alpha \log n 
                     \]
-                    Importante osservare che $m_{t+1}$ è una \textbf{variabile aleatoria} che dipende da $m_t$, che è fissata. Poiché $m_{t+1}$ è la somma delel v.a. \textbf{indipendenti} $Y_v^t$, possiamo nuovamente applicare il Chernoff Bound e ottenere
+                    Importante osservare che $m_{t+1}$ è una \textbf{variabile aleatoria} che dipende da $m_t$, che è fissata. Poiché $m_{t+1}$ è la somma delle v.a. \textbf{indipendenti} $Y_v^t$, possiamo nuovamente applicare il Chernoff Bound e ottenere
                     \[
                         \Pr\left( m_{t+1} \leq (1 - \delta)\frac{3}{2}m_t \right) \leq e^{-\frac{\delta^2}{2}\frac{3}{2}m_t} \leq e^{-\frac{\delta^2}\alpha \log n} = n^{-c}
                     \]
@@ -252,7 +252,7 @@ Il protocollo $\mathcal{PULL}$ \textit{Broadcast Protocol} (BP) funziona nel seg
             
             Fissiamo un tempo $t \geq \tau_2 = \beta \log n$. Dato che nella prima fase sappiamo che $m_{\tau_2} \geq \frac{n}{2}$, avremo che un nodo \texttt{notInformed} al tempo $t$ fa \textit{pull} del messaggio e diventa \texttt{informed} al tempo $t+1$ con probabilità \textbf{almeno} $\frac{1}{2}$.
 
-            Fissiamo $z_t = n - m \geq \frac{n}{2}$ il numero di nodi sopravvissuti al tempo $t$. Mediamente avremo che il numero di nodi sopravvissuti al tempo $t+1$ (ovvero quelli ancora \texttt{notInformed}) saranno
+            Fissiamo $z_t = n - m_t \geq \frac{n}{2}$ il numero di nodi sopravvissuti al tempo $t$. Mediamente avremo che il numero di nodi sopravvissuti al tempo $t+1$ (ovvero quelli ancora \texttt{notInformed}) saranno
             \[
                 z_{t+1} \leq \frac{z_t}{2} \leq \frac{z_\tau}{2} \leq \frac{n}{4}
             \]
@@ -380,7 +380,7 @@ L'interesse dei $\Omega(1)$-expanders è motivato dal seguente teorema.
     \]
     \begin{enumerate}
         \item Se esiste una costante assoluta $\alpha > 0$ tale che, per $n$ sufficientemente grande, ogni grafo $G_n$ è un $\alpha$-expander, allora il \textbf{diametro} di $G_n$ è $O(\log n)$.
-        \item Per scollegare totalemente ogni sottoinsieme $S \subset V_n$, con $|S| \geq \frac{n}{2}$, bisogna rimuovere un numero \textbf{lineare} in $|S|$ di archi.
+        \item Per scollegare totalemente ogni sottoinsieme $S \subset V_n$, con $|S| \leq \frac{n}{2}$, bisogna rimuovere un numero \textbf{lineare} in $|S|$ di archi.
     \end{enumerate}
 
     \begin{proof}

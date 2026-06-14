@@ -30,9 +30,9 @@ Tipicamente la tecnica di saturazione è usata per risolvere problemi distribuit
     \item \textbf{Risoluzione}: in questa fase, i nodi saturati danno inizio ad una o più computazioni necessarie alla risoluzione di uno specifico problema distribuito.
 \end{itemize}
 
-Ci focalizziamo ora a definire le prime due fasi poiché la terza fase dipende dal problema specifico che si vuole risolvere. Definiamo la tripla $\langle P_{init}, P_{final}, R\rangle$ e sia $T = (V, E)$ l'albero considerato. Sia inoltre $W \subseteq V,\ W \neq \empty$ l'insieme dei nodi \texttt{initiator}. Allora
+Ci focalizziamo ora a definire le prime due fasi poiché la terza fase dipende dal problema specifico che si vuole risolvere. Definiamo la tripla $\langle P_{init}, P_{final}, R\rangle$ e sia $T = (V, E)$ l'albero considerato. Sia inoltre $W \subseteq V,\ W \neq \emptyset$ l'insieme dei nodi \texttt{initiator}. Allora
 \begin{itemize}
-    \item $P_{init}$: $\forall x \in V:$, 
+    \item $P_{init}$: $\forall x \in V:$
     \[
         status(x) = \begin{cases*}
             \texttt{awake} & se $x \in W$\\
@@ -43,13 +43,268 @@ Ci focalizziamo ora a definire le prime due fasi poiché la terza fase dipende d
     \item $R = \{\texttt{TR, BL, CN, KT, MO}\}$, dove \\ \texttt{KT = Knowledge of the Topology} e \texttt{MO = Message Ordering}.
 \end{itemize}
 
+\subsection{Full-Saturation Protocol}
+
+Definiamo un protocollo \textit{plug-in}, ossia tale per cui, nella sua esecuzione, non tutte le entità entreranno prima o poi in uno stato terminale. Per trasformare questo protocollo in uno che termina, devono essere eseguite altre operazioni, ossia quelle nella fase di esecuzione.La fase di esecuzione dipende da che tipologia di problema specifico stiamo provando a risolvere.
+
 Siano
 \begin{itemize}
     \item $S = \{\texttt{available, active, processing, saturated}\}$ l'insieme degli stati dei nodi,
-    \item $S_{init} = \{available\}$ l'insieme degli stati iniziali dei nodi,
-    \item $S_{final} = \{active, saturated\}$ l'insieme degli stati finali dei nodi.
+    \item $S_{init} = \texttt{available}$ l'insieme degli stati iniziali dei nodi,
+    \item $S_{final} = \texttt{processing, saturated}$ l'insieme degli stati finali dei nodi.
 \end{itemize}
 
-\section{Minimum Finding}
+Tutti i nodi si trovano nello stato \texttt{available}, che rappresenta come un nodo sia disponibile ad iniziare l'esecuzione di una computazione. Lo stato \texttt{available} serve per distiguire i nodi da quelli \texttt{active} e \texttt{asleep/available}.
+\begin{itemize}
+    \item Se un nodo è \texttt{available}, o si sveglia in modo spontaneo ricevendo un impulso esterno diventando quindi \texttt{active}. A questo punto ha come ruole quello di svegliare i suoi vicini.
+    \item Un nodo passa dallo stato \texttt{available} allo stato \texttt{active} se svegliato da un altro nodo vicino a lui ricevendo un messaggio di \texttt{wake-up}.
+\end{itemize}
+Questa rappresenta la fase di \textbf{attivazione/wake-up} che finisce quando tutti i nodi sono nello stato \texttt{active}. Ovviamente, questa fase termina in tempo finito in quanto siamo sotto la restrizione di \texttt{Total Reliability}, incluse le foglie.
 
-\section{Eccentricities \& Center Finding}
+
+In questa fase, viene sfruttata la proprietà di asimmetria della rete, in quanto i nodi riescono a identificarsi in foglie o nodi interni. 
+
+\begin{itemize}
+    \item Le foglie fanno partire la fase di \textbf{saturazione}. Ogni foglia invia un messaggio $\mathcal{M}$ al proprio padre entrando nello stato \texttt{processing}. 
+    \item Un nodo interno, attendo fino a quando riceve il messaggio $\mathcal{M}$ da tutti i suoi vicini tranne uno, per poi inoltrare quel messaggio a tale nodo, il quale diventerà \textit{padre}, ed entra poi nello stato \texttt{processing}.
+    \item Se un nodo $x$ nello stato \texttt{processing} riceve il messaggio $\mathcal{M}$ proveniente dal suo nodo padre, allora tale nodo $x$ diventa \textit{saturo}.
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{Saturation}
+\begin{algorithmic}[1]
+\If{$state(x) = \texttt{AVAILABLE}$}
+    \Statex \hspace{1.5em} \textbf{Spontaneously:}
+    \State send(\texttt{ACTIVATE}) to $\mathcal{N}(x)$
+    \State \textsc{Initialize}
+    \State $Neighbors \leftarrow \mathcal{N}(x)$
+    \If{$|Neighbors| = 1$}
+        \State \textsc{Prepare\_Message}
+        \State $parent \leftarrow \textsc{extract}(Neighbors)$
+        \State send($\mathcal{M}$) to $parent$
+        \State $state(x) \leftarrow \texttt{PROCESSING}$
+    \Else
+        \State $state(x) \leftarrow \texttt{ACTIVE}$
+    \EndIf
+    \Statex
+    \Statex \hspace{1.5em} \textbf{On receiving} \texttt{ACTIVATE}:
+    \State send(\texttt{ACTIVATE}) to $\mathcal{N}(x) \setminus \{sender\}$
+    \State \textsc{Initialize}
+    \State $Neighbors \leftarrow \mathcal{N}(x)$
+    \If{$|Neighbors| = 1$}
+        \State \textsc{Prepare\_Message}
+        \State $parent \leftarrow \textsc{extract}(Neighbors)$
+        \State send($\mathcal{M}$) to $parent$
+        \State $state(x) \leftarrow \texttt{PROCESSING}$
+    \Else
+        \State $state(x) \leftarrow \texttt{ACTIVE}$
+    \EndIf
+\EndIf
+\Statex
+\If{$state(x) = \texttt{ACTIVE}$}
+    \Statex \hspace{1.5em} \textbf{On receiving} $\mathcal{M}$:
+    \State \textsc{Process\_Message}
+    \State $Neighbors \leftarrow Neighbors \setminus \{sender\}$
+    \If{$|Neighbors| = 1$}
+        \State \textsc{Prepare\_Message}
+        \State $parent \leftarrow \textsc{extract}(Neighbors)$
+        \State send($\mathcal{M}$) to $parent$
+        \State $state(x) \leftarrow \texttt{PROCESSING}$
+    \EndIf
+\EndIf
+\Statex
+\If{$state(x) = \texttt{PROCESSING}$}
+    \Statex \hspace{1.5em} \textbf{On receiving} $\mathcal{M}$:
+    \State \textsc{Process\_Message}
+    \State \textsc{Resolve}
+    \State $state(x) \leftarrow \texttt{SATURATED}$
+\EndIf
+\Statex
+\If{$state(x) = \texttt{SATURATED}$}
+    \State \textbf{do nothing}
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+Le seguenti procedure definite possono essere sovrascritte a seconda dello scenario applicativo (fase di esecuzione).
+
+\begin{algorithm}[H]
+\caption{Procedures}
+\begin{algorithmic}[1]
+ 
+\Procedure{Initialize}{}
+    \State \textbf{do nothing}
+\EndProcedure
+ 
+\Statex
+ 
+\Procedure{Prepare\_Message}{}
+    \State $\mathcal{M} \leftarrow (\texttt{"SATURATION"})$
+\EndProcedure
+ 
+\Statex
+ 
+\Procedure{Process\_Message}{}
+    \State \textbf{do nothing}
+\EndProcedure
+ 
+\Statex
+ 
+\Procedure{Resolve}{}
+    \State $status \leftarrow \texttt{"SATURATED"}$
+    \State start Resolution stage
+\EndProcedure
+ 
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{teorema}[Correttezza]
+    Alla fine della fase di \textit{saturazione}, esiste esattamente un arco $(u,v) \in E$
+    tale che entrambi i suoi estremi sono saturi, e tutti gli altri nodi si trovano nello
+    stato \texttt{processing}:
+    \begin{align*}
+        &\exists!\, (u,v) \in E : state(u) = state(v) = \texttt{saturated} \\
+        &\land\ \forall\, x \in V,\ x \neq u,v \implies state(x) = \texttt{processing}
+    \end{align*}
+    \begin{proof}
+        Dimostriamo prima l'esistenza di almeno due nodi saturi e poi l'unicità di tali nodi.
+        \begin{description}
+            \item[Esistono almeno 2 nodi adicenti \texttt{saturated}]
+            Osserviamo che:
+            \begin{itemize}
+                \item Un nodo invia un messaggio $\mathcal{M}$ solo al suo parent.
+                \item Un nodo passa nello stato \texttt{processing} solo dopo che ha mandato il messaggio $\mathcal{M}$ al suo parent.
+                \item Un nodo passa nello stato \texttt{saturated} solo dopo che, trovandosi nello stato \texttt{processing}, riceve il messaggio $\mathcal{M}$ dal suo parent.
+            \end{itemize}
+
+            Sia $x$ un nodo arbitrario e consideriamo il percorso fatto dai messaggi $\mathcal{M}$ a partire da $x$. 
+            
+            Poiché non ci sono cicli, ad un certo punto del cammino si incontra un nodo $s_1$ che si trova nello stato \texttt{saturated}, in quanto ha ricevuto dal suo parent $s_2$ il messaggio $\mathcal{M}$. Essendo che $s_2$ ha inviato $\mathcal{M}$ ad $s_1$, allora $s_2$ si è dovuto trovare nello stato \texttt{prcessing} e deve aver considerato $s_1$ come suo parent.
+
+            Quindi, quando $\mathcal{M}$ spedito da $s_1$ arriva ad $s_2$, anche quest'ultimo entra nello stato \texttt{saturated}. Dunque il protocollo trova sempre almeno due nodi adiacenti saturati.
+            \begin{center}
+                
+                \begin{tikzpicture}[
+                    node/.style={circle, draw, minimum size=0.7cm},
+                    >=stealth
+                    ]
+                    
+                    % Nodi
+                    \node[node] (x)  at (0,0)   {$x$};
+                    \node[node] (a)  at (1.5,1)  {};
+                    \node[node] (b)  at (3,0)    {};
+                    \node[node] (s1) at (5,0)    {$s_1$};
+                    \node[node] (s2) at (7,0)    {$s_2$};
+                    
+                    % Archi solidi
+                    \draw[->] (x)  -- node[above left]  {$\mathcal{M}$} (a);
+                    \draw[->] (a)  -- node[above right] {$\mathcal{M}$} (b);
+                    
+                    % Arco tratteggiato
+                    \draw[->, dashed] (b) -- node[above] {$\mathcal{\mathcal{M}}$} (s1);
+                    
+                    % Archi tra s1 e s2 (doppio, curvo)
+                    \draw[->] (s1) to[bend left=40]  node[above] {$\mathcal{M}$} (s2);
+                    \draw[->] (s2) to[bend left=40]  node[below] {$\mathcal{M}$} (s1);
+                    
+                \end{tikzpicture}
+            \end{center}
+
+            \item[Esistono solo due nodi che passano nello stato \texttt{saturated}] Per assurdo assumiamo che esistono 3 nodi saturi, $x, y, z$. Data la topologia ad albero, due di questi nodi non sono adiacenti. Si consideri il cammino tra questi nodi non adiacenti $x,\ z$.
+            \begin{center}
+                \begin{tikzpicture}[
+                    node/.style={circle, draw, minimum size=0.7cm},
+                    >=stealth,
+                    node distance=1.4cm
+                ]
+
+                % ── Gruppo sinistro (x) ──────────────────────────
+                \node[node] (x)  at (0,0)   {$x$};
+                \node[node] (x2) at (1.6,0) {};
+
+                \draw[->] (-1.2,0)  -- node[above] {$\mathcal{M}$} (x);
+                \draw[<-] (x)       -- node[above] {$\mathcal{M}$} (x2);
+
+                \node at (2.6,0) {$\cdots$};
+
+                % ── Gruppo centrale (w) ──────────────────────────
+                \node[node] (wl) at (3.6,0) {};
+                \node[node] (w)  at (5.2,0) {$w$};
+                \node[node] (wr) at (6.8,0) {};
+
+                \draw[->] (w)  -- node[above] {$\mathcal{M}$} (wl);
+                \draw[->] (w)  -- node[above] {$\mathcal{M}$} (wr);
+
+                \node at (7.8,0) {$\cdots$};
+
+                % ── Gruppo destro (z) ────────────────────────────
+                \node[node] (z2) at (8.8,0) {};
+                \node[node] (z)  at (10.4,0) {$z$};
+
+                \draw[->] (z2) -- node[above] {$\mathcal{M}$} (z);
+                \draw[->] (12.0,0) -- node[above] {$\mathcal{M}$} (z);
+
+                % Tratteggi esterni
+                \draw[dashed] (-1.6,0) -- (-1.2,0);
+                \draw[dashed] (11.6,0) -- (12.0,0);
+
+                \end{tikzpicture}
+            \end{center}
+            Allora per definizione del protocollo, $x$ e $z$ diventano saturi quando ricevono il messaggio $\mathcal{M}$. Se i due nodi non sono adiacenti, deve esistere un nodo $w$ nel cammino che invia due messaggi $\mathcal{M}$: uno verso $x$ e uno verso $z$. Ma per definizione del protocollo, $w$ non può inviare $\mathcal{M}$ su due archi. 
+    
+        \end{description}
+        Inoltre, la scelta dei nodi saturati dipende dal ritardo dei messaggi. Questo implica che potenzialmente ogni coppia di nodi adiacenti può essere la coppia saturata.
+    \end{proof}
+
+\end{teorema}
+
+La messagge complexity è:
+\begin{itemize}
+    \item Nella fase di \textbf{attivazione}, vale la complessità del protocollo \texttt{Wake-Up}, quindi $\# msg = n + k - 2$ con $k$ numero di initiators.
+    \item Nella fase di \textbf{saturazione}, vegono inviati $n$ messaggi
+\end{itemize}
+
+\[
+    M[\texttt{Saturation}] = 2n + k - 2
+\]
+
+\section{Applicazioni Saturazione}
+
+La saturazione può essere utilizzata per calcolare una classe di funzioni $F(\cdot)$ in modo distribuito su una topologia ad albero. In particolare, sia $F$ un'operazione di semigruppo, ovvero che rispetti le seguenti proprietà:
+\begin{itemize}
+    \item \textbf{Associatività:} $F(F(a, b), c) = F(a, F(b, c))$
+    \item \textbf{Commutatività:} $F(a, b) = F(b, a)$
+\end{itemize} 
+
+\subsection{Minimum Finding}
+
+Consideriamo ora il problema del calcolo del minimo. Ogni nodo $x \in V$ possiede un valore $value(x) \in R$, e al termine del task, ogni nodo $x$ deve sapere se $value(x)$ è il minimo oppure no rispetto ai valori posseduti dagli altri nodi, entrando quindi nello stato \texttt{minimum} oppure \texttt{large}.
+
+È possibile risolvere questo problema con la saturazione nella seguente maniera:
+
+\begin{itemize}
+    \item I nodi foglia inviano il messaggio di saturazione $\mathcal{M}$ al proprio padre, allegando il proprio valore
+    \[
+        \mathcal{M} = \{"SATURATION", value(x)\}
+    \]
+    \item Quando un nodo interno riceve tutti i messaggi $\mathcal{M}$ contenenti i valori di ogni nodo figlio, nel calcola il minimo, compreso il suo valore, e lo invia al padre all'interno di $\mathcal{M}$ come nella procedura saturation.
+    \item I due leader eletti al termine del processo di saturazione conoscono il valore del minimo, dunque lo inviano in broadcast agli altri nodi.
+\end{itemize}
+
+\begin{teorema}[Message Complexity]
+    \[
+        M[\texttt{Min}] = M[\texttt{Saturation}] + M[\texttt{Broadcast}] = 2n + k - 2 + n - 2 = 3n + k - 4
+    \]
+\end{teorema}
+
+\begin{teorema}[Correttezza]
+    Alla fine del protocollo, tutti i nodi conoscono il valore del minimo.
+    \begin{proof}
+        Alla fine della fase di saturazione, i nodi saturati conoscono il valore minimo. Si puo dimostrare formalmente per induzione considerando il sottoalbero destro e sinistro.
+    \end{proof}
+\end{teorema}
+
+\subsection{Average}
+
+\subsection{Eccentricities \& Center Finding}

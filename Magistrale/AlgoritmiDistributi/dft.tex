@@ -129,8 +129,8 @@ La differenza sostanziale di questo protocollo è che i \texttt{back\_edges} son
 
         Per quanto riguarda il messaggio \texttt{visited}, ogni nodo lo invierà a tutto il suo vicinato meno che al nodo da cui hanno ricevuto il token. La sorgente sarà l'unico nodo che lo invierà a tutto il suo vicinato, quindi:
         \begin{align*}
-            M[\texttt{visited}] &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - 1 = \\
-            &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - \sum_{x \in V \setminus \{s\}} 1 = \\
+            M[\texttt{visited}] &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - 1 \\
+            &= |N(s)| + \sum_{x \in V \setminus \{s\}} |N(x)| - \sum_{x \in V \setminus \{s\}} 1 \\
             &= \sum_{x \in V} |N(x)| - \sum_{x \in V \setminus \{s\}} 1 = 2m - (n-1)
         \end{align*}
         Inoltre, per ogni notifica \texttt{visited} corrisponde un messaggio \texttt{ack}, quindi 

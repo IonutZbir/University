@@ -110,7 +110,43 @@ Infine, definiamo la matrice di adiacenza $A,\ n \times n$ del grafo $G$ ponendo
     \end{proof}
 \end{lemma}
 
-\textbf{Osservazione:} La matrice $P$ è \textbf{diagonalizzabile}, poichè è una matrice \textit{simile} ad una simmetrica [Da dimostrare quando avrò voglia e tempo]. 
+\textbf{Osservazione:} La matrice $P$ è \textbf{diagonalizzabile}, poichè è una matrice \textit{simile} ad una simmetrica.
+
+\begin{definizione}[Matrici Simili]
+    Due matrici $A, B,\ n \times n$ si dicono simili se esiste una matrice invertibile $M$ con la proprietà che $B = M^{-1}AM$
+\end{definizione}
+
+\begin{teorema}
+    Se $A$ e $B$ sono matrici simili, allora:
+    \begin{enumerate}
+        \item $\det A = \det B$;
+        \item $c_A(x) = c_B(x)$;
+        \item $A$ e $B$ hanno gli stessi autovalori.
+    \end{enumerate}
+\end{teorema}
+
+\begin{lemma}
+    $P$ è una matrice simile alla matrice simmetrica $\tilde{P}$:
+    \[
+        \tilde{P} = D^{1/2}PD^{-1/2} = D^{1/2}\left(D^{-1}A\right)D^{-1/2} = D^{-1/2}AD^{-1/2}.
+    \]
+    Inoltre, $\tilde{P}$ è simmetrica, poiché:
+    \[
+        \tilde{P}^T = \left(D^{-1/2}AD^{-1/2}\right)^T = D^{-1/2}A^TD^{-1/2} = D^{-1/2}AD^{-1/2} = \tilde{P}.
+    \]
+\end{lemma}
+
+Poichè $\tilde{P}$ è simmetrica, per il \textbf{Teorema Spettrale} ammette una base ortonormale di autovettori $\{\tilde{u}_1, \ldots, \tilde{u}_n\}$ con autovalori reali. Inoltre, poichè $P$ e $\tilde{P}$ sono simili, hanno gli stessi autovalori.
+
+\textbf{Trasformazione degli autovettori.} Se $\tilde{u}$ è autovettore di $\tilde{P}$ con autovalore $\lambda$, ovvero $\tilde{P}\tilde{u} = \lambda\tilde{u}$, sostituendo la definizione di $\tilde{P}$:
+\[
+    D^{1/2}PD^{-1/2}\tilde{u} = \lambda\tilde{u}.
+\]
+Moltiplicando ambo i membri a sinistra per $D^{-1/2}$:
+\[
+    PD^{-1/2}\tilde{u} = \lambda D^{-1/2}\tilde{u}.
+\]
+Quindi $u = D^{-1/2}\tilde{u}$ è autovettore di $P$ con lo stesso autovalore $\lambda$. Poichè la trasformazione $\tilde{u} \mapsto D^{-1/2}\tilde{u}$ è invertibile (in quanto $D^{-1/2}$ è invertibile), gli $n$ autovettori $\{u_1, \ldots, u_n\}$ così ottenuti formano una \textbf{base di autovettori per} $P$, che risulta quindi diagonalizzabile.
 
 \textbf{Osservazione:} La matrice $P$ è \textbf{stocastica}, ossia rispetta le seguenti proprietà:
 \begin{itemize}
