@@ -399,7 +399,7 @@ Ne segue che possiamo dimostrare il \autoref{teo:convergenza} come segue:
     \end{proof}
 \end{teorema}
 
-\textbf{Osservazione:} Il tempo di convergenza è logaritmico rispetto a $n$ e $\mathcal{M}$, e inversamente proporzionale a $\log(1/\lambda)$, quindi nella dimensione del grafo e nella massa totale (\textbf{molto buono!}), mentre è inversamente proporzionale alla distanza tra 1 e il secondo autovalore $\lambda$ (cioè salla \textbf{spectral gap} topologia del del grafo).
+\textbf{Osservazione:} Il tempo di convergenza è logaritmico rispetto a $n$ e $\mathcal{M}$, quindi nella dimensione del grafo e nella massa totale (\textbf{molto buono!}) e inversamente proporzionale a $\log(1/\lambda)$, ossia dipende dalla distanza tra 1 e il secondo autovalore $\lambda$ cioè dalla \textbf{spectral gap} (topologia) del grafo.
 \begin{itemize}
     \item Nel caso di grafi regolari, determina la qualità d'espansione del grafo, ossia quanto è "ben connesso" il grafo. Più il grafo è un buon expander, più grande è la spectral gap ($\lambda_1 - \lambda_2$ è grande), quindi il grafo è ben connesso e il protocollo converge più velocemente. Se il grafo è un buon expander, allora $\lambda$ è limitato superiormente da una costante strettamente minore di 1, indipendentemente dal numero di nodi $n$, garantendo una convergenza rapida.
     \item Nel caso di grafi non regolari, la spectral gap è influenzata anche dalla distribuzione dei gradi dei nodi, quindi se ci sono nodi con gradi molto diversi tra loro, la spectral gap potrebbe essere più piccola, rallentando la convergenza del protocollo.
