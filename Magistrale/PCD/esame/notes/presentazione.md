@@ -1,0 +1,3 @@
+1. Cos'è un wallet bitcoin (HD). Cosa fa, di cosa si occupa.
+   1. Generazione sicura delle chiavi. Generazione degli indirizzi. Derivazione degli indirizzi degli HD. 
+   2. Come l'ho fatto io? Ho implementato da 0 BIP-32 e BIP-39 (dire cosa sono). La generazione di chiavi private Bitcoin secondo gli standard BIP prevede la creazione di una frase seed composta da 12 o 24 parole (BIP39), il suo inserimento in un generatore di chiavi master (BIP32) e la derivazione di indirizzi specifici.
