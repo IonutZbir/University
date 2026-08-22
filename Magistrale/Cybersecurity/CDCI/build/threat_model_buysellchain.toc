@@ -1,0 +1,17 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Definizione dell'infrastruttura e delle Zone di Sicurezza}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Zona DMZ (Demilitarized Zone)}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Zona IT / Enterprise (Restricted Zone)}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Asset Inventory e Analisi delle Criticità}{4}{section.2}%
+\contentsline {section}{\numberline {3}Superficie Osservabile, Inferenza e Vettori di Attacco}{5}{section.3}%
+\contentsline {section}{\numberline {4}Grafo dell'Infrastruttura e Flussi di Comunicazione}{6}{section.4}%
+\contentsline {section}{\numberline {5}Dall'Architettura alla Baseline Comportamentale (Operating Envelope)}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Definizione della Baseline Qualitativa}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Finestra di Telemetria Osservata (Dataset di Esempio)}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Valutazione Deviazioni e Classificazione}{9}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Debrief Finale di Sicurezza}{10}{subsection.5.4}%
+\contentsline {paragraph}{Asset più critico e deviazione più grave.}{10}{section*.11}%
+\contentsline {paragraph}{Deviazione più ambigua.}{10}{section*.12}%
+\contentsline {paragraph}{Quando la risposta corretta è ``Unknown''.}{10}{section*.13}%
+\contentsline {paragraph}{Controllo by-design prioritario.}{10}{section*.14}%

@@ -1,0 +1,864 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.15)  20 APR 2026 13:13
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/ionut-work/Github/University/Magistrale/Cybersecurity/CDCI/threat_model_buysellchain.tex
+(/home/ionut-work/Github/University/Magistrale/Cybersecurity/CDCI/threat_model_buysellchain.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2023/02/13 3.86 The Babel package
+\babel@savecnt=\count193
+\U@D=\dimen141
+\l@unhyphenated=\language3
+ (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count194
+ (/usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
+Language: italian 2022/03/27 v.1.4.07 Italian support for the babel system
+
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Italian' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 21.
+
+Package babel Info: Hyphen rules for 'italian' set to \l@english
+(babel)             (\language0). Reported on input line 22.
+\it@lettering=\count195
+\it@doublequoteactive=\count196
+\it@ISOcompliance=\count197
+)) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
+Package babel Info: Importing font and identification data for italian
+(babel)             from babel-it.ini. Reported on input line 11.
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count198
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count199
+\Gm@cntv=\count266
+\c@Gm@tempcnt=\count267
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks19
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip50
+\bibsep=\skip51
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count268
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count269
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count270
+\Hy@pagecounter=\count271
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count272
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count273
+ (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen153
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count274
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count275
+\c@Item=\count276
+\c@Hfootnote=\count277
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count278
+\c@bookmark@seq@number=\count279
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip52
+) (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count280
+\float@exts=\toks20
+\float@box=\box51
+\@float@everytoks=\toks21
+\@floatcapt=\box52
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/03/12 v3.6j Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+\caption@tempdima=\dimen156
+\captionmargin=\dimen157
+\caption@leftmargin=\dimen158
+\caption@rightmargin=\dimen159
+\caption@width=\dimen160
+\caption@indent=\dimen161
+\caption@parindent=\dimen162
+\caption@hangindent=\dimen163
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count281
+\c@continuedfloat=\count282
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count283
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count284
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+\MT@toks=\toks22
+\MT@tempbox=\box53
+\MT@count=\count285
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks23
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen164
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count286
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip53
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+)) (/usr/share/texlive/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen165
+\ar@mcellbox=\box54
+\extrarowheight=\dimen166
+\NC@list=\toks24
+\extratabsurround=\skip54
+\backup@length=\skip55
+\ar@cellbox=\box55
+)
+\TX@col@width=\dimen167
+\TX@old@table=\dimen168
+\TX@old@col=\dimen169
+\TX@target=\dimen170
+\TX@delta=\dimen171
+\TX@cols=\count287
+\TX@ftn=\toks25
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen172
+\lightrulewidth=\dimen173
+\cmidrulewidth=\dimen174
+\belowrulesep=\dimen175
+\belowbottomsep=\dimen176
+\aboverulesep=\dimen177
+\abovetopsep=\dimen178
+\cmidrulesep=\dimen179
+\cmidrulekern=\dimen180
+\defaultaddspace=\dimen181
+\@cmidla=\count288
+\@cmidlb=\count289
+\@aboverulesep=\dimen182
+\@belowrulesep=\dimen183
+\@thisruleclass=\count290
+\@lastruleclass=\count291
+\@thisrulewidth=\dimen184
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count292
+\lst@gtempboxa=\box56
+\lst@token=\toks26
+\lst@length=\count293
+\lst@currlwidth=\dimen185
+\lst@column=\count294
+\lst@pos=\count295
+\lst@lostspace=\dimen186
+\lst@width=\dimen187
+\lst@newlines=\count296
+\lst@lineno=\count297
+\lst@maxwidth=\dimen188
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count298
+\lst@skipnumbers=\count299
+\lst@framebox=\box57
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count300
+\l__pdf_internal_box=\box58
+) (build/threat_model_buysellchain.aux)
+\openout1 = `threat_model_buysellchain.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Info: Redefining \it@ocap on input line 97.
+LaTeX Info: Redefining \it@ccap on input line 97.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count301
+\scratchdimen=\dimen189
+\scratchbox=\box59
+\nofMPsegments=\count302
+\nofMParguments=\count303
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count304
+\MPscratchDim=\dimen190
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
+\everyMPtoPDFconversion=\toks28
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring OFF on input line 97.
+ (build/threat_model_buysellchain.out) (build/threat_model_buysellchain.out)
+\@outlinefile=\write3
+\openout3 = `threat_model_buysellchain.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \microtypecontext on input line 97.
+Package microtype Info: Applying patch `item' on input line 97.
+Package microtype Info: Applying patch `toc' on input line 97.
+Package microtype Info: Applying patch `eqnum' on input line 97.
+Package microtype Info: Applying patch `footnote' on input line 97.
+Package microtype Info: Applying patch `verbatim' on input line 97.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 97.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+\c@lstlisting=\count307
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 100.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 100.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 100.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 100.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 100.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 100.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 100.
+ (build/threat_model_buysellchain.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 4.
+)
+\tf@toc=\write4
+\openout4 = `threat_model_buysellchain.toc'.
+
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 123--123
+[]|\T1/lmr/bx/n/10.95 (+20) Security Gate-way
+ []
+
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+[]|\T1/lmr/bx/n/10 (+20) Smart Con-tract
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+[]|\T1/lmr/bx/n/10 (+20) Security Gate-way
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+[]|\T1/lmr/bx/n/10 (+20) Database Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+[]|\T1/lmr/bx/n/10 (+20) Frontend (Client
+ []
+
+
+Underfull \hbox (badness 3354) in paragraph at lines 170--170
+[]|\T1/lmr/bx/n/10 (+20) API Catas-to (Sis-
+ []
+
+[4] (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd)
+Underfull \hbox (badness 1515) in paragraph at lines 196--196
+[]|\T1/lmr/m/n/10 (+20) Possibile At-tac-co (Mi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+[]|\T1/lmr/bx/n/10 (+20) Endpoint
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) liste di cre-den-ziali pre-
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) esfiltrate o ten-tan-do di
+ []
+
+
+Underfull \hbox (badness 2495) in paragraph at lines 196--196
+\T1/lmr/bx/n/10 (+20) Brute Force \T1/lmr/m/n/10 (+20) (Spoof-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+[]|\T1/lmr/bx/n/10 (+20) Endpoint
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 196--196
+[]|\T1/lmr/m/n/10 (+20) Tentativo di sat-u-rare il
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) di es-cape in-soli-ti, ci-cli
+ []
+
+
+Underfull \hbox (badness 3049) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) an-nidati o ten-ta-tivi di
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) iniezione nei pay-load
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+[]|\T1/lmr/bx/n/10 (+20) Sessioni
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+[]|\T1/lmr/bx/n/10 (+20) API Catas-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+\T1/lmr/bx/n/10 (+20) (Con-nes-sioni
+ []
+
+
+Underfull \hbox (badness 4096) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) do-mi-ni gov-er-na-tivi pre-
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 196--196
+[]|\T1/lmr/bx/n/10 (+20) Frontend (In-
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) o script JavaScript nei
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 196--196
+[]|\T1/lmr/m/n/10 (+20) Ricerca di vul-ner-a-bil-ità
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 196--196
+\T1/lmr/m/n/10 (+20) nel-la san-i-tiz-zazione la-to
+ []
+
+[5]
+<img/threatmodelbuysellchaingraph.png, id=93, 8222.72pt x 1928.20375pt>
+File: img/threatmodelbuysellchaingraph.png Graphic file (type png)
+<use img/threatmodelbuysellchaingraph.png>
+Package pdftex.def Info: img/threatmodelbuysellchaingraph.png  used on input line 209.
+(pdftex.def)             Requested size: 455.24411pt x 106.74295pt.
+ [6 <./img/threatmodelbuysellchaingraph.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/bx/n/10 (+20) Motivazione /
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 232--232
+\T1/lmr/bx/n/10 (+20) Log-i-ca di Busi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Reverse Proxy
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Navigazione pi-
+ []
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) attafor-ma, con-sul-
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) tazione grid aste,
+ []
+
+
+Underfull \hbox (badness 7362) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) este de-cifrate (o
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) ri-cifrate in-ter-na-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) mente) ver-so il
+ []
+
+
+Underfull \hbox (badness 7273) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) serv-er Flask per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Validazione cre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) den-ziali, re-cu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) pero RBAC,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) let-tura/scrit-tura
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) dati ana-grafi-ci
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) off-chain tramite
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Client Lisp (IT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Traduzione delle
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) prim-i-tive (\T1/lmtt/m/n/10 AddKV\T1/lmr/m/n/10 (+20) ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmtt/m/n/10 GetKV\T1/lmr/m/n/10 (+20) ) per l'in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) ter-azione con la
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Nodi Fab-ric (IT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+[]|\T1/lmr/m/n/10 (+20) Invocazione del-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) lo Smart Con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) tract, pro-pos-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--232
+\T1/lmr/m/n/10 (+20) di transazioni e
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+[]|\T1/lmr/m/n/10.95 (+20) Validazione uten-ze, re-cu-pero
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+[]|\T1/lmr/m/n/10.95 (+20) Giorno/Notte
+ []
+
+
+Overfull \hbox (8.13356pt too wide) in paragraph at lines 261--261
+[]|\T1/lmr/m/n/10.95 (-20) Bassa/Media| 
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 261--261
+[]|\T1/lmr/m/n/10.95 (+20) Sincronizzazione pi-ani-fi-ca-ta dei
+ []
+
+[8{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
+[]|\T1/lmr/m/n/10 (+20) IP Pub-bli-co
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 286--286
+[][][][][][] 
+ []
+
+
+Overfull \hbox (12.7399pt too wide) in paragraph at lines 306--306
+[]|\T1/lmr/m/n/10 (-20) Compatibile| 
+ []
+
+
+Overfull \hbox (2.34769pt too wide) in paragraph at lines 306--306
+[]|\T1/lmr/m/n/10 (-20) Classificazione| 
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 306--306
+[]|\T1/lmr/bx/n/10 (+20) 03:10 Gate-way $\OMS/lmsy/m/n/10 !$ \T1/lmr/bx/n/10 (+20) IP
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 306--306
+[][][][][] 
+ []
+
+[9]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 317.
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [10{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (build/threat_model_buysellchain.aux)
+Package rerunfilecheck Info: File `threat_model_buysellchain.out' has not changed.
+(rerunfilecheck)             Checksum: E2B36E183D4F9C4C0E91757A49F05B17;3216.
+ ) 
+Here is how much of TeX's memory you used:
+ 18253 strings out of 477985
+ 306658 string characters out of 5839380
+ 1869388 words of memory out of 6000000
+ 37876 multiletter control sequences out of 15000+600000
+ 609435 words of font info for 232 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 75i,11n,76p,1087b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on build/threat_model_buysellchain.pdf (10 pages, 651327 bytes).
+PDF statistics:
+ 192 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 52830 words of extra memory for PDF output out of 61914 (max. 10000000)
+
