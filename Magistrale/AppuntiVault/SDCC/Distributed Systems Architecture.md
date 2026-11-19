@@ -603,4 +603,69 @@ In tutto ciò due scenari possibili:
 
 ### Archietture Ibride
 
-[-] TODO: finire gli appunti
+Le architetture ibride di sistemi distribuiti combinano caratteristiche delle architetture centralizzate e decentralizzate. L'obiettivo è sfruttare i vantaggi dei entrmabi i modelli, cercando contemporaneamente di limitarne i svantaggi.
+
+Gli esempi più comuni sono:
+- *Super-peer Networks:* alcuni nodi con capacità superiori assumono responsabilità aggiuntive rispetto ai peer ordinari.
+- *BitTorrent:* nella modalità basata su tracker, la scoperta dei peer è centralizzata, mentre il trasferimento dei dati è decentralizzato.
+- *Blockchain:* l'infrastruttura principale è decentralizzata, ma può essere affiacata da componenti centralizzati o semi-centralizzati.
+
+#### Super-peer Networks
+
+È una rete P2P in cui alcuni nodi, chimati *super-peer*, possiedono maggiori capacità computazionali o di rete e svolgono funzioni aggiuntive per conto dei peer ordinari. Si possono occupare di:
+- *Routing:* instradare le richieste verso i nodi appropriati;
+- *Indexing:* mantenere informazioni sulle risorse disponibili presso i peer ordinari, facilitandone la ricerca.
+
+L'obiettivo principale è *migliorare le prestazioni della ricerca delle risorse (lookup) mantenendo un certo grado di decentralizzazione*.
+
+La progettazione di una rete super-peer introduce due problemi fondamentali:
+1. *Associazione tra peer e super-peer:* L'associazione può essere statica (peer si collega a super-peer prestabilito) o dinamica (il peer può cambiare super-peer). 
+2. *Selezione super-peer:* bisogna definire i criteri per cui un peer normale diventi super-peer. Alcuni criteri si basano sulla velocità di banda, sulla disponibilità e la latenza.
+
+#### BitTorrent
+
+È un protocollo P2P utilizzato per la condivisione e il trasferimento di file tra nodi di una rete distribuita.
+
+La caratteristica principale è che un file non deve necessariamente scaricato da un unico server: può essere suddiviso in parti, chiamate *pieces/chunks*, e scaritato in parallelo da più peer.
+
+La scoperta dei peer può avvenire in due modalità:
+- *Tracked based:* un server centralizzato (tracker) mantiene informazioni sui peer che partecipano alla condivisione di un file.
+- *Trackerless:* I peer vengono individuati attraverso una DHT basatu su Kademlia.
+
+Il funzionamento *Tracked based* è il seguente (rappresenta un'achitettura ibrida):
+1. Il client ottiene il `.torrent` che contiene tutti i *metadati necessari per avviare il download*.
+2. A questo punto il client utilizza i metadati per contattare il tracker, il quale restituirà al client la lista dei peer disponibili.
+3. A questo punto può iniziare il download dei vari chunk dall'*swarm*.
+
+Infine, si hanno due strategie per migliorare l'efficienza e incentivare la cooperazione tra peer.
+1. *Rarest Piece First:* consiste nel dare priorità al download dei chunk meno diffusi all'interno dello swarm.
+2. *Tit-for-Tat:* l'idea è assegnare la banda di upload tenendo in conto di quanti dati vengono ricevuti dagli altri peer. In questo modo un peer che contribuisce attivamente alla distribuzione dei dati tende a essere favorito rispetto a uno che si limita a scaricare.
+
+#### Blockchain
+
+È una tecnologia che permette di mantenere un registro condiviso di transazioni (*ledger*) replicato tra più nodi di una rete distribuita.
+
+Il problema fondamentale affrontato dalla blockchain riguarda la possibilità di validare e memorizzare transazioni senza affidarsi necessariamente a un'autorità centrale.
+
+- *Validazione:* una transazione risulta legittima se è validata da tutti i nodi all'interno della rete. Una transazione è valida se non è un *double-spending*.
+- *Memorizzazione:* le transazioni vengono memorizzate per consentire verifiche successive e altre operazioni.
+
+L'utilizzo delle blockchain non è limitato alle sole crypto, ma anche alla gestione delle identità, tracciamento delle risorse, voto elettronico etc...
+
+La Blockchain è una particolare tipologia di DLT (Distributed Ledger Technology), ossia una tecnologia per la gestione di registri distribuiti in cui i dati vengono condivisi, replicati e sincronizzati trà più partecipanti senza la partecipazione di un coordinatore centrale.
+
+In una blockchain, i peer mantengono una replica locale del registro delle transazioni, secondo le modalità previste dal sistema.
+
+I nodi possono non fidarsi reciprocamente (_untrusted peers_) e alcuni possono essere guasti o malevoli. Per questo motivo, la blockchain utilizza meccanismi crittografici e protocolli di consenso per mantenere una visione coerente del registro tra i peer.
+
+Le transazioni vengono raggruppate in **blocchi (blocks)**, organizzati in una catena append-only.
+Ogni blocco è costituito da due componenti principali:
+- *Header:* contiene i metadati del blocco, tra cui un riferimento crittografico al blocco precedente.
+- *Body:* contiene le transazioni raggruppate nel blocco.
+
+Uno degli aspetti fondamentali della blockchain è stabilire *quale validatore sia autorizzato ad aggiungere il prossimo blocco alla catena*.
+Questa decisione viene gestita attraverso un meccanismo di _consenso_.
+
+- *Soluzione centralizzata:* Una singola entità fidata determina quale validatore può aggiungere il prossimo blocco. Questo approccio è semplice da gestire, ma introduce un'autorità centrale e un possibile _single point of failure_.
+- *Consenso distribuito: Permissioned Blockchain:* Nelle *permissioned blockchain*, il consenso viene raggiunto da un gruppo relativamente ristretto di server, generalmente preselezionati o autorizzati. Affinchè si possa arrivare ad un consenso deve valere che $$f \leq \left\lfloor \frac{n-1}{3}\right\rfloor$$dove $f$ sono i nodi corrotti e $n$ i nodi totali.
+- *Consenso decentralizzato: Permissionless Blockchain:* Nelle **permissionless blockchain**, la partecipazione alla rete non richiede un'autorizzazione preventiva da parte di un'autorità centrale. I meccanismi più usati sono: *Proof-of-Work* utilzzata da Bitcoin e *Proof-of-Stake* utilizzata da Ethereum dove i preponenti dei blocchi sono selezionati in base alla quantità di crypto vincolata come stake.

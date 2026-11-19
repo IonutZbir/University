@@ -330,3 +330,65 @@ Un Data Center è un'infrastruttura fisica che ospita risorse computazionali, di
 Un Warehouse-Scale Computer è un sistema computazionale di grandissime dimensioni, costituito da migliaia di server interconnessi. L'idea fondamentale è che l'intero data center viene considerato come un unico enorme computer.
 
 Un Server Rack è una struttura fisica progettata per ospitare più server e altri dispositivi hardware.
+
+## Edge Computing \& Computing Continuum
+
+Non tutte le applicazioni sono adatte ad essere eseguite nel Cloud. Si hanno infatti
+- *Latency-sensitive applications:* applicazioni il cui corretto funzionamento dipende da tempi di risposta molto bassi.
+- *Location-aware applications:* applicazioni il cui comportamento dipende dalla posizione geografica degli utenti, dei dispositivi o dei dati.
+
+Il problema della latenza riguardo quindi il tempo di risposta, che può essere dato da:
+$$
+T_{\text{response}} = T_{\text{network}} + T_{\text{processing}} + T_{\text{other}}
+$$
+Per applicazioni che richiedono reazioni quasi immediate, il tempo necessario per comunicare con un data center distante può risultare eccessivo.
+
+Per affronare i limiti del Cloud centralizzato, l'idea è spostare parte dell'elaborazione e della memorizzazione verso risorse situate ai margini di Internet, più vicini agli utenti e ai dispositivi. Si individuano i seguenti pagadigmi:
+
+### Edge Computing
+
+**DEF:** Paradigma computazionale che prevede lo spostamento di elaborazione dai data center Cloud centralizzati verso risorse situate in prossimità dei dispositivi periferici.
+
+L'idea quindi è quella di elaborare i dati vicino al luogo in cui vengono generati o utilizzati anziché trasferirli verso un data center remoto.
+
+**DEF:** Gli *Edge Nodes* sono le risorse che vengono utilizzate per l'elaborazione dei dati. Può essere realizzato attraverso dispositivi hardware differenti:
+- *IoT/Edge Gateways:* dispositivi che raccolgono dati da sensori e altri dispositivi IoT.
+- *Micro-servers:* server di dimnesioni e capacità inferiori rispetto a quelli dei grandi data center.
+- *Dispositivi Mobile e Smartphone*.
+
+**Vantaggi:**
+- *Riduzione della latenza e della banda*
+- *Risparmio energetico*
+- *Miglioramento della privacy:* poiché i dati possono essere processati localmente, non c'è necessità che vengano trasmessi verso infrastrutture remote.
+
+Insieme all'edge computing si possono combinare altre tecnologie:
+- *Edge Computing + 5G:* Permette di realizzare applicazioni che sfruttano la velocità della tecnologia 5G.
+- *Edge AI:* eseguire algoritmi di ML e AI sugli edge nodes. L'obiettivo è eseguire inferenza vicino al luogo in cui vengono prodotti i dati.
+
+**Limiti**
+- Risorse computazionali e di memorizzazione limitate.
+- Scalabilità complessa.
+- Maggiori problemi di sicurezza.
+- Mancata standardizzazione.
+
+Una soluzione per affrontare i limiti degli Edge Nodes è quella di spostare parte dell'elaborazione e dello storage verso Cloud più potenti (*Computation Offloading*).
+
+Vediamo ora un'architettura per oganizzare i dispositvi nell'Edge Computing.
+
+Il *Multi-layer Edge Computing* è un architettura nella quale le risorse Edge vengono organizzate in più livelli, caratterizati da capacità computazionali e posizioni differenti.
+
+1. *Far Edge / IoT Devices:* comprende i dispositivi situati più vicino al luogo in cui i dati vengono prodotti o utiizzati.
+2. *Near Edge:* comprende risorse computazionali locali, generalmente più potenti rispetto ai dispositivi Far Edge.
+3. *Regional Edge:* comprende infrastrutture più grandi, situate a livello regionale. 
+
+### Computing Continuum
+
+**DEF:** Il *Computing Continuum* è un paradigma nel quale risorse computazionali distribuite, dai dispositivi periferici fino ai grandi data center Cloud, vengono integrate all'interno di un'unica infrastruttura logica.
+
+L'obiettivo è superare la distinzione rigida tra Cloud ed Edge Computing, permettendo alle applicazioni di utilizzare risorse collocate a livelli differenti.
+
+Poiché un applicazione potrebbe utilizzare Far Edge per acquisire dati, Near Edge per elaborarli e il Cloud per effettuare anali computazioni costosi, il Computing Continuum ha come obiettivo quello di distribuire dinamicamente l'elaborazione e i dati sui livelli più appropriati.
+
+**DEF:** Per DAG-based application si intendono quelle applicazioni che possono essere descritte come un insieme di operazioni collegate da dipendenze
+
+
